@@ -3,46 +3,43 @@
 
 \begin{defi}
 \label{def:lax-square}
-A \emph{lax square} in an $(\infty,2)$-category $\A$ is a diagram
+A \emph{lax square} in $\A$ is a diagram
 \[
 \begin{tikzcd}
 A \ar[r, "f"] \ar[d, "g"'] & B \ar[d, "h"] \ar[dl, Rightarrow, shorten=3mm, "\alpha"'] \\
 C \ar[r, "k"'] & D
 \end{tikzcd}
 \]
-in which the $1$-morphisms go from left to right and from top to bottom, together with a $2$-morphism $\alpha\colon hf \Rightarrow kg$ from the top-right composite to the bottom-left composite.
-A \emph{commutative square} is a lax square whose $2$-morphism is invertible.
+with a $2$-morphism $\alpha\colon hf \Rightarrow kg$ from the top-right to the bottom-left composite. It is a \emph{commutative square} if $\alpha$ is invertible.
 \end{defi}
 
-The \emph{transpose} of a commutative square, obtained by reflecting it in the diagonal through $A$ and $D$, is again a commutative square, with $1$-morphisms $g$, $k$ on top and bottom, $f$, $h$ on the left and right, and $2$-morphism $\alpha^{-1}\colon kg \Rightarrow hf$.
-A commutative square thus has two underlying lax squares. \textbf{Convention:} we only speak of the mates, or of the Beck--Chevalley condition, of a commutative square after its underlying lax square has been fixed explicitly.
+The \emph{transpose} of a commutative square, its reflection in the diagonal through $A$ and $D$, is the commutative square with $g$, $k$ horizontal, $f$, $h$ vertical and $2$-morphism $\alpha^{-1}\colon kg \Rightarrow hf$.
+So a commutative square has two underlying lax squares. \textbf{Convention:} we speak of the mates, or of the Beck--Chevalley condition, of a commutative square only after fixing its underlying lax square.
 
 \begin{constru}[mates]
 \label{constr:mates}
 Let $\alpha$ be the lax square of \cref{def:lax-square}.
 \begin{enumerate}
-\item Suppose that the horizontal $1$-morphisms $f$ and $k$ admit left adjoints $f^{L} \dashv f$, $k^{L} \dashv k$. Rotating the square by $90^{\circ}$ to the left, the $1$-morphisms $f$ and $k$ point upwards; replacing them by their left adjoints gives the square on the left below. Its \emph{left mate} is the lax square
+\item If $f^{L} \dashv f$ and $k^{L} \dashv k$, the \emph{left mate} of $\alpha$ is the lax square
 \[
 \begin{tikzcd}
 B \ar[r, "h"] \ar[d, "f^{L}"'] & D \ar[d, "k^{L}"] \ar[dl, Rightarrow, shorten=3mm, "\lmate{\alpha}"'] \\
 A \ar[r, "g"'] & C
 \end{tikzcd}
 \qquad
-\lmate{\alpha}\colon k^{L}h \xRightarrow{k^{L}h\eta_{f}} k^{L}hff^{L} \xRightarrow{k^{L}\alpha f^{L}} k^{L}kgf^{L} \xRightarrow{\varepsilon_{k}gf^{L}} gf^{L},
+\lmate{\alpha}\colon k^{L}h \xRightarrow{k^{L}h\eta_{f}} k^{L}hff^{L} \xRightarrow{k^{L}\alpha f^{L}} k^{L}kgf^{L} \xRightarrow{\varepsilon_{k}gf^{L}} gf^{L} \ .
 \]
-where $\eta_{f}\colon \mathrm{id}_{B} \Rightarrow ff^{L}$ and $\varepsilon_{k}\colon k^{L}k \Rightarrow \mathrm{id}_{C}$ are the unit and counit.
-\item Suppose that the vertical $1$-morphisms $g$ and $h$ admit right adjoints $g \dashv g^{R}$, $h \dashv h^{R}$. Rotating the square by $90^{\circ}$ to the right, $g$ and $h$ point to the left; replacing them by their right adjoints, the \emph{right mate} is the lax square
+\item If $g \dashv g^{R}$ and $h \dashv h^{R}$, the \emph{right mate} of $\alpha$ is the lax square
 \[
 \begin{tikzcd}
 C \ar[r, "g^{R}"] \ar[d, "k"'] & A \ar[d, "f"] \ar[dl, Rightarrow, shorten=3mm, "\rmate{\alpha}"'] \\
 D \ar[r, "h^{R}"'] & B
 \end{tikzcd}
 \qquad
-\rmate{\alpha}\colon fg^{R} \xRightarrow{\eta_{h}fg^{R}} h^{R}hfg^{R} \xRightarrow{h^{R}\alpha g^{R}} h^{R}kgg^{R} \xRightarrow{h^{R}k\varepsilon_{g}} h^{R}k,
+\rmate{\alpha}\colon fg^{R} \xRightarrow{\eta_{h}fg^{R}} h^{R}hfg^{R} \xRightarrow{h^{R}\alpha g^{R}} h^{R}kgg^{R} \xRightarrow{h^{R}k\varepsilon_{g}} h^{R}k \ .
 \]
-where $\eta_{h}\colon \mathrm{id}_{B} \Rightarrow h^{R}h$ and $\varepsilon_{g}\colon gg^{R} \Rightarrow \mathrm{id}_{C}$.
 \end{enumerate}
-Mnemonic: the left mate replaces the horizontal $1$-morphisms by their left adjoints, the right mate replaces the vertical $1$-morphisms by their right adjoints, and in both cases the result is again a lax square in the sense of \cref{def:lax-square}.
+Thus the left mate replaces the horizontal $1$-morphisms by their left adjoints (rotating the square by $90^{\circ}$ to the left), and the right mate replaces the vertical $1$-morphisms by their right adjoints (rotating it to the right). Here $\eta$ and $\varepsilon$ denote units and counits.
 \end{constru}
 
 \begin{defi}
@@ -54,25 +51,23 @@ A lax square is \emph{left Beck--Chevalley} if $f$, $k$ admit left adjoints and 
 \label{lem:mate-correspondence}
 In the situation of \cref{constr:mates}:
 \begin{enumerate}
-\item $\alpha \mapsto \lmate{\alpha}$ is an equivalence of spaces
-$\mapp_{\Hom(A,D)}(hf,kg) \simeq \mapp_{\Hom(B,C)}(k^{L}h,gf^{L})$, and $\alpha \mapsto \rmate{\alpha}$ is an equivalence
-$\mapp_{\Hom(A,D)}(hf,kg) \simeq \mapp_{\Hom(C,B)}(fg^{R},h^{R}k)$.
-\item The two constructions are inverse to each other: the right mate of $\lmate{\alpha}$ (formed with the right adjoints $f$, $k$ of $f^{L}$, $k^{L}$) is $\alpha$, and the left mate of $\rmate{\alpha}$ (formed with the left adjoints $g$, $h$ of $g^{R}$, $h^{R}$) is $\alpha$.
-\item Mates are compatible with horizontal and vertical pasting of lax squares, and with identity squares.
+\item $\alpha \mapsto \lmate{\alpha}$ and $\alpha \mapsto \rmate{\alpha}$ are equivalences of spaces
+\[
+\mapp_{\Hom(B,C)}(k^{L}h,gf^{L}) \simeq \mapp_{\Hom(A,D)}(hf,kg) \simeq \mapp_{\Hom(C,B)}(fg^{R},h^{R}k) \ .
+\]
+\item They are mutually inverse: the right mate of $\lmate{\alpha}$ (with respect to $f^{L} \dashv f$, $k^{L} \dashv k$) and the left mate of $\rmate{\alpha}$ (with respect to $g \dashv g^{R}$, $h \dashv h^{R}$) are $\alpha$.
+\item Mates are compatible with horizontal and vertical pasting and with identity squares.
 \end{enumerate}
 \end{lem}
 
 \begin{proof}
-(1) Using the adjunctions of $\infty$-categories $k^{L}_{*} \dashv k_{*}$ on $\Hom(A,-)$ and $f^{*} \dashv (f^{L})^{*}$ on $\Hom(-,C)$ of \cref{subsec:2dloc-conventions}, we have equivalences
-\[
-\mapp(hf,kg) \simeq \mapp(k^{L}hf,g) \simeq \mapp(k^{L}h,gf^{L}),
-\]
-and unwinding the units and counits of these adjunctions shows that the composite is $\alpha \mapsto \lmate{\alpha}$. The right mate is treated in the same way, using $h_{*} \dashv h^{R}_{*}$ and $(g^{R})^{*} \dashv g^{*}$:
+(1) The adjunctions $k^{L}_{*} \dashv k_{*}$ and $f^{*} \dashv (f^{L})^{*}$ of \cref{subsec:2dloc-conventions} give
+$\mapp(hf,kg) \simeq \mapp(k^{L}hf,g) \simeq \mapp(k^{L}h,gf^{L})$, and unwinding units and counits shows that the composite is $\alpha \mapsto \lmate{\alpha}$. Similarly $h_{*} \dashv h^{R}_{*}$ and $(g^{R})^{*} \dashv g^{*}$ give
 $\mapp(hf,kg) \simeq \mapp(f,h^{R}kg) \simeq \mapp(fg^{R},h^{R}k)$.
-(2) and (3) are identities between composites of $2$-morphisms, which follow from the triangle identities and the interchange law in $\htwo\A$ exactly as in \cite{kellystreet1974review}.
+(2) and (3) follow from the triangle identities and interchange in $\htwo\A$ as in \cite{kellystreet1974review}.
 \end{proof}
 
 \begin{rmk}
 \label{rmk:mates-memo}
-In particular, a lax square whose horizontal $1$-morphisms have left adjoints and whose vertical $1$-morphisms have right adjoints has two mates, and being left and being right Beck--Chevalley are unrelated conditions. For a commutative square $\alpha$ with transpose $\alpha^{\mathrm{T}}$, the left mate of $\alpha^{\mathrm{T}}$ replaces the vertical $1$-morphisms $g$, $h$ of $\alpha$ by their left adjoints, and the right mate of $\alpha^{\mathrm{T}}$ replaces the horizontal $1$-morphisms $f$, $k$ of $\alpha$ by their right adjoints; by our convention these are mates of $\alpha^{\mathrm{T}}$, not of $\alpha$.
+If $\alpha$ is commutative with transpose $\alpha^{\mathrm{T}}$, the left mate of $\alpha^{\mathrm{T}}$ replaces $g$, $h$ by their left adjoints and its right mate replaces $f$, $k$ by their right adjoints; by our convention these are mates of $\alpha^{\mathrm{T}}$, not of $\alpha$.
 \end{rmk}
