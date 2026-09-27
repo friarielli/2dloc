@@ -1,35 +1,15 @@
-\theoremstyle{plain}
-\newtheorem{thm}{Theorem}
-\newtheorem{prop}[thm]{Proposition}
-\newtheorem{lem}[thm]{Lemma}
-\newtheorem{cor}[thm]{Corollary}
-\newtheorem{conj}[thm]{Conjecture}
-\newtheorem{exmp}[thm]{Example}
-\theoremstyle{definition}
-\newtheorem{defi}[thm]{Definition}
-\newtheorem{constru}[thm]{Construction}
-\theoremstyle{remark}
-\newtheorem{rmk}[thm]{Remark}
-
-% cleveref names for the theorem environments
-\crefname{thm}{Theorem}{Theorems}
-\Crefname{thm}{Theorem}{Theorems}
-\crefname{prop}{Proposition}{Propositions}
-\Crefname{prop}{Proposition}{Propositions}
-\crefname{lem}{Lemma}{Lemmas}
-\Crefname{lem}{Lemma}{Lemmas}
-\crefname{cor}{Corollary}{Corollaries}
-\Crefname{cor}{Corollary}{Corollaries}
-\crefname{conj}{Conjecture}{Conjectures}
-\Crefname{conj}{Conjecture}{Conjectures}
-\crefname{exmp}{Example}{Examples}
-\Crefname{exmp}{Example}{Examples}
-\crefname{defi}{Definition}{Definitions}
-\Crefname{defi}{Definition}{Definitions}
-\crefname{constru}{Construction}{Constructions}
-\Crefname{constru}{Construction}{Constructions}
-\crefname{rmk}{Remark}{Remarks}
-\Crefname{rmk}{Remark}{Remarks}
+% Theorem environments, all numbered in one sequence. thmtools gives each
+% environment its own (aliased) counter and sets the cleveref names from
+% refname (cleveref derives \Cref from it), so \cref works without cleveref guessing the type.
+\declaretheorem[style=plain, name=Theorem, refname={Theorem,Theorems}]{thm}
+\declaretheorem[style=plain, name=Proposition, sibling=thm, refname={Proposition,Propositions}]{prop}
+\declaretheorem[style=plain, name=Lemma, sibling=thm, refname={Lemma,Lemmas}]{lem}
+\declaretheorem[style=plain, name=Corollary, sibling=thm, refname={Corollary,Corollaries}]{cor}
+\declaretheorem[style=plain, name=Conjecture, sibling=thm, refname={Conjecture,Conjectures}]{conj}
+\declaretheorem[style=plain, name=Example, sibling=thm, refname={Example,Examples}]{exmp}
+\declaretheorem[style=definition, name=Definition, sibling=thm, refname={Definition,Definitions}]{defi}
+\declaretheorem[style=definition, name=Construction, sibling=thm, refname={Construction,Constructions}]{constru}
+\declaretheorem[style=remark, name=Remark, sibling=thm, refname={Remark,Remarks}]{rmk}
 
 \addbibresource{main.bib}
 \newcommand{\citestacks}[1]%
