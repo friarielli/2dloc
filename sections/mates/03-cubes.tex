@@ -1,0 +1,193 @@
+\subsection{Lax cubes and rotation}
+\label{subsec:mates-cubes}
+
+\subsubsection*{Lax cubes}
+Number the vertices of the cube $\{0,1\}^{3}$ by $(x_{1},x_{2},x_{3}) \mapsto x_{1} + 2x_{2} + 4x_{3}$ , and write $[mn]$ for the edge from $m$ to $n$ . The edges along axis $1$, $2$, $3$ are $[01],[23],[45],[67]$ , resp.\ $[02],[13],[46],[57]$ , resp.\ $[04],[15],[26],[37]$ . A path from $0$ to $7$ is a word in the axes, e.g.\ $213$ is the path $0 \to 2 \to 3 \to 7$ . A face spanned by axes $i$, $j$ has two paths from its initial to its terminal vertex, the \emph{$i$-first} and the \emph{$j$-first} path.
+
+\begin{defi}
+\label{def:lax-cube}
+Let $\prec$ be a total order on $\{1,2,3\}$ . A \emph{lax cube} of ordering $\prec$ in $\A$ consists of
+\begin{enumerate}
+\item objects $X_{0},\dots,X_{7}$ and $1$-morphisms $X_{[mn]}\colon X_{m} \to X_{n}$ for the twelve edges;
+\item for each face spanned by axes $i \prec j$ , a $2$-morphism from the composite along its $i$-first path to the composite along its $j$-first path;
+\item an identification of the two composites of \cref{rmk:lax-cube-hexagon}.
+\end{enumerate}
+\end{defi}
+
+So each face spanned by $i \prec j$ is a lax square in the sense of \cref{def:lax-square}, with the $i$-edges horizontal and the $j$-edges vertical. Opposite faces have the same orientation, and the three faces at the vertex $0$ determine all six.
+
+\begin{rmk}
+\label{rmk:lax-cube-hexagon}
+Whiskered by the remaining edge, the face spanned by $i \prec j$ changes a path $\dots ij \dots$ into $\dots ji \dots$ . For the ordering $p \prec q \prec s$ the six paths therefore form a hexagon with source $pqs$ , sink $sqp$ , and two routes. For $1 \prec 2 \prec 3$ they are
+\begin{align*}
+&[37][13][01] \Rightarrow [37][23][02] \Rightarrow [67][26][02] \Rightarrow [67][46][04] \ , \\
+&[37][13][01] \Rightarrow [57][15][01] \Rightarrow [57][45][04] \Rightarrow [67][46][04] \ ,
+\end{align*}
+using the faces $0123$, $2367$, $0246$ , resp.\ $1357$, $0145$, $4567$ : one face of each opposite pair. Since $\A$ has no non-invertible $3$-morphisms, (3) is a path between these two points of
+\[
+\mapp_{\Hom(X_{0},X_{7})}\bigl([37][13][01],[67][46][04]\bigr) \ .
+\] The orientations of the six faces for which the hexagon has antipodal source and sink are exactly those of the six orderings. Reversing the ordering reverses all faces, i.e.\ passes to $\A^{\mathrm{co}}$ .
+\end{rmk}
+
+\begin{defi}
+\label{def:lax-cube-kind}
+Let $X$ be a lax cube of ordering $\prec$ , let $a$ be an axis and $x \prec y$ the other two. Regard $X$ as a \emph{morphism} $S \to T$ from the $xy$-face at $x_{a} = 0$ to the $xy$-face at $x_{a} = 1$ , with the four $a$-edges $u$ as components. Its \emph{kind} is the rank $r \in \{1,2,3\}$ of $a$ in $\prec$ . The naturality faces compare, for an edge $e$ of $S$ and the parallel edge $e'$ of $T$ , the paths $ue$ (\emph{$e$-first}) and $e'u$ (\emph{$u$-first}), and are oriented as follows:
+\[
+\begin{array}{llll}
+r & \prec & \text{$x$-faces} & \text{$y$-faces} \\ \hline
+1 & a \prec x \prec y & \text{$u$-first} \Rightarrow \text{$e$-first} & \text{$u$-first} \Rightarrow \text{$e$-first} \\
+2 & x \prec a \prec y & \text{$e$-first} \Rightarrow \text{$u$-first} & \text{$u$-first} \Rightarrow \text{$e$-first} \\
+3 & x \prec y \prec a & \text{$e$-first} \Rightarrow \text{$u$-first} & \text{$e$-first} \Rightarrow \text{$u$-first}
+\end{array}
+\]
+\end{defi}
+
+Kinds $1$ and $3$ are the two uniform notions of lax transformation between lax squares; kind $2$ is mixed.
+
+\subsubsection*{Rotation}
+In a lax square with $i$-edges horizontal and $j$-edges vertical, \cref{constr:mates} reverses the $i$-edges by left adjoints or the $j$-edges by right adjoints. It does not reverse the $i$-edges by right adjoints, nor the $j$-edges by left adjoints.
+
+\begin{prop}
+\label{prop:cube-rotation}
+Let $X$ be a lax cube of ordering $p \prec q \prec s$ .
+\begin{enumerate}
+\item If the four $p$-edges admit left adjoints, there is a lax cube $\lmate{X}$ of ordering $q \prec s \prec p$ : its $p$-edges are the left adjoints of those of $X$ , its four faces containing $p$-edges are the left mates of those of $X$ , and its $qs$-faces are those of $X$ .
+\item If the four $s$-edges admit right adjoints, there is a lax cube $\rmate{X}$ of ordering $s \prec p \prec q$ : its $s$-edges are the right adjoints of those of $X$ , its four faces containing $s$-edges are the right mates of those of $X$ , and its $pq$-faces are those of $X$ .
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+(1) A face spanned by $p$ and $t \in \{q,s\}$ has the $p$-edges horizontal, so its left mate is defined and is a lax square with the $t$-edges horizontal and the reversed $p$-edges vertical: $t \prec p$ . The $qs$-faces keep $q \prec s$ . For the interior, regard the hexagon $2$-morphism $\sigma$ as a lax square with the two $p$-edges on the paths $pqs$ and $sqp$ horizontal and the $qs$-paths vertical. Each route of the hexagon is a vertical pasting of the two faces containing $p$-edges that it uses, followed or preceded by a $qs$-face whiskered into a vertical side. By \cref{lem:mate-correspondence}, $\sigma \mapsto \lmate{\sigma}$ is an equivalence of mapping spaces compatible with pasting and with whiskering into the vertical sides, so it carries the two routes of $X$ to the two routes of $\lmate{X}$ , from $qsp$ to $psq$ , and the identification (3) of $X$ to one for $\lmate{X}$ .
+(2) is dual: regard $\sigma$ as a lax square with the $s$-edges vertical.
+\end{proof}
+
+\begin{rmk}
+\label{rmk:cube-rotation}
+\begin{enumerate}
+\item The middle axis $q$ is vertical in the $pq$-faces and horizontal in the $qs$-faces, so neither kind of adjoint reverses it by mates.
+\item Geometrically, $\lmate{X}$ is the rotation of $X$ by $90^{\circ}$ about $q$ or about $s$ that reverses the $p$-edges, and $\rmate{X}$ the one about $p$ or $q$ that reverses the $s$-edges. Of the six rotations by $90^{\circ}$ about an axis, these are the four that mates provide.
+\item As a morphism along $a \neq p$ , resp.\ $a \neq s$ , the rotation reverses two edges of each of $S$ and $T$ , so it is a morphism $\lmate{S} \to \lmate{T}$ , resp.\ $\rmate{S} \to \rmate{T}$ , in the same direction. For $a \neq p$ the kind of $\lmate{X}$ is $r-1$ , and for $a \neq s$ the kind of $\rmate{X}$ is $r+1$ .
+\item $\rmate{(\lmate{X})} \simeq X$ and $\lmate{(\rmate{X})} \simeq X$ by \cref{lem:mate-correspondence} (2).
+\end{enumerate}
+\end{rmk}
+
+\begin{exmp}
+\label{exmp:cube-rotation}
+Let $X$ have ordering $1 \prec 2 \prec 3$ , a morphism of kind $3$ along axis $3$ from $S$ , the face $0123$ , to $T$ , the face $4567$ . Rotate it to the left about axis $3$ , reversing $[01],[23],[45],[67]$ ; see \cref{fig:cube-rotation}. The rotated cube $\lmate{X}$ has ordering $2 \prec 3 \prec 1$ , initial vertex $1$ and terminal vertex $6$ . Its position $(x_{1},x_{2},x_{3})$ carries the vertex $X_{m}$ with $m$ the number of $(1-x_{2},x_{1},x_{3})$ , i.e.\ its positions $0,\dots,7$ carry $X_{1},X_{3},X_{0},X_{2},X_{5},X_{7},X_{4},X_{6}$ . Its faces are:
+\[
+\begin{array}{lll}
+\text{face of } X & \text{face of } \lmate{X} & \\ \hline
+0123\colon [13][01] \Rightarrow [23][02] & [23]^{L}[13] \Rightarrow [02][01]^{L} & \text{left mate} \\
+4567\colon [57][45] \Rightarrow [67][46] & [67]^{L}[57] \Rightarrow [46][45]^{L} & \text{left mate} \\
+0145\colon [15][01] \Rightarrow [45][04] & [45]^{L}[15] \Rightarrow [04][01]^{L} & \text{left mate} \\
+2367\colon [37][23] \Rightarrow [67][26] & [67]^{L}[37] \Rightarrow [26][23]^{L} & \text{left mate} \\
+0246\colon [26][02] \Rightarrow [46][04] & [26][02] \Rightarrow [46][04] & \text{unchanged} \\
+1357\colon [37][13] \Rightarrow [57][15] & [37][13] \Rightarrow [57][15] & \text{unchanged}
+\end{array}
+\]
+For instance, with the notation of \cref{constr:mates} for the face $0123$ ,
+\[
+[23]^{L}[13] \Rightarrow [23]^{L}[13][01][01]^{L} \Rightarrow [23]^{L}[23][02][01]^{L} \Rightarrow [02][01]^{L} \ .
+\]
+Each face of $\lmate{X}$ , spanned by axes $i \prec j$ in the order $2 \prec 3 \prec 1$ , points from its $i$-first to its $j$-first path, and its hexagon runs from $[67]^{L}[37][13]$ to $[46][04][01]^{L}$ . Along axis $3$ it is a morphism of kind $2$ from $\lmate{S}$ , the face on $1,3,0,2$ , to $\lmate{T}$ , the face on $5,7,4,6$ .
+\end{exmp}
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+  >=stealth,
+  vx/.style={circle, draw, fill=white, inner sep=1.2pt, font=\footnotesize},
+  lab/.style={font=\scriptsize, fill=white, inner sep=1pt},
+  ax1/.style={->, thick, draw=cubeaxisone},
+  ax2/.style={->, thick, draw=cubeaxistwo},
+  ax3/.style={->, thick, draw=cubeaxisthree},
+  hid/.style={dashed},
+  cell/.style={->, thin},
+]
+% positions: (x1,x2,x3) -> x1*(2.6,0) + x2*(-1.2,1) + x3*(0,-2.6); the hidden position is 7
+\begin{scope}
+  \node[vx] (a0) at (0,0) {$0$};
+  \node[vx] (a1) at (2.6,0) {$1$};
+  \node[vx] (a2) at (-1.2,1) {$2$};
+  \node[vx] (a3) at (1.4,1) {$3$};
+  \node[vx] (a4) at (0,-2.6) {$4$};
+  \node[vx] (a5) at (2.6,-2.6) {$5$};
+  \node[vx] (a6) at (-1.2,-1.6) {$6$};
+  \node[vx] (a7) at (1.4,-1.6) {$7$};
+  % axis 1
+  \draw[ax1] (a0) -- node[lab, pos=.45, below] {$[01]$} (a1);
+  \draw[ax1] (a2) -- node[lab, above] {$[23]$} (a3);
+  \draw[ax1] (a4) -- node[lab, below] {$[45]$} (a5);
+  \draw[ax1, hid] (a6) -- node[lab, pos=.75, above] {$[67]$} (a7);
+  % axis 2
+  \draw[ax2] (a0) -- node[lab, pos=.6, above right] {$[02]$} (a2);
+  \draw[ax2] (a1) -- node[lab, right] {$[13]$} (a3);
+  \draw[ax2] (a4) -- node[lab, below left] {$[46]$} (a6);
+  \draw[ax2, hid] (a5) -- node[lab, above right] {$[57]$} (a7);
+  % axis 3
+  \draw[ax3] (a0) -- node[lab, left] {$[04]$} (a4);
+  \draw[ax3] (a1) -- node[lab, right] {$[15]$} (a5);
+  \draw[ax3] (a2) -- node[lab, left] {$[26]$} (a6);
+  \draw[ax3, hid] (a3) -- node[lab, pos=.75, right] {$[37]$} (a7);
+  % 2-morphisms at the initial vertex: 1 before 2, 1 before 3, 2 before 3
+  \draw[cell] (0.64,0.12) .. controls (0.42,0.3) .. (-0.05,0.3);
+  \draw[cell] (0.78,-0.31) .. controls (0.78,-0.78) .. (0.31,-0.78);
+  \draw[cell] (-0.36,-0.01) .. controls (-0.36,-0.48) .. (-0.14,-0.66);
+  \node[font=\small] at (0.7,-3.5) {$X$ , ordering $1 \prec 2 \prec 3$};
+\end{scope}
+\draw[->, thick] (3.5,-1) -- node[above, font=\small] {rotate left} node[below, font=\small] {about axis $3$} (5.5,-1);
+\begin{scope}[xshift=8cm]
+  \node[vx] (b0) at (0,0) {$1$};
+  \node[vx] (b1) at (2.6,0) {$3$};
+  \node[vx] (b2) at (-1.2,1) {$0$};
+  \node[vx] (b3) at (1.4,1) {$2$};
+  \node[vx] (b4) at (0,-2.6) {$5$};
+  \node[vx] (b5) at (2.6,-2.6) {$7$};
+  \node[vx] (b6) at (-1.2,-1.6) {$4$};
+  \node[vx] (b7) at (1.4,-1.6) {$6$};
+  % first position axis: original axis 2
+  \draw[ax2] (b0) -- node[lab, pos=.45, below] {$[13]$} (b1);
+  \draw[ax2] (b2) -- node[lab, above] {$[02]$} (b3);
+  \draw[ax2] (b4) -- node[lab, below] {$[57]$} (b5);
+  \draw[ax2, hid] (b6) -- node[lab, pos=.75, above] {$[46]$} (b7);
+  % second position axis: original axis 1, reversed
+  \draw[ax1] (b0) -- node[lab, pos=.6, above right] {$[01]^{L}$} (b2);
+  \draw[ax1] (b1) -- node[lab, right] {$[23]^{L}$} (b3);
+  \draw[ax1] (b4) -- node[lab, below left] {$[45]^{L}$} (b6);
+  \draw[ax1, hid] (b5) -- node[lab, above right] {$[67]^{L}$} (b7);
+  % third position axis: original axis 3
+  \draw[ax3] (b0) -- node[lab, left] {$[15]$} (b4);
+  \draw[ax3] (b1) -- node[lab, right] {$[37]$} (b5);
+  \draw[ax3] (b2) -- node[lab, left] {$[04]$} (b6);
+  \draw[ax3, hid] (b3) -- node[lab, pos=.75, right] {$[26]$} (b7);
+  % 2-morphisms at the initial vertex: 2 before 1, 2 before 3, 3 before 1
+  \draw[cell] (0.64,0.12) .. controls (0.42,0.3) .. (-0.05,0.3);
+  \draw[cell] (0.78,-0.31) .. controls (0.78,-0.78) .. (0.31,-0.78);
+  \draw[cell] (-0.14,-0.66) .. controls (-0.36,-0.48) .. (-0.36,-0.01);
+  \node[font=\small] at (0.7,-3.5) {$\lmate{X}$ , ordering $2 \prec 3 \prec 1$};
+\end{scope}
+\end{tikzpicture}
+
+\bigskip
+\begin{tikzcd}
+0 \ar[r, draw=cubeaxisone, "{[01]}"] \ar[d, draw=cubeaxistwo, "{[02]}"'] & 1 \ar[d, draw=cubeaxistwo, "{[13]}"] \ar[dl, Rightarrow, shorten=3mm] \\
+2 \ar[r, draw=cubeaxisone, "{[23]}"'] & 3
+\end{tikzcd}
+$\;\longmapsto\;$
+\begin{tikzcd}
+1 \ar[r, draw=cubeaxistwo, "{[13]}"] \ar[d, draw=cubeaxisone, "{[01]^{L}}"'] & 3 \ar[d, draw=cubeaxisone, "{[23]^{L}}"] \ar[dl, Rightarrow, shorten=3mm] \\
+0 \ar[r, draw=cubeaxistwo, "{[02]}"'] & 2
+\end{tikzcd}
+\qquad\qquad
+\begin{tikzcd}
+0 \ar[r, draw=cubeaxisone, "{[01]}"] \ar[d, draw=cubeaxisthree, "{[04]}"'] & 1 \ar[d, draw=cubeaxisthree, "{[15]}"] \ar[dl, Rightarrow, shorten=3mm] \\
+4 \ar[r, draw=cubeaxisone, "{[45]}"'] & 5
+\end{tikzcd}
+$\;\longmapsto\;$
+\begin{tikzcd}
+1 \ar[r, draw=cubeaxisthree, "{[15]}"] \ar[d, draw=cubeaxisone, "{[01]^{L}}"'] & 5 \ar[d, draw=cubeaxisone, "{[45]^{L}}"] \ar[dl, Rightarrow, shorten=3mm] \\
+0 \ar[r, draw=cubeaxisthree, "{[04]}"'] & 4
+\end{tikzcd}
+\caption{The left rotation of \cref{exmp:cube-rotation}. Edges are coloured by their axis in $X$ . The curved arrows at the initial vertex show the three faces there, each from the path starting along the earlier axis of the ordering to the path starting along the later one. Below: the faces $0123$ (top) and $0145$ (front) are replaced by their left mates, which rotates each square by $90^{\circ}$ to the left as in \cref{constr:mates}.}
+\label{fig:cube-rotation}
+\end{figure}
