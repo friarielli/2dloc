@@ -1,0 +1,62 @@
+\newcommand{\footwrite}[2]{%
+\footnote{%
+{\color{#1} #2}%
+}}
+
+\newcommand{\bullshit}[1]{\footnote{#1}}
+
+\newfontfamily\suka{DejaVu Serif}
+\newcommand{\cyrillic}[1]{\texorpdfstring{{\suka #1}}{#1}}
+
+
+\ifdefined\STUPID
+\newcommand{\smekalka}{{\cyrillic{Смекалка}}}
+\newcommand{\smekalkamath}{\textrm{\cyrillic{См}}}
+\else
+\newcommand{\smekalka}{{expedient}}
+\newcommand{\smekalkamath}{\Xi}
+\fi
+
+\definecolor{respcolor}{RGB}{99,140,109}
+\newcommand{\resp}[1]{{\color{respcolor}(resp. #1)}}
+
+\definecolor{retirement}{RGB}{88, 38, 48}
+\newcommand{\retirementCause}[1]{{\color{retirement}\texttt{--#1}}}
+
+\reversemarginpar
+
+\ifdefined\DEBUG
+
+\newcommand{\marginwrite}[2]{%
+\marginnote{%
+\footnotesize
+\normalfont
+\color{#1}
+\texttt{#2}}}
+% 1 = color name, 2 = margin text, 3 = actual text
+\newcommand{\marginplustext}[3]{%
+{\color{#1}\normalfont\marginnote{\texttt{#2}\phantom{0000}}{[#3]}}}
+
+\newcommand{\includeretirement}{\input{retiredtags.tex}}
+
+\else
+
+\newcommand{\marginwrite}[2]{}
+\newcommand{\marginplustext}[3]{}
+\newcommand{\includeretirement}{}
+
+\fi
+
+\definecolor{questionColor}{RGB}{255, 78, 32}
+\newcommand{\question}[1]{\marginplustext{questionColor}{QUES}{#1}}
+\definecolor{todoColor}{RGB}{157, 78, 221}
+\newcommand{\todo}[1]{\marginplustext{todoColor}{TODO}{#1}}
+\definecolor{goodColor}{RGB}{32, 127, 76}
+\definecolor{toRemoveColor}{RGB}{214, 50, 48}
+\newcommand{\toretire}[1]{\marginplustext{toRemoveColor}{OBSOLETE}{#1}}
+\definecolor{shittyColor}{RGB}{127, 79, 36}
+\newcommand{\shitty}[1]{\marginplustext{shittyColor}{SHITTY}{#1}}
+\newcommand{\gutentag}[1]{%
+\marginwrite{cyan}{#1}}
+
+
