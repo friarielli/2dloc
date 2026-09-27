@@ -1,7 +1,7 @@
 \subsection{The mate lemma}
-\label{subsec:2dloc-mates}
+\label{subsec:mates-lemma}
 
-The following lemma replaces the contractibility of the walking equivalence.
+In \cref{sec:2dloc} the following lemma replaces the contractibility of the walking equivalence.
 A $1$-morphism from $u\colon x \to y$ to $u'\colon x' \to y'$ in $\func(\Delta^{1},\E)$ is a commutative square $\Delta^{1} \times \Delta^{1} \to \E$ with $u$, $u'$ on opposite sides.
 
 \begin{lem}[mates]
@@ -45,10 +45,4 @@ For $K = \wtc$, read a $2$-morphism between $1$-morphisms $\sigma$, $\tau$ from 
 \begin{rmk}
 \label{rmk:mates-2cat}
 For $2$-categories, \cref{lem:mates} is the classical fact that a morphism of adjunctions is determined by its left adjoint part, the right adjoint part being the mate \cite{kellystreet1974review}. The proof above uses only \cref{thm:walking-adjunction,thm:adjoints-in-functor-cats}.
-\end{rmk}
-
-\begin{rmk}
-\label{rmk:lax-epi}
-Following \cite{adamekelbashirsobralvelebil2001laxepi}, a functor $j\colon \A \to \B$ is a \emph{lax epimorphism} if every $j^{*}\colon \func(\B,\E) \to \func(\A,\E)$ is locally fully faithful, and an \emph{epimorphism} if every $j^{*}$ is fully faithful. By \cref{lem:mates}, $\ell$ is a lax epimorphism but not an epimorphism, the difference being the Beck--Chevalley condition on $1$-morphisms.
-Since $\func(-,\E)$ turns pushouts into pullbacks and locally full sub-$(\infty,2)$-categories are stable under pullback, $\A \to \A\radj{S}$ is a lax epimorphism, and $L^{*}\colon \func^{L}_{\Cat}(\D\radj{S},\E) \to \func^{L}_{\Cat}(\D,\E)$ is a locally full sub-$(\infty,2)$-category for every $\E \in \tprl$.
 \end{rmk}
