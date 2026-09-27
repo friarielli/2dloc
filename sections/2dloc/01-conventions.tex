@@ -1,56 +1,43 @@
 \subsection{Conventions}
 \label{subsec:2dloc-conventions}
 
+\subsubsection*{$(\infty,2)$-categories}
 Throughout, $\Cat$ denotes the $\infty$-category of small $(\infty,1)$-categories and $\Spc \subset \Cat$ the full subcategory of spaces.
-An \emph{$(\infty,2)$-category} is a $\Cat$-enriched $\infty$-category in the sense of Gepner--Haugseng \cite{gepnerhaugseng2015enriched}; we write $\twoCat$ for the $\infty$-category of small $(\infty,2)$-categories, and for an $(\infty,2)$-category $\A$ and objects $x,y$ we write $\Hom_{\A}(x,y) \in \Cat$ for the hom-category.
-Every $(\infty,2)$-category has an underlying $(\infty,1)$-category with the same objects and mapping spaces $\mapp_{\A}(x,y) = \Hom_{\A}(x,y)^{\simeq}$.
-Enriched functors, enriched natural transformations and enriched presheaves are the ones of \cite{gepnerhaugseng2015enriched,hinich2020yoneda,heine2023enriched}; for $(\infty,2)$-categories $\A$, $\B$ we write $\func(\A,\B)$ for the $(\infty,2)$-category of enriched functors, whose $1$-morphisms are the enriched natural transformations (their component squares commute up to \emph{invertible} $2$-cells).
+An \emph{$(\infty,2)$-category} is a $\Cat$-enriched $\infty$-category in the sense of Gepner--Haugseng \cite{gepnerhaugseng2015enriched}, and $\twoCat$ denotes the $\infty$-category of small $(\infty,2)$-categories. We work with this definition only.
+For an $(\infty,2)$-category $\A$ and objects $x,y$ we write $\Hom_{\A}(x,y) \in \Cat$ for the hom-category and $\mapp_{\A}(x,y) = \Hom_{\A}(x,y)^{\simeq}$ for the mapping space of the underlying $\infty$-category $\iota_{1}\A$.
+Via $\Spc \subset \Cat$, every $\infty$-category is an $(\infty,2)$-category; in particular $\Delta^{n}$ is. We write $\wtc$ for the \emph{walking $2$-cell}: objects $0,1$, $\Hom(0,1) = \Delta^{1}$, $\Hom(1,0) = \emptyset$, $\Hom(0,0) = \Hom(1,1) = \mathrm{pt}$; and $\bwtc \subset \wtc$ for the sub-$(\infty,2)$-category with $\Hom(0,1) = \partial\Delta^{1}$.
+
+The $\infty$-category $\twoCat$ is presentable and cartesian closed; we write $\func(\A,\B)$ for the internal hom.
+\todo{Reference for cartesian closedness in the enriched model, e.g.\ via the comparison with complete Segal spaces.}
+Its objects are functors, its $1$-morphisms $\Delta^{1} \to \func(\A,\B)$ are \emph{natural transformations} (all naturality squares commute up to \emph{invertible} $2$-morphisms), and its $2$-morphisms are modifications.
 The involution $(-)\opcat$ on $\twoCat$ reverses $1$-morphisms and $(-)^{\mathrm{co}}$ reverses $2$-morphisms.
 
-Most of the arguments below are $2$-categorical: they use only composition, whiskering and pasting of $2$-cells in hom-categories. We import such arguments from strict $2$-categories to $(\infty,2)$-categories without further comment; the only genuinely homotopy-coherent input is the contractibility of the space of adjunction data (\cref{lem:adj-contractible}), which we take from the literature.
+\subsubsection*{The homotopy $2$-category}
+The homotopy category functor $h\colon \Cat \to \Cat_{\leq 1}$ to ordinary categories preserves finite products, so changing enrichment along it \cite{gepnerhaugseng2015enriched} gives the \emph{homotopy $2$-category} $\htwo\A$, a $\Cat_{\leq 1}$-enriched $\infty$-category, i.e.\ a $(2,2)$-category, which we regard as a bicategory in the classical sense.
+\todo{Reference for $\Cat_{\leq 1}$-enriched $\infty$-categories $=$ bicategories.}
+It has the same objects and $1$-morphisms as $\A$, and its $2$-morphisms are equivalence classes of $2$-morphisms of $\A$. Every functor $\A \to \B$ induces a pseudofunctor $\htwo\A \to \htwo\B$.
 
-\subsubsection*{Adjunctions}
-An \emph{adjunction} in an $(\infty,2)$-category $\A$ is a pair of $1$-morphisms $l\colon x \to y$, $r\colon y \to x$ together with $2$-cells $\eta\colon \mathrm{id}_x \Rightarrow rl$ and $\varepsilon\colon lr \Rightarrow \mathrm{id}_y$ satisfying the two triangle identities up to equivalence; we write $l \dashv r$.
-A $1$-morphism $l$ is a \emph{left adjoint} if it is part of an adjunction.
-By the enriched Yoneda lemma this is a representable notion: $l$ is a left adjoint in $\A$ if and only if for every object $t$ the functor $l_{*}\colon \Hom_{\A}(t,x) \to \Hom_{\A}(t,y)$ is a left adjoint of $\infty$-categories and the induced squares are Beck--Chevalley for every $t' \to t$; equivalently, if and only if $l^{*}\colon \Hom_{\A}(y,t) \to \Hom_{\A}(x,t)$ is a \emph{right} adjoint for every $t$, compatibly with precomposition.
+\begin{defi}
+\label{def:adjunction}
+An \emph{adjunction} $l \dashv r$ in an $(\infty,2)$-category $\A$ is an adjunction in $\htwo\A$: $1$-morphisms $l\colon x \to y$, $r\colon y \to x$ and $2$-morphisms $\eta\colon \mathrm{id}_{x} \Rightarrow rl$, $\varepsilon\colon lr \Rightarrow \mathrm{id}_{y}$ of $\A$ whose classes satisfy the triangle identities in $\htwo\A$. A $1$-morphism is a \emph{left adjoint} if it is part of an adjunction.
+\end{defi}
 
-\begin{lem}[Riehl--Verity]
-\label{lem:adj-contractible}
-Let $l\colon x \to y$ be a $1$-morphism in an $(\infty,2)$-category $\A$. The space of adjunction data $(r,\eta,\varepsilon,\dots)$ exhibiting $l$ as a left adjoint is either empty or contractible.
-\end{lem}
-
-This is \cite[Thm.~4.4.18]{riehlverity2016adjunctions} for $\A = \Cat$ and, by the same representability argument, for any $(\infty,2)$-category; see also \cite{haugseng2021laxmonads} and \cite{abellangagnahaugseng2024straightening}.
-\todo{Verify the exact theorem numbers.}
-Concretely, \cref{lem:adj-contractible} says that the \emph{walking adjunction} $\Adj$ of \cite{riehlverity2016adjunctions} (the $2$-category freely generated by an adjunction $l \dashv r$ between two objects $-$ and $+$, viewed as an $(\infty,2)$-category) has the following universal property: the restriction functor
+Functors preserve adjunctions. In particular, for an object $t$ of $\A$, the functors $\Hom_{\A}(t,-)$ and $\Hom_{\A}(-,t)$ send an adjunction $l \dashv r$ to adjunctions of $\infty$-categories
 \[
-\ell^{*}\colon \func(\Adj,\A) \longrightarrow \func(\Delta^{1},\A), \qquad \ell\colon \Delta^{1} \to \Adj,\ (0 \to 1) \mapsto (l\colon - \to +),
+l_{*} \dashv r_{*}\colon \Hom_{\A}(t,x) \rightleftarrows \Hom_{\A}(t,y), \qquad r^{*} \dashv l^{*}\colon \Hom_{\A}(x,t) \rightleftarrows \Hom_{\A}(y,t)
 \]
-is, on underlying $\infty$-categories, a monomorphism whose essential image consists of the left adjoints.
-We also write $\rho\colon \Delta^{1} \to \Adj$ for the functor selecting $r\colon + \to -$.
-The duality $\Adj\opcat \simeq \Adj$ exchanges $\ell$ and $\rho$ (up to the identification $(\Delta^{1})\opcat \simeq \Delta^{1}$), and $\Adj^{\mathrm{co}} \simeq \Adj$ does the same.
+(note the reversal for precomposition); here we use that an adjunction in $\htwo\Cat$ is an adjunction of $\infty$-categories in the usual sense \cite{riehlverity2015twocategory}.
 
-\subsubsection*{Presentable $(\infty,2)$-categories}
-We take a \emph{presentable $(\infty,2)$-category} to be a $\Cat$-module in $\prl$, and set
+\subsubsection*{What is imported from $2$-category theory}
+Many arguments below take place in homotopy $2$-categories: they assert that certain $2$-morphisms exist, or that two composites of $2$-morphisms agree up to equivalence (triangle identities, mate computations, interchange laws). Such arguments are imported from classical $2$-category theory verbatim, applied to $\htwo\A$.
+They never produce functors out of the walking adjunction, natural transformations, or monads. Whenever a statement asserts the existence or uniqueness of such homotopy-coherent data, we use one of the inputs (I1)--(I4) of \cref{subsec:2dloc-inputs}, which are stated there precisely together with the place where they are proved. In particular we never lift an adjunction from $\htwo\A$ to $\A$ by hand.
+
+\subsubsection*{Monomorphisms and locally full sub-$(\infty,2)$-categories}
+A functor $G\colon \A \to \B$ is \emph{locally fully faithful} if every $G\colon \Hom_{\A}(x,x') \to \Hom_{\B}(Gx,Gx')$ is fully faithful. It is a \emph{monomorphism} if $\mapp_{\twoCat}(K,\A) \to \mapp_{\twoCat}(K,\B)$ is a monomorphism of spaces for every $K$.
+Since $\twoCat$ is generated under colimits by $\Delta^{0}$, $\Delta^{1}$ and $\wtc$, and limits of monomorphisms of spaces are monomorphisms, it suffices to test $K \in \{\Delta^{0},\Delta^{1},\wtc\}$.
+\todo{Reference for the generation statement.}
+A \emph{locally full sub-$(\infty,2)$-category} of $\B$ is a monomorphism $G$ that is locally fully faithful; equivalently, a monomorphism $G$ such that
 \[
-\tprl := \modcat{\Cat}{\prl},
+\mapp(\wtc,\A) \longrightarrow \mapp(\wtc,\B) \times_{\mapp(\bwtc,\B)} \mapp(\bwtc,\A)
 \]
-the $\infty$-category of presentable $\infty$-categories equipped with a colimit-preserving action of $\Cat$ (for the cartesian product), and $\Cat$-linear left adjoints between them.
-By \cite[\S 7]{gepnerhaugseng2015enriched} every object $\D \in \tprl$ is canonically $\Cat$-enriched, with $\func(K,\Hom_{\D}(d,d')) \simeq \mapp_{\D}(K \otimes d, d')$, and every $\Cat$-linear left adjoint is canonically an enriched functor. We regard $\D$ as an $(\infty,2)$-category in this way; it is tensored and cotensored over $\Cat$.
-An object $\D \in \tprl$ has all (small) enriched colimits, and an enriched functor between objects of $\tprl$ is in $\tprl$ if and only if it preserves them.
-
-For a small $(\infty,2)$-category $\A$ the enriched presheaf category
-\[
-\Free(\A) := \func(\A\opcat,\Cat)
-\]
-is in $\tprl$, and it is the free presentable $(\infty,2)$-category on $\A$: by the enriched Yoneda lemma \cite{hinich2020yoneda,heine2023enriched} restriction along the Yoneda embedding $y\colon \A \to \Free(\A)$ is an equivalence of $(\infty,2)$-categories
-\begin{equation}
-\label{eq:free-univ}
-\func^{L}_{\Cat}\bigl(\Free(\A),\D\bigr) \xrightarrow{\ \simeq\ } \func(\A,\D)
-\end{equation}
-for every $\D \in \tprl$, where the left-hand side is the $(\infty,2)$-category of $\Cat$-linear left adjoints.
-\todo{Cite the precise statement of the free cocompletion property for $\Cat$-enriched presheaves.}
-A functor $f\colon \A \to \B$ of small $(\infty,2)$-categories induces $\Free(f) = f_{!}\colon \Free(\A) \to \Free(\B)$ (enriched left Kan extension) with right adjoint the restriction $f^{*}$.
-The functor $\Free\colon \twoCat \to \tprl$ preserves colimits, being left adjoint to the forgetful functor (up to size).
-
-We write $\Edge := \Free(\Delta^{1})$ and $\Free(\Adj)$ for the free presentable $(\infty,2)$-categories on an arrow and on an adjunction.
-By \eqref{eq:free-univ}, a $1$-morphism $s\colon x \to y$ in $\D \in \tprl$ is the same thing as a map $s\colon \Edge \to \D$ in $\tprl$, and an adjunction in $\D$ is the same thing as a map $\Free(\Adj) \to \D$.
+is an equivalence: every $2$-morphism of $\B$ between $1$-morphisms in the image lies in the image. It is determined by a collection of objects and a collection of $1$-morphisms of $\B$, closed under equivalence, containing the identities and closed under composition.

@@ -3,12 +3,33 @@
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
 \newtheorem{exmp}[thm]{Example}
 \theoremstyle{definition}
 \newtheorem{defi}[thm]{Definition}
 \newtheorem{constru}[thm]{Construction}
 \theoremstyle{remark}
 \newtheorem{rmk}[thm]{Remark}
+
+% cleveref names for the theorem environments
+\crefname{thm}{Theorem}{Theorems}
+\Crefname{thm}{Theorem}{Theorems}
+\crefname{prop}{Proposition}{Propositions}
+\Crefname{prop}{Proposition}{Propositions}
+\crefname{lem}{Lemma}{Lemmas}
+\Crefname{lem}{Lemma}{Lemmas}
+\crefname{cor}{Corollary}{Corollaries}
+\Crefname{cor}{Corollary}{Corollaries}
+\crefname{conj}{Conjecture}{Conjectures}
+\Crefname{conj}{Conjecture}{Conjectures}
+\crefname{exmp}{Example}{Examples}
+\Crefname{exmp}{Example}{Examples}
+\crefname{defi}{Definition}{Definitions}
+\Crefname{defi}{Definition}{Definitions}
+\crefname{constru}{Construction}{Constructions}
+\Crefname{constru}{Construction}{Constructions}
+\crefname{rmk}{Remark}{Remarks}
+\Crefname{rmk}{Remark}{Remarks}
 
 \addbibresource{main.bib}
 \newcommand{\citestacks}[1]%
@@ -79,3 +100,8 @@
 \newcommand{\E}{\mathcal{E}}
 \newcommand{\Pc}{\mathcal{P}}
 \newcommand{\lff}{locally fully faithful}
+\newcommand{\lmate}[1]{{#1}^{\curvearrowleft}}
+\newcommand{\rmate}[1]{{#1}^{\curvearrowright}}
+\newcommand{\htwo}{\mathrm{h}_{2}}
+\newcommand{\wtc}{\mathsf{C}_{2}}
+\newcommand{\bwtc}{\partial\mathsf{C}_{2}}

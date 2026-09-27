@@ -2,74 +2,69 @@
 \label{subsec:2dloc-local}
 
 Fix $\D \in \tprl$ and a set $S$ of $1$-morphisms of $\D$.
-For $(s\colon x \to y) \in S$ and $d \in \D$ write $s^{*} := \Hom_{\D}(s,d)\colon \Hom_{\D}(y,d) \to \Hom_{\D}(x,d)$.
+For $(s\colon x \to y) \in S$ and $d \in \D$ write $s^{*} := \Hom_{\D}(s,d)\colon \Hom_{\D}(y,d) \to \Hom_{\D}(x,d)$, and for $f\colon d \to d'$ write $f_{*}$ for postcomposition.
 
 \begin{defi}
 \label{def:S-local}
 An object $d \in \D$ is \emph{$S$-local} if $s^{*}$ admits a left adjoint $s_{!}$ for every $s \in S$.
-A $1$-morphism $f\colon d \to d'$ between $S$-local objects is \emph{$S$-local} if for every $s \in S$ the (strictly commuting) square
+A $1$-morphism $f\colon d \to d'$ between $S$-local objects is \emph{$S$-local} if for every $s \in S$ the commutative square with underlying lax square
 \[
 \begin{tikzcd}[column sep=large]
-\Hom_{\D}(y,d) \ar[r, "f_{*}"] \ar[d, "s^{*}"'] & \Hom_{\D}(y,d') \ar[d, "s^{*}"] \\
-\Hom_{\D}(x,d) \ar[r, "f_{*}"'] & \Hom_{\D}(x,d')
+\Hom_{\D}(y,d) \ar[r, "s^{*}"] \ar[d, "f_{*}"'] & \Hom_{\D}(x,d) \ar[d, "f_{*}"] \ar[dl, Rightarrow, shorten=4mm, "="'] \\
+\Hom_{\D}(y,d') \ar[r, "s^{*}"'] & \Hom_{\D}(x,d')
 \end{tikzcd}
 \]
-satisfies the Beck--Chevalley condition, i.e.\ the mate $s_{!}f_{*} \Rightarrow f_{*}s_{!}$ is invertible.
-We write $\Pc_{S} \subset \D$ for the locally full sub-$(\infty,2)$-category on the $S$-local objects and $S$-local $1$-morphisms (all $2$-morphisms between $S$-local $1$-morphisms are allowed), and $\iota\colon \Pc_{S} \hookrightarrow \D$ for the inclusion.
+(with the associativity equivalence $f_{*}s^{*} \simeq s^{*}f_{*}$) is left Beck--Chevalley, i.e.\ its left mate $s_{!}f_{*} \Rightarrow f_{*}s_{!}$ is invertible.
+We write $\Pc_{S} \subset \D$ for the locally full sub-$(\infty,2)$-category on the $S$-local objects and $S$-local $1$-morphisms, and $\iota\colon \Pc_{S} \hookrightarrow \D$ for the inclusion.
 \end{defi}
 
-Note that $\Pc_{S}$ is indeed a sub-$(\infty,2)$-category: identities are $S$-local, and mates are compatible with pasting \cite{kellystreet1974review}, so $S$-local morphisms are closed under composition.
+This is a locally full sub-$(\infty,2)$-category: identities are $S$-local, and $S$-local $1$-morphisms are closed under composition and equivalence because mates are compatible with pasting (\cref{lem:mate-correspondence}).
 
 \begin{thm}
 \label{thm:2dloc-local}
 Let $\D \in \tprl$ and let $S$ be a set of $1$-morphisms of $\D$.
 \begin{enumerate}
-\item The functor $L\colon \D \to \D\radj{S}$ admits a right adjoint, which is \lff{} with essential image $\Pc_{S}$. Hence $\D\radj{S} \simeq \Pc_{S}$ as $(\infty,2)$-categories: the localization is realized inside $\D$ as the locally full sub-$(\infty,2)$-category of $S$-local objects and $S$-local morphisms, and $L \dashv \iota$.
-\item $T := \iota L$ is a $\Cat$-enriched monad on $\D$, the inclusion $\iota$ is monadic, and so $\Pc_{S} \simeq \Alg_{T}(\D)$. Moreover $T$-algebra structures are \emph{properties}: for every $d \in \D$ the space of $T$-algebra structures on $d$ is empty or contractible, and it is non-empty if and only if $d$ is $S$-local.
+\item The functor $L\colon \D \to \D\radj{S}$ admits a right adjoint, which is a locally full sub-$(\infty,2)$-category with image $\Pc_{S}$. Hence $\D\radj{S} \simeq \Pc_{S}$: the localization is realized inside $\D$ as the locally full sub-$(\infty,2)$-category of $S$-local objects and $S$-local morphisms, and $L \dashv \iota$.
+\item $T := \iota L$ is a $\Cat$-enriched monad on $\D$, $\iota$ is monadic, and so $\Pc_{S} \simeq \Alg_{T}(\D)$. Moreover $T$-algebra structures are \emph{properties}: for every $d \in \D$ the space of $T$-algebra structures on $d$ is empty or contractible, and it is non-empty if and only if $d$ is $S$-local.
 \end{enumerate}
 \end{thm}
 
 \begin{proof}
 (1) \emph{The underlying $\infty$-category.}
-Colimits in $\tprl = \modcat{\Cat}{\prl}$ are computed in $\prl$ \cite[4.2.3.5]{ha}\todo{check the tag: the forgetful functor from modules preserves colimits}.
-As in the proof of \cref{prop:bousfield-pushout}, the pushout defining $\D\radj{S}$ is computed by passing to right adjoints and forming the pullback in $\widehat{\Cat}$ \cite[5.5.3.4, 5.5.3.18]{htt}.
-The right adjoint of $s\colon \Edge \to \D$ is $d \mapsto \Hom_{\D}(s(-),d)$, i.e.\ the arrow $s^{*}\colon \Hom(y,d) \to \Hom(x,d)$ viewed as an object of $\Edge = \func(\Delta^{1},\Cat)$, and the right adjoint of $\Free(\ell)$ is $\ell^{*}$. Hence the underlying $\infty$-category of $\D\radj{S}$ is the pullback
+Colimits in $\tprl = \modcat{\Cat}{\prl}$ are computed in $\prl$ \cite[4.2.3.5]{ha}\todo{check the tag}, and pushouts in $\prl$ are computed by passing to right adjoints and forming the pullback in $\widehat{\Cat}$ \cite[5.5.3.4, 5.5.3.18]{htt}.
+The right adjoint of $\Free(\ell)\colon \func((\Delta^{1})\opcat,\Cat) \to \func(\Adj\opcat,\Cat)$ is restriction along $\ell\opcat$. Under the equivalence $\Adj \simeq \Adj\opcat$, $l \mapsto r\opcat$, $r \mapsto l\opcat$ (in $\Adj\opcat$ one has $r\opcat \dashv l\opcat$) and $(\Delta^{1})\opcat \simeq \Delta^{1}$, the functor $\ell\opcat$ becomes $\rho$. The right adjoint of $s\colon \Edge \to \D$ sends $d$ to the presheaf $\Hom_{\D}(s(-),d)$ on $\Delta^{1}$, i.e.\ to the object $s^{*}\colon \Hom(y,d) \to \Hom(x,d)$ of $\func(\Delta^{1},\Cat)$. Hence
 \begin{equation}
 \label{eq:pullback}
-\D\radj{S} \simeq \D \times_{\prod_{S}\func(\Delta^{1},\Cat)} \textstyle\prod_{S}\func(\Adj,\Cat),
+\iota_{1}\D\radj{S} \simeq \iota_{1}\D \times_{\prod_{S}\iota_{1}\func(\Delta^{1},\Cat)} \textstyle\prod_{S}\iota_{1}\func(\Adj,\Cat),
 \end{equation}
-and the projection to $\D$ is the right adjoint $\iota$ of $L$.
-By \cref{lem:mates} each $\ell^{*}$ is a monomorphism whose image consists of the left adjoints and the Beck--Chevalley squares; monomorphisms are stable under products and pullbacks, so $\iota$ is a monomorphism of $\infty$-categories with image the $S$-local objects and $S$-local morphisms. This identifies the underlying $\infty$-category of $\D\radj{S}$ with that of $\Pc_{S}$.
+where the right-hand map is $\prod_{S}\rho^{*}$, and the projection to $\iota_{1}\D$ is the right adjoint $\iota$ of $L$.
+By \cref{lem:mates}(2) for $\E = \Cat$, $\rho^{*}$ is a monomorphism whose image consists of the right adjoints and the $1$-morphisms whose square, as displayed in \cref{lem:mates}(2), is left Beck--Chevalley; for the objects $s^{*}$ these are exactly the squares of \cref{def:S-local}. Monomorphisms are stable under products and pullbacks, so $\iota$ is a monomorphism of $\infty$-categories with image the $S$-local objects and $S$-local morphisms.
 
 \emph{The enrichment.}
-Since $L$ is $\Cat$-linear, its right adjoint $\iota$ preserves cotensors: for $d \in \D$ and $p \in \D\radj{S}$, $\mapp_{\D}(d,\iota(K \pitchfork p)) \simeq \mapp(K \otimes Ld,p) \simeq \mapp(L(K \otimes d),p) \simeq \mapp_{\D}(K \otimes d,\iota p) \simeq \mapp_{\D}(d,K \pitchfork \iota p)$, naturally in $d$, so $\iota(K \pitchfork p) \simeq K \pitchfork \iota p$ by Yoneda.
+By (I4), $\iota$ is an enriched functor. Since $L$ is $\Cat$-linear, $\iota$ preserves cotensors: $\mapp_{\D}(d,\iota(K \pitchfork p)) \simeq \mapp(K \otimes Ld,p) \simeq \mapp(L(K \otimes d),p) \simeq \mapp_{\D}(d,K \pitchfork \iota p)$, naturally in $d$.
 For $q,p \in \D\radj{S}$ and $K \in \Cat$ we therefore get
 \[
-\func\bigl(K,\Hom_{\D\radj{S}}(q,p)\bigr)^{\simeq} \simeq \mapp_{\D\radj{S}}(q,K \pitchfork p) \subset \mapp_{\D}(\iota q,K \pitchfork \iota p) \simeq \func\bigl(K,\Hom_{\D}(\iota q,\iota p)\bigr)^{\simeq},
+\func\bigl(K,\Hom_{\D\radj{S}}(q,p)\bigr)^{\simeq} \simeq \mapp(q,K \pitchfork p) \subset \mapp_{\D}(\iota q,K \pitchfork \iota p) \simeq \func\bigl(K,\Hom_{\D}(\iota q,\iota p)\bigr)^{\simeq},
 \]
-where by the first part the left-hand side is the union of those components consisting of $S$-local morphisms $g\colon \iota q \to K \pitchfork \iota p$.
-Now $\Hom_{\D}(s,K \pitchfork \iota p) = \func(K,\Hom_{\D}(s,\iota p))$ with left adjoint $\func(K,s_{!})$, and evaluation at $k \in K$ commutes with $s^{*}$, $s_{!}$ and their unit and counit. Hence the mate of the square of $g$ evaluates at $k$ to the mate of the square of the component $g_{k}\colon \iota q \to \iota p$, and $g$ is $S$-local if and only if every $g_{k}$ is, i.e.\ if and only if the functor $K \to \Hom_{\D}(\iota q,\iota p)$ corresponding to $g$ factors through the full subcategory of $S$-local morphisms.
-Thus $\func(K,\Hom_{\D\radj{S}}(q,p))^{\simeq} \simeq \func(K,\Hom_{\Pc_{S}}(q,p))^{\simeq}$ naturally in $K$, and $\Hom_{\D\radj{S}}(q,p) \simeq \Hom_{\Pc_{S}}(q,p)$ by Yoneda. This proves that $\iota$ is \lff{} with image $\Pc_{S}$.
+where by the first part the left-hand side consists of those $g\colon \iota q \to K \pitchfork \iota p$ that are $S$-local.
+Now $\Hom_{\D}(s,K \pitchfork \iota p) = \func(K,\Hom_{\D}(s,\iota p))$, with left adjoint $\func(K,s_{!})$, and evaluation at $k \in K$ commutes with $s^{*}$, $s_{!}$ and the unit and counit. Hence the left mate of the square of $g$ evaluates at $k$ to the left mate of the square of $g_{k}\colon \iota q \to \iota p$, and $g$ is $S$-local if and only if every $g_{k}$ is, i.e.\ if and only if the functor $K \to \Hom_{\D}(\iota q,\iota p)$ corresponding to $g$ factors through the full subcategory on the $S$-local $1$-morphisms. By the Yoneda lemma in $K$, $\Hom_{\D\radj{S}}(q,p) \to \Hom_{\D}(\iota q,\iota p)$ is the inclusion of this full subcategory, i.e.\ $\iota$ is locally fully faithful with image $\Pc_{S}$.
 
-(2) The adjunction $L \dashv \iota$ is $\Cat$-enriched: $\func(K,\Hom_{\Pc_{S}}(Ld,p))^{\simeq} \simeq \mapp(K \otimes Ld,p) \simeq \mapp(K \otimes d,\iota p) \simeq \func(K,\Hom_{\D}(d,\iota p))^{\simeq}$ naturally in $K$, so $\Hom_{\Pc_{S}}(Ld,p) \simeq \Hom_{\D}(d,\iota p)$.
-Any adjunction in the $(\infty,2)$-category of (large) $(\infty,2)$-categories induces a monad \cite{riehlverity2016adjunctions}, so $T = \iota L$ is a $\Cat$-enriched monad on $\D$ with unit $\eta\colon \mathrm{id} \Rightarrow \iota L$ and multiplication $\mu = \iota\varepsilon L$.
-
-For monadicity we verify the hypotheses of the Barr--Beck--Lurie theorem \cite[4.7.3.5]{ha} for $\iota$ on underlying $\infty$-categories.
-$\iota$ is conservative: if $f$ is $S$-local and invertible in $\D$, then the mate of the square of $f^{-1}$ is inverse to the mate of the square of $f$ (mates are compatible with pasting), hence invertible, so $f^{-1}$ is $S$-local.
-$\iota$ preserves geometric realizations of $\iota$-split simplicial objects: let $q_{\bullet}$ be a simplicial object of $\Pc_{S}$ with $\iota q_{\bullet}$ split. Write $q_{\bullet} = (\iota q_{\bullet}, F_{\bullet})$ in the pullback \eqref{eq:pullback}, with $F_{\bullet} \in \prod_{S}\func(\Adj,\Cat)$ and $\ell^{*}F_{\bullet} \simeq \Hom_{\D}(s,\iota q_{\bullet})$. Split simplicial objects admit colimits preserved by every functor \cite[6.1.3.16]{htt}, so $|\iota q_{\bullet}|$ exists in $\D$ and $\Hom_{\D}(s,|\iota q_{\bullet}|) \simeq |\Hom_{\D}(s,\iota q_{\bullet})|$; on the other side $|F_{\bullet}|$ exists in $\func(\Adj,\Cat)$ and is preserved by $\ell^{*}$, since colimits there are computed pointwise. Hence $(|\iota q_{\bullet}|,|F_{\bullet}|)$ is a colimit of $q_{\bullet}$ in the pullback, and $\iota$ preserves it.
-By \cite[4.7.3.5]{ha}, $\iota$ is monadic, i.e.\ $\Pc_{S} \simeq \Alg_{T}(\D)$ over $\D$.
-Finally, under this equivalence the forgetful functor $\Alg_{T}(\D) \to \D$ is $\iota$, which is a monomorphism by (1); so its fibres, the spaces of $T$-algebra structures, are empty or contractible, and non-empty exactly over the $S$-local objects.
+(2) By (I4), $T = \iota L$ is an enriched functor with enriched unit $\eta$ and multiplication $\mu = \iota\varepsilon L$, and on underlying $\infty$-categories it is the monad of the adjunction $L \dashv \iota$.
+We verify the hypotheses of the Barr--Beck--Lurie theorem \cite[4.7.3.5]{ha} for $\iota$ on underlying $\infty$-categories.
+$\iota$ is conservative: if $f$ is $S$-local and invertible in $\D$, then by \cref{lem:mate-correspondence}(3) the left mate of the square of $f^{-1}$ is inverse to that of $f$, so $f^{-1}$ is $S$-local.
+$\iota$ preserves geometric realizations of $\iota$-split simplicial objects: let $q_{\bullet}$ be a simplicial object of $\Pc_{S}$ with $\iota q_{\bullet}$ split, and write $q_{\bullet} = (\iota q_{\bullet},F_{\bullet})$ in \eqref{eq:pullback}. Split simplicial objects have colimits preserved by every functor \cite[6.1.3.16]{htt}, so $|\iota q_{\bullet}|$ exists and $\Hom_{\D}(s,|\iota q_{\bullet}|) \simeq |\Hom_{\D}(s,\iota q_{\bullet})|$; and $|F_{\bullet}|$ exists in $\func(\Adj,\Cat)$ and is preserved by $\rho^{*}$, colimits being computed pointwise. Hence $(|\iota q_{\bullet}|,|F_{\bullet}|)$ is a colimit of $q_{\bullet}$ in the pullback, preserved by $\iota$.
+Thus $\iota$ is monadic, $\Pc_{S} \simeq \Alg_{T}(\D)$ over $\D$, and since $\iota$ is a monomorphism the fibres of $\Alg_{T}(\D) \to \D$ are empty or contractible, non-empty exactly over the $S$-local objects.
 \end{proof}
 
 \begin{rmk}
 \label{rmk:eilenberg-moore-enriched}
-\Cref{thm:2dloc-local}(2) identifies $\Pc_{S}$ with $\Alg_{T}(\D)$ as $\infty$-categories. The $(\infty,2)$-category of $T$-algebras (the Eilenberg--Moore object of $T$ in the $(\infty,2)$-category of $(\infty,2)$-categories) has hom-categories the equalizers of $\Hom_{\D}(d,d') \rightrightarrows \Hom_{\D}(Td,d')$, $f \mapsto f a$, $f \mapsto a' T(f)$; since $T$ will turn out to be lax-idempotent (\cref{thm:2dloc-kz}), these are again the full subcategories of $S$-local morphisms, so the identification holds at the level of $(\infty,2)$-categories as well.
-\todo{Write out the comparison of the enriched Eilenberg--Moore object with $\Pc_{S}$.}
+\Cref{thm:2dloc-local}(2) identifies $\Pc_{S}$ with $\Alg_{T}(\D)$ as $\infty$-categories. For $2$-morphisms: if $f,g\colon \iota p \to \iota q$ are $S$-local, then every $2$-morphism $\alpha\colon f \Rightarrow g$ is an algebra $2$-morphism, i.e.\ $a_{q}T(\alpha) = \alpha a_{p}$ as $2$-morphisms $a_{q}T(f) \simeq fa_{p} \Rightarrow ga_{p} \simeq a_{q}T(g)$, where $a_{p} = \iota\varepsilon_{p}$. Indeed both sides are $2$-morphisms between $S$-local $1$-morphisms $T\iota p \to \iota q$, and both restrict along $\eta_{\iota p}$ to $\alpha$; restriction along $\eta_{\iota p}$ is an equivalence $\Hom_{\Pc_{S}}(L\iota p,q) \simeq \Hom_{\D}(\iota p,\iota q)$ by the adjunction, and $\Pc_{S}$ is locally full. This is a computation in $\htwo\D$. So the $(\infty,2)$-category of $T$-algebras, strong morphisms and algebra $2$-morphisms has the same hom-categories as $\Pc_{S}$.
+\todo{Compare with the Eilenberg--Moore object of \cite{riehlverity2016adjunctions,haugseng2021laxmonads}.}
 \end{rmk}
 
 \begin{rmk}
 \label{rmk:2dloc-compare-bousfield}
 Compare with \cref{prop:bousfield-pushout}: there the local objects are those $c$ for which $s^{*}$ is an \emph{equivalence}, here those for which $s^{*}$ is a \emph{right adjoint}.
 The Beck--Chevalley condition on morphisms has no one-dimensional counterpart, because an inverse, unlike an adjoint, is preserved by every square.
-This condition is exactly what prevents $\iota$ from being fully faithful, and hence $T$ from being idempotent: the monad $T$ remembers, on $\Hom(Td,d')$, the non-local morphisms as well.
+This condition is exactly what prevents $\iota$ from being fully faithful, and hence $T$ from being idempotent: in general $L\iota p \not\simeq p$, because $\Hom_{\Pc_{S}}(L\iota p,q) \simeq \Hom_{\D}(\iota p,\iota q)$ also sees the non-local morphisms.
 \end{rmk}

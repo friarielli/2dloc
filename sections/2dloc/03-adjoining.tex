@@ -24,15 +24,22 @@ The universal property of the pushout and \eqref{eq:free-univ} give at once:
 For $\D \in \tprl$, $S$ as above and $\E \in \tprl$, restriction along $L\colon \D \to \D\radj{S}$ identifies $\func^{L}_{\Cat}(\D\radj{S},\E)$ with the sub-$(\infty,2)$-category of $\func^{L}_{\Cat}(\D,\E)$ whose
 \begin{itemize}
 \item objects are the $\Cat$-linear left adjoints $F\colon \D \to \E$ such that $F(s)$ is a left adjoint in $\E$ for every $s \in S$;
-\item $1$-morphisms $F \Rightarrow G$ are the enriched natural transformations $\alpha$ such that for every $(s\colon x \to y) \in S$ the square $\alpha_{s}\colon G(s)\alpha_{x} \simeq \alpha_{y}F(s)$ satisfies the Beck--Chevalley condition, i.e.\ its mate $\alpha_{x}F(s)^{R} \Rightarrow G(s)^{R}\alpha_{y}$ is invertible;
+\item $1$-morphisms $F \Rightarrow G$ are the enriched natural transformations $\alpha$ such that for every $(s\colon x \to y) \in S$ the lax square
+\[
+\begin{tikzcd}
+F(x) \ar[r, "\alpha_{x}"] \ar[d, "F(s)"'] & G(x) \ar[d, "G(s)"] \ar[dl, Rightarrow, shorten=3mm, "\alpha_{s}^{-1}"'] \\
+F(y) \ar[r, "\alpha_{y}"'] & G(y)
+\end{tikzcd}
+\]
+(the transpose of the naturality square of $\alpha$ at $s$, with $2$-morphism $\alpha_{s}^{-1}\colon G(s)\alpha_{x} \simeq \alpha_{y}F(s)$) is right Beck--Chevalley, i.e.\ its right mate $\alpha_{x}F(s)^{R} \Rightarrow G(s)^{R}\alpha_{y}$ is invertible;
 \item $2$-morphisms are all modifications.
 \end{itemize}
 The same holds for $\A\radj{S}$ with $\func(\A,\E)$ in place of $\func^{L}_{\Cat}(\D,\E)$, for every $(\infty,2)$-category $\E$.
-For $\ladj{S}$ replace ``left adjoint'' by ``right adjoint'' and use the other mate.
+For $\ladj{S}$, replace ``$F(s)$ is a left adjoint'' by ``$F(s)$ is a right adjoint'' and the condition on $1$-morphisms by: the naturality square of $\alpha$ at $s$, with $F(s)$, $G(s)$ horizontal and $2$-morphism $\alpha_{s}\colon \alpha_{y}F(s) \simeq G(s)\alpha_{x}$, is left Beck--Chevalley.
 \end{prop}
 
 \begin{proof}
-By \eqref{eq:free-univ} and the universal property of the pushout, $\func^{L}_{\Cat}(\D\radj{S},\E)$ is the pullback of $\func^{L}_{\Cat}(\D,\E) \to \prod_{S}\func(\Delta^{1},\E) \leftarrow \prod_{S}\func(\Adj,\E)$, where the second map is $\prod \ell^{*}$. The description of the pullback is \cref{lem:mates} below.
+By \eqref{eq:free-univ} and the universal property of the pushout, $\func^{L}_{\Cat}(\D\radj{S},\E)$ is the pullback of $\func^{L}_{\Cat}(\D,\E) \to \prod_{S}\func(\Delta^{1},\E) \leftarrow \prod_{S}\func(\Adj,\E)$, where the second map is $\prod \ell^{*}$. The description of the pullback is \cref{lem:mates} below, applied to $\E$ and to the functor $\Delta^{1} \to \func^{L}_{\Cat}(\D,\E)$, $0 \to 1 \mapsto (F \Rightarrow G)$, evaluated at $s$.
 \end{proof}
 
 \begin{rmk}
@@ -48,6 +55,14 @@ For this reason we treat only $\radj{S}$ in what follows.
 \item $\Edge\radj{e} \simeq \Free(\Adj)$ for the generic arrow $e$, and $(\Delta^{1})\radj{e} \simeq \Adj$.
 \item For a small $(\infty,2)$-category $\A$ and $S$ all $1$-morphisms, $\A\radj{S}$ is the free $(\infty,2)$-category with right adjoints on $\A$. For $\A$ an $(\infty,1)$-category this is the $(\infty,2)$-category of spans studied in \cite{haugseng2018iteratedspans,cnossenlenzlinskens2025universal}; see \cref{rmk:2dloc-6ff}.
 \todo{Check which of these references proves the universal property in this form.}
-\item Let $\D = \Cat$ with $\Cat$ acting by products, and let $S = \{u\}$ for a functor $u\colon X \to Y$ of small $\infty$-categories. Then, by \cref{thm:2dloc-local} below, $\Cat\radj{u}$ is the locally full sub-$(\infty,2)$-category of $\Cat$ on those $\infty$-categories $\C$ for which $u^{*}\colon \func(Y,\C) \to \func(X,\C)$ admits a left adjoint $u_{!}$ (left Kan extension along $u$), with $1$-morphisms the functors commuting with $u_{!}$.
+\item Let $\D = \Cat$ with $\Cat$ acting by products, and let $S = \{u\}$ for a functor $u\colon X \to Y$ of small $\infty$-categories. Then, by \cref{thm:2dloc-local} below, $\Cat\radj{u}$ is the locally full sub-$(\infty,2)$-category of $\Cat$ on those $\infty$-categories $\C$ for which $u^{*}\colon \func(Y,\C) \to \func(X,\C)$ admits a left adjoint $u_{!}$, with $1$-morphisms the functors $F\colon \C \to \C'$ for which the commutative square
+\[
+\begin{tikzcd}
+\func(Y,\C) \ar[r, "u^{*}"] \ar[d, "F_{*}"'] & \func(X,\C) \ar[d, "F_{*}"] \ar[dl, Rightarrow, shorten=3mm, "="'] \\
+\func(Y,\C') \ar[r, "u^{*}"'] & \func(X,\C')
+\end{tikzcd}
+\]
+is left Beck--Chevalley, i.e.\ $u_{!}F_{*} \Rightarrow F_{*}u_{!}$ is invertible.
+Beware that $u_{!}$ need not be computed by the pointwise formula: for $u\colon \{1\} \to \Delta^{1}$, a space $\C$ with two points is $u$-local, since $u^{*}$ is an equivalence, but a pointwise left Kan extension along $u$ would require an initial object of $\C$.
 \end{enumerate}
 \end{exmp}

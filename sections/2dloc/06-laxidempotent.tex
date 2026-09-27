@@ -1,88 +1,78 @@
-\subsection{The monad is lax-idempotent}
+\subsection{Lax-idempotence}
 \label{subsec:2dloc-kz}
 
 \begin{defi}
 \label{def:lax-idempotent}
-Let $T$ be a $\Cat$-enriched monad on an $(\infty,2)$-category $\D$, with unit $\eta$.
-$T$ is \emph{lax-idempotent} if for every $T$-algebra $(d,a\colon Td \to d)$ the structure map is left adjoint to the unit, $a \dashv \eta_{d}$, with counit the algebra identity $a\eta_{d} \simeq \mathrm{id}_{d}$.
+Let $T$ be an enriched monad on an $(\infty,2)$-category $\D$ with unit $\eta$ and multiplication $\mu$, as in (I4).
+$T$ is \emph{lax-idempotent} if for every $T$-algebra $(d,a\colon Td \to d)$ the structure map is left adjoint to the unit, $a \dashv \eta_{d}$, with counit the identification $a\eta_{d} \simeq \mathrm{id}_{d}$.
 It is \emph{colax-idempotent} if instead $\eta_{d} \dashv a$ with unit $\mathrm{id}_{d} \simeq a\eta_{d}$.
 \end{defi}
 
-Lax-idempotent monads are Kock's KZ-doctrines \cite{kock1995monads}; the terminology is that of Kelly--Lack \cite{kellylack1997propertylike}, who show that for a lax-idempotent $T$ algebra structures are unique when they exist and every $1$-cell between algebras carries a unique lax $T$-morphism structure.
-Some authors use the opposite convention; with ours, the free cocompletion monad $\C \mapsto \Free(\C)$ on $\Cat$ is lax-idempotent, since for a cocomplete $\C$ the structure map $\colim\colon \Free(\C) \to \C$ is left adjoint to the Yoneda embedding.
-Idempotent monads are both lax- and colax-idempotent.
+By \cref{def:adjunction} this is a condition in $\htwo\D$.
+Lax-idempotent monads are Kock's KZ-doctrines \cite{kock1995monads}, with the terminology of Kelly--Lack \cite{kellylack1997propertylike}; with our convention the free cocompletion monad on $\Cat$ is lax-idempotent, since the structure map $\colim\colon \Free(\C) \to \C$ of a cocomplete $\C$ is left adjoint to the Yoneda embedding. Idempotent monads are both lax- and colax-idempotent.
 
-Throughout this subsection $\D \in \tprl$, $S$ is a set of $1$-morphisms of $\D$, $\Pc = \Pc_{S}$, $L \dashv \iota$ and $T = \iota L$ are as in \cref{thm:2dloc-local}, and for $p \in \Pc$ we write $a_{p} := \iota(\varepsilon_{p})\colon T\iota p \to \iota p$ for the structure map of the algebra $\iota p$.
-Since $\iota$ is \lff{}, we regard $\Hom_{\Pc}(Ld,q)$ as the full subcategory of $\Hom_{\D}(Td,\iota q)$ on the $S$-local morphisms; by \cref{thm:2dloc-local}(2), restriction along $\eta_{d}$ restricts to an equivalence $\Hom_{\Pc}(Ld,q) \simeq \Hom_{\D}(d,\iota q)$.
-For $h\colon d \to \iota q$ we write $h^{\sharp} := a_{q} \circ T(h) \in \Hom_{\Pc}(Ld,q)$ for the corresponding $S$-local morphism, so that $h^{\sharp}\eta_{d} \simeq h$.
+Throughout this subsection $\D \in \tprl$, $S$, $\Pc = \Pc_{S}$, $L \dashv \iota$ and $T = \iota L$ are as in \cref{thm:2dloc-local}. For $p \in \Pc$ we write $a_{p} := \iota(\varepsilon_{p})\colon T\iota p \to \iota p$, and for $h\colon d \to \iota q$ we write $h^{\sharp} := a_{q}T(h)$ for the $S$-local $1$-morphism $Td \to \iota q$ corresponding to $h$ under $\Hom_{\Pc}(Ld,q) \simeq \Hom_{\D}(d,\iota q)$; thus $h^{\sharp}\eta_{d} \simeq h$.
 
 \begin{lem}
 \label{lem:kz-criteria}
 The following are equivalent.
 \begin{enumerate}
 \item[(a)] $T$ is lax-idempotent.
-\item[(b)] For every $p \in \Pc$ there is a $2$-cell $\theta_{p}\colon \mathrm{id}_{T\iota p} \Rightarrow \eta_{\iota p}a_{p}$ with $\theta_{p}\eta_{\iota p} = \mathrm{id}_{\eta_{\iota p}}$ and $a_{p}\theta_{p} = \mathrm{id}_{a_{p}}$.
-\item[(c)] For every $d \in \D$ and $q \in \Pc$, the full subcategory $\Hom_{\Pc}(Ld,q) \subset \Hom_{\D}(Td,\iota q)$ is coreflective, with coreflection of $g$ given by $(g\eta_{d})^{\sharp}$: for every $g\colon Td \to \iota q$ there is a $2$-cell $c_{g}\colon (g\eta_{d})^{\sharp} \Rightarrow g$ such that composition with $c_{g}$ induces an equivalence $\Hom(f,(g\eta_{d})^{\sharp}) \simeq \Hom(f,g)$ for every $S$-local $f\colon Td \to \iota q$.
+\item[(b)] For every $p \in \Pc$ there is a $2$-morphism $\theta_{p}\colon \mathrm{id}_{T\iota p} \Rightarrow \eta_{\iota p}a_{p}$ with $\theta_{p}\eta_{\iota p} = \mathrm{id}_{\eta_{\iota p}}$ and $a_{p}\theta_{p} = \mathrm{id}_{a_{p}}$.
+\item[(c)] For every $d \in \D$ there is a $2$-morphism $\delta_{d}\colon T(\eta_{d}) \Rightarrow \eta_{Td}$, natural in $d$, with $\delta_{d}\eta_{d} = \mathrm{id}$ and $\mu_{d}\delta_{d} = \mathrm{id}$.
 \end{enumerate}
 \end{lem}
 
 \begin{proof}
-(a)$\Leftrightarrow$(b): by \cref{thm:2dloc-local}(2) every $T$-algebra is of the form $(\iota p,a_{p})$. An adjunction $a_{p} \dashv \eta_{\iota p}$ whose counit is the identity $a_{p}\eta_{\iota p} = \mathrm{id}$ is the same thing as a unit $\theta_{p}\colon \mathrm{id} \Rightarrow \eta_{\iota p}a_{p}$ satisfying the two triangle identities, which are the two equations in (b).
-
-(b)$\Rightarrow$(c): Let $g\colon Td \to \iota q$. Using $\mu_{d} = a_{Ld}$ and $\theta_{Ld}\colon \mathrm{id}_{TTd} \Rightarrow \eta_{Td}\mu_{d}$, define
-\[
-\gamma_{g}\colon a_{q}T(g) \xRightarrow{\ a_{q}T(g)\theta_{Ld}\ } a_{q}T(g)\eta_{Td}\mu_{d} = a_{q}\eta_{\iota q}g\mu_{d} = g\mu_{d}
-\]
-and $c_{g} := \gamma_{g}T(\eta_{d})\colon (g\eta_{d})^{\sharp} = a_{q}T(g)T(\eta_{d}) \Rightarrow g\mu_{d}T(\eta_{d}) = g$.
-We check that $g \mapsto (g\eta_{d})^{\sharp}$ with counit $c_{g}$ is right adjoint to the inclusion of $\Hom_{\Pc}(Ld,q)$, i.e.\ that for $S$-local $f$ the map $\Hom(f,(g\eta_{d})^{\sharp}) \to \Hom(f,g)$, $\alpha \mapsto c_{g}\alpha$, is an equivalence. Since $\eta_{d}^{*}$ is an equivalence on $\Hom_{\Pc}(Ld,q)$ and $\eta_{d}^{*}((g\eta_{d})^{\sharp}) = g\eta_{d}$, it suffices to show that $\eta_{d}^{*}\colon \Hom(f,g) \to \Hom(f\eta_{d},g\eta_{d})$ is an equivalence with inverse $\beta \mapsto c_{g}\circ\beta^{\sharp}$, where $\beta^{\sharp}\colon f \Rightarrow (g\eta_{d})^{\sharp}$ denotes the $2$-cell corresponding to $\beta$.
-First, $\eta_{d}^{*}(c_{g}) = \gamma_{g}T(\eta_{d})\eta_{d} = \gamma_{g}\eta_{Td}\eta_{d} = a_{q}T(g)(\theta_{Ld}\eta_{Td})\eta_{d} = \mathrm{id}_{g\eta_{d}}$ by naturality of $\eta$ and the first identity in (b); hence $\eta_{d}^{*}(c_{g}\beta^{\sharp}) = \beta$.
-Second, for $\alpha\colon f \Rightarrow g$ we must show $c_{g}\circ(\alpha\eta_{d})^{\sharp} = \alpha$. Both sides are $2$-cells $f \Rightarrow g$; by naturality of $c$ in $g$ (which follows from the naturality of $\theta$, i.e.\ from (b) applied to $2$-cells) we have $c_{g}\circ(\alpha\eta_{d})^{\sharp} = \alpha\circ c_{f}$, so it suffices to show $c_{f} = \mathrm{id}_{f}$ for $S$-local $f$. Writing $f = h^{\sharp} = a_{q}T(h)$ with $h = f\eta_{d}$, and using the algebra axiom $a_{q}T(a_{q}) = a_{q}\mu_{\iota q}$ and naturality of $\mu$,
-\[
-c_{f} = a_{q}T(a_{q})TT(h)\theta_{Ld}T(\eta_{d}) = a_{q}\mu_{\iota q}TT(h)\theta_{Ld}T(\eta_{d}) = a_{q}T(h)(\mu_{d}\theta_{Ld})T(\eta_{d}) = \mathrm{id}_{f},
-\]
-by the second identity in (b) for $p = Ld$.
-
-(c)$\Rightarrow$(b): Take $d = \iota p$, $q = L\iota p$ and $g = \eta_{\iota p}a_{p}\colon T\iota p \to T\iota p$. Then $g\eta_{\iota p} = \eta_{\iota p}$, so $(g\eta_{\iota p})^{\sharp} = \mathrm{id}_{T\iota p}$, and we set $\theta_{p} := c_{g}\colon \mathrm{id} \Rightarrow \eta_{\iota p}a_{p}$.
-Since $\eta^{*}\colon \Hom(\mathrm{id},\mathrm{id}) \to \Hom(\eta,\eta)$ is an equivalence sending the unit $\mathrm{id}$ to $\mathrm{id}$, and the triangle identity of the coreflection reads $\eta^{*}(c_{g}) \circ \mathrm{id} = \mathrm{id}$, we get $\theta_{p}\eta_{\iota p} = \mathrm{id}$.
-Finally $a_{p}\theta_{p}\colon a_{p} \Rightarrow a_{p}\eta_{\iota p}a_{p} = a_{p}$ is a $2$-cell between $S$-local morphisms $L\iota p \to p$ whose restriction along $\eta_{\iota p}$ is $a_{p}(\theta_{p}\eta_{\iota p}) = \mathrm{id}$; since $\eta_{\iota p}^{*}$ is an equivalence on $\Hom_{\Pc}(L\iota p,p)$, $a_{p}\theta_{p} = \mathrm{id}$.
+All three are statements about the pseudomonad induced by $T$ on the bicategory $\htwo\D$.
+(a)$\Leftrightarrow$(b): by \cref{thm:2dloc-local}(2) every $T$-algebra is of the form $(\iota p,a_{p})$, and an adjunction $a_{p} \dashv \eta_{\iota p}$ with counit the identity is the same as a unit $\theta_{p}$ satisfying the two triangle identities, which are the two equations in (b).
+(a)$\Leftrightarrow$(c) is Kock's characterization of KZ-doctrines \cite{kock1995monads}, in the form for pseudomonads of \cite{marmolejo1997doctrines}: (c) is equivalent to $T\eta_{d} \dashv \mu_{d}$, and to $\mu_{d} \dashv \eta_{Td}$, i.e.\ to (a) for the free algebras, which implies (a) for all algebras.
+\todo{Check the orientation conventions in \cite{kock1995monads,marmolejo1997doctrines} against ours.}
 \end{proof}
 
-\begin{thm}
-\label{thm:2dloc-kz}
-The monad $T = \iota L$ of \cref{thm:2dloc-local} is lax-idempotent. Dually, the monad obtained by freely adjoining \emph{left} adjoints to $S$ is colax-idempotent.
-\end{thm}
-
-\begin{proof}
-By \cref{lem:kz-criteria} it suffices to verify criterion (c): for $g\colon Td \to \iota q$, the $2$-cells from $S$-local morphisms to $g$ are corepresented by $(g\eta_{d})^{\sharp}$.
-The second statement follows from the first by \cref{rmk:adjoin-duality}, since $(-)^{\mathrm{co}}$ exchanges left and right adjoints in hom-categories.
-
-\emph{The case $\D = \Cat$.}
-Let $S = \{u_{i}\colon X_{i} \to Y_{i}\}$. By \cref{ex:adjoin-basic}(3), $\Pc$ consists of the $\infty$-categories admitting left Kan extensions along every $u_{i}$, i.e.\ colimits weighted by the weights $\Phi := \{Y_{i}(u_{i}(-),y)\colon X_{i}\opcat \to \Spc\}_{i,\,y \in Y_{i}}$, and $S$-local functors are the $\Phi$-cocontinuous ones.
-The reflector $L$ is therefore the free $\Phi$-cocompletion, which by \cite[Thm.~5.35]{kelly1982basic} can be taken to be the closure $\Phi(d) \subset \Free(d)$ of the representables under $\Phi$-weighted colimits, with $\eta_{d}$ the Yoneda embedding $y\colon d \to \Phi(d)$.
-\todo{Kelly's theorem is for enriched $1$-categories; the $\infty$-categorical version follows the same transfinite argument as \cite[5.3.6.2]{htt}. Write this out or find a reference.}
-For $q \in \Pc$ the structure map $a_{q}\colon \Phi(q) \to q$ is the $\Phi$-cocontinuous extension of $\mathrm{id}_{q}$, i.e.\ $a_{q}(F) = \colim(F)$ is the weighted colimit of $F$, which exists for $F \in \Phi(q)$ by induction over the closure; and for such $F$ and $c \in q$ we have, again by induction over the closure and since weighted colimits in $\Free(q)$ are computed pointwise,
-\[
-\Hom_{q}\bigl(a_{q}(F),c\bigr) \simeq \Hom_{\Free(q)}\bigl(F,y(c)\bigr) = \Hom_{\Phi(q)}\bigl(F,\eta_{q}(c)\bigr).
-\]
-Thus $a_{q} \dashv \eta_{q}$, with counit $a_{q}\eta_{q} = \mathrm{id}$ since $y$ is fully faithful. This is condition (a) of \cref{lem:kz-criteria}, so $T$ is lax-idempotent on $\Cat$.
-
-\emph{The general case.}
-\todo{The verification of (c) for a general $\D \in \tprl$ requires an explicit construction of the reflector $L$, e.g.\ a two-dimensional small object argument attaching, for $s\colon x \to y$ in $S$ and $h\colon x \to d$, the cylinder $(\Delta^{1} \otimes x) \sqcup_{x} y$ and then forcing the new lax square to be initial. The formal properties used in \cref{thm:2dloc-local} do not suffice: all three conditions of \cref{lem:kz-criteria} concern $2$-cells in $\D$ whose target is a \emph{non-local} morphism out of a free object $Td$, and these are not controlled by the universal property of $L$.}
-\end{proof}
+Note that in (b) and (c) the source of the $2$-morphism is $S$-local ($\mathrm{id}_{T\iota p}$, resp.\ $T(\eta_{d}) = (\eta_{Td}\eta_{d})^{\sharp}$), while its target ($\eta_{\iota p}a_{p}$, resp.\ $\eta_{Td}$) is not. The universal property of $L$ only controls $2$-morphisms between $S$-local $1$-morphisms, so neither (b) nor (c) is a formal consequence of \cref{thm:2dloc-local}. Indeed, the $\infty$-categories with finite products also form a locally full sub-$(\infty,2)$-category of $\Cat$, monadic with property-like algebras, but the corresponding monad is colax-idempotent. What distinguishes our situation is that the new $1$-morphisms of $\D\radj{S}$ are \emph{right adjoints} of the $s \in S$.
 
 \begin{rmk}
-\label{rmk:2dloc-kz-intuition}
-Condition (c) is the precise sense in which $\D\radj{S}$ is a ``lax localization''. Every morphism $g\colon Td \to \iota q$ out of a free object has a best $S$-local approximation $(g\eta_{d})^{\sharp} \Rightarrow g$, namely the $S$-local extension of its restriction to $d$. In $\Cat$, for $S = \{\emptyset \to \mathrm{pt}\}$ (adjoining initial objects), $Td = d^{\triangleleft}$, and for $g\colon d^{\triangleleft} \to q$ the approximation sends the cone point to the initial object of $q$; the $2$-cell $c_{g}$ is the unique map $\emptyset_{q} \to g(\text{cone point})$.
-In the one-dimensional situation of \cref{prop:bousfield-pushout} the comparison $2$-cell is invertible, every morphism out of $Td = LC$ is local, and the monad is idempotent.
+\label{rmk:kz-coreflection}
+If $T$ is lax-idempotent, then for all $d \in \D$ and $q \in \Pc$ the full subcategory $\Hom_{\Pc}(Ld,q) \subset \Hom_{\D}(Td,\iota q)$ is coreflective, with coreflection $g \mapsto (g\eta_{d})^{\sharp}$ and counit $c_{g}\colon (g\eta_{d})^{\sharp} = a_{q}T(g)T(\eta_{d}) \xRightarrow{a_{q}T(g)\delta_{d}} a_{q}T(g)\eta_{Td} \simeq a_{q}\eta_{\iota q}g \simeq g$.
+Thus every $1$-morphism $g$ out of a free object has a best $S$-local approximation, the $S$-local extension of its restriction to $d$. The identities $c_{g}\eta_{d} = \mathrm{id}$ and $c_{f} = \mathrm{id}$ for $S$-local $f$ follow from (c); since $c$ is a natural transformation of functors $\Hom_{\D}(Td,\iota q) \to \Hom_{\D}(Td,\iota q)$, the criterion \cite[5.2.2.8]{htt} upgrades them to the statement on mapping spaces.
+\end{rmk}
+
+\begin{conj}
+\label{conj:2dloc-kz}
+The monad $T = \iota L$ of \cref{thm:2dloc-local} is lax-idempotent. Dually, the monad obtained by freely adjoining \emph{left} adjoints to $S$ is colax-idempotent.
+\end{conj}
+
+The second statement follows from the first by \cref{rmk:adjoin-duality}. We collect the evidence.
+
+\begin{exmp}
+\label{ex:kz-initial}
+Let $\D = \Cat$ and $S = \{\emptyset \to \mathrm{pt}\}$. Then $s^{*}\colon \func(\mathrm{pt},\C) \to \func(\emptyset,\C) = \mathrm{pt}$ has a left adjoint if and only if $\C$ has an initial object, and a functor is $S$-local if and only if it preserves initial objects. The reflection is $L\C = \C^{\triangleleft}$ with $\eta$ the inclusion, and for $\C \in \Pc$ the structure map $a\colon \C^{\triangleleft} \to \C$ sends the cone point $-\infty$ to the initial object $\emptyset$. Then $a \dashv \eta$: $\Hom_{\C}(a(-\infty),c) = \Hom_{\C}(\emptyset,c) \simeq \mathrm{pt} \simeq \Hom_{\C^{\triangleleft}}(-\infty,c)$, and $\theta$ is the unique morphism $-\infty \to \emptyset$. So \cref{conj:2dloc-kz} holds here.
+\end{exmp}
+
+\begin{rmk}[the universal case]
+\label{rmk:kz-universal}
+For $\D = \Free(\A)$, $L = j_{!}$ and $\iota = j^{*}$ for the lax epimorphism $j\colon \A \to \B := \A\radj{S}$, and $T = j^{*}j_{!}$ preserves colimits. So $\delta$ in \cref{lem:kz-criteria}(c) is determined by its values on representables, where it is a family of morphisms $[m,\mathrm{id}_{ja}] \to [\mathrm{id}_{ja'},m]$ in the coends $\int^{a''}\Hom_{\B}(ja',ja'') \times \Hom_{\B}(ja'',ja)$, natural in $m \in \Hom_{\B}(ja',ja)$.
+For $\A = \Delta^{1}$, $\B = \Adj$ and $m = r$, such a morphism is
+\[
+[r,\mathrm{id}_{-}] \xrightarrow{(r,\eta)} [r,rl] \simeq [lr,r] \xrightarrow{(\varepsilon,r)} [\mathrm{id}_{+},r],
+\]
+using the coend relation for $l = j(0 \to 1)$. It uses the unit and the counit in the only direction in which they exist, and this is where the lax, rather than colax, direction comes from. Turning this into a proof requires a description of the hom-categories of $\A\radj{S}$, e.g.\ by the zig-zag formula of \cite{abellan2026bifibrations}, and then passing from presheaf categories to general $\D \in \tprl$.
+\todo{Prove \cref{conj:2dloc-kz}.}
+\end{rmk}
+
+\begin{rmk}
+\label{rmk:kz-not-pointwise}
+For $\D = \Cat$ one might try to identify $L$ with a free cocompletion under the colimits computing left Kan extensions along the $s \in S$, and deduce \cref{conj:2dloc-kz} from the lax-idempotence of free cocompletions. This fails: $S$-local objects are those admitting (global) left Kan extensions, which need not be pointwise, see \cref{ex:adjoin-basic}(3).
 \end{rmk}
 
 \begin{rmk}
 \label{rmk:2dloc-two-sided}
-If one adjoins right adjoints to a set $S_{1}$ and left adjoints to a set $S_{2}$ simultaneously (pushout along $\Free(\ell)$ on the $S_{1}$-summands and $\Free(\rho)$ on the $S_{2}$-summands), \cref{thm:2dloc-local} goes through verbatim: the localization is the locally full sub-$(\infty,2)$-category on objects for which $s^{*}$ is a right adjoint for $s \in S_{1}$ and a left adjoint for $s \in S_{2}$, and Beck--Chevalley morphisms for both, and the resulting monad is property-like in the sense of Kelly--Lack. It is in general neither lax- nor colax-idempotent, just as the monad ``initial and terminal object'' on $\Cat$ is not.
+If one adjoins right adjoints to a set $S_{1}$ and left adjoints to a set $S_{2}$ simultaneously (pushout along $\Free(\ell)$ on the $S_{1}$-summands and $\Free(\rho)$ on the $S_{2}$-summands), \cref{thm:2dloc-local} goes through verbatim, with both Beck--Chevalley conditions of \cref{lem:mates}, and the resulting monad is property-like in the sense of Kelly--Lack. It is in general neither lax- nor colax-idempotent, just as the monad ``free initial and terminal object'' on $\Cat$ is not.
 \end{rmk}
 
 \begin{rmk}
 \label{rmk:2dloc-6ff}
-For an $(\infty,1)$-category $\C$ with classes $I$, $P$ of morphisms, the universal property of six-functor formalisms of Cnossen--Lenz--Linskens \cite{cnossenlenzlinskens2025universal} says that a six-functor formalism on $(\C,I,P)$ is a functor out of $(\C\opcat)\radj{I}\ladj{P}$ (in $\prl$-valued form) in which, in addition, the Beck--Chevalley $2$-cells for the pullback squares of $\C$ are invertible. The first step is the two-dimensional localization of this section; the second is an ordinary (idempotent) localization at a set of $2$-cells. This is taken up in the next section.
+For an $(\infty,1)$-category $\C$ with classes $I$, $P$ of morphisms, the universal property of six-functor formalisms of Cnossen--Lenz--Linskens \cite{cnossenlenzlinskens2025universal} says that a six-functor formalism on $(\C,I,P)$ is a functor out of $(\C\opcat)\radj{I}\ladj{P}$ (in $\prl$-valued form) in which, in addition, the Beck--Chevalley $2$-morphisms for the pullback squares of $\C$ are invertible. The first step is the two-dimensional localization of this section; the second is an ordinary (idempotent) localization at a set of $2$-morphisms. This is taken up in the next section.
 \todo{Write the next section.}
 \end{rmk}
