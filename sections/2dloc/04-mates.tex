@@ -1,0 +1,54 @@
+\subsection{The mate lemma}
+\label{subsec:2dloc-mates}
+
+The following lemma is the two-dimensional replacement for the statement that ``the walking equivalence is contractible''.
+A $1$-morphism from $u\colon x \to y$ to $u'\colon x' \to y'$ in $\func(\Delta^{1},\E)$ is a functor $\Delta^{1} \times \Delta^{1} \to \E$, i.e.\ a commutative square with $u$, $u'$ on two opposite sides.
+
+\begin{lem}[mates]
+\label{lem:mates}
+Let $\E$ be an $(\infty,2)$-category.
+\begin{enumerate}
+\item The restriction functor $\ell^{*}\colon \func(\Adj,\E) \to \func(\Delta^{1},\E)$ is a locally full sub-$(\infty,2)$-category. Its objects are the left adjoints $u\colon x \to y$ of $\E$, and a $1$-morphism from $u$ to $u'$ lies in it if and only if the commutative square, with underlying lax square
+\[
+\begin{tikzcd}
+x \ar[r, "f_{0}"] \ar[d, "u"'] & x' \ar[d, "u'"] \ar[dl, Rightarrow, shorten=3mm, "\varphi"'] \\
+y \ar[r, "f_{1}"'] & y'
+\end{tikzcd}
+\qquad \varphi\colon u'f_{0} \simeq f_{1}u,
+\]
+is right Beck--Chevalley: $\rmate{\varphi}\colon f_{0}u^{R} \Rightarrow u'^{R}f_{1}$ is invertible.
+\item Dually, $\rho^{*}\colon \func(\Adj,\E) \to \func(\Delta^{1},\E)$ is a locally full sub-$(\infty,2)$-category whose objects are the right adjoints $u\colon x \to y$, and a $1$-morphism from $u$ to $u'$ lies in it if and only if the lax square
+\[
+\begin{tikzcd}
+x \ar[r, "u"] \ar[d, "f_{0}"'] & y \ar[d, "f_{1}"] \ar[dl, Rightarrow, shorten=3mm, "\psi"'] \\
+x' \ar[r, "u'"'] & y'
+\end{tikzcd}
+\qquad \psi\colon f_{1}u \simeq u'f_{0},
+\]
+is left Beck--Chevalley: $\lmate{\psi}\colon u'^{L}f_{1} \Rightarrow f_{0}u^{L}$ is invertible.
+\end{enumerate}
+\end{lem}
+
+\begin{proof}
+We prove (1); (2) is the same argument with the dual halves of \cref{thm:walking-adjunction,thm:adjoints-in-functor-cats}.
+For $K \in \twoCat$, the map $\mapp(K,\func(\Adj,\E)) \to \mapp(K,\func(\Delta^{1},\E))$ induced by $\ell^{*}$ is, by adjunction, the map
+\[
+\ell^{*}\colon \mapp\bigl(\Adj,\func(K,\E)\bigr) \longrightarrow \mapp\bigl(\Delta^{1},\func(K,\E)\bigr),
+\]
+which by \cref{thm:walking-adjunction}, applied to $\func(K,\E)$, is a monomorphism with image the $1$-morphisms of $\func(K,\E)$ that are left adjoints. Hence $\ell^{*}$ is a monomorphism, and we determine its image by taking $K = \Delta^{0}$, $\Delta^{1}$, $\wtc$.
+
+For $K = \Delta^{0}$ the image consists of the left adjoints of $\E$.
+For $K = \Delta^{1}$, a $1$-morphism from $u$ to $u'$ is a functor $\Delta^{1} \times \Delta^{1} \to \E$, which we now read as a $1$-morphism, in the $\ell$-direction, of $\func(\Delta^{1},\E)$ from the object $f_{0}$ to the object $f_{1}$, with components $u$, $u'$. Its naturality square in the sense of \cref{thm:adjoints-in-functor-cats} is the lax square displayed in (1). By \cref{thm:adjoints-in-functor-cats} it is a left adjoint in $\func(\Delta^{1},\E)$ if and only if $u$, $u'$ are left adjoints and this square is right Beck--Chevalley.
+For $K = \wtc$, a $2$-morphism between two $1$-morphisms $\sigma$, $\tau$ from $u$ to $u'$ is read as a $1$-morphism of $\func(\wtc,\E)$ with components $u$, $u'$, whose naturality squares at the two non-identity $1$-morphisms of $\wtc$ are the squares of $\sigma$ and $\tau$. By \cref{thm:adjoints-in-functor-cats} it is a left adjoint as soon as $\sigma$ and $\tau$ are right Beck--Chevalley. So every $2$-morphism between $1$-morphisms in the image lies in the image, i.e.\ $\ell^{*}$ is locally fully faithful.
+\end{proof}
+
+\begin{rmk}
+\label{rmk:mates-2cat}
+For $2$-categories, \cref{lem:mates} is the classical statement that a morphism of adjunctions is determined by its left adjoint part, and that the right adjoint part is the mate \cite{kellystreet1974review}. For $(\infty,2)$-categories the proof above uses only \cref{thm:walking-adjunction,thm:adjoints-in-functor-cats}; no adjunction is lifted from a homotopy $2$-category by hand.
+\end{rmk}
+
+\begin{rmk}
+\label{rmk:lax-epi}
+Following \cite{adamekelbashirsobralvelebil2001laxepi}, call a functor $j\colon \A \to \B$ of $(\infty,2)$-categories a \emph{lax epimorphism} if $j^{*}\colon \func(\B,\E) \to \func(\A,\E)$ is locally fully faithful for every $\E$, and an \emph{epimorphism} if $j^{*}$ is fully faithful for every $\E$. \Cref{lem:mates} says that $\ell$ is a lax epimorphism but not an epimorphism; the difference is exactly the Beck--Chevalley condition on $1$-morphisms.
+Since $\func(-,\E)$ turns pushouts into pullbacks and locally full sub-$(\infty,2)$-categories are stable under pullback, the pushout $\A \to \A\radj{S}$ of \cref{def:adjoin-right} is again a lax epimorphism, and $L^{*}\colon \func^{L}_{\Cat}(\D\radj{S},\E) \to \func^{L}_{\Cat}(\D,\E)$ is a locally full sub-$(\infty,2)$-category for every $\E \in \tprl$.
+\end{rmk}

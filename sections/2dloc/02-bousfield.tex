@@ -1,0 +1,30 @@
+\subsection{Recollection: Bousfield localization as a pushout}
+\label{subsec:2dloc-bousfield}
+
+We recall the one-dimensional situation in the form that we shall categorify.
+Let $\Edge_{1} := \func(\Delta^{1},\Spc) \simeq \Free(\Delta^{1})$ (in the $\Spc$-enriched sense: presheaves of spaces on $\Delta^{1} \simeq (\Delta^{1})\opcat$) be the free presentable $\infty$-category on an arrow, so that $\func^{L}(\Edge_{1},\C) \simeq \func(\Delta^{1},\C)$ for every $\C \in \prl$, and let $\Eqc := \Spc$ be the free presentable $\infty$-category on an \emph{equivalence}: the walking equivalence is a contractible $\infty$-category, since the space of data exhibiting a morphism as an equivalence is empty or contractible.
+The functor $\Delta^{1} \to \mathrm{pt}$ induces $e_{!}\colon \Edge_{1} \to \Eqc$, $(A \to B) \mapsto B$, whose right adjoint $e^{*}\colon \Spc \to \Edge_{1}$, $B \mapsto (B = B)$, is fully faithful.
+
+\begin{prop}
+\label{prop:bousfield-pushout}
+Let $\C \in \prl$ and let $S$ be a set of morphisms of $\C$, viewed as a map $S\colon \bigoplus_{S}\Edge_{1} \to \C$ in $\prl$, where $\bigoplus$ is the coproduct in $\prl$. Then:
+\begin{enumerate}
+\item The pushout
+\[
+\C[S^{-1}] := \C \sqcup_{\bigoplus_{S}\Edge_{1}} \textstyle\bigoplus_{S}\Eqc
+\]
+in $\prl$ has the universal property $\func^{L}(\C[S^{-1}],\D) \simeq \{F \in \func^{L}(\C,\D) : F(s) \text{ invertible for all } s \in S\}$.
+\item Passing to right adjoints, $\C[S^{-1}]$ is the pullback $\C \times_{\prod_{S}\Edge_{1}} \prod_{S}\Spc$ in $\Cat$, i.e.\ the full subcategory of $\C$ on the \emph{$S$-local} objects $c$ for which $s^{*}\colon \mapp_{\C}(y,c) \to \mapp_{\C}(x,c)$ is an equivalence for every $(s\colon x \to y) \in S$. The inclusion $\iota\colon \C[S^{-1}] \hookrightarrow \C$ is right adjoint to the localization functor $L\colon \C \to \C[S^{-1}]$.
+\item $T := \iota L$ is an idempotent monad on $\C$ (its multiplication is an equivalence), and $\C[S^{-1}] \simeq \Alg_{T}(\C)$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+(1) is the universal property of the pushout, since $\func^{L}(\Edge_{1},\D) \simeq \func(\Delta^{1},\D)$ and $\func^{L}(\Eqc,\D) \simeq \D$ is the full subcategory of equivalences.
+(2): the equivalence $\prl \simeq (\prr)\opcat$ \cite[5.5.3.4]{htt} turns the pushout into a pullback in $\prr$, and the forgetful functor $\prr \to \widehat{\Cat}$ preserves limits \cite[5.5.3.18]{htt}; the right adjoint of $s\colon \Edge_{1} \to \C$ is $c \mapsto (s^{*}\colon \mapp(y,c) \to \mapp(x,c))$, and the fibre of $\Edge_{1}$ over $\Spc$ is the equivalences.
+That a colimit-preserving functor out of $\C$ has a right adjoint is the adjoint functor theorem.
+(3): $\iota$ is fully faithful, so the counit $L\iota \Rightarrow \mathrm{id}$ is an equivalence and hence so is $\mu = \iota\varepsilon L$; a fully faithful right adjoint is monadic.
+\end{proof}
+
+The categorification replaces the walking equivalence (contractible: ``being invertible is a property'') by the walking adjunction (not contractible, but ``being a left adjoint is a property'' by \cref{thm:walking-adjunction}).
+The price is that the resulting monad is no longer idempotent but only \emph{lax-idempotent}, and the localization is no longer a full subcategory but only a \emph{locally full} one. The rest of this section makes this precise.

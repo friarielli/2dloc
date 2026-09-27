@@ -1,0 +1,43 @@
+\subsection{Conventions}
+\label{subsec:2dloc-conventions}
+
+\subsubsection*{$(\infty,2)$-categories}
+Throughout, $\Cat$ denotes the $\infty$-category of small $(\infty,1)$-categories and $\Spc \subset \Cat$ the full subcategory of spaces.
+An \emph{$(\infty,2)$-category} is a $\Cat$-enriched $\infty$-category in the sense of Gepner--Haugseng \cite{gepnerhaugseng2015enriched}, and $\twoCat$ denotes the $\infty$-category of small $(\infty,2)$-categories. We work with this definition only.
+For an $(\infty,2)$-category $\A$ and objects $x,y$ we write $\Hom_{\A}(x,y) \in \Cat$ for the hom-category and $\mapp_{\A}(x,y) = \Hom_{\A}(x,y)^{\simeq}$ for the mapping space of the underlying $\infty$-category $\iota_{1}\A$.
+Via $\Spc \subset \Cat$, every $\infty$-category is an $(\infty,2)$-category; in particular $\Delta^{n}$ is. We write $\wtc$ for the \emph{walking $2$-cell}: objects $0,1$, $\Hom(0,1) = \Delta^{1}$, $\Hom(1,0) = \emptyset$, $\Hom(0,0) = \Hom(1,1) = \mathrm{pt}$; and $\bwtc \subset \wtc$ for the sub-$(\infty,2)$-category with $\Hom(0,1) = \partial\Delta^{1}$.
+
+The $\infty$-category $\twoCat$ is presentable and cartesian closed; we write $\func(\A,\B)$ for the internal hom.
+\todo{Reference for cartesian closedness in the enriched model, e.g.\ via the comparison with complete Segal spaces.}
+Its objects are functors, its $1$-morphisms $\Delta^{1} \to \func(\A,\B)$ are \emph{natural transformations} (all naturality squares commute up to \emph{invertible} $2$-morphisms), and its $2$-morphisms are modifications.
+The involution $(-)\opcat$ on $\twoCat$ reverses $1$-morphisms and $(-)^{\mathrm{co}}$ reverses $2$-morphisms.
+
+\subsubsection*{The homotopy $2$-category}
+The homotopy category functor $h\colon \Cat \to \Cat_{\leq 1}$ to ordinary categories preserves finite products, so changing enrichment along it \cite{gepnerhaugseng2015enriched} gives the \emph{homotopy $2$-category} $\htwo\A$, a $\Cat_{\leq 1}$-enriched $\infty$-category, i.e.\ a $(2,2)$-category, which we regard as a bicategory in the classical sense.
+\todo{Reference for $\Cat_{\leq 1}$-enriched $\infty$-categories $=$ bicategories.}
+It has the same objects and $1$-morphisms as $\A$, and its $2$-morphisms are equivalence classes of $2$-morphisms of $\A$. Every functor $\A \to \B$ induces a pseudofunctor $\htwo\A \to \htwo\B$.
+
+\begin{defi}
+\label{def:adjunction}
+An \emph{adjunction} $l \dashv r$ in an $(\infty,2)$-category $\A$ is an adjunction in $\htwo\A$: $1$-morphisms $l\colon x \to y$, $r\colon y \to x$ and $2$-morphisms $\eta\colon \mathrm{id}_{x} \Rightarrow rl$, $\varepsilon\colon lr \Rightarrow \mathrm{id}_{y}$ of $\A$ whose classes satisfy the triangle identities in $\htwo\A$. A $1$-morphism is a \emph{left adjoint} if it is part of an adjunction.
+\end{defi}
+
+Functors preserve adjunctions. In particular, for an object $t$ of $\A$, the functors $\Hom_{\A}(t,-)$ and $\Hom_{\A}(-,t)$ send an adjunction $l \dashv r$ to adjunctions of $\infty$-categories
+\[
+l_{*} \dashv r_{*}\colon \Hom_{\A}(t,x) \rightleftarrows \Hom_{\A}(t,y), \qquad r^{*} \dashv l^{*}\colon \Hom_{\A}(x,t) \rightleftarrows \Hom_{\A}(y,t)
+\]
+(note the reversal for precomposition); here we use that an adjunction in $\htwo\Cat$ is an adjunction of $\infty$-categories in the usual sense \cite{riehlverity2015twocategory}.
+
+\subsubsection*{What is imported from $2$-category theory}
+Many arguments below take place in homotopy $2$-categories: they assert that certain $2$-morphisms exist, or that two composites of $2$-morphisms agree up to equivalence (triangle identities, mate computations, interchange laws). Such arguments are imported from classical $2$-category theory verbatim, applied to $\htwo\A$.
+They never produce functors out of the walking adjunction, natural transformations, or monads. Whenever a statement asserts the existence or uniqueness of such homotopy-coherent data, we use one of the inputs (I1)--(I4) of \cref{subsec:2dloc-inputs}, which are stated there precisely together with the place where they are proved. In particular we never lift an adjunction from $\htwo\A$ to $\A$ by hand.
+
+\subsubsection*{Monomorphisms and locally full sub-$(\infty,2)$-categories}
+A functor $G\colon \A \to \B$ is \emph{locally fully faithful} if every $G\colon \Hom_{\A}(x,x') \to \Hom_{\B}(Gx,Gx')$ is fully faithful. It is a \emph{monomorphism} if $\mapp_{\twoCat}(K,\A) \to \mapp_{\twoCat}(K,\B)$ is a monomorphism of spaces for every $K$.
+Since $\twoCat$ is generated under colimits by $\Delta^{0}$, $\Delta^{1}$ and $\wtc$, and limits of monomorphisms of spaces are monomorphisms, it suffices to test $K \in \{\Delta^{0},\Delta^{1},\wtc\}$.
+\todo{Reference for the generation statement.}
+A \emph{locally full sub-$(\infty,2)$-category} of $\B$ is a monomorphism $G$ that is locally fully faithful; equivalently, a monomorphism $G$ such that
+\[
+\mapp(\wtc,\A) \longrightarrow \mapp(\wtc,\B) \times_{\mapp(\bwtc,\B)} \mapp(\bwtc,\A)
+\]
+is an equivalence: every $2$-morphism of $\B$ between $1$-morphisms in the image lies in the image. It is determined by a collection of objects and a collection of $1$-morphisms of $\B$, closed under equivalence, containing the identities and closed under composition.
