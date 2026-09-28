@@ -37,12 +37,22 @@ l_{\natural} \dashv r_{\natural}\colon \Hom_{\A}(t,x) \rightleftarrows \Hom_{\A}
 Arguments asserting that certain $2$-morphisms exist, or that two composites of $2$-morphisms agree (triangle identities, mate computations, interchange), take place in $\htwo\A$ and are imported verbatim from $2$-category theory.
 Existence or uniqueness of homotopy-coherent data (functors out of the walking adjunction, natural transformations, monads) is only ever deduced from the inputs (I1)--(I4) that we will collect in \cref{subsec:prelim-inputs}. In particular we never lift an adjunction from $\htwo\A$ to $\A$ by hand.
 
-\subsubsection*{Monomorphisms and locally full sub-$(\infty,2)$-categories}
-A functor $G\colon \A \to \B$ is \emph{locally fully faithful} if every $\Hom_{\A}(x,x') \to \Hom_{\B}(Gx,Gx')$ is fully faithful, and a \emph{monomorphism} if every $\mapp_{\twoCat}(K,\A) \to \mapp_{\twoCat}(K,\B)$ is a monomorphism of spaces.
-Since $\twoCat$ is generated under colimits by $\Delta^{0}$, $\Delta^{1}$, $\wtc$, and limits of monomorphisms of spaces are monomorphisms, it suffices to test these $K$.
-\todo{Reference for the generation statement.}
-A \emph{locally full sub-$(\infty,2)$-category} of $\B$ is a locally fully faithful monomorphism $G$; equivalently, a monomorphism $G$ such that
-\[
-\mapp(\wtc,\A) \longrightarrow \mapp(\wtc,\B) \times_{\mapp(\bwtc,\B)} \mapp(\bwtc,\A)
-\]
-is an equivalence. It is determined by a class of objects and a class of $1$-morphisms of $\B$, closed under equivalence and composition and containing the identities.
+\subsubsection*{Locally fully faithful functors and locally full sub-$(\infty,2)$-categories}
+We follow \cite[\S 2.6]{abellangagnahaugseng2024straightening}.
+A functor $G\colon \A \to \B$ is \emph{locally fully faithful} if every $\Hom_{\A}(x,x') \to \Hom_{\B}(Gx,Gx')$ is fully faithful, and a \emph{monomorphism} if every $\mapp_{\twoCat}(K,\A) \to \mapp_{\twoCat}(K,\B)$ is a monomorphism of spaces; it suffices to test $K = \Delta^{0}$, $\Delta^{1}$, $\wtc$ \cite[Prop.~2.6.10]{abellangagnahaugseng2024straightening}.
+Neither condition implies the other: the fold map $\mathrm{pt} \sqcup \mathrm{pt} \to \mathrm{pt}$ is locally fully faithful but not a monomorphism, and $\iota_{1}\B \to \B$ is a monomorphism but in general not locally fully faithful.
+
+By \cite[Prop.~2.6.5]{abellangagnahaugseng2024straightening}, $G$ is locally fully faithful if and only if the square
+\begin{equation}
+\label{eq:lff-square}
+\begin{tikzcd}
+\mapp(\wtc,\A) \ar[r] \ar[d] & \mapp(\wtc,\B) \ar[d] \\
+\mapp(\bwtc,\A) \ar[r] & \mapp(\bwtc,\B)
+\end{tikzcd}
+\end{equation}
+is a pullback: over a pair of parallel $1$-morphisms $f,g\colon x \to x'$ of $\A$, the map on vertical fibres is $\mapp_{\Hom_{\A}(x,x')}(f,g) \to \mapp_{\Hom_{\B}(Gx,Gx')}(Gf,Gg)$.
+If $G$ is a monomorphism, both horizontal maps in \eqref{eq:lff-square} are monomorphisms, hence so is the map from $\mapp(\wtc,\A)$ to the pullback, and \eqref{eq:lff-square} is a pullback if and only if this map is surjective on $\pi_{0}$: every $2$-morphism of $\B$ between $1$-morphisms in the image of $G$ lies in the image of $G$.
+
+A \emph{locally full inclusion} is a locally fully faithful monomorphism $G\colon \A \to \B$; equivalently, a locally fully faithful $G$ with $\A^{\simeq} \to \B^{\simeq}$ a monomorphism \cite[Def.~2.6.3, Prop.~2.6.17]{abellangagnahaugseng2024straightening}. We then say that $G$ exhibits $\A$ as a \emph{locally full sub-$(\infty,2)$-category} of $\B$. A locally full sub-$(\infty,2)$-category is determined by a class of objects and a class of $1$-morphisms of $\B$, closed under equivalence and composition and containing the identities: $\mapp(K,\A) \subset \mapp(K,\B)$ consists of the functors sending the objects and $1$-morphisms of $K$ into these classes \cite[Cor.~2.6.6]{abellangagnahaugseng2024straightening}. Conversely, every such pair of classes is the image of a locally full inclusion.
+\todo{Reference for the existence, e.g.\ in the enriched model.}
+Being locally fully faithful and being a locally full inclusion are right orthogonality conditions \cite[Prop.~2.6.5, Cor.~2.6.7]{abellangagnahaugseng2024straightening}, so both are stable under pullbacks and products.

@@ -41,7 +41,7 @@ For $\E \in \tprl$, restriction along $L$ identifies $\func^{L}_{\Cat}(\D\lrrefl
 \label{thm:2dloc-local}
 Let $\D \in \tprl$ and let $I$, $P$ be sets of $1$-morphisms of $\D$.
 \begin{enumerate}
-\item $L\colon \D \to \D\lrrefl{I}{P}$ has a right adjoint, which is a locally full sub-$(\infty,2)$-category with image $\Pc_{I,P}$. Hence $\D\lrrefl{I}{P} \simeq \Pc_{I,P}$, and $\iota\colon \Pc_{I,P} \to \D$ has the left adjoint $L$ in the sense of \cref{def:enriched-adjoint}.
+\item $L\colon \D \to \D\lrrefl{I}{P}$ has a right adjoint, which is a locally full inclusion with image $\Pc_{I,P}$. Hence $\D\lrrefl{I}{P} \simeq \Pc_{I,P}$, and $\iota\colon \Pc_{I,P} \to \D$ has the left adjoint $L$ in the sense of \cref{def:enriched-adjoint}.
 \item $T := \iota L$ is a $\Cat$-enriched monad on $\D$ and $\iota$ is monadic, so $\Pc_{I,P} \simeq \Alg_{T}(\D)$. The space of $T$-algebra structures on $d \in \D$ is empty or contractible, and non-empty if and only if $d$ is $(I,P)$-local.
 \end{enumerate}
 \end{thm}
@@ -70,7 +70,7 @@ Now
 \Hom_{\D}(s,K \pitchfork \iota q') = \func(K,\Hom_{\D}(s,\iota q'))
 \]
 has the fully faithful right adjoint $\func(K,(i^{\natural})^{R})$ for $s = i \in I$ and the fully faithful left adjoint $\func(K,(p^{\natural})^{L})$ for $s = p \in P$, and evaluation at $k \in K$ commutes with $s^{\natural}$, these adjoints, units and counits. So the mates for $g$ evaluate at $k$ to the mates for $g_{k}\colon \iota q \to \iota q'$, and $g$ is $(I,P)$-local if and only if every $g_{k}$ is, i.e.\ if and only if the corresponding functor $K \to \Hom_{\D}(\iota q,\iota q')$ factors through the full subcategory of $(I,P)$-local $1$-morphisms. By Yoneda in $K$, $\Hom_{\D\lrrefl{I}{P}}(q,q') \to \Hom_{\D}(\iota q,\iota q')$ is the inclusion of this full subcategory, i.e.\ agrees with $\Hom_{\Pc_{I,P}}(\iota q,\iota q') \subset \Hom_{\D}(\iota q,\iota q')$.
-So the enriched $\iota$ is a monomorphism (for $K = \Delta^{0}$, $\Delta^{1}$ by the first part, for $K = \wtc$ by local full faithfulness) and a locally full sub-$(\infty,2)$-category with image $\Pc_{I,P}$ (\cref{subsec:prelim-conventions}). The enriched unit of (I4) makes $L$ a left adjoint of $\iota$ in the sense of \cref{def:enriched-adjoint}.
+So the enriched $\iota$ is locally fully faithful and, by the first part for $K = \Delta^{0}$, a monomorphism on objects, i.e.\ a locally full inclusion with image $\Pc_{I,P}$ (\cref{subsec:prelim-conventions}). The enriched unit of (I4) makes $L$ a left adjoint of $\iota$ in the sense of \cref{def:enriched-adjoint}.
 
 (2) By (I4), $T = \iota L$ is enriched with enriched $\eta$ and $\mu = \iota\varepsilon L$, and on underlying $\infty$-categories it is the monad of $L \dashv \iota$.
 We check the hypotheses of Barr--Beck--Lurie \cite[4.7.3.5]{ha} for $\iota$ on underlying $\infty$-categories.
@@ -80,7 +80,7 @@ Thus $\iota$ is monadic, $\Pc_{I,P} \simeq \Alg_{T}(\D)$ over $\D$, and as $\iot
 \end{proof}
 
 The proof with $\Adj$ in place of $\Refl$ and $\Corefl$, and the pullback description of $\Pc^{\dashv}_{I,P}$ in \cref{subsec:2dloc-plain}, give $\D\lradj{I}{P} \simeq \Pc^{\dashv}_{I,P}$ with the analogous monadicity statement.
-By \cref{rmk:lax-epi}, $L^{*}\colon \func^{L}_{\Cat}(\D\lrrefl{I}{P},\E) \to \func^{L}_{\Cat}(\D,\E)$ is a locally full sub-$(\infty,2)$-category for every $\E \in \tprl$.
+By \cref{prop:adjoin-univ-pres}, $L^{*}\colon \func^{L}_{\Cat}(\D\lrrefl{I}{P},\E) \to \func^{L}_{\Cat}(\D,\E)$ is a locally full inclusion for every $\E \in \tprl$.
 
 \subsubsection*{Consequences of the plain results}
 As $\iota$ has a left adjoint, the results of \cref{subsec:2dloc-local,subsec:2dloc-plain} specialize as follows.
