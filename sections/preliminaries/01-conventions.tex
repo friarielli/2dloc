@@ -22,9 +22,15 @@ It has the objects and $1$-morphisms of $\A$, and equivalence classes of $2$-mor
 An \emph{adjunction} $l \dashv r$ in $\A$ is an adjunction in $\htwo\A$: $1$-morphisms $l\colon x \to y$, $r\colon y \to x$ and $2$-morphisms $\eta\colon \mathrm{id}_{x} \Rightarrow rl$, $\varepsilon\colon lr \Rightarrow \mathrm{id}_{y}$ whose classes satisfy the triangle identities. A \emph{left adjoint} is a $1$-morphism that is part of an adjunction.
 \end{defi}
 
+\textbf{Notation.} For a $1$-morphism $f\colon x \to y$ of $\A$ and $t \in \A$ we write
+\[
+f_{\natural} := f \circ -\colon \Hom_{\A}(t,x) \to \Hom_{\A}(t,y) \ , \qquad f^{\natural} := - \circ f\colon \Hom_{\A}(y,t) \to \Hom_{\A}(x,t)
+\]
+for postcomposition and precomposition, and $(-)^{L}$, $(-)^{R}$ for left and right adjoints, e.g.\ $(f^{\natural})^{R}$. The notation $(-)^{*}$, $(-)_{*}$, $(-)_{!}$ is reserved for restriction along functors of $(\infty,2)$-categories, such as $\ell^{*}\colon \func(\Adj,\E) \to \func(\Delta^{1},\E)$ in \cref{subsec:mates-lemma}, and for Kan extensions.
+
 Functors preserve adjunctions. In particular, for $t \in \A$ an adjunction $l \dashv r$ induces adjunctions of $\infty$-categories \cite{riehlverity2015twocategory}
 \[
-l_{*} \dashv r_{*}\colon \Hom_{\A}(t,x) \rightleftarrows \Hom_{\A}(t,y) , \qquad r^{*} \dashv l^{*}\colon \Hom_{\A}(x,t) \rightleftarrows \Hom_{\A}(y,t) \ .
+l_{\natural} \dashv r_{\natural}\colon \Hom_{\A}(t,x) \rightleftarrows \Hom_{\A}(t,y) , \qquad r^{\natural} \dashv l^{\natural}\colon \Hom_{\A}(x,t) \rightleftarrows \Hom_{\A}(y,t) \ .
 \]
 
 \subsubsection*{What is imported from $2$-category theory}

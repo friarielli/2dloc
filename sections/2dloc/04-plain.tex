@@ -4,7 +4,7 @@
 Replacing $\Refl$ and $\Corefl$ by $\Adj$ in \cref{def:adjoin} gives the pushout $\A\lradj{I}{P}$, which \emph{freely adjoins left adjoints to $I$ and right adjoints to $P$}. We write $\A\ladj{I} := \A\lradj{I}{\emptyset}$ and $\A\radj{P} := \A\lradj{\emptyset}{P}$.
 The proof of \cref{prop:adjoin-univ}, with \cref{lem:mates} in place of \cref{lem:mates-refl}, gives its universal property: that of \cref{prop:adjoin-univ} with ``right adjoint'' in place of ``reflective'' and ``left adjoint'' in place of ``coreflective''.
 
-Let $\Pc^{\dashv}_{I,P} \subset \D$ be the locally full sub-$(\infty,2)$-category on the objects for which every $i^{*}$ has a right adjoint and every $p^{*}$ a left adjoint, not necessarily fully faithful, and the $1$-morphisms of \cref{def:IP-local}.
+Let $\Pc^{\dashv}_{I,P} \subset \D$ be the locally full sub-$(\infty,2)$-category on the objects for which every $i^{\natural}$ has a right adjoint and every $p^{\natural}$ a left adjoint, not necessarily fully faithful, and the $1$-morphisms of \cref{def:IP-local}.
 The proofs of \cref{thm:local-pullback,lem:repr-refl}, with \cref{lem:mates} in place of \cref{lem:mates-refl}, show that $\Pc^{\dashv}_{I,P}$ is the pullback of $\prod_{I}\ell^{*} \times \prod_{P}\rho^{*}\colon \prod_{I \sqcup P}\func(\Adj,\Cat) \to \prod_{I \sqcup P}\func(\Delta^{1},\Cat)$ along $(R_{s})_{s}$, and that $s$ is a left adjoint if and only if $\Pc^{\dashv}_{\emptyset,\{s\}} = \D$, and a right adjoint if and only if $\Pc^{\dashv}_{\{s\},\emptyset} = \D$.
 
 \begin{exmp}
@@ -21,13 +21,13 @@ We show that plain adjoining is a special case of \cref{def:IP-local}, provided 
 \label{constr:cylinder}
 Let $s\colon x \to y$ in $\D$. A \emph{cylinder} of $s$ is a cocomma object (lax pushout) of $\mathrm{id}_{x}$ and $s$: an object $\Cyl(s)$ with $1$-morphisms $j_{s}\colon x \to \Cyl(s)$, $q_{s}\colon y \to \Cyl(s)$ and a $2$-morphism $\theta\colon j_{s} \Rightarrow q_{s}s$, such that for every $e \in \D$
 \[
-\Hom_{\D}(\Cyl(s),e) \longrightarrow (\mathrm{id} \downarrow s^{*}) \ , \qquad h \mapsto (hj_{s},hq_{s},h\theta) \ ,
+\Hom_{\D}(\Cyl(s),e) \longrightarrow (\mathrm{id} \downarrow s^{\natural}) \ , \qquad h \mapsto (hj_{s},hq_{s},h\theta) \ ,
 \]
-is an equivalence onto the comma $\infty$-category of triples $(a,b,a \to s^{*}b)$ with $a \in \Hom_{\D}(x,e)$ and $b \in \Hom_{\D}(y,e)$.
-Dually, a \emph{cocylinder} of $s$ is a cocomma object of $s$ and $\mathrm{id}_{x}$: an object $\Cyl'(s)$ with $k_{s}\colon x \to \Cyl'(s)$, $q'_{s}\colon y \to \Cyl'(s)$ and $\theta'\colon q'_{s}s \Rightarrow k_{s}$, inducing $\Hom_{\D}(\Cyl'(s),e) \simeq (s^{*} \downarrow \mathrm{id})$, the triples $(b,a,s^{*}b \to a)$.
+is an equivalence onto the comma $\infty$-category of triples $(a,b,a \to s^{\natural}b)$ with $a \in \Hom_{\D}(x,e)$ and $b \in \Hom_{\D}(y,e)$.
+Dually, a \emph{cocylinder} of $s$ is a cocomma object of $s$ and $\mathrm{id}_{x}$: an object $\Cyl'(s)$ with $k_{s}\colon x \to \Cyl'(s)$, $q'_{s}\colon y \to \Cyl'(s)$ and $\theta'\colon q'_{s}s \Rightarrow k_{s}$, inducing $\Hom_{\D}(\Cyl'(s),e) \simeq (s^{\natural} \downarrow \mathrm{id})$, the triples $(b,a,s^{\natural}b \to a)$.
 \end{defi}
 
-These equivalences are given by precomposition, hence natural in $e$, and under them $j_{s}^{*}$ and $k_{s}^{*}$ are the projections to $a$. If $\D$ is tensored over $\Cat$, then $\Cyl(s) = (\Delta^{1} \otimes x) \sqcup_{\{1\} \otimes x,\,s} y$ and $\Cyl'(s) = y \sqcup_{s,\,\{0\} \otimes x} (\Delta^{1} \otimes x)$ whenever these pushouts exist in the sense of \cref{prop:saturation-closure}(2); in particular every presentable $\D$ has all cylinders and cocylinders (\cref{subsec:2dloc-presentable}).
+These equivalences are given by precomposition, hence natural in $e$, and under them $j_{s}^{\natural}$ and $k_{s}^{\natural}$ are the projections to $a$. If $\D$ is tensored over $\Cat$, then $\Cyl(s) = (\Delta^{1} \otimes x) \sqcup_{\{1\} \otimes x,\,s} y$ and $\Cyl'(s) = y \sqcup_{s,\,\{0\} \otimes x} (\Delta^{1} \otimes x)$ whenever these pushouts exist in the sense of \cref{prop:saturation-closure}(2); in particular every presentable $\D$ has all cylinders and cocylinders (\cref{subsec:2dloc-presentable}).
 
 \begin{lem}
 \label{lem:comma-adjoint}
@@ -50,7 +50,7 @@ So lax pullbacks turn adjunctions into (co)reflections: in the comma square of $
 \label{prop:cylinder}
 Let $s\colon x \to y$ be a $1$-morphism of $\D$ with a cylinder $\Cyl(s)$.
 \begin{enumerate}
-\item For $d \in \D$, $s^{*}$ has a left adjoint if and only if $j_{s}^{*}$ has a fully faithful left adjoint. For $g\colon d \to d'$ between such objects, the square of \cref{def:IP-local} for $(g,s)$ is left Beck--Chevalley if and only if the one for $(g,j_{s})$ is.
+\item For $d \in \D$, $s^{\natural}$ has a left adjoint if and only if $j_{s}^{\natural}$ has a fully faithful left adjoint. For $g\colon d \to d'$ between such objects, the square of \cref{def:IP-local} for $(g,s)$ is left Beck--Chevalley if and only if the one for $(g,j_{s})$ is.
 \item $s$ is a left adjoint if and only if $j_{s}$ is coreflective.
 \end{enumerate}
 Dually, if $s$ has a cocylinder, the same holds for right adjoints and $k_{s}$, with $k_{s}$ reflective in (2).
@@ -62,9 +62,9 @@ as locally full sub-$(\infty,2)$-categories of $\D$.
 \end{prop}
 
 \begin{proof}
-(1) The first claim is \cref{lem:comma-adjoint} for $R = s^{*}$ and \cref{constr:cylinder}. The left adjoint of $j_{s}^{*}$ is $\lambda(a) = (a,s_{!}a,\eta_{a})$, and as the unit of $\lambda \dashv j_{s}^{*}$ is the identity, the left mate $\lambda(g_{*}a) \to g_{*}\lambda(a)$ is the map $(ga,s_{!}(ga),\eta_{ga}) \to (ga,gs_{!}a,g\eta_{a})$ with first component $\mathrm{id}_{ga}$. Its second component $\beta$ satisfies $s^{*}(\beta)\eta_{ga} \simeq g\eta_{a}$, so it is the left mate $s_{!}g_{*}a \to g_{*}s_{!}a$ for $s$. A map of $(\mathrm{id} \downarrow s^{*})$ is invertible if and only if its components are, so one mate is invertible if and only if the other is.
+(1) The first claim is \cref{lem:comma-adjoint} for $R = s^{\natural}$ and \cref{constr:cylinder}. The left adjoint of $j_{s}^{\natural}$ is $\lambda(a) = (a,(s^{\natural})^{L}a,\eta_{a})$, and as the unit of $\lambda \dashv j_{s}^{\natural}$ is the identity, the left mate $\lambda(g_{\natural}a) \to g_{\natural}\lambda(a)$ is the map $(ga,(s^{\natural})^{L}(ga),\eta_{ga}) \to (ga,g(s^{\natural})^{L}a,g\eta_{a})$ with first component $\mathrm{id}_{ga}$. Its second component $\beta$ satisfies $s^{\natural}(\beta)\eta_{ga} \simeq g\eta_{a}$, so it is the left mate $(s^{\natural})^{L}g_{\natural}a \to g_{\natural}(s^{\natural})^{L}a$ for $s$. A map of $(\mathrm{id} \downarrow s^{\natural})$ is invertible if and only if its components are, so one mate is invertible if and only if the other is.
 (2) By \cref{lem:repr-refl} and its plain version, $s$ is a left adjoint if and only if $\Pc^{\dashv}_{\emptyset,\{s\}} = \D$, and $j_{s}$ is coreflective if and only if $\Pc_{\emptyset,\{j_{s}\}} = \D$. By (1) these conditions agree.
-The dual is the same argument with $(s^{*} \downarrow \mathrm{id})$. The last claim follows from (1): both sides have the same objects and $1$-morphisms, and a locally full sub-$(\infty,2)$-category is determined by these.
+The dual is the same argument with $(s^{\natural} \downarrow \mathrm{id})$. The last claim follows from (1): both sides have the same objects and $1$-morphisms, and a locally full sub-$(\infty,2)$-category is determined by these.
 \end{proof}
 
 So every plain localization is a reflective one, at the cost of replacing $s$ by the inclusion of $x$ into the lax pushout $\Cyl(s)$ or $\Cyl'(s)$. The only hypothesis is the existence of these lax pushouts.
@@ -72,13 +72,13 @@ This is the $(\infty,2)$-categorical form of the mapping cone construction of Di
 
 \begin{exmp}
 \label{ex:adjoin-products}
-Let $\D = \Cat$ and $\nabla\colon \mathrm{pt} \sqcup \mathrm{pt} \to \mathrm{pt}$ the fold map, so that $\nabla^{*}\colon \C \to \C \times \C$ is the diagonal. Then $\Cyl(\nabla) = \{a \to c \leftarrow b\}$ and $\Cyl'(\nabla) = \{a \leftarrow c \to b\}$, and $j_{\nabla}$, $k_{\nabla}$ are the inclusions of $\{a,b\}$. Restriction $j_{\nabla}^{*}$ has the fully faithful left adjoint $(a,b) \mapsto (a \to a \sqcup b \leftarrow b)$ exactly when $\C$ has binary coproducts.
+Let $\D = \Cat$ and $\nabla\colon \mathrm{pt} \sqcup \mathrm{pt} \to \mathrm{pt}$ the fold map, so that $\nabla^{\natural}\colon \C \to \C \times \C$ is the diagonal. Then $\Cyl(\nabla) = \{a \to c \leftarrow b\}$ and $\Cyl'(\nabla) = \{a \leftarrow c \to b\}$, and $j_{\nabla}$, $k_{\nabla}$ are the inclusions of $\{a,b\}$. Restriction $j_{\nabla}^{\natural}$ has the fully faithful left adjoint $(a,b) \mapsto (a \to a \sqcup b \leftarrow b)$ exactly when $\C$ has binary coproducts.
 So $\Pc^{\dashv}_{\{\nabla\},\{\nabla\}} = \Pc_{\{k_{\nabla}\},\{j_{\nabla}\}}$ consists of the $\infty$-categories with binary products and binary coproducts, and the functors preserving both.
 \end{exmp}
 
 \subsubsection*{Closure properties}
 
-A $1$-morphism $g\colon y \to z$ is \emph{fully faithful} if every $g_{*}\colon \Hom(t,y) \to \Hom(t,z)$ is. Reflective and coreflective $1$-morphisms are fully faithful (\cref{subsec:mates-lemma}).
+A $1$-morphism $g\colon y \to z$ is \emph{fully faithful} if every $g_{\natural}\colon \Hom(t,y) \to \Hom(t,z)$ is. Reflective and coreflective $1$-morphisms are fully faithful (\cref{subsec:mates-lemma}).
 
 \begin{lem}[cancellation]
 \label{lem:ff-cancel}
@@ -87,7 +87,7 @@ In particular, if $g$ and $gf$ are coreflective, so is $f$; and if $g$ and $gf$ 
 \end{lem}
 
 \begin{proof}
-Let $\eta$, $\varepsilon$ be the unit and counit of $gf \dashv r$. As $g_{*}$ is fully faithful on $\Hom(y,y)$, there is a unique $\varepsilon'\colon frg \Rightarrow \mathrm{id}_{y}$ with $g\varepsilon' = \varepsilon g$. The triangle identities for $(\eta,\varepsilon')$ hold: $g(\varepsilon'f \cdot f\eta) = \varepsilon gf \cdot gf\eta = \mathrm{id}_{gf}$, and $g_{*}$ is faithful; and $rg\varepsilon' \cdot \eta rg = (r\varepsilon \cdot \eta r)g = \mathrm{id}_{rg}$. The dual follows by applying $(-)^{\mathrm{co}}$.
+Let $\eta$, $\varepsilon$ be the unit and counit of $gf \dashv r$. As $g_{\natural}$ is fully faithful on $\Hom(y,y)$, there is a unique $\varepsilon'\colon frg \Rightarrow \mathrm{id}_{y}$ with $g\varepsilon' = \varepsilon g$. The triangle identities for $(\eta,\varepsilon')$ hold: $g(\varepsilon'f \cdot f\eta) = \varepsilon gf \cdot gf\eta = \mathrm{id}_{gf}$, and $g_{\natural}$ is faithful; and $rg\varepsilon' \cdot \eta rg = (r\varepsilon \cdot \eta r)g = \mathrm{id}_{rg}$. The dual follows by applying $(-)^{\mathrm{co}}$.
 \end{proof}
 
 \begin{lem}
@@ -121,9 +121,9 @@ For $P = \emptyset$: coreflective $1$-morphisms have cancellation and are stable
 \end{prop}
 
 \begin{proof}
-Let $\C := \Pc_{\emptyset,P}$ and, for $z \in \D$, $h_{z} := \Hom_{\D}(z,\iota-)\colon \C \to \Cat$. A $1$-morphism $f\colon x \to y$ induces $f^{*}\colon h_{y} \Rightarrow h_{x}$ in $\func(\C,\Cat)$. As in the proof of \cref{lem:repr-refl}, \cref{thm:adjoints-in-functor-cats} shows that $f \in \overline{P}$ if and only if $f^{*}$ is a right adjoint with invertible unit.
-(1) In $\func(\C,\Cat)\opcat$, a right adjoint with invertible unit becomes a coreflective $1$-morphism, and $(gf)^{*} = f^{*}g^{*}$ becomes the composite of $(f^{*})\opcat$ followed by $(g^{*})\opcat$. So \cref{lem:ff-cancel} in $\func(\C,\Cat)\opcat$, with $(g^{*})\opcat$ coreflective and hence fully faithful, shows that $(f^{*})\opcat$ is coreflective.
-(2) For $q \in \C$, $f'^{*}\colon \Hom(d,\iota q) \to \Hom(c,\iota q)$ is the pullback of $f^{*}\colon \Hom(b,\iota q) \to \Hom(a,\iota q)$ along $g^{*}$. By \cref{lem:corefl-pullback} it has the fully faithful left adjoint $c_{0} \mapsto (c_{0},f_{!}(c_{0}g))$, which commutes with postcomposition by any $(\emptyset,P)$-local $h\colon q \to q'$ because $f_{!}$ does. So the squares $(h_{*},f'^{*})$ are left Beck--Chevalley and $f' \in \overline{P}$.
+Let $\C := \Pc_{\emptyset,P}$ and, for $z \in \D$, $h_{z} := \Hom_{\D}(z,\iota-)\colon \C \to \Cat$. A $1$-morphism $f\colon x \to y$ induces $f^{\natural}\colon h_{y} \Rightarrow h_{x}$ in $\func(\C,\Cat)$. As in the proof of \cref{lem:repr-refl}, \cref{thm:adjoints-in-functor-cats} shows that $f \in \overline{P}$ if and only if $f^{\natural}$ is a right adjoint with invertible unit.
+(1) In $\func(\C,\Cat)\opcat$, a right adjoint with invertible unit becomes a coreflective $1$-morphism, and $(gf)^{\natural} = f^{\natural}g^{\natural}$ becomes the composite of $(f^{\natural})\opcat$ followed by $(g^{\natural})\opcat$. So \cref{lem:ff-cancel} in $\func(\C,\Cat)\opcat$, with $(g^{\natural})\opcat$ coreflective and hence fully faithful, shows that $(f^{\natural})\opcat$ is coreflective.
+(2) For $q \in \C$, $f'^{\natural}\colon \Hom(d,\iota q) \to \Hom(c,\iota q)$ is the pullback of $f^{\natural}\colon \Hom(b,\iota q) \to \Hom(a,\iota q)$ along $g^{\natural}$. By \cref{lem:corefl-pullback} it has the fully faithful left adjoint $c_{0} \mapsto (c_{0},(f^{\natural})^{L}(c_{0}g))$, which commutes with postcomposition by any $(\emptyset,P)$-local $h\colon q \to q'$ because $(f^{\natural})^{L}$ does. So the squares $(h_{\natural},f'^{\natural})$ are left Beck--Chevalley and $f' \in \overline{P}$.
 \end{proof}
 
 \begin{rmk}

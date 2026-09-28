@@ -9,7 +9,7 @@ Colimits in $\iota_{1}\D$ are colimits in the $(\infty,2)$-categorical sense: $\
 \[
 \Cyl(s) = (\Delta^{1} \otimes x) \sqcup_{\{1\} \otimes x,\,s} y \ , \qquad \Cyl'(s) = y \sqcup_{s,\,\{0\} \otimes x} (\Delta^{1} \otimes x) \ ,
 \]
-with $j_{s}\colon x \simeq \{0\} \otimes x \to \Cyl(s)$ and $k_{s}\colon x \simeq \{1\} \otimes x \to \Cyl'(s)$: as $\Hom_{\D}(\Delta^{1} \otimes x,e) \simeq \func(\Delta^{1},\Hom_{\D}(x,e))$, the $\infty$-category $\Hom_{\D}(\Cyl(s),e)$ is $\func(\Delta^{1},\Hom_{\D}(x,e)) \times_{\Hom_{\D}(x,e)} \Hom_{\D}(y,e) \simeq (\mathrm{id} \downarrow s^{*})$, and likewise for $\Cyl'(s)$.
+with $j_{s}\colon x \simeq \{0\} \otimes x \to \Cyl(s)$ and $k_{s}\colon x \simeq \{1\} \otimes x \to \Cyl'(s)$: as $\Hom_{\D}(\Delta^{1} \otimes x,e) \simeq \func(\Delta^{1},\Hom_{\D}(x,e))$, the $\infty$-category $\Hom_{\D}(\Cyl(s),e)$ is $\func(\Delta^{1},\Hom_{\D}(x,e)) \times_{\Hom_{\D}(x,e)} \Hom_{\D}(y,e) \simeq (\mathrm{id} \downarrow s^{\natural})$, and likewise for $\Cyl'(s)$.
 
 \subsubsection*{The localization as a pushout}
 
@@ -58,7 +58,7 @@ For $q,q' \in \D\lrrefl{I}{P}$ and $K \in \Cat$ we get
 \func\bigl(K,\Hom_{\D\lrrefl{I}{P}}(q,q')\bigr)^{\simeq} \simeq \mapp(q,K \pitchfork q') \subset \mapp_{\D}(\iota q,K \pitchfork \iota q') \simeq \func\bigl(K,\Hom_{\D}(\iota q,\iota q')\bigr)^{\simeq} \ ,
 \]
 where by the first part the left-hand side consists of the $(I,P)$-local $g\colon \iota q \to K \pitchfork \iota q'$.
-Now $\Hom_{\D}(s,K \pitchfork \iota q') = \func(K,\Hom_{\D}(s,\iota q'))$ has the fully faithful right adjoint $\func(K,i_{*})$ for $s = i \in I$ and the fully faithful left adjoint $\func(K,p_{!})$ for $s = p \in P$, and evaluation at $k \in K$ commutes with $s^{*}$, these adjoints, units and counits. So the mates for $g$ evaluate at $k$ to the mates for $g_{k}\colon \iota q \to \iota q'$, and $g$ is $(I,P)$-local if and only if every $g_{k}$ is, i.e.\ if and only if the corresponding functor $K \to \Hom_{\D}(\iota q,\iota q')$ factors through the full subcategory of $(I,P)$-local $1$-morphisms. By Yoneda in $K$, $\Hom_{\D\lrrefl{I}{P}}(q,q') \to \Hom_{\D}(\iota q,\iota q')$ is the inclusion of this full subcategory, i.e.\ agrees with $\Hom_{\Pc_{I,P}}(q,q') \subset \Hom_{\D}(q,q')$.
+Now $\Hom_{\D}(s,K \pitchfork \iota q') = \func(K,\Hom_{\D}(s,\iota q'))$ has the fully faithful right adjoint $\func(K,(i^{\natural})^{R})$ for $s = i \in I$ and the fully faithful left adjoint $\func(K,(p^{\natural})^{L})$ for $s = p \in P$, and evaluation at $k \in K$ commutes with $s^{\natural}$, these adjoints, units and counits. So the mates for $g$ evaluate at $k$ to the mates for $g_{k}\colon \iota q \to \iota q'$, and $g$ is $(I,P)$-local if and only if every $g_{k}$ is, i.e.\ if and only if the corresponding functor $K \to \Hom_{\D}(\iota q,\iota q')$ factors through the full subcategory of $(I,P)$-local $1$-morphisms. By Yoneda in $K$, $\Hom_{\D\lrrefl{I}{P}}(q,q') \to \Hom_{\D}(\iota q,\iota q')$ is the inclusion of this full subcategory, i.e.\ agrees with $\Hom_{\Pc_{I,P}}(q,q') \subset \Hom_{\D}(q,q')$.
 So the enriched $\iota$ is a monomorphism (for $K = \Delta^{0}$, $\Delta^{1}$ by the first part, for $K = \wtc$ by local full faithfulness) and a locally full sub-$(\infty,2)$-category with image $\Pc_{I,P}$ (\cref{subsec:prelim-conventions}). The enriched unit of (I4) makes $L$ a left adjoint of $\iota$ in the sense of \cref{def:enriched-adjoint}.
 
 (2) By (I4), $T = \iota L$ is enriched with enriched $\eta$ and $\mu = \iota\varepsilon L$, and on underlying $\infty$-categories it is the monad of $L \dashv \iota$.
@@ -78,7 +78,7 @@ As $\iota$ has a left adjoint, the results of \cref{subsec:2dloc-local,subsec:2d
 \label{cor:presentable}
 Let $\D \in \tprl$ and $I$, $P$ sets of $1$-morphisms.
 \begin{enumerate}
-\item $Li$ is reflective and $Lp$ coreflective in $\D\lrrefl{I}{P}$, and $i_{*} \simeq ((Li)^{L})^{*}$, $p_{!} \simeq ((Lp)^{R})^{*}$ (\cref{prop:local-adjoint-refl}).
+\item $Li$ is reflective and $Lp$ coreflective in $\D\lrrefl{I}{P}$, and $(i^{\natural})^{R} \simeq ((Li)^{L})^{\natural}$, $(p^{\natural})^{L} \simeq ((Lp)^{R})^{\natural}$ (\cref{prop:local-adjoint-refl}).
 \item $\D\refl{I}\corefl{L_{I}(P)} \simeq \D\lrrefl{I}{P} \simeq \D\corefl{P}\refl{L_{P}(I)}$ as locally full sub-$(\infty,2)$-categories of $\D$ (\cref{prop:2dloc-commute}), where $L_{I}\colon \D \to \D\refl{I}$ and $L_{P}\colon \D \to \D\corefl{P}$.
 \item $\D\lradj{I}{P} \simeq \Pc^{\dashv}_{I,P} = \Pc_{K_{I},J_{P}} \simeq \D\lrrefl{K_{I}}{J_{P}}$ (\cref{prop:cylinder}).
 \item $\overline{P} = \{f : Lf \text{ is coreflective in } \D\corefl{P}\}$ and $\overline{P}^{\dashv} = \{f : Lf \text{ is a left adjoint in } \D\radj{P}\}$ (\cref{def:saturation}).
@@ -103,7 +103,7 @@ For small $\A$ and sets $I$, $P$ of $1$-morphisms of $\A$, \cref{thm:2dloc-local
 
 \begin{rmk}
 \label{rmk:2dloc-compare-bousfield}
-In \cref{prop:bousfield-pushout} the local objects are those $c$ for which $s^{*}$ is an \emph{equivalence}; here $i^{*}$ is a \emph{localization} and $p^{*}$ a \emph{colocalization}.
+In \cref{prop:bousfield-pushout} the local objects are those $c$ for which $s^{\natural}$ is an \emph{equivalence}; here $i^{\natural}$ is a \emph{localization} and $p^{\natural}$ a \emph{colocalization}.
 The Beck--Chevalley condition on $1$-morphisms has no one-dimensional counterpart, since, unlike adjoints, inverses are preserved by every square.
 It is what prevents $\iota$ from being fully faithful and $T$ from being idempotent: in general $L\iota q \not\simeq q$, because $\Hom_{\Pc_{I,P}}(L\iota q,q') \simeq \Hom_{\D}(\iota q,\iota q')$ also contains the non-local $1$-morphisms.
 \end{rmk}
