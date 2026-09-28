@@ -2,7 +2,7 @@
 \label{subsec:2dloc-presentable}
 
 In this subsection $\D \in \tprl$ is a presentable $(\infty,2)$-category and $I$, $P$ are \emph{sets} of $1$-morphisms of $\D$. Presentability provides the left adjoint to $\iota\colon \Pc_{I,P} \to \D$, and with it the identification of $\Pc_{I,P}$ with a pushout.
-For classes $I$, $P$ the results of \cref{subsec:2dloc-local,subsec:2dloc-plain,subsec:2dloc-saturation} still apply, but the argument below will not produce a left adjoint.
+For classes $I$, $P$ the results of \cref{subsec:2dloc-local,subsec:2dloc-plain,subsec:2dloc-saturation,subsec:2dloc-sat-loc} still apply, but the argument below will not produce a left adjoint.
 
 \subsubsection*{Colimits}
 Colimits in $\iota_{1}\D$ are colimits in the $(\infty,2)$-categorical sense: $\Hom_{\D}(-,e)$ turns them into limits of $\infty$-categories, since $\func(K,\Hom_{\D}(-,e))^{\simeq} \simeq \mapp_{\D}(K \otimes -,e)$ for $K \in \Cat$, $K \otimes -$ preserves colimits, and the Yoneda lemma applies in $K$. In particular all $(\infty,2)$-pushouts exist, and every $s\colon x \to y$ has the cylinder and cocylinder
@@ -83,7 +83,7 @@ The proof with $\Adj$ in place of $\Refl$ and $\Corefl$, and the pullback descri
 By \cref{prop:adjoin-univ-pres}, $L^{*}\colon \func^{L}_{\Cat}(\D\lrrefl{I}{P},\E) \to \func^{L}_{\Cat}(\D,\E)$ is a locally full inclusion for every $\E \in \tprl$.
 
 \subsubsection*{Consequences of the plain results}
-As $\iota$ has a left adjoint, the results of \cref{subsec:2dloc-local,subsec:2dloc-plain,subsec:2dloc-saturation} specialize as follows.
+As $\iota$ has a left adjoint, the results of \cref{subsec:2dloc-local,subsec:2dloc-plain,subsec:2dloc-saturation,subsec:2dloc-sat-loc} specialize as follows.
 
 \begin{cor}
 \label{cor:presentable}
@@ -105,7 +105,7 @@ Let $\D \in \tprl$ and $I$, $P$ sets of $1$-morphisms.
 
 \begin{proof}
 (1)--(3) are the cited results together with \cref{thm:2dloc-local}; in (2) the identifications are unique over $\D$, since a locally full sub-$(\infty,2)$-category is determined by its objects and $1$-morphisms, so they agree with the one from pasting pushouts.
-(4) and (5) are \cref{prop:saturation-L}(2) and \cref{thm:sat-units} with \cref{thm:2dloc-local}; the description of $\overline{P}$ is \cref{lem:saturation-explicit}. For $\overline{P}^{\dashv}$: by the plain version of \cref{lem:repr-refl} applied in $\Pc^{\dashv}_{\emptyset,P}$, $Lf$ is a left adjoint if and only if every object and $1$-morphism of $\Pc^{\dashv}_{\emptyset,P}$ is $(\emptyset,\{Lf\})$-local in the plain sense, and under $\Hom_{\Pc^{\dashv}_{\emptyset,P}}(L-,q) \simeq \Hom_{\D}(-,\iota q)$ this says that $f \in \overline{P}^{\dashv}$.
+(4) and (5) are \cref{prop:saturation-L} and \cref{thm:sat-units} with \cref{thm:2dloc-local}; the description of $\overline{P}$ is \cref{lem:saturation-Pc}. For $\overline{P}^{\dashv}$: by the plain version of \cref{lem:repr-refl} applied in $\Pc^{\dashv}_{\emptyset,P}$, $Lf$ is a left adjoint if and only if every object and $1$-morphism of $\Pc^{\dashv}_{\emptyset,P}$ is $(\emptyset,\{Lf\})$-local in the plain sense, and under $\Hom_{\Pc^{\dashv}_{\emptyset,P}}(L-,q) \simeq \Hom_{\D}(-,\iota q)$ this says that $f \in \overline{P}^{\dashv}$.
 \end{proof}
 
 \begin{rmk}

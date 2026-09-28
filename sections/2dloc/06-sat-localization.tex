@@ -1,0 +1,86 @@
+\subsection{Localizations and saturated classes}
+\label{subsec:2dloc-sat-loc}
+
+We now apply \cref{subsec:2dloc-saturation} to the local objects of \cref{subsec:2dloc-local}.
+
+\begin{defi}
+\label{def:saturation}
+The \emph{saturation} of a class $P$ of $1$-morphisms of $\D$ is the class $\overline{P}$ of $1$-morphisms $f$ such that $\Pc_{\emptyset,P \cup \{f\}} = \Pc_{\emptyset,P}$. Likewise $\overline{P}^{\dashv}$ is the class of $f$ with $\Pc^{\dashv}_{\emptyset,P \cup \{f\}} = \Pc^{\dashv}_{\emptyset,P}$.
+\end{defi}
+
+By \cref{lem:repr-refl}, $\overline{\emptyset}$ is the class of coreflective $1$-morphisms of $\D$, and $\overline{\emptyset}^{\dashv}$ that of left adjoints. By \cref{lem:saturation-Pc}, which we will prove below, $\overline{P}$ will be the class of $1$-morphisms of $\Sat^{\mathrm{corefl}}_{\C}$ for $\C = \Pc_{\emptyset,P}$, so it comes with squares.
+
+\begin{lem}
+\label{lem:saturation-Pc}
+Let $\C = \Pc_{I,P}$. A $1$-morphism $f$ is in $\Sat^{\mathrm{corefl}}_{\C}$ if and only if every object and $1$-morphism of $\C$ is $(\emptyset,\{f\})$-local, i.e.\ $\Pc_{I,P \cup \{f\}} = \Pc_{I,P}$, and in $\Sat^{\mathrm{refl}}_{\C}$ if and only if $\Pc_{I \cup \{f\},P} = \Pc_{I,P}$. For $I = \emptyset$ the $1$-morphisms in $\Sat^{\mathrm{corefl}}_{\C}$ form the class $\overline{P}$.
+\end{lem}
+
+\begin{proof}
+The conditions of \cref{lem:saturation-explicit}(1) are those of \cref{def:IP-local} for $\{f\}$, and $\Pc_{I,P \cup \{f\}} = \Pc_{I,P} \cap \Pc_{\emptyset,\{f\}}$. The reflective case is the same.
+\end{proof}
+
+\begin{prop}
+\label{prop:saturation-L}
+Suppose $\iota\colon \C \to \D$ has a left adjoint $L$ (\cref{def:enriched-adjoint}). Then $\Sat^{\mathrm{corefl}}_{\C}$ is the preimage under $L$ of the image of $\ell^{*}\colon \func(\Corefl,\C) \to \func(\Delta^{1},\C)$: $f$ is in $\Sat^{\mathrm{corefl}}_{\C}$ if and only if $Lf$ is coreflective, and a square $\sigma$ between such $1$-morphisms is an $\Sat^{\mathrm{corefl}}_{\C}$-square if and only if $L\sigma$ is right Beck--Chevalley. Likewise for $\Sat^{\mathrm{refl}}_{\C}$ with reflective $1$-morphisms and left Beck--Chevalley squares.
+\end{prop}
+
+\begin{proof}
+The equivalences $\Hom_{\C}(Ld,q) \simeq \Hom_{\D}(d,\iota q)$ are natural in $d$ and $q$, so $h_{\C} \simeq h'_{\C} \circ L\opcat$ for the enriched Yoneda embedding $h'_{\C}\colon \C\opcat \to \func(\C,\Cat)$. So $\Sat^{\mathrm{corefl}}_{\C}$ is the preimage under $L$ of the coreflective saturation of $\C$ in itself, which is the image of $\ell^{*}$ by \cref{cor:saturation-D} for $\C$.
+\end{proof}
+
+For presentable $\D$ and a set $P$, this says that $\overline{P}$ consists of the $f$ such that $Lf$ is coreflective in $\D\corefl{P}$: the analogue of the $L$-equivalences. We will record this in \cref{cor:presentable}.
+
+\begin{rmk}
+\label{rmk:plain-vs-refl}
+None of this holds for $\overline{P}^{\dashv}$ (\cref{ex:saturation-fails}(3)). If every $p \in P$ and $u$ have cylinders, the plain saturation is recovered from the coreflective one: $u \in \overline{P}^{\dashv}$ if and only if $j_{u} \in \overline{J_{P}}$. Indeed, $\Pc^{\dashv}_{\emptyset,P} = \Pc_{\emptyset,J_{P}}$ by \cref{prop:cylinder}, and by \cref{prop:cylinder}(1) an object or $1$-morphism of $\D$ is $(\emptyset,\{u\})$-local in the plain sense if and only if it is $(\emptyset,\{j_{u}\})$-local.
+\end{rmk}
+
+\begin{prop}[Galois correspondence]
+\label{prop:galois}
+Let $\C \subset \D$ be a locally full sub-$(\infty,2)$-category and $I$, $P$ classes of $1$-morphisms. Then $\C \subset \Pc_{I,P}$ if and only if $I$ is contained in $\Sat^{\mathrm{refl}}_{\C}$ and $P$ in $\Sat^{\mathrm{corefl}}_{\C}$. Consequently:
+\begin{enumerate}
+\item $\C \subset \Pc_{\Sat^{\mathrm{refl}}_{\C},\Sat^{\mathrm{corefl}}_{\C}}$, with equality if and only if $\C = \Pc_{I,P}$ for some $I$, $P$ (here $\Pc$ only depends on the $1$-morphisms in the saturations).
+\item $\C \mapsto (\Sat^{\mathrm{refl}}_{\C},\Sat^{\mathrm{corefl}}_{\C})$ is injective on locally full sub-$(\infty,2)$-categories of the form $\Pc_{I,P}$, with left inverse $(\Sat,\Sat') \mapsto \Pc_{\Sat,\Sat'}$, and its values are pairs of a reflectively and a coreflectively saturated class (\cref{thm:saturation-saturated}).
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+$\Pc_{I,P}$ is the intersection of the $\Pc_{\{i\},\emptyset}$, $i \in I$, and the $\Pc_{\emptyset,\{p\}}$, $p \in P$, so the first claim is \cref{lem:saturation-Pc}. For (1), apply it to $I = \Sat^{\mathrm{refl}}_{\C}$, $P = \Sat^{\mathrm{corefl}}_{\C}$; if $\C = \Pc_{I,P}$, then $I \subset \Sat^{\mathrm{refl}}_{\C}$ and $P \subset \Sat^{\mathrm{corefl}}_{\C}$ give the reverse inclusion. (2) follows from (1).
+\end{proof}
+
+So $2$-dimensional localizations are determined by their saturated classes. The saturation of $(I,P)$ is a pair, and the two members depend on both $I$ and $P$: in general the $1$-morphisms in $\Sat^{\mathrm{corefl}}_{\Pc_{I,P}}$ strictly contain $\overline{P}$. By \cref{prop:2dloc-commute} the mixed case reduces to two pure ones in stages, provided the left adjoints exist, so we now fix $I = \emptyset$.
+What \cref{prop:galois} does not say is which coreflectively saturated classes are saturations. In the one-dimensional case, for presentable $\C$ and a set $S$, this is the statement that the $S$-local equivalences form the strongly saturated class generated by $S$. Its two-dimensional analogue reduces to the units of the localization:
+
+\begin{thm}
+\label{thm:sat-units}
+Let $P$ be a class of $1$-morphisms such that $\iota\colon \C := \Pc_{\emptyset,P} \to \D$ has a left adjoint $L$ with unit $\eta\colon \mathrm{id}_{\D} \Rightarrow \iota L$ (by \cref{thm:2dloc-local}, which we will prove in \cref{subsec:2dloc-presentable}, this holds if $\D$ is presentable and $P$ is a set).
+\begin{enumerate}
+\item Every coreflectively saturated $\Sat$ containing all $\eta_{d}$, $d \in \D$, contains every $f \in \overline{P}$.
+\item If every $\eta_{d}$ is in $\langle P \rangle$, then the $1$-morphisms in $\langle P \rangle$ form the class $\overline{P}$.
+\item If every $\eta_{d}$ is in $\overline{P}$, then the $1$-morphisms in $\langle \{\eta_{d}\}_{d \in \D} \rangle$ form the class $\overline{P}$, and $\C = \Pc_{\emptyset,\{\eta_{d}\}_{d \in \D}}$.
+\end{enumerate}
+Dually for $\Pc_{I,\emptyset}$, reflectively saturated classes, and $\overline{I}$.
+\end{thm}
+
+\begin{proof}
+(1) Let $f\colon x \to y$ be in $\overline{P}$. By \cref{prop:saturation-L}, $Lf$ is coreflective in $\C$, hence $\iota Lf$ is coreflective in $\D$, as functors preserve adjunctions, and so $\iota Lf$ is in $\Sat$ by (S1). By naturality of $\eta$ and (S2), $\eta_{y}f \simeq \iota Lf \circ \eta_{x}$ is in $\Sat$. As $\eta_{y}$ is in $\Sat$, (S3) shows that $f$ is in $\Sat$.
+(2) By \cref{thm:saturation-saturated}, $\Sat^{\mathrm{corefl}}_{\C}$ is coreflectively saturated and contains $P$, so the $1$-morphisms in $\langle P \rangle$ lie in $\overline{P}$ (\cref{lem:saturation-Pc}). The converse is (1) for $\Sat = \langle P \rangle$.
+(3) As $\Sat^{\mathrm{corefl}}_{\C}$ is coreflectively saturated and contains every $\eta_{d}$, the $1$-morphisms in $\langle \{\eta_{d}\} \rangle$ lie in $\overline{P}$; the converse is (1). Let $\C' := \Pc_{\emptyset,\{\eta_{d}\}}$. As every $\eta_{d}$ is in $\Sat^{\mathrm{corefl}}_{\C}$, \cref{prop:galois} gives $\C \subset \C'$. Conversely, $\Sat^{\mathrm{corefl}}_{\C'}$ is coreflectively saturated and contains every $\eta_{d}$ (\cref{prop:galois}), so it contains $\langle \{\eta_{d}\} \rangle$ and hence $P \subset \overline{P}$; by \cref{prop:galois}, $\C' \subset \Pc_{\emptyset,P} = \C$.
+\end{proof}
+
+\begin{rmk}
+\label{rmk:sat-units-kz}
+By \cref{prop:saturation-L}, the hypothesis of (3) says that every $L\eta_{d}$ is coreflective in $\C$. This is a form of lax idempotence of the monad $\iota L$; e.g.\ for $\D = \Cat$ and $P = \{\emptyset \to \mathrm{pt}\}$, where $\iota L$ freely adjoins an initial object, the right adjoint of $L\eta_{d}\colon d^{\triangleleft} \to (d^{\triangleleft})^{\triangleleft}$ collapses the two initial objects.
+The hypothesis of (2) implies that of (3), and it would follow from a two-dimensional small object argument producing $\eta_{d}$ from $P$ by the operations (S1)--(S4).
+For $2$-categories, Di Liberti--Lobbia--Sousa \cite[Thm.~4.3]{dilibertilobbiasousa2022kz} construct $\eta_{d}$ as a transfinite composite of wide bipushouts of bipushouts along $1$-morphisms of $P$ and of bicoequifiers, and show that every $\eta_{d}$ lies in $\overline{P}$ \cite[Lemma~3.5]{dilibertilobbiasousa2022kz}, which gives the hypothesis of (3). Pushouts, wide pushouts and transfinite composites are instances of (S2) and (S4), but they verify the bicoequifier and limit steps by hand, so their argument does not give the hypothesis of (2).
+\end{rmk}
+
+\begin{rmk}
+\label{rmk:sat-open}
+What remains open for the correspondence:
+\begin{enumerate}
+\item whether every $\eta_{d}$ lies in $\overline{P}$ for $(\infty,2)$-categories (lax idempotence, \cref{rmk:sat-units-kz});
+\item whether it lies in $\langle P \rangle$, which by \cref{thm:sat-units}(2) would identify $\overline{P}$ with the saturated class generated by $P$ on $1$-morphisms. The ingredient missing is an $(\infty,2)$-categorical replacement for the bicoequifier steps, which in an $(\infty,2)$-category have to control all higher morphisms of the hom-categories;
+\item the analogous statement for squares. \Cref{thm:sat-units} compares only $1$-morphisms. Its proof uses left cancellation for $1$-morphisms, and right Beck--Chevalley squares do not satisfy the analogous cancellation: in \cref{ex:saturation-fails}(2), $\tau$ factors as $\sigma$ followed by the square $\mathrm{id}_{\Delta^{1}} \to \mathrm{id}_{\mathrm{pt}}$ with both components $\Delta^{1} \to \mathrm{pt}$, and $\tau$ and the latter are right Beck--Chevalley while $\sigma$ is not. So we do not know whether $\langle P \rangle$ contains all $\Sat^{\mathrm{corefl}}_{\C}$-squares.
+\end{enumerate}
+\end{rmk}
