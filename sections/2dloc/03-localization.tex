@@ -2,7 +2,11 @@
 \label{subsec:2dloc-local}
 
 Fix an $(\infty,2)$-category $\D$ and classes $I$, $P$ of $1$-morphisms of $\D$. $\D$ may be large (e.g.\ $\D = \Cat$), with small hom-categories; functor $(\infty,2)$-categories out of $\D$ are then formed in a larger universe. No other assumption on $\D$ is made in this subsection.
-For $(s\colon x \to y) \in I \cup P$ and $d \in \D$ let $s^{\natural} := \Hom_{\D}(s,d)\colon \Hom_{\D}(y,d) \to \Hom_{\D}(x,d)$, and for $f\colon d \to d'$ let $f_{\natural}$ be postcomposition.
+For $(s\colon x \to y) \in I \cup P$ and $d \in \D$ let
+\[
+s^{\natural} := \Hom_{\D}(s,d)\colon \Hom_{\D}(y,d) \to \Hom_{\D}(x,d) \ ,
+\]
+and for $f\colon d \to d'$ let $f_{\natural}$ be postcomposition.
 
 \begin{defi}
 \label{def:IP-local}
@@ -79,7 +83,7 @@ A functor $G\colon \C \to \D$ of $(\infty,2)$-categories \emph{has a left adjoin
 is an equivalence for all $y \in \D$ and $q \in \C$. These equivalences are natural in $y$ and $q$, as functors $\D\opcat \times \C \to \Cat$.
 \end{defi}
 
-In the presentable case (I4) provides such left adjoints. In general $\iota\colon \Pc_{I,P} \to \D$ need not have one; when it does, the adjoined adjoints are precomposition:
+In the presentable case (I4) will provide such left adjoints (\cref{thm:2dloc-local}). In general $\iota\colon \Pc_{I,P} \to \D$ need not have one; when it does, the adjoined adjoints are precomposition:
 
 \begin{prop}
 \label{prop:local-adjoint-refl}
@@ -115,5 +119,5 @@ Let $\D = \Cat$ and $P = \{u\}$ for $u\colon X \to Y$. Then $\Pc_{\emptyset,\{u\
 is left Beck--Chevalley, i.e.\ $(u^{\natural})^{L}F_{\natural} \Rightarrow F_{\natural}(u^{\natural})^{L}$ is invertible.
 If $u$ is fully faithful, a pointwise left Kan extension along $u$ is fully faithful, so every $\C$ with colimits indexed by the comma $\infty$-categories $X \times_{Y} Y_{/y}$ lies in $\Pc_{\emptyset,\{u\}}$. But $(u^{\natural})^{L}$ need not be pointwise: for $u\colon \{1\} \to \Delta^{1}$, a space $\C$ with two points lies in $\Pc_{\emptyset,\{u\}}$, as $u^{\natural}$ is an equivalence, but pointwise left Kan extension along $u$ would require an initial object.
 Dually, $\Pc_{\{u\},\emptyset}$ consists of the $\C$ for which $u^{\natural}$ has a fully faithful right adjoint $(u^{\natural})^{R}$, and the $F$ with $F_{\natural}(u^{\natural})^{R} \Rightarrow (u^{\natural})^{R}F_{\natural}$ invertible.
-By \cref{thm:2dloc-local} these are $\Cat\corefl{u}$ and $\Cat\refl{u}$.
+\Cref{thm:2dloc-local} will identify these with $\Cat\corefl{u}$ and $\Cat\refl{u}$.
 \end{exmp}

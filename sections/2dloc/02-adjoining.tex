@@ -14,8 +14,8 @@ Let $\A$ be an $(\infty,2)$-category and $I$, $P$ classes of $1$-morphisms of $\
 We write $\A\refl{I} := \A\lrrefl{I}{\emptyset}$ and $\A\corefl{P} := \A\lrrefl{\emptyset}{P}$.
 \end{defi}
 
-So $Li$ acquires a left adjoint with invertible counit, and $Lp$ a right adjoint with invertible unit. \Cref{subsec:2dloc-plain} compares this with freely adjoining plain adjoints.
-Pasting pushouts gives $\A\lrrefl{I}{P} \simeq \A\refl{I}\corefl{L_{I}(P)} \simeq \A\corefl{P}\refl{L_{P}(I)}$, where $L_{I}\colon \A \to \A\refl{I}$ and $L_{P}\colon \A \to \A\corefl{P}$; see \cref{prop:2dloc-commute} for the corresponding statement on local objects.
+So $Li$ acquires a left adjoint with invertible counit, and $Lp$ a right adjoint with invertible unit. We will compare this with freely adjoining plain adjoints in \cref{subsec:2dloc-plain}.
+Pasting pushouts gives $\A\lrrefl{I}{P} \simeq \A\refl{I}\corefl{L_{I}(P)} \simeq \A\corefl{P}\refl{L_{P}(I)}$, where $L_{I}\colon \A \to \A\refl{I}$ and $L_{P}\colon \A \to \A\corefl{P}$; the corresponding statement on local objects will be \cref{prop:2dloc-commute}.
 
 \begin{prop}[universal property]
 \label{prop:adjoin-univ}
@@ -48,7 +48,7 @@ $\func(-,\E)$ turns the pushout into the pullback of
 \[
 \func(\A,\E) \to \textstyle\prod_{I \sqcup P}\func(\Delta^{1},\E) \xleftarrow{\prod_{I}\rho^{*} \times \prod_{P}\ell^{*}} \prod_{I}\func(\Refl,\E) \times \prod_{P}\func(\Corefl,\E) \ .
 \]
-By \cref{lem:mates-refl} the right-hand map is a locally full sub-$(\infty,2)$-category, hence so is its pullback (\cref{rmk:lax-epi}). Apply \cref{lem:mates-refl} to the functor $\Delta^{1} \to \func(\A,\E)$ classifying $F \Rightarrow G$, evaluated at $p$, resp.\ $i$.
+By \cref{lem:mates-refl} the right-hand map is a locally full sub-$(\infty,2)$-category, hence so is its pullback: $\mapp(K,-)$ preserves limits, and monomorphisms of spaces are stable under limits. Apply \cref{lem:mates-refl} to the functor $\Delta^{1} \to \func(\A,\E)$ classifying $F \Rightarrow G$, evaluated at $p$, resp.\ $i$.
 \end{proof}
 
 \begin{rmk}
@@ -65,5 +65,5 @@ $(-)^{\mathrm{co}}$ exchanges left and right adjoints as well as units and couni
 \begin{exmp}
 \label{ex:adjoin-basic}
 $(\Delta^{1})\corefl{e} \simeq \Corefl$ for the generic arrow $e$.
-In general $\A\lrrefl{I}{P}$ is a free construction and not a sub-$(\infty,2)$-category of $\A$. \Cref{subsec:2dloc-local} describes the local objects inside a given $(\infty,2)$-category, and \cref{thm:2dloc-local} identifies the two in the presentable case; for small $\A$ and sets $I$, $P$ this gives $\Free(\A\lrrefl{I}{P}) \simeq \Pc_{y(I),y(P)} \subset \Free(\A)$ (\cref{rmk:free-local}).
+In general $\A\lrrefl{I}{P}$ is a free construction and not a sub-$(\infty,2)$-category of $\A$. In \cref{subsec:2dloc-local} we will describe the local objects inside a given $(\infty,2)$-category, and \cref{thm:2dloc-local} will identify the two in the presentable case. For small $\A$ and sets $I$, $P$ this will give $\Free(\A\lrrefl{I}{P}) \simeq \Pc_{y(I),y(P)} \subset \Free(\A)$ (\cref{rmk:free-local}).
 \end{exmp}

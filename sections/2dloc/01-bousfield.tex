@@ -10,7 +10,7 @@ By the Yoneda lemma, $s$ gives $s^{\natural}\colon \mapp_{\C}(y,-) \Rightarrow \
 \label{eq:bousfield-pullback}
 \C_{S} \simeq \C \times_{\prod_{S}\func(\Delta^{1},\Spc)} \textstyle\prod_{S}\Spc \ .
 \end{equation}
-This is the one-dimensional form of \cref{thm:local-pullback}: the walking equivalence is contractible, so being an equivalence is a property and there is no condition on morphisms.
+Its two-dimensional form will be \cref{thm:local-pullback}. Here the walking equivalence is contractible, so being an equivalence is a property and there is no condition on morphisms.
 
 \subsubsection*{The presentable case}
 Let $\Edge_{1} := \func(\Delta^{1},\Spc) \simeq \Free(\Delta^{1})$ (presheaves of spaces on $\Delta^{1} \simeq (\Delta^{1})\opcat$) be the free presentable $\infty$-category on an arrow, so $\func^{L}(\Edge_{1},\C) \simeq \func(\Delta^{1},\C)$ for $\C \in \prl$. The free presentable $\infty$-category on an \emph{equivalence} is $\Eqc := \Spc$.
@@ -24,7 +24,10 @@ Let $\C \in \prl$ and let $S$ be a set of morphisms of $\C$, viewed as a map $S\
 \[
 \C[S^{-1}] := \C \sqcup_{\bigoplus_{S}\Edge_{1}} \textstyle\bigoplus_{S}\Eqc
 \]
-in $\prl$ satisfies $\func^{L}(\C[S^{-1}],\D) \simeq \{F \in \func^{L}(\C,\D) : F(s) \text{ invertible for all } s \in S\}$.
+in $\prl$ satisfies
+\[
+\func^{L}(\C[S^{-1}],\D) \simeq \{F \in \func^{L}(\C,\D) : F(s) \text{ invertible for all } s \in S\} \ .
+\]
 \item The right adjoint of $L\colon \C \to \C[S^{-1}]$ is the inclusion $\iota\colon \C_{S} \subset \C$. So $\C_{S} \simeq \C[S^{-1}]$ is reflective.
 \item $T := \iota L$ is an idempotent monad on $\C$ and $\C_{S} \simeq \Alg_{T}(\C)$.
 \end{enumerate}
@@ -37,5 +40,5 @@ in $\prl$ satisfies $\func^{L}(\C[S^{-1}],\D) \simeq \{F \in \func^{L}(\C,\D) : 
 \end{proof}
 
 Only the existence of $L$ uses presentability of $\C$ and smallness of $S$.
-The categorification follows the same split. It replaces the walking equivalence (contractible) by the walking reflection and coreflection of \cref{subsec:mates-lemma} (not contractible, but being reflective or coreflective is still a property by \cref{lem:mates-refl}). Local objects are defined and studied in an arbitrary $(\infty,2)$-category (\cref{subsec:2dloc-local,subsec:2dloc-plain}), and presentability is used for the existence of the left adjoint (\cref{subsec:2dloc-presentable}).
-The local objects form only a \emph{locally full} subcategory, and the monad is not idempotent.
+The categorification will follow the same split. It will replace the walking equivalence (contractible) by the walking reflection and coreflection of \cref{subsec:mates-lemma} (not contractible, but being reflective or coreflective is still a property by \cref{lem:mates-refl}). Local objects will be defined and studied in an arbitrary $(\infty,2)$-category in \cref{subsec:2dloc-local,subsec:2dloc-plain}, and presentability will be used for the existence of the left adjoint in \cref{subsec:2dloc-presentable}.
+The local objects will form only a \emph{locally full} subcategory, and the monad will not be idempotent.
