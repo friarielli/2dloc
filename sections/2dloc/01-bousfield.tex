@@ -1,8 +1,19 @@
-\subsection{Recollection: Bousfield localization as a pushout}
+\subsection{Recollection: Bousfield localization}
 \label{subsec:2dloc-bousfield}
 
-We recall the one-dimensional situation that we categorify.
-Let $\Edge_{1} := \func(\Delta^{1},\Spc) \simeq \Free(\Delta^{1})$ (presheaves of spaces on $\Delta^{1} \simeq (\Delta^{1})\opcat$) be the free presentable $\infty$-category on an arrow, so $\func^{L}(\Edge_{1},\C) \simeq \func(\Delta^{1},\C)$ for $\C \in \prl$. The free presentable $\infty$-category on an \emph{equivalence} is $\Eqc := \Spc$, since the walking equivalence is contractible: being an equivalence is a property.
+We recall the one-dimensional situation that we categorify, in the same order: local objects in an arbitrary $\infty$-category first, then the presentable case.
+
+\subsubsection*{Local objects}
+Let $\C$ be an $\infty$-category and $S$ a class of morphisms of $\C$. An object $c$ is \emph{$S$-local} if $s^{\natural}\colon \mapp_{\C}(y,c) \to \mapp_{\C}(x,c)$ is an equivalence for every $(s\colon x \to y) \in S$; let $\iota\colon \C_{S} \subset \C$ be the full subcategory of $S$-local objects.
+By the Yoneda lemma, $s$ gives $s^{\natural}\colon \mapp_{\C}(y,-) \Rightarrow \mapp_{\C}(x,-)$, i.e.\ a functor $R_{s}\colon \C \to \func(\Delta^{1},\Spc)$ with $R_{s}(c) = s^{\natural}$. The inclusion of the equivalences $\Spc \subset \func(\Delta^{1},\Spc)$ is fully faithful, and pullbacks of fully faithful functors are fully faithful, so
+\begin{equation}
+\label{eq:bousfield-pullback}
+\C_{S} \simeq \C \times_{\prod_{S}\func(\Delta^{1},\Spc)} \textstyle\prod_{S}\Spc \ .
+\end{equation}
+Its two-dimensional form will be \cref{thm:local-pullback}. Here the walking equivalence is contractible, so being an equivalence is a property and there is no condition on morphisms.
+
+\subsubsection*{The presentable case}
+Let $\Edge_{1} := \func(\Delta^{1},\Spc) \simeq \Free(\Delta^{1})$ (presheaves of spaces on $\Delta^{1} \simeq (\Delta^{1})\opcat$) be the free presentable $\infty$-category on an arrow, so $\func^{L}(\Edge_{1},\C) \simeq \func(\Delta^{1},\C)$ for $\C \in \prl$. The free presentable $\infty$-category on an \emph{equivalence} is $\Eqc := \Spc$.
 The functor $\Delta^{1} \to \mathrm{pt}$ induces $e_{!}\colon \Edge_{1} \to \Eqc$, $(A \to B) \mapsto B$, with fully faithful right adjoint $e^{*}\colon B \mapsto (B = B)$.
 
 \begin{prop}
@@ -13,17 +24,21 @@ Let $\C \in \prl$ and let $S$ be a set of morphisms of $\C$, viewed as a map $S\
 \[
 \C[S^{-1}] := \C \sqcup_{\bigoplus_{S}\Edge_{1}} \textstyle\bigoplus_{S}\Eqc
 \]
-in $\prl$ satisfies $\func^{L}(\C[S^{-1}],\D) \simeq \{F \in \func^{L}(\C,\D) : F(s) \text{ invertible for all } s \in S\}$.
-\item Passing to right adjoints, $\C[S^{-1}] \simeq \C \times_{\prod_{S}\Edge_{1}} \prod_{S}\Spc$ in $\Cat$ is the full subcategory of \emph{$S$-local} objects, those $c$ for which $s^{*}\colon \mapp_{\C}(y,c) \to \mapp_{\C}(x,c)$ is an equivalence for every $(s\colon x \to y) \in S$. The inclusion $\iota$ is right adjoint to the localization $L\colon \C \to \C[S^{-1}]$.
-\item $T := \iota L$ is an idempotent monad on $\C$ and $\C[S^{-1}] \simeq \Alg_{T}(\C)$.
+in $\prl$ satisfies
+\[
+\func^{L}(\C[S^{-1}],\D) \simeq \{F \in \func^{L}(\C,\D) : F(s) \text{ invertible for all } s \in S\} \ .
+\]
+\item The right adjoint of $L\colon \C \to \C[S^{-1}]$ is the inclusion $\iota\colon \C_{S} \subset \C$. So $\C_{S} \simeq \C[S^{-1}]$ is reflective.
+\item $T := \iota L$ is an idempotent monad on $\C$ and $\C_{S} \simeq \Alg_{T}(\C)$.
 \end{enumerate}
 \end{prop}
 
 \begin{proof}
 (1) holds since $\func^{L}(\Edge_{1},\D) \simeq \func(\Delta^{1},\D)$ and $\func^{L}(\Eqc,\D) \simeq \D$ is the full subcategory of equivalences.
-(2) Under $\prl \simeq (\prr)\opcat$ \cite[5.5.3.4]{htt} the pushout becomes a pullback in $\prr$, computed in $\widehat{\Cat}$ \cite[5.5.3.18]{htt}. The right adjoint of $s\colon \Edge_{1} \to \C$ is $c \mapsto (s^{*}\colon \mapp(y,c) \to \mapp(x,c))$, and $\Spc \subset \Edge_{1}$ is the full subcategory of equivalences. The left adjoint $L$ exists by the adjoint functor theorem.
+(2) Under $\prl \simeq (\prr)\opcat$ \cite[5.5.3.4]{htt} the pushout becomes a pullback in $\prr$, computed in $\widehat{\Cat}$ \cite[5.5.3.18]{htt}. The right adjoint of $s\colon \Edge_{1} \to \C$ is $R_{s}$ and that of $e_{!}$ is $e^{*}$, so this pullback is \eqref{eq:bousfield-pullback}.
 (3) As $\iota$ is fully faithful, the counit $L\iota \Rightarrow \mathrm{id}$ and hence $\mu = \iota\varepsilon L$ are equivalences; a fully faithful right adjoint is monadic.
 \end{proof}
 
-The categorification replaces the walking equivalence (contractible) by the walking reflection and coreflection of \cref{subsec:mates-lemma} (not contractible, but being reflective or coreflective is still a property by \cref{lem:mates-refl}).
-As a result the localization is only a \emph{locally full} subcategory, and the monad is not idempotent.
+Only the existence of $L$ uses presentability of $\C$ and smallness of $S$.
+The categorification will follow the same split. It will replace the walking equivalence (contractible) by the walking reflection and coreflection of \cref{subsec:mates-lemma} (not contractible, but being reflective or coreflective is still a property by \cref{lem:mates-refl}). Local objects will be defined and studied in an arbitrary $(\infty,2)$-category in \cref{subsec:2dloc-local,subsec:2dloc-plain}, and presentability will be used for the existence of the left adjoint in \cref{subsec:2dloc-presentable}.
+The local objects will form only a \emph{locally full} subcategory, and the monad will not be idempotent.
