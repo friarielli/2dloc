@@ -1,0 +1,112 @@
+\subsection{The presentable case}
+\label{subsec:2dloc-presentable}
+
+In this subsection $\D \in \tprl$ is a presentable $(\infty,2)$-category and $I$, $P$ are \emph{sets} of $1$-morphisms of $\D$. Presentability provides the left adjoint to $\iota\colon \Pc_{I,P} \to \D$, and with it the identification of $\Pc_{I,P}$ with a pushout.
+For classes $I$, $P$ the results of \cref{subsec:2dloc-local,subsec:2dloc-plain} still apply, but the argument below does not produce a left adjoint.
+
+\subsubsection*{Colimits}
+Colimits in $\iota_{1}\D$ are colimits in the $(\infty,2)$-categorical sense: $\Hom_{\D}(-,e)$ turns them into limits of $\infty$-categories, since $\func(K,\Hom_{\D}(-,e))^{\simeq} \simeq \mapp_{\D}(K \otimes -,e)$ for $K \in \Cat$, $K \otimes -$ preserves colimits, and the Yoneda lemma applies in $K$. In particular all pushouts in the sense of \cref{prop:saturation-closure}(2) exist, and every $s\colon x \to y$ has the cylinder and cocylinder
+\[
+\Cyl(s) = (\Delta^{1} \otimes x) \sqcup_{\{1\} \otimes x,\,s} y \ , \qquad \Cyl'(s) = y \sqcup_{s,\,\{0\} \otimes x} (\Delta^{1} \otimes x) \ ,
+\]
+with $j_{s}\colon x \simeq \{0\} \otimes x \to \Cyl(s)$ and $k_{s}\colon x \simeq \{1\} \otimes x \to \Cyl'(s)$: as $\Hom_{\D}(\Delta^{1} \otimes x,e) \simeq \func(\Delta^{1},\Hom_{\D}(x,e))$, the $\infty$-category $\Hom_{\D}(\Cyl(s),e)$ is $\func(\Delta^{1},\Hom_{\D}(x,e)) \times_{\Hom_{\D}(x,e)} \Hom_{\D}(y,e) \simeq (\mathrm{id} \downarrow s^{*})$, and likewise for $\Cyl'(s)$.
+
+\subsubsection*{The localization as a pushout}
+
+\begin{defi}
+\label{def:adjoin-pres}
+View $I$ and $P$ as maps $I\colon \bigoplus_{I}\Edge \to \D$ and $P\colon \bigoplus_{P}\Edge \to \D$ in $\tprl$ (\cref{subsec:prelim-inputs}). The pushout in $\tprl$
+\[
+\begin{tikzcd}[column sep=large]
+\bigoplus_{I}\Edge \oplus \bigoplus_{P}\Edge \ar[r, "{(I,P)}"] \ar[d, "\bigoplus_{I}\Free(\rho) \oplus \bigoplus_{P}\Free(\ell)"'] & \D \ar[d, "L"] \\
+\bigoplus_{I}\Free(\Refl) \oplus \bigoplus_{P}\Free(\Corefl) \ar[r] & \D\lrrefl{I}{P}
+\end{tikzcd}
+\]
+is again denoted $\D\lrrefl{I}{P}$; likewise $\D\lradj{I}{P}$ with $\Adj$ in place of $\Refl$ and $\Corefl$.
+\end{defi}
+
+As $\Free$ preserves colimits, $\Free(\A\lrrefl{I}{P}) \simeq \Free(\A)\lrrefl{y(I)}{y(P)}$ for small $\A$, with $\A\lrrefl{I}{P}$ as in \cref{def:adjoin}.
+By \eqref{eq:free-univ}, $\func^{L}_{\Cat}(\D\lrrefl{I}{P},\E)$ is the pullback of $\func^{L}_{\Cat}(\D,\E) \to \prod_{I \sqcup P}\func(\Delta^{1},\E)$ along $\prod_{I}\rho^{*} \times \prod_{P}\ell^{*}$, so the proof of \cref{prop:adjoin-univ} gives:
+
+\begin{prop}
+\label{prop:adjoin-univ-pres}
+For $\E \in \tprl$, restriction along $L$ identifies $\func^{L}_{\Cat}(\D\lrrefl{I}{P},\E)$ with the locally full sub-$(\infty,2)$-category of $\func^{L}_{\Cat}(\D,\E)$ described in \cref{prop:adjoin-univ}.
+\end{prop}
+
+\begin{thm}
+\label{thm:2dloc-local}
+Let $\D \in \tprl$ and let $I$, $P$ be sets of $1$-morphisms of $\D$.
+\begin{enumerate}
+\item $L\colon \D \to \D\lrrefl{I}{P}$ has a right adjoint, which is a locally full sub-$(\infty,2)$-category with image $\Pc_{I,P}$. Hence $\D\lrrefl{I}{P} \simeq \Pc_{I,P}$, and $\iota\colon \Pc_{I,P} \to \D$ has the left adjoint $L$ in the sense of \cref{def:enriched-adjoint}.
+\item $T := \iota L$ is a $\Cat$-enriched monad on $\D$ and $\iota$ is monadic, so $\Pc_{I,P} \simeq \Alg_{T}(\D)$. The space of $T$-algebra structures on $d \in \D$ is empty or contractible, and non-empty if and only if $d$ is $(I,P)$-local.
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+(1) \emph{The underlying $\infty$-category.}
+Colimits in $\tprl = \modcat{\Cat}{\prl}$ are computed in $\prl$ \cite[4.2.3.5]{ha}\todo{check the tag}, and pushouts in $\prl$ as pullbacks of right adjoints in $\widehat{\Cat}$ \cite[5.5.3.4, 5.5.3.18]{htt}. The right adjoints are:
+\begin{itemize}
+\item for $s \in I \cup P$, the right adjoint of $s\colon \Edge \to \D$. By (I3) it is the underlying functor of $R_{s}\colon \D \to \func(\Delta^{1},\Cat)$ of \cref{subsec:2dloc-local}, under $\func((\Delta^{1})\opcat,\Cat) \simeq \func(\Delta^{1},\Cat)$;
+\item the right adjoint of $\Free(\ell) = \ell_{!}$, restriction along $\ell\opcat\colon (\Delta^{1})\opcat \to \Corefl\opcat$. The equivalence $\Adj \simeq \Adj\opcat$, $l \mapsto r\opcat$, $r \mapsto l\opcat$ (in $\Adj\opcat$, $r\opcat \dashv l\opcat$ with the same unit and counit) carries $\rho$ to $\ell\opcat$ and preserves the unit, so it induces $\Corefl \simeq \Corefl\opcat$ and this right adjoint is $\rho^{*}\colon \func(\Corefl,\Cat) \to \func(\Delta^{1},\Cat)$. Likewise the right adjoint of $\Free(\rho)$ is $\ell^{*}\colon \func(\Refl,\Cat) \to \func(\Delta^{1},\Cat)$.
+\end{itemize}
+So $\iota_{1}\D\lrrefl{I}{P}$ is the pullback of the underlying $\infty$-categories of \eqref{eq:pullback}, with projection to $\iota_{1}\D$ the right adjoint $\iota$ of $L$. As $\iota_{1}$ preserves limits, \cref{thm:local-pullback} identifies $\iota$ with the inclusion $\iota_{1}\Pc_{I,P} \subset \iota_{1}\D$.
+
+\emph{The enrichment.}
+By (I4), $\iota$ is enriched. As $L$ is $\Cat$-linear, $\iota$ preserves cotensors: $\mapp_{\D}(d,\iota(K \pitchfork q)) \simeq \mapp(K \otimes Ld,q) \simeq \mapp(L(K \otimes d),q) \simeq \mapp_{\D}(d,K \pitchfork \iota q)$ naturally in $d$.
+For $q,q' \in \D\lrrefl{I}{P}$ and $K \in \Cat$ we get
+\[
+\func\bigl(K,\Hom_{\D\lrrefl{I}{P}}(q,q')\bigr)^{\simeq} \simeq \mapp(q,K \pitchfork q') \subset \mapp_{\D}(\iota q,K \pitchfork \iota q') \simeq \func\bigl(K,\Hom_{\D}(\iota q,\iota q')\bigr)^{\simeq} \ ,
+\]
+where by the first part the left-hand side consists of the $(I,P)$-local $g\colon \iota q \to K \pitchfork \iota q'$.
+Now $\Hom_{\D}(s,K \pitchfork \iota q') = \func(K,\Hom_{\D}(s,\iota q'))$ has the fully faithful right adjoint $\func(K,i_{*})$ for $s = i \in I$ and the fully faithful left adjoint $\func(K,p_{!})$ for $s = p \in P$, and evaluation at $k \in K$ commutes with $s^{*}$, these adjoints, units and counits. So the mates for $g$ evaluate at $k$ to the mates for $g_{k}\colon \iota q \to \iota q'$, and $g$ is $(I,P)$-local if and only if every $g_{k}$ is, i.e.\ if and only if the corresponding functor $K \to \Hom_{\D}(\iota q,\iota q')$ factors through the full subcategory of $(I,P)$-local $1$-morphisms. By Yoneda in $K$, $\Hom_{\D\lrrefl{I}{P}}(q,q') \to \Hom_{\D}(\iota q,\iota q')$ is the inclusion of this full subcategory, i.e.\ agrees with $\Hom_{\Pc_{I,P}}(q,q') \subset \Hom_{\D}(q,q')$.
+So the enriched $\iota$ is a monomorphism (for $K = \Delta^{0}$, $\Delta^{1}$ by the first part, for $K = \wtc$ by local full faithfulness) and a locally full sub-$(\infty,2)$-category with image $\Pc_{I,P}$ (\cref{subsec:prelim-conventions}). The enriched unit of (I4) makes $L$ a left adjoint of $\iota$ in the sense of \cref{def:enriched-adjoint}.
+
+(2) By (I4), $T = \iota L$ is enriched with enriched $\eta$ and $\mu = \iota\varepsilon L$, and on underlying $\infty$-categories it is the monad of $L \dashv \iota$.
+We check the hypotheses of Barr--Beck--Lurie \cite[4.7.3.5]{ha} for $\iota$ on underlying $\infty$-categories.
+$\iota$ is conservative: if $f$ is $(I,P)$-local and invertible in $\D$, then by \cref{lem:mate-correspondence}(3) the mates for $f^{-1}$ are inverse to those for $f$, so $f^{-1}$ is $(I,P)$-local.
+$\iota$ preserves colimits of $\iota$-split simplicial objects: let $q_{\bullet}$ be a simplicial object of $\Pc_{I,P}$ with $\iota q_{\bullet}$ split, and write $q_{\bullet} = (\iota q_{\bullet},F_{\bullet})$ in \eqref{eq:pullback}. Colimits of split simplicial objects are preserved by every functor \cite[6.1.3.16]{htt}, so $|\iota q_{\bullet}|$ exists and $\Hom_{\D}(s,|\iota q_{\bullet}|) \simeq |\Hom_{\D}(s,\iota q_{\bullet})|$ for $s \in I \cup P$; and $|F_{\bullet}|$ exists in $\prod_{I}\func(\Refl,\Cat) \times \prod_{P}\func(\Corefl,\Cat)$ and is preserved by $\ell^{*}$ and $\rho^{*}$, colimits being pointwise. So $(|\iota q_{\bullet}|,|F_{\bullet}|)$ is a colimit of $q_{\bullet}$ preserved by $\iota$.
+Thus $\iota$ is monadic, $\Pc_{I,P} \simeq \Alg_{T}(\D)$ over $\D$, and as $\iota$ is a monomorphism the fibres of $\Alg_{T}(\D) \to \D$ are empty or contractible, non-empty exactly over the $(I,P)$-local objects.
+\end{proof}
+
+The proof with $\Adj$ in place of $\Refl$ and $\Corefl$, and the pullback description of $\Pc^{\dashv}_{I,P}$ in \cref{subsec:2dloc-plain}, give $\D\lradj{I}{P} \simeq \Pc^{\dashv}_{I,P}$ with the analogous monadicity statement.
+By \cref{rmk:lax-epi}, $L^{*}\colon \func^{L}_{\Cat}(\D\lrrefl{I}{P},\E) \to \func^{L}_{\Cat}(\D,\E)$ is a locally full sub-$(\infty,2)$-category for every $\E \in \tprl$.
+
+\subsubsection*{Consequences of the plain results}
+As $\iota$ has a left adjoint, the results of \cref{subsec:2dloc-local,subsec:2dloc-plain} specialize as follows.
+
+\begin{cor}
+\label{cor:presentable}
+Let $\D \in \tprl$ and $I$, $P$ sets of $1$-morphisms.
+\begin{enumerate}
+\item $Li$ is reflective and $Lp$ coreflective in $\D\lrrefl{I}{P}$, and $i_{*} \simeq ((Li)^{L})^{*}$, $p_{!} \simeq ((Lp)^{R})^{*}$ (\cref{prop:local-adjoint-refl}).
+\item $\D\refl{I}\corefl{L_{I}(P)} \simeq \D\lrrefl{I}{P} \simeq \D\corefl{P}\refl{L_{P}(I)}$ as locally full sub-$(\infty,2)$-categories of $\D$ (\cref{prop:2dloc-commute}), where $L_{I}\colon \D \to \D\refl{I}$ and $L_{P}\colon \D \to \D\corefl{P}$.
+\item $\D\lradj{I}{P} \simeq \Pc^{\dashv}_{I,P} = \Pc_{K_{I},J_{P}} \simeq \D\lrrefl{K_{I}}{J_{P}}$ (\cref{prop:cylinder}).
+\item $\overline{P} = \{f : Lf \text{ is coreflective in } \D\corefl{P}\}$ and $\overline{P}^{\dashv} = \{f : Lf \text{ is a left adjoint in } \D\radj{P}\}$ (\cref{def:saturation}).
+\end{enumerate}
+\end{cor}
+
+\begin{proof}
+(1)--(3) are the cited results together with \cref{thm:2dloc-local}; in (2) the identifications are unique over $\D$, since a locally full sub-$(\infty,2)$-category is determined by its objects and $1$-morphisms, so they agree with the one from pasting pushouts.
+(4) By \cref{lem:repr-refl} applied in $\Pc_{\emptyset,P}$, $Lf$ is coreflective if and only if every object and $1$-morphism of $\Pc_{\emptyset,P}$ is $(\emptyset,\{Lf\})$-local. Under $\Hom_{\Pc_{\emptyset,P}}(L-,q) \simeq \Hom_{\D}(-,\iota q)$ this says that every $(\emptyset,P)$-local object and $1$-morphism is $(\emptyset,\{f\})$-local. The plain case is the same.
+\end{proof}
+
+\begin{rmk}
+\label{rmk:free-local}
+For small $\A$ and sets $I$, $P$ of $1$-morphisms of $\A$, \cref{thm:2dloc-local} gives $\Free(\A\lrrefl{I}{P}) \simeq \Free(\A)\lrrefl{y(I)}{y(P)} \simeq \Pc_{y(I),y(P)}(\Free(\A))$. By the Yoneda lemma $\Hom(y(s),X) \simeq X(s)$, so a presheaf $X\colon \A\opcat \to \Cat$ is $(y(I),y(P))$-local if and only if every $X(i)$ has a fully faithful right adjoint and every $X(p)$ a fully faithful left adjoint.
+\end{rmk}
+
+\begin{rmk}
+\label{rmk:eilenberg-moore-enriched}
+\Cref{thm:2dloc-local}(2) identifies $\Pc_{I,P}$ with $\Alg_{T}(\D)$ as $\infty$-categories. On $2$-morphisms: if $f,g\colon \iota q \to \iota q'$ are $(I,P)$-local, every $\alpha\colon f \Rightarrow g$ is an algebra $2$-morphism, i.e.\ $a_{q'}T(\alpha) = \alpha a_{q}$ as $2$-morphisms $a_{q'}T(f) \simeq fa_{q} \Rightarrow ga_{q} \simeq a_{q'}T(g)$, where $a_{q} = \iota\varepsilon_{q}$. Indeed, both sides are $2$-morphisms between $(I,P)$-local $1$-morphisms $T\iota q \to \iota q'$ restricting along $\eta_{\iota q}$ to $\alpha$, and restriction along $\eta_{\iota q}$ is an equivalence $\Hom_{\Pc_{I,P}}(L\iota q,q') \simeq \Hom_{\D}(\iota q,\iota q')$ by the adjunction, and $\Pc_{I,P}$ is locally full. This is a computation in $\htwo\D$. So $T$-algebras, strong morphisms and algebra $2$-morphisms form an $(\infty,2)$-category with the same hom-categories as $\Pc_{I,P}$.
+\todo{Compare with the Eilenberg--Moore object of \cite{riehlverity2016adjunctions,haugseng2021laxmonads}.}
+\end{rmk}
+
+\begin{rmk}
+\label{rmk:2dloc-compare-bousfield}
+In \cref{prop:bousfield-pushout} the local objects are those $c$ for which $s^{*}$ is an \emph{equivalence}; here $i^{*}$ is a \emph{localization} and $p^{*}$ a \emph{colocalization}.
+The Beck--Chevalley condition on $1$-morphisms has no one-dimensional counterpart, since, unlike adjoints, inverses are preserved by every square.
+It is what prevents $\iota$ from being fully faithful and $T$ from being idempotent: in general $L\iota q \not\simeq q$, because $\Hom_{\Pc_{I,P}}(L\iota q,q') \simeq \Hom_{\D}(\iota q,\iota q')$ also contains the non-local $1$-morphisms.
+\end{rmk}
+
+% The subsection on lax-idempotence of T (and the remarks on two-sided adjoining and six-functor formalisms)
+% was removed; it is in commit 31c3cb5625af320b08fe8cb95ade64f62acf416a, file sections/2dloc/06-laxidempotent.tex.

@@ -3,27 +3,23 @@
 
 \begin{defi}
 \label{def:adjoin}
-Let $\D \in \tprl$ and let $I$, $P$ be sets of $1$-morphisms of $\D$, viewed as maps
-$I\colon \bigoplus_{I}\Edge \to \D$ and $P\colon \bigoplus_{P}\Edge \to \D$ in $\tprl$.
-\emph{Formally making $I$ reflective and $P$ coreflective} (\cref{def:reflection}) gives the pushout $\D\lrrefl{I}{P}$ in $\tprl$
+Let $\A$ be an $(\infty,2)$-category and $I$, $P$ classes of $1$-morphisms of $\A$.
+\emph{Formally making $I$ reflective and $P$ coreflective} (\cref{def:reflection}) gives the pushout $\A\lrrefl{I}{P}$ in $\twoCat$ (enlarging the universe if $\A$ is large)
 \[
 \begin{tikzcd}[column sep=large]
-\bigoplus_{I}\Edge \oplus \bigoplus_{P}\Edge \ar[r, "{(I,P)}"] \ar[d, "\bigoplus_{I}\Free(\rho) \oplus \bigoplus_{P}\Free(\ell)"'] & \D \ar[d, "L"] \\
-\bigoplus_{I}\Free(\Refl) \oplus \bigoplus_{P}\Free(\Corefl) \ar[r] & \D\lrrefl{I}{P} \rlap{\ .}
+\coprod_{I}\Delta^{1} \sqcup \coprod_{P}\Delta^{1} \ar[r, "{(I,P)}"] \ar[d, "\coprod_{I}\rho \sqcup \coprod_{P}\ell"'] & \A \ar[d, "L"] \\
+\coprod_{I}\Refl \sqcup \coprod_{P}\Corefl \ar[r] & \A\lrrefl{I}{P} \rlap{\ .}
 \end{tikzcd}
 \]
-We write $\D\refl{I} := \D\lrrefl{I}{\emptyset}$ and $\D\corefl{P} := \D\lrrefl{\emptyset}{P}$.
-For small $\A$ and sets $I$, $P$ of $1$-morphisms of $\A$, $\A\lrrefl{I}{P}$ is the analogous pushout in $\twoCat$ along $\rho\colon \Delta^{1} \to \Refl$ on the $I$-summands and $\ell\colon \Delta^{1} \to \Corefl$ on the $P$-summands.
+We write $\A\refl{I} := \A\lrrefl{I}{\emptyset}$ and $\A\corefl{P} := \A\lrrefl{\emptyset}{P}$.
 \end{defi}
 
 So $Li$ acquires a left adjoint with invertible counit, and $Lp$ a right adjoint with invertible unit. \Cref{subsec:2dloc-plain} compares this with freely adjoining plain adjoints.
-As $\Free$ preserves colimits, $\Free(\A\lrrefl{I}{P}) \simeq \Free(\A)\lrrefl{y(I)}{y(P)}$.
-Pasting pushouts gives $\D\lrrefl{I}{P} \simeq \D\refl{I}\corefl{L_{I}(P)} \simeq \D\corefl{P}\refl{L_{P}(I)}$, where $L_{I}\colon \D \to \D\refl{I}$ and $L_{P}\colon \D \to \D\corefl{P}$; see \cref{prop:2dloc-commute} for the corresponding statement on local objects.
-The universal property of the pushout and \eqref{eq:free-univ} give:
+Pasting pushouts gives $\A\lrrefl{I}{P} \simeq \A\refl{I}\corefl{L_{I}(P)} \simeq \A\corefl{P}\refl{L_{P}(I)}$, where $L_{I}\colon \A \to \A\refl{I}$ and $L_{P}\colon \A \to \A\corefl{P}$; see \cref{prop:2dloc-commute} for the corresponding statement on local objects.
 
 \begin{prop}[universal property]
 \label{prop:adjoin-univ}
-For $\E \in \tprl$, restriction along $L\colon \D \to \D\lrrefl{I}{P}$ identifies $\func^{L}_{\Cat}(\D\lrrefl{I}{P},\E)$ with the sub-$(\infty,2)$-category of $\func^{L}_{\Cat}(\D,\E)$ whose
+For every $(\infty,2)$-category $\E$, restriction along $L\colon \A \to \A\lrrefl{I}{P}$ identifies $\func(\A\lrrefl{I}{P},\E)$ with the locally full sub-$(\infty,2)$-category of $\func(\A,\E)$ whose
 \begin{itemize}
 \item objects are the $F$ such that $F(i)$ is reflective for every $i \in I$ and $F(p)$ is coreflective for every $p \in P$;
 \item $1$-morphisms are the $\alpha\colon F \Rightarrow G$ such that for every $(p\colon x \to y) \in P$ the transposed naturality square
@@ -45,42 +41,29 @@ G(x) \ar[r, "G(i)"'] & G(y)
 is left Beck--Chevalley, i.e.\ $G(i)^{L}\alpha_{y} \Rightarrow \alpha_{x}F(i)^{L}$ is invertible;
 \item $2$-morphisms are all modifications.
 \end{itemize}
-The same holds for $\A\lrrefl{I}{P}$, with $\func(\A,\E)$ in place of $\func^{L}_{\Cat}(\D,\E)$, for every $(\infty,2)$-category $\E$.
 \end{prop}
 
 \begin{proof}
-By \eqref{eq:free-univ}, $\func^{L}_{\Cat}(\D\lrrefl{I}{P},\E)$ is the pullback of
+$\func(-,\E)$ turns the pushout into the pullback of
 \[
-\func^{L}_{\Cat}(\D,\E) \to \textstyle\prod_{I \sqcup P}\func(\Delta^{1},\E) \xleftarrow{\prod_{I}\rho^{*} \times \prod_{P}\ell^{*}} \prod_{I}\func(\Refl,\E) \times \prod_{P}\func(\Corefl,\E) \ .
+\func(\A,\E) \to \textstyle\prod_{I \sqcup P}\func(\Delta^{1},\E) \xleftarrow{\prod_{I}\rho^{*} \times \prod_{P}\ell^{*}} \prod_{I}\func(\Refl,\E) \times \prod_{P}\func(\Corefl,\E) \ .
 \]
-Apply \cref{lem:mates-refl} to the functor $\Delta^{1} \to \func^{L}_{\Cat}(\D,\E)$ classifying $F \Rightarrow G$, evaluated at $p$, resp.\ $i$.
+By \cref{lem:mates-refl} the right-hand map is a locally full sub-$(\infty,2)$-category, hence so is its pullback (\cref{rmk:lax-epi}). Apply \cref{lem:mates-refl} to the functor $\Delta^{1} \to \func(\A,\E)$ classifying $F \Rightarrow G$, evaluated at $p$, resp.\ $i$.
 \end{proof}
 
 \begin{rmk}
 \label{rmk:lax-epi}
 Following \cite{adamekelbashirsobralvelebil2001laxepi}, a functor $j\colon \A \to \B$ is a \emph{lax epimorphism} if every $j^{*}\colon \func(\B,\E) \to \func(\A,\E)$ is locally fully faithful, and an \emph{epimorphism} if every $j^{*}$ is fully faithful. By \cref{lem:mates-refl}, $\rho\colon \Delta^{1} \to \Refl$ and $\ell\colon \Delta^{1} \to \Corefl$ are lax epimorphisms but not epimorphisms, the difference being the Beck--Chevalley condition on $1$-morphisms.
-Since $\func(-,\E)$ turns pushouts into pullbacks and locally full sub-$(\infty,2)$-categories are stable under pullback, $\A \to \A\lrrefl{I}{P}$ is a lax epimorphism, and $L^{*}\colon \func^{L}_{\Cat}(\D\lrrefl{I}{P},\E) \to \func^{L}_{\Cat}(\D,\E)$ is a locally full sub-$(\infty,2)$-category for every $\E \in \tprl$.
+Locally full sub-$(\infty,2)$-categories are stable under products and pullbacks, as $\mapp(K,-)$ preserves limits and monomorphisms of spaces are stable under limits. As $\func(-,\E)$ turns pushouts into pullbacks, $\A \to \A\lrrefl{I}{P}$ is a lax epimorphism.
 \end{rmk}
 
 \begin{rmk}
 \label{rmk:adjoin-duality}
-$(-)^{\mathrm{co}}$ exchanges left and right adjoints as well as units and counits, so $\Adj^{\mathrm{co}} \simeq \Adj$ induces $\Refl^{\mathrm{co}} \simeq \Corefl$, exchanging $\ell$ and $\rho$. Hence $\D\lrrefl{I}{P} \simeq ((\D^{\mathrm{co}})\lrrefl{P}{I})^{\mathrm{co}}$.
+$(-)^{\mathrm{co}}$ exchanges left and right adjoints as well as units and counits, so $\Adj^{\mathrm{co}} \simeq \Adj$ induces $\Refl^{\mathrm{co}} \simeq \Corefl$, exchanging $\ell$ and $\rho$. Hence $\A\lrrefl{I}{P} \simeq ((\A^{\mathrm{co}})\lrrefl{P}{I})^{\mathrm{co}}$.
 \end{rmk}
 
 \begin{exmp}
 \label{ex:adjoin-basic}
-\leavevmode
-\begin{enumerate}
-\item $\Edge\corefl{e} \simeq \Free(\Corefl)$ for the generic arrow $e$, and $(\Delta^{1})\corefl{e} \simeq \Corefl$.
-\item Let $\D = \Cat$, acting on itself by products, and $P = \{u\}$ for $u\colon X \to Y$. By \cref{thm:2dloc-local} below, $\Cat\corefl{u}$ is the locally full sub-$(\infty,2)$-category of $\Cat$ on the $\C$ for which $u^{*}\colon \func(Y,\C) \to \func(X,\C)$ has a fully faithful left adjoint $u_{!}$, and the $F\colon \C \to \C'$ for which the commutative square
-\[
-\begin{tikzcd}
-\func(Y,\C) \ar[r, "u^{*}"] \ar[d, "F_{*}"'] & \func(X,\C) \ar[d, "F_{*}"] \ar[dl, Rightarrow, shorten=3mm, "="'] \\
-\func(Y,\C') \ar[r, "u^{*}"'] & \func(X,\C')
-\end{tikzcd}
-\]
-is left Beck--Chevalley, i.e.\ $u_{!}F_{*} \Rightarrow F_{*}u_{!}$ is invertible.
-If $u$ is fully faithful, a pointwise left Kan extension along $u$ is fully faithful, so every $\C$ with colimits indexed by the comma $\infty$-categories $X \times_{Y} Y_{/y}$ lies in $\Cat\corefl{u}$. But $u_{!}$ need not be pointwise: for $u\colon \{1\} \to \Delta^{1}$, a space $\C$ with two points lies in $\Cat\corefl{u}$, as $u^{*}$ is an equivalence, but pointwise left Kan extension along $u$ would require an initial object.
-Dually, $\Cat\refl{u}$ consists of the $\C$ for which $u^{*}$ has a fully faithful right adjoint $u_{*}$, and the $F$ with $F_{*}u_{*} \Rightarrow u_{*}F_{*}$ invertible.
-\end{enumerate}
+$(\Delta^{1})\corefl{e} \simeq \Corefl$ for the generic arrow $e$.
+In general $\A\lrrefl{I}{P}$ is a free construction and not a sub-$(\infty,2)$-category of $\A$. \Cref{subsec:2dloc-local} describes the local objects inside a given $(\infty,2)$-category, and \cref{thm:2dloc-local} identifies the two in the presentable case; for small $\A$ and sets $I$, $P$ this gives $\Free(\A\lrrefl{I}{P}) \simeq \Pc_{y(I),y(P)} \subset \Free(\A)$ (\cref{rmk:free-local}).
 \end{exmp}

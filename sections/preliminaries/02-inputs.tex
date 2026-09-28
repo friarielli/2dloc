@@ -48,9 +48,10 @@ This is a special case of the characterization of adjoints in $(\infty,2)$-categ
 It is \emph{not} a formal consequence of the $2$-categorical statement: $\htwo\func(\A,\B)$ is in general not the $2$-category of pseudofunctors $\htwo\A \to \htwo\B$, since homotopy categories do not commute with the limits computing the hom-categories of $\func(\A,\B)$.
 
 \subsubsection*{(I3) Enriched Yoneda lemma and free cocompletion}
-We use the enriched Yoneda lemma and the universal property of enriched presheaf categories of Hinich \cite{hinich2020yoneda} and Heine \cite{heine2023enriched}, formulated in the enriched model.
+We use the enriched Yoneda lemma and the universal property of enriched presheaf categories of Hinich \cite{hinich2020yoneda} and Heine \cite{heine2023enriched}, formulated in the enriched model. In particular, for an $(\infty,2)$-category $\D$ with small hom-categories, possibly large, the enriched Yoneda embedding $\D\opcat \to \func(\D,\Cat)$, $d \mapsto \Hom_{\D}(d,-)$, is fully faithful (in a larger universe).
 
 \subsubsection*{(I4) Enriched adjunctions and monads}
+(I4) and the presentable paragraph below are used only in \cref{subsec:2dloc-presentable}.
 Let $L\colon \D \to \E$ be a $\Cat$-linear left adjoint in $\tprl$ (see below) with right adjoint $\iota$. Then $\iota$ is canonically lax $\Cat$-linear \cite[7.3.2.7]{ha}, hence enriched, and $L \dashv \iota$ is an adjunction in the $(\infty,2)$-category of large $(\infty,2)$-categories, with enriched unit and counit \cite{heine2023enriched}.
 Hence $T := \iota L$ is an enriched functor with enriched natural transformations $\eta\colon \mathrm{id} \Rightarrow T$ and $\mu := \iota\varepsilon L\colon TT \Rightarrow T$ satisfying the monad identities in $\htwo$. On underlying $\infty$-categories $T$ is an associative algebra in $\func(\iota_{1}\D,\iota_{1}\D)$ \cite[\S 4.7.3]{ha}; monads in an $(\infty,2)$-category are compared with such algebras in \cite{haugseng2021laxmonads}.
 \todo{Check that the passage from lax-linear functors and transformations to enriched ones in \cite{heine2023enriched} is compatible with natural transformations.}

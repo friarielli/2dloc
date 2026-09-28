@@ -1,10 +1,11 @@
 \subsection{Plain adjoints}
 \label{subsec:2dloc-plain}
 
-Replacing $\Refl$ and $\Corefl$ by $\Adj$ in \cref{def:adjoin} gives the pushout $\D\lradj{I}{P}$, which \emph{freely adjoins left adjoints to $I$ and right adjoints to $P$}; likewise $\A\lradj{I}{P}$ for small $\A$. We write $\D\ladj{I} := \D\lradj{I}{\emptyset}$ and $\D\radj{P} := \D\lradj{\emptyset}{P}$.
-The proofs of \cref{prop:adjoin-univ,thm:2dloc-local}, with \cref{lem:mates} in place of \cref{lem:mates-refl}, show:
-the universal property of $\D\lradj{I}{P}$ is that of \cref{prop:adjoin-univ} with ``right adjoint'' in place of ``reflective'' and ``left adjoint'' in place of ``coreflective'';
-and $\D\lradj{I}{P} \simeq \Pc^{\dashv}_{I,P}$, the locally full sub-$(\infty,2)$-category of $\D$ on the objects for which every $i^{*}$ has a right adjoint and every $p^{*}$ a left adjoint, not necessarily fully faithful, and the $1$-morphisms of \cref{def:IP-local}.
+Replacing $\Refl$ and $\Corefl$ by $\Adj$ in \cref{def:adjoin} gives the pushout $\A\lradj{I}{P}$, which \emph{freely adjoins left adjoints to $I$ and right adjoints to $P$}. We write $\A\ladj{I} := \A\lradj{I}{\emptyset}$ and $\A\radj{P} := \A\lradj{\emptyset}{P}$.
+The proof of \cref{prop:adjoin-univ}, with \cref{lem:mates} in place of \cref{lem:mates-refl}, gives its universal property: that of \cref{prop:adjoin-univ} with ``right adjoint'' in place of ``reflective'' and ``left adjoint'' in place of ``coreflective''.
+
+Let $\Pc^{\dashv}_{I,P} \subset \D$ be the locally full sub-$(\infty,2)$-category on the objects for which every $i^{*}$ has a right adjoint and every $p^{*}$ a left adjoint, not necessarily fully faithful, and the $1$-morphisms of \cref{def:IP-local}.
+The proofs of \cref{thm:local-pullback,lem:repr-refl}, with \cref{lem:mates} in place of \cref{lem:mates-refl}, show that $\Pc^{\dashv}_{I,P}$ is the pullback of $\prod_{I}\ell^{*} \times \prod_{P}\rho^{*}\colon \prod_{I \sqcup P}\func(\Adj,\Cat) \to \prod_{I \sqcup P}\func(\Delta^{1},\Cat)$ along $(R_{s})_{s}$, and that $s$ is a left adjoint if and only if $\Pc^{\dashv}_{\emptyset,\{s\}} = \D$, and a right adjoint if and only if $\Pc^{\dashv}_{\{s\},\emptyset} = \D$.
 
 \begin{exmp}
 \label{ex:plain-spans}
@@ -12,65 +13,67 @@ For small $\A$ and $P$ all $1$-morphisms, $\A\radj{P}$ is the free $(\infty,2)$-
 \todo{Check which of these references proves the universal property in this form.}
 \end{exmp}
 
-We show that plain adjoining is a special case of \cref{def:adjoin}, and then why \cref{def:adjoin} is the better-behaved notion.
+We show that plain adjoining is a special case of \cref{def:IP-local}, provided certain lax pushouts exist, and then why \cref{def:IP-local} is the better-behaved notion.
 
 \subsubsection*{Reduction to coreflections}
 
-\begin{constru}[cylinders]
+\begin{defi}[cylinders]
 \label{constr:cylinder}
-For $s\colon x \to y$ in $\D$ let
+Let $s\colon x \to y$ in $\D$. A \emph{cylinder} of $s$ is a cocomma object (lax pushout) of $\mathrm{id}_{x}$ and $s$: an object $\Cyl(s)$ with $1$-morphisms $j_{s}\colon x \to \Cyl(s)$, $q_{s}\colon y \to \Cyl(s)$ and a $2$-morphism $\theta\colon j_{s} \Rightarrow q_{s}s$, such that for every $e \in \D$
 \[
-\Cyl(s) := (\Delta^{1} \otimes x) \sqcup_{\{1\} \otimes x,\,s} y \ , \qquad \Cyl'(s) := y \sqcup_{s,\,\{0\} \otimes x} (\Delta^{1} \otimes x) \ ,
+\Hom_{\D}(\Cyl(s),e) \longrightarrow (\mathrm{id} \downarrow s^{*}) \ , \qquad h \mapsto (hj_{s},hq_{s},h\theta) \ ,
 \]
-with $j_{s}\colon x \simeq \{0\} \otimes x \to \Cyl(s)$ and $k_{s}\colon x \simeq \{1\} \otimes x \to \Cyl'(s)$.
-So $\Cyl(s)$ is the cocomma object (lax pushout) of $\mathrm{id}_{x}$ and $s$, and $\Cyl'(s)$ that of $s$ and $\mathrm{id}_{x}$.
-As $\Hom_{\D}(-,e)$ turns colimits into limits and $\Hom_{\D}(\Delta^{1} \otimes x,e) \simeq \func(\Delta^{1},\Hom_{\D}(x,e))$ ,
-\[
-\Hom_{\D}(\Cyl(s),e) \simeq (\mathrm{id} \downarrow s^{*}) \ , \qquad \Hom_{\D}(\Cyl'(s),e) \simeq (s^{*} \downarrow \mathrm{id})
-\]
-naturally in $e$, the comma $\infty$-categories of triples $(a,b,a \to s^{*}b)$ , resp.\ $(b,a,s^{*}b \to a)$ , with $a \in \Hom_{\D}(x,e)$ and $b \in \Hom_{\D}(y,e)$ . Under these equivalences $j_{s}^{*}$ and $k_{s}^{*}$ are the projections to $a$ .
-\end{constru}
+is an equivalence onto the comma $\infty$-category of triples $(a,b,a \to s^{*}b)$ with $a \in \Hom_{\D}(x,e)$ and $b \in \Hom_{\D}(y,e)$.
+Dually, a \emph{cocylinder} of $s$ is a cocomma object of $s$ and $\mathrm{id}_{x}$: an object $\Cyl'(s)$ with $k_{s}\colon x \to \Cyl'(s)$, $q'_{s}\colon y \to \Cyl'(s)$ and $\theta'\colon q'_{s}s \Rightarrow k_{s}$, inducing $\Hom_{\D}(\Cyl'(s),e) \simeq (s^{*} \downarrow \mathrm{id})$, the triples $(b,a,s^{*}b \to a)$.
+\end{defi}
+
+These equivalences are given by precomposition, hence natural in $e$, and under them $j_{s}^{*}$ and $k_{s}^{*}$ are the projections to $a$. If $\D$ is tensored over $\Cat$, then $\Cyl(s) = (\Delta^{1} \otimes x) \sqcup_{\{1\} \otimes x,\,s} y$ and $\Cyl'(s) = y \sqcup_{s,\,\{0\} \otimes x} (\Delta^{1} \otimes x)$ whenever these pushouts exist in the sense of \cref{prop:saturation-closure}(2); in particular every presentable $\D$ has all cylinders and cocylinders (\cref{subsec:2dloc-presentable}).
 
 \begin{lem}
 \label{lem:comma-adjoint}
 Let $R\colon B \to A$ be a functor of $\infty$-categories and $\pi\colon (\mathrm{id}_{A} \downarrow R) \to A$ the projection $(a,b,a \to Rb) \mapsto a$. The following are equivalent:
 (a) $R$ is a right adjoint; (b) $\pi$ is a right adjoint; (c) $\pi$ has a fully faithful left adjoint.
 If $\Lambda \dashv R$ with unit $\eta$, the left adjoint of $\pi$ is $a \mapsto (a,\Lambda a,\eta_{a})$.
-Dually, a functor $G\colon B \to A$ is a left adjoint if and only if the projection $(G \downarrow \mathrm{id}_{A}) \to A$ has a fully faithful right adjoint, given by $a \mapsto (G^{R}a,a,\varepsilon_{a})$ .
+Dually, a functor $G\colon B \to A$ is a left adjoint if and only if the projection $(G \downarrow \mathrm{id}_{A}) \to A$ has a fully faithful right adjoint, given by $a \mapsto (G^{R}a,a,\varepsilon_{a})$.
 \end{lem}
 
 \begin{proof}
-(a) $\Rightarrow$ (c): $\mapp((a,\Lambda a,\eta_{a}),(a',b',\varphi'))$ is the space of pairs $\alpha\colon a \to a'$ , $\beta\colon \Lambda a \to b'$ with $\varphi'\alpha \simeq R(\beta)\eta_{a}$ . As $\beta \mapsto R(\beta)\eta_{a}$ is an equivalence $\mapp(\Lambda a,b') \simeq \mapp(a,Rb')$ , this space is $\mapp(a,a')$ , and the unit is the identity.
+(a) $\Rightarrow$ (c): $\mapp((a,\Lambda a,\eta_{a}),(a',b',\varphi'))$ is the space of pairs $\alpha\colon a \to a'$, $\beta\colon \Lambda a \to b'$ with $\varphi'\alpha \simeq R(\beta)\eta_{a}$. As $\beta \mapsto R(\beta)\eta_{a}$ is an equivalence $\mapp(\Lambda a,b') \simeq \mapp(a,Rb')$, this space is $\mapp(a,a')$, and the unit is the identity.
 (c) $\Rightarrow$ (b) is clear.
-(b) $\Rightarrow$ (a): let $\sigma \dashv \pi$ with unit $u$, and $\sigma(a) = (a_{0},b_{0},\varphi\colon a_{0} \to Rb_{0})$ . For $b' \in B$, a map $\sigma(a) \to (Rb',b',\mathrm{id})$ is a pair $(R(\beta)\varphi,\beta)$ , so $\mapp(\sigma(a),(Rb',b',\mathrm{id})) \simeq \mapp(b_{0},b')$ . The adjunction identifies this with $\mapp(a,Rb')$ via $\beta \mapsto R(\beta)\varphi u_{a}$ . So $\varphi u_{a}\colon a \to Rb_{0}$ is a universal arrow, and $R$ is a right adjoint.
+(b) $\Rightarrow$ (a): let $\sigma \dashv \pi$ with unit $u$, and $\sigma(a) = (a_{0},b_{0},\varphi\colon a_{0} \to Rb_{0})$. For $b' \in B$, a map $\sigma(a) \to (Rb',b',\mathrm{id})$ is a pair $(R(\beta)\varphi,\beta)$, so $\mapp(\sigma(a),(Rb',b',\mathrm{id})) \simeq \mapp(b_{0},b')$. The adjunction identifies this with $\mapp(a,Rb')$ via $\beta \mapsto R(\beta)\varphi u_{a}$. So $\varphi u_{a}\colon a \to Rb_{0}$ is a universal arrow, and $R$ is a right adjoint.
 The dual statement follows by passing to opposite $\infty$-categories.
 \end{proof}
 
-So lax pullbacks turn adjunctions into (co)reflections: in the comma square of $R$ and $\mathrm{id}_{A}$ , the edge $\pi$ parallel to $R$ is a colocalization exactly when $R$ is a right adjoint, and dually a localization exactly when $G$ is a left adjoint.
+So lax pullbacks turn adjunctions into (co)reflections: in the comma square of $R$ and $\mathrm{id}_{A}$, the edge $\pi$ parallel to $R$ is a colocalization exactly when $R$ is a right adjoint, and dually a localization exactly when $G$ is a left adjoint.
 
 \begin{prop}
 \label{prop:cylinder}
-Let $\D \in \tprl$, $s\colon x \to y$ in $\D$, $J_{P} := \{j_{p} : p \in P\}$ and $K_{I} := \{k_{i} : i \in I\}$.
+Let $s\colon x \to y$ be a $1$-morphism of $\D$ with a cylinder $\Cyl(s)$.
 \begin{enumerate}
-\item For $d \in \D$, $s^{*}$ has a left adjoint if and only if $j_{s}^{*}$ has a fully faithful left adjoint. For $g\colon d \to d'$ between such objects, the square of \cref{def:IP-local} for $(g,s)$ is left Beck--Chevalley if and only if the one for $(g,j_{s})$ is. Dually for right adjoints and $k_{s}$.
-\item $\Pc^{\dashv}_{I,P} = \Pc_{K_{I},J_{P}}$, hence $\D\lradj{I}{P} \simeq \D\lrrefl{K_{I}}{J_{P}}$ as locally full sub-$(\infty,2)$-categories of $\D$.
-\item $s$ is a left adjoint if and only if $j_{s}$ is coreflective, and a right adjoint if and only if $k_{s}$ is reflective.
+\item For $d \in \D$, $s^{*}$ has a left adjoint if and only if $j_{s}^{*}$ has a fully faithful left adjoint. For $g\colon d \to d'$ between such objects, the square of \cref{def:IP-local} for $(g,s)$ is left Beck--Chevalley if and only if the one for $(g,j_{s})$ is.
+\item $s$ is a left adjoint if and only if $j_{s}$ is coreflective.
 \end{enumerate}
+Dually, if $s$ has a cocylinder, the same holds for right adjoints and $k_{s}$, with $k_{s}$ reflective in (2).
+Consequently, if every $p \in P$ has a cylinder and every $i \in I$ a cocylinder, then with $J_{P} := \{j_{p} : p \in P\}$ and $K_{I} := \{k_{i} : i \in I\}$
+\[
+\Pc^{\dashv}_{I,P} = \Pc_{K_{I},J_{P}}
+\]
+as locally full sub-$(\infty,2)$-categories of $\D$.
 \end{prop}
 
 \begin{proof}
-(1) The first claim is \cref{lem:comma-adjoint} for $R = s^{*}$ and \cref{constr:cylinder}. The left adjoint of $j_{s}^{*}$ is $\lambda(a) = (a,s_{!}a,\eta_{a})$ , and as the unit of $\lambda \dashv j_{s}^{*}$ is the identity, the left mate $\lambda(g_{*}a) \to g_{*}\lambda(a)$ is the map $(ga,s_{!}(ga),\eta_{ga}) \to (ga,gs_{!}a,g\eta_{a})$ with first component $\mathrm{id}_{ga}$ . Its second component $\beta$ satisfies $s^{*}(\beta)\eta_{ga} \simeq g\eta_{a}$ , so it is the left mate $s_{!}g_{*}a \to g_{*}s_{!}a$ for $s$ . A map of $(\mathrm{id} \downarrow s^{*})$ is invertible if and only if its components are, so one mate is invertible if and only if the other is. The dual is the same argument with $(s^{*} \downarrow \mathrm{id})$ .
-(2) By (1) both sides have the same objects and $1$-morphisms, and a locally full sub-$(\infty,2)$-category is determined by these. The second claim follows from \cref{thm:2dloc-local} and its plain version.
-(3) The enriched Yoneda embedding $\D\opcat \to \func(\D,\Cat)$ , $d \mapsto \Hom_{\D}(d,-)$ , is fully faithful (I3) and takes an adjunction $l \dashv r$ to $r^{*} \dashv l^{*}$ with the same unit and counit. So $s$ is a left adjoint if and only if $s^{*}$ is a right adjoint in $\func(\D,\Cat)$, and $j_{s}$ is coreflective if and only if $j_{s}^{*}$ is a right adjoint with invertible unit. By \cref{thm:adjoints-in-functor-cats}, both conditions are pointwise plus the Beck--Chevalley condition for all $g\colon e \to e'$ , and these agree by (1). Dually for $k_{s}$ .
+(1) The first claim is \cref{lem:comma-adjoint} for $R = s^{*}$ and \cref{constr:cylinder}. The left adjoint of $j_{s}^{*}$ is $\lambda(a) = (a,s_{!}a,\eta_{a})$, and as the unit of $\lambda \dashv j_{s}^{*}$ is the identity, the left mate $\lambda(g_{*}a) \to g_{*}\lambda(a)$ is the map $(ga,s_{!}(ga),\eta_{ga}) \to (ga,gs_{!}a,g\eta_{a})$ with first component $\mathrm{id}_{ga}$. Its second component $\beta$ satisfies $s^{*}(\beta)\eta_{ga} \simeq g\eta_{a}$, so it is the left mate $s_{!}g_{*}a \to g_{*}s_{!}a$ for $s$. A map of $(\mathrm{id} \downarrow s^{*})$ is invertible if and only if its components are, so one mate is invertible if and only if the other is.
+(2) By \cref{lem:repr-refl} and its plain version, $s$ is a left adjoint if and only if $\Pc^{\dashv}_{\emptyset,\{s\}} = \D$, and $j_{s}$ is coreflective if and only if $\Pc_{\emptyset,\{j_{s}\}} = \D$. By (1) these conditions agree.
+The dual is the same argument with $(s^{*} \downarrow \mathrm{id})$. The last claim follows from (1): both sides have the same objects and $1$-morphisms, and a locally full sub-$(\infty,2)$-category is determined by these.
 \end{proof}
 
-So every plain localization is a reflective one, at the cost of replacing $s$ by the inclusion of $x$ into the lax pushout $\Cyl(s)$ or $\Cyl'(s)$ .
+So every plain localization is a reflective one, at the cost of replacing $s$ by the inclusion of $x$ into the lax pushout $\Cyl(s)$ or $\Cyl'(s)$. The only hypothesis is the existence of these lax pushouts.
 This is the $(\infty,2)$-categorical form of the mapping cone construction of Di Liberti--Lobbia--Sousa \cite[Proposition 1.14]{dilibertilobbiasousa2022kz}: in their terms $\Pc^{\dashv}_{\emptyset,P}$ is the $2$-category $\mathrm{WLInj}(P)$ of weakly left Kan injective objects and $\Pc_{\emptyset,P}$ is $\mathrm{LInj}(P)$.
 
 \begin{exmp}
 \label{ex:adjoin-products}
 Let $\D = \Cat$ and $\nabla\colon \mathrm{pt} \sqcup \mathrm{pt} \to \mathrm{pt}$ the fold map, so that $\nabla^{*}\colon \C \to \C \times \C$ is the diagonal. Then $\Cyl(\nabla) = \{a \to c \leftarrow b\}$ and $\Cyl'(\nabla) = \{a \leftarrow c \to b\}$, and $j_{\nabla}$, $k_{\nabla}$ are the inclusions of $\{a,b\}$. Restriction $j_{\nabla}^{*}$ has the fully faithful left adjoint $(a,b) \mapsto (a \to a \sqcup b \leftarrow b)$ exactly when $\C$ has binary coproducts.
-So $\Cat\lradj{\nabla}{\nabla} \simeq \Cat\lrrefl{k_{\nabla}}{j_{\nabla}}$ consists of the $\infty$-categories with binary products and binary coproducts, and the functors preserving both.
+So $\Pc^{\dashv}_{\{\nabla\},\{\nabla\}} = \Pc_{\{k_{\nabla}\},\{j_{\nabla}\}}$ consists of the $\infty$-categories with binary products and binary coproducts, and the functors preserving both.
 \end{exmp}
 
 \subsubsection*{Closure properties}
@@ -84,33 +87,47 @@ In particular, if $g$ and $gf$ are coreflective, so is $f$; and if $g$ and $gf$ 
 \end{lem}
 
 \begin{proof}
-Let $\eta$, $\varepsilon$ be the unit and counit of $gf \dashv r$. As $g_{*}$ is fully faithful on $\Hom(y,y)$, there is a unique $\varepsilon'\colon frg \Rightarrow \mathrm{id}_{y}$ with $g\varepsilon' = \varepsilon g$. The triangle identities for $(\eta,\varepsilon')$ hold: $g(\varepsilon'f \cdot f\eta) = \varepsilon gf \cdot gf\eta = \mathrm{id}_{gf}$ , and $g_{*}$ is faithful; and $rg\varepsilon' \cdot \eta rg = (r\varepsilon \cdot \eta r)g = \mathrm{id}_{rg}$ . The dual follows by applying $(-)^{\mathrm{co}}$ .
+Let $\eta$, $\varepsilon$ be the unit and counit of $gf \dashv r$. As $g_{*}$ is fully faithful on $\Hom(y,y)$, there is a unique $\varepsilon'\colon frg \Rightarrow \mathrm{id}_{y}$ with $g\varepsilon' = \varepsilon g$. The triangle identities for $(\eta,\varepsilon')$ hold: $g(\varepsilon'f \cdot f\eta) = \varepsilon gf \cdot gf\eta = \mathrm{id}_{gf}$, and $g_{*}$ is faithful; and $rg\varepsilon' \cdot \eta rg = (r\varepsilon \cdot \eta r)g = \mathrm{id}_{rg}$. The dual follows by applying $(-)^{\mathrm{co}}$.
 \end{proof}
 
 \begin{lem}
 \label{lem:corefl-pullback}
-A functor of $\infty$-categories $R\colon B \to A$ has a fully faithful left adjoint if and only if its pullback $C \times_{A} B \to C$ along every $F\colon C \to A$ is a right adjoint. In that case, if $\Lambda \dashv R$, the pullback has the fully faithful left adjoint $c \mapsto (c,\Lambda Fc)$ .
+A functor of $\infty$-categories $R\colon B \to A$ has a fully faithful left adjoint if and only if its pullback $C \times_{A} B \to C$ along every $F\colon C \to A$ is a right adjoint. In that case, if $\Lambda \dashv R$, the pullback has the fully faithful left adjoint $c \mapsto (c,\Lambda Fc)$.
 \end{lem}
 
 \begin{proof}
-If the unit of $\Lambda \dashv R$ is invertible, then $\mapp((c,\Lambda Fc),(c',b')) \simeq \mapp(c,c') \times_{\mapp(Fc,Rb')} \mapp(\Lambda Fc,b') \simeq \mapp(c,c')$ , as $R\colon \mapp(\Lambda Fc,b') \to \mapp(R\Lambda Fc,Rb') \simeq \mapp(Fc,Rb')$ is an equivalence.
-Conversely, pulling back along $a\colon \mathrm{pt} \to A$ shows that the fibre $B_{a}$ has an initial object $b_{a}$ . For $\varphi\colon a \to Rb'$ , let $B' := \Delta^{1} \times_{A} B$ be the pullback along $\varphi$ . The left adjoint of $B' \to \Delta^{1}$ sends $0$ to an initial object of $B'$ , which maps to $b_{a} \in B'_{0}$ and hence lies in $B'_{0} = B_{a}$ ; so $b_{a}$ is initial in $B'$ . Thus the fibre of $R\colon \mapp_{B}(b_{a},b') \to \mapp_{A}(a,Rb')$ over $\varphi$ , which is $\mapp_{B'}(b_{a},b')$ , is contractible. So $\mathrm{id}\colon a \simeq Rb_{a}$ is a universal arrow, and $R$ has a left adjoint with invertible unit.
+If the unit of $\Lambda \dashv R$ is invertible, then $\mapp((c,\Lambda Fc),(c',b')) \simeq \mapp(c,c') \times_{\mapp(Fc,Rb')} \mapp(\Lambda Fc,b') \simeq \mapp(c,c')$, as $R\colon \mapp(\Lambda Fc,b') \to \mapp(R\Lambda Fc,Rb') \simeq \mapp(Fc,Rb')$ is an equivalence.
+Conversely, pulling back along $a\colon \mathrm{pt} \to A$ shows that the fibre $B_{a}$ has an initial object $b_{a}$. For $\varphi\colon a \to Rb'$, let $B' := \Delta^{1} \times_{A} B$ be the pullback along $\varphi$. The left adjoint of $B' \to \Delta^{1}$ sends $0$ to an initial object of $B'$, which maps to $b_{a} \in B'_{0}$ and hence lies in $B'_{0} = B_{a}$; so $b_{a}$ is initial in $B'$. Thus the fibre of $R\colon \mapp_{B}(b_{a},b') \to \mapp_{A}(a,Rb')$ over $\varphi$, which is $\mapp_{B'}(b_{a},b')$, is contractible. So $\mathrm{id}\colon a \simeq Rb_{a}$ is a universal arrow, and $R$ has a left adjoint with invertible unit.
 \end{proof}
 
-So the right adjoints of coreflections are exactly the functors that remain right adjoints after every base change. Representably, this makes coreflective $1$-morphisms stable under pushout:
+So the right adjoints of coreflections are exactly the functors that remain right adjoints after every base change.
 
-\begin{cor}
-\label{cor:corefl-pushout}
-Let $\D \in \tprl$. The pushout of a coreflective $1$-morphism along any $1$-morphism is coreflective, and likewise for reflective $1$-morphisms.
-\end{cor}
+\begin{defi}
+\label{def:saturation}
+The \emph{saturation} of $P$ is the class $\overline{P}$ of $1$-morphisms $f$ of $\D$ such that every $(\emptyset,P)$-local object and $1$-morphism is $(\emptyset,\{f\})$-local, i.e.\ $\Pc_{\emptyset,P \cup \{f\}} = \Pc_{\emptyset,P}$. Likewise $\overline{P}^{\dashv}$ is the class of $f$ with $\Pc^{\dashv}_{\emptyset,P \cup \{f\}} = \Pc^{\dashv}_{\emptyset,P}$.
+\end{defi}
+
+By \cref{lem:repr-refl}, $\overline{\emptyset}$ is the class of coreflective $1$-morphisms of $\D$, and $\overline{\emptyset}^{\dashv}$ that of left adjoints.
+Both $\overline{P}$ and $\overline{P}^{\dashv}$ contain $P$ and $\overline{\emptyset}$, resp.\ $\overline{\emptyset}^{\dashv}$, and are closed under composition, since adjoints and fully faithful functors compose and mates are compatible with pasting (\cref{lem:mate-correspondence}).
+
+\begin{prop}
+\label{prop:saturation-closure}
+\leavevmode
+\begin{enumerate}
+\item (Cancellation.) If $g, gf \in \overline{P}$, then $f \in \overline{P}$.
+\item (Pushouts.) Let $f\colon a \to b$ be in $\overline{P}$, $g\colon a \to c$, and let $d = b \sqcup_{a} c$ be a pushout in $\D$ with $f'\colon c \to d$, in the sense that $\Hom_{\D}(d,e) \to \Hom_{\D}(b,e) \times_{\Hom_{\D}(a,e)} \Hom_{\D}(c,e)$ is an equivalence for every $e$. Then $f' \in \overline{P}$.
+\end{enumerate}
+For $P = \emptyset$: coreflective $1$-morphisms have cancellation and are stable under pushout. Applying this to $\D^{\mathrm{co}}$ (\cref{rmk:adjoin-duality}), the same holds for reflective $1$-morphisms.
+\end{prop}
 
 \begin{proof}
-Let $f\colon a \to b$ be coreflective, $g\colon a \to c$ , and $f'\colon c \to d := b \sqcup_{a} c$ . As $\func(K,\Hom_{\D}(-,e)) \simeq \mapp(K \otimes -,e)$ and $K \otimes -$ preserves colimits, $f'^{*}\colon \Hom(d,e) \to \Hom(c,e)$ is the pullback of $f^{*}$ along $g^{*}$ . By \cref{lem:corefl-pullback} it has the fully faithful left adjoint $c_{0} \mapsto (c_{0},c_{0}gf^{R})$ , which is given by precomposition and so commutes with postcomposition by any $h\colon e \to e'$ ; hence the squares $(h_{*},f'^{*})$ are left Beck--Chevalley. By \cref{thm:adjoints-in-functor-cats}, $f'^{*}$ is a right adjoint with invertible unit in $\func(\D,\Cat)$ , and $f'$ is coreflective by the Yoneda argument in the proof of \cref{prop:cylinder}(3). The reflective case is dual.
+Let $\C := \Pc_{\emptyset,P}$ and, for $z \in \D$, $h_{z} := \Hom_{\D}(z,\iota-)\colon \C \to \Cat$. A $1$-morphism $f\colon x \to y$ induces $f^{*}\colon h_{y} \Rightarrow h_{x}$ in $\func(\C,\Cat)$. As in the proof of \cref{lem:repr-refl}, \cref{thm:adjoints-in-functor-cats} shows that $f \in \overline{P}$ if and only if $f^{*}$ is a right adjoint with invertible unit.
+(1) In $\func(\C,\Cat)\opcat$, a right adjoint with invertible unit becomes a coreflective $1$-morphism, and $(gf)^{*} = f^{*}g^{*}$ becomes the composite of $(f^{*})\opcat$ followed by $(g^{*})\opcat$. So \cref{lem:ff-cancel} in $\func(\C,\Cat)\opcat$, with $(g^{*})\opcat$ coreflective and hence fully faithful, shows that $(f^{*})\opcat$ is coreflective.
+(2) For $q \in \C$, $f'^{*}\colon \Hom(d,\iota q) \to \Hom(c,\iota q)$ is the pullback of $f^{*}\colon \Hom(b,\iota q) \to \Hom(a,\iota q)$ along $g^{*}$. By \cref{lem:corefl-pullback} it has the fully faithful left adjoint $c_{0} \mapsto (c_{0},f_{!}(c_{0}g))$, which commutes with postcomposition by any $(\emptyset,P)$-local $h\colon q \to q'$ because $f_{!}$ does. So the squares $(h_{*},f'^{*})$ are left Beck--Chevalley and $f' \in \overline{P}$.
 \end{proof}
 
 \begin{rmk}
 \label{rmk:plain-vs-refl}
-Let $\overline{P} := \{f : Lf \text{ is coreflective in } \D\corefl{P}\}$ and $\overline{P}^{\dashv} := \{f : Lf \text{ is a left adjoint in } \D\radj{P}\}$ . Both contain $P$ and the coreflective $1$-morphisms of $\D$ and are closed under composition. As $L$ preserves pushouts, \cref{lem:ff-cancel,cor:corefl-pushout} show that $\overline{P}$ has cancellation ($g, gf \in \overline{P} \Rightarrow f \in \overline{P}$) and is stable under pushout along any $1$-morphism.
-Neither holds for $\overline{P}^{\dashv}$ , already for $\D = \Cat$ and $P = \emptyset$ , where $\overline{P}^{\dashv}$ is the class of left adjoint functors. Cancellation fails for $f = \{1\}\colon \mathrm{pt} \to \Delta^{1}$ and $g\colon \Delta^{1} \to \mathrm{pt}$ : $g$ and $gf = \mathrm{id}$ are left adjoints, but $f$ is not, as $1$ is not initial. Pushouts: the pushout of $g$ along the inclusion of $c \to c'$ into $\Lambda := \{c' \leftarrow c \to d\}$ is the functor $\Lambda \to \Delta^{1}$ sending $c,c'$ to $0$ and $d$ to $1$ , which is not a left adjoint as $\Lambda$ has no terminal object.
-By \cref{prop:cylinder}, and as $Lj_{u} \simeq j_{Lu}$ for the $\Cat$-linear, colimit-preserving $L$, the plain saturation is recovered from the coreflective one: $\overline{P}^{\dashv} = \{u : j_{u} \in \overline{J_{P}}\}$ .
+Neither part of \cref{prop:saturation-closure} holds for $\overline{P}^{\dashv}$, already for $\D = \Cat$ and $P = \emptyset$, where $\overline{P}^{\dashv}$ is the class of left adjoint functors. Cancellation fails for $f = \{1\}\colon \mathrm{pt} \to \Delta^{1}$ and $g\colon \Delta^{1} \to \mathrm{pt}$: $g$ and $gf = \mathrm{id}$ are left adjoints, but $f$ is not, as $1$ is not initial. Pushouts: the pushout of $g$ along the inclusion of $c \to c'$ into $\Lambda := \{c' \leftarrow c \to d\}$ is the functor $\Lambda \to \Delta^{1}$ sending $c,c'$ to $0$ and $d$ to $1$, which is not a left adjoint as $\Lambda$ has no terminal object.
+If every $p \in P$ and $u$ have cylinders, the plain saturation is recovered from the coreflective one: $u \in \overline{P}^{\dashv}$ if and only if $j_{u} \in \overline{J_{P}}$. Indeed, $\Pc^{\dashv}_{\emptyset,P} = \Pc_{\emptyset,J_{P}}$ by \cref{prop:cylinder}, and by \cref{prop:cylinder}(1) an object or $1$-morphism of $\D$ is $(\emptyset,\{u\})$-local in the plain sense if and only if it is $(\emptyset,\{j_{u}\})$-local.
 \end{rmk}
