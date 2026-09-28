@@ -17,7 +17,7 @@ For small $\A$ and $P$ all $1$-morphisms, $\A\radj{P}$ is the free $(\infty,2)$-
 \todo{Check which of these references proves the universal property in this form.}
 \end{exmp}
 
-We will show that plain adjoining is a special case of \cref{def:IP-local}, provided certain lax pushouts exist, and then why \cref{def:IP-local} is the better-behaved notion.
+We will show that plain adjoining is a special case of \cref{def:IP-local}, provided certain lax pushouts exist. Why \cref{def:IP-local} is the better-behaved notion will be explained in \cref{subsec:2dloc-saturation}.
 
 \subsubsection*{Reduction to coreflections}
 
@@ -92,65 +92,3 @@ Let $\D = \Cat$ and $\nabla\colon \mathrm{pt} \sqcup \mathrm{pt} \to \mathrm{pt}
 So $\Pc^{\dashv}_{\{\nabla\},\{\nabla\}} = \Pc_{\{k_{\nabla}\},\{j_{\nabla}\}}$ consists of the $\infty$-categories with binary products and binary coproducts, and the functors preserving both.
 \end{exmp}
 
-\subsubsection*{Closure properties}
-
-A $1$-morphism $g\colon y \to z$ is \emph{fully faithful} if every $g_{\natural}\colon \Hom(t,y) \to \Hom(t,z)$ is. Reflective and coreflective $1$-morphisms are fully faithful (\cref{subsec:mates-lemma}).
-
-\begin{lem}[cancellation]
-\label{lem:ff-cancel}
-Let $f\colon x \to y$ and let $g\colon y \to z$ be fully faithful. If $gf \dashv r$, then $f \dashv rg$, with the unit of $gf \dashv r$. Dually, if $l \dashv gf$, then $lg \dashv f$, with the counit of $l \dashv gf$.
-In particular, if $g$ and $gf$ are coreflective, so is $f$; and if $g$ and $gf$ are reflective, so is $f$.
-\end{lem}
-
-\begin{proof}
-Let $\eta$, $\varepsilon$ be the unit and counit of $gf \dashv r$. As $g_{\natural}$ is fully faithful on $\Hom(y,y)$, there is a unique $\varepsilon'\colon frg \Rightarrow \mathrm{id}_{y}$ with $g\varepsilon' = \varepsilon g$. The triangle identities for $(\eta,\varepsilon')$ hold, as $g_{\natural}$ is faithful and
-\[
-g(\varepsilon'f \cdot f\eta) = \varepsilon gf \cdot gf\eta = \mathrm{id}_{gf} \ , \qquad rg\varepsilon' \cdot \eta rg = (r\varepsilon \cdot \eta r)g = \mathrm{id}_{rg} \ .
-\] The dual follows by applying $(-)^{\mathrm{co}}$.
-\end{proof}
-
-\begin{lem}
-\label{lem:corefl-pullback}
-A functor of $\infty$-categories $R\colon B \to A$ has a fully faithful left adjoint if and only if its pullback $C \times_{A} B \to C$ along every $F\colon C \to A$ is a right adjoint. In that case, if $\Lambda \dashv R$, the pullback has the fully faithful left adjoint $c \mapsto (c,\Lambda Fc)$.
-\end{lem}
-
-\begin{proof}
-If the unit of $\Lambda \dashv R$ is invertible, then
-\[
-\mapp\bigl((c,\Lambda Fc),(c',b')\bigr) \simeq \mapp(c,c') \times_{\mapp(Fc,Rb')} \mapp(\Lambda Fc,b') \simeq \mapp(c,c') \ ,
-\]
-as $R\colon \mapp(\Lambda Fc,b') \to \mapp(R\Lambda Fc,Rb') \simeq \mapp(Fc,Rb')$ is an equivalence.
-Conversely, pulling back along $a\colon \mathrm{pt} \to A$ shows that the fibre $B_{a}$ has an initial object $b_{a}$. For $\varphi\colon a \to Rb'$, let $B' := \Delta^{1} \times_{A} B$ be the pullback along $\varphi$. The left adjoint of $B' \to \Delta^{1}$ sends $0$ to an initial object of $B'$, which maps to $b_{a} \in B'_{0}$ and hence lies in $B'_{0} = B_{a}$; so $b_{a}$ is initial in $B'$. Thus the fibre of $R\colon \mapp_{B}(b_{a},b') \to \mapp_{A}(a,Rb')$ over $\varphi$, which is $\mapp_{B'}(b_{a},b')$, is contractible. So $\mathrm{id}\colon a \simeq Rb_{a}$ is a universal arrow, and $R$ has a left adjoint with invertible unit.
-\end{proof}
-
-So the right adjoints of coreflections are exactly the functors that remain right adjoints after every base change.
-
-\begin{defi}
-\label{def:saturation}
-The \emph{saturation} of $P$ is the class $\overline{P}$ of $1$-morphisms $f$ of $\D$ such that every $(\emptyset,P)$-local object and $1$-morphism is $(\emptyset,\{f\})$-local, i.e.\ $\Pc_{\emptyset,P \cup \{f\}} = \Pc_{\emptyset,P}$. Likewise $\overline{P}^{\dashv}$ is the class of $f$ with $\Pc^{\dashv}_{\emptyset,P \cup \{f\}} = \Pc^{\dashv}_{\emptyset,P}$.
-\end{defi}
-
-By \cref{lem:repr-refl}, $\overline{\emptyset}$ is the class of coreflective $1$-morphisms of $\D$, and $\overline{\emptyset}^{\dashv}$ that of left adjoints.
-Both $\overline{P}$ and $\overline{P}^{\dashv}$ contain $P$ and $\overline{\emptyset}$, resp.\ $\overline{\emptyset}^{\dashv}$, and are closed under composition, since adjoints and fully faithful functors compose and mates are compatible with pasting (\cref{lem:mate-correspondence}).
-
-\begin{prop}
-\label{prop:saturation-closure}
-\leavevmode
-\begin{enumerate}
-\item (Cancellation.) If $g, gf \in \overline{P}$, then $f \in \overline{P}$.
-\item (Pushouts.) Let $f\colon a \to b$ be in $\overline{P}$, $g\colon a \to c$, and let $d = b \sqcup_{a} c$ be an $(\infty,2)$-pushout in $\D$ with $f'\colon c \to d$. Then $f' \in \overline{P}$.
-\end{enumerate}
-For $P = \emptyset$: coreflective $1$-morphisms have cancellation and are stable under pushout. Applying this to $\D^{\mathrm{co}}$ (\cref{rmk:adjoin-duality}), the same holds for reflective $1$-morphisms.
-\end{prop}
-
-\begin{proof}
-Let $\C := \Pc_{\emptyset,P}$ and, for $z \in \D$, $h_{z} := \Hom_{\D}(z,\iota-)\colon \C \to \Cat$. A $1$-morphism $f\colon x \to y$ induces $f^{\natural}\colon h_{y} \Rightarrow h_{x}$ in $\func(\C,\Cat)$. As in the proof of \cref{lem:repr-refl}, \cref{thm:adjoints-in-functor-cats} shows that $f \in \overline{P}$ if and only if $f^{\natural}$ is a right adjoint with invertible unit.
-(1) In $\func(\C,\Cat)\opcat$, a right adjoint with invertible unit becomes a coreflective $1$-morphism, and $(gf)^{\natural} = f^{\natural}g^{\natural}$ becomes the composite of $(f^{\natural})\opcat$ followed by $(g^{\natural})\opcat$. So \cref{lem:ff-cancel} in $\func(\C,\Cat)\opcat$, with $(g^{\natural})\opcat$ coreflective and hence fully faithful, shows that $(f^{\natural})\opcat$ is coreflective.
-(2) For $q \in \C$, $f'^{\natural}\colon \Hom(d,\iota q) \to \Hom(c,\iota q)$ is the pullback of $f^{\natural}\colon \Hom(b,\iota q) \to \Hom(a,\iota q)$ along $g^{\natural}$. By \cref{lem:corefl-pullback} it has the fully faithful left adjoint $c_{0} \mapsto (c_{0},(f^{\natural})^{L}(c_{0}g))$, which commutes with postcomposition by any $(\emptyset,P)$-local $h\colon q \to q'$ because $(f^{\natural})^{L}$ does. So the squares $(h_{\natural},f'^{\natural})$ are left Beck--Chevalley and $f' \in \overline{P}$.
-\end{proof}
-
-\begin{rmk}
-\label{rmk:plain-vs-refl}
-Neither part of \cref{prop:saturation-closure} holds for $\overline{P}^{\dashv}$, already for $\D = \Cat$ and $P = \emptyset$, where $\overline{P}^{\dashv}$ is the class of left adjoint functors. Cancellation fails for $f = \{1\}\colon \mathrm{pt} \to \Delta^{1}$ and $g\colon \Delta^{1} \to \mathrm{pt}$: $g$ and $gf = \mathrm{id}$ are left adjoints, but $f$ is not, as $1$ is not initial. Pushouts: the pushout of $g$ along the inclusion of $c \to c'$ into $\Lambda := \{c' \leftarrow c \to d\}$ is the functor $\Lambda \to \Delta^{1}$ sending $c,c'$ to $0$ and $d$ to $1$, which is not a left adjoint as $\Lambda$ has no terminal object.
-If every $p \in P$ and $u$ have cylinders, the plain saturation is recovered from the coreflective one: $u \in \overline{P}^{\dashv}$ if and only if $j_{u} \in \overline{J_{P}}$. Indeed, $\Pc^{\dashv}_{\emptyset,P} = \Pc_{\emptyset,J_{P}}$ by \cref{prop:cylinder}, and by \cref{prop:cylinder}(1) an object or $1$-morphism of $\D$ is $(\emptyset,\{u\})$-local in the plain sense if and only if it is $(\emptyset,\{j_{u}\})$-local.
-\end{rmk}
