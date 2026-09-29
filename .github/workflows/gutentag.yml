@@ -38,4 +38,9 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898248+github-actions[bot]@users.noreply.github.com'
           git commit -qam 'Assign gutentags'
-          git push origin HEAD:main || echo '::warning::main moved during tagging; the queued run tags it'
+          if ! git push origin HEAD:main; then
+            git fetch -q origin main
+            # Fail unless the push lost a race against a newer push, whose queued run tags it.
+            test "$(git rev-parse FETCH_HEAD)" != "$(git rev-parse HEAD~1)"
+            echo '::warning::main moved during tagging; the queued run tags it'
+          fi

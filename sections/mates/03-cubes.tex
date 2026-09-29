@@ -1,15 +1,11 @@
 \subsection{Lax cubes and rotation}
 \label{subsec:mates-cubes}
-\gutentag{00AD}%
 
 \subsubsection*{Lax cubes}
-\gutentag{00AE}%
-\gutentag{00AF}%
 Number the vertices of the cube $\{0,1\}^{3}$ by $(x_{1},x_{2},x_{3}) \mapsto x_{1} + 2x_{2} + 4x_{3}$ , and write $[mn]$ for the edge from $m$ to $n$ . The edges along axis $1$, $2$, $3$ are $[01],[23],[45],[67]$ , resp.\ $[02],[13],[46],[57]$ , resp.\ $[04],[15],[26],[37]$ . A path from $0$ to $7$ is a word in the axes, e.g.\ $213$ is the path $0 \to 2 \to 3 \to 7$ . A face spanned by axes $i$, $j$ has two paths from its initial to its terminal vertex, the \emph{$i$-first} and the \emph{$j$-first} path.
 
 \begin{defi}
 \label{def:lax-cube}
-\gutentag{00B0}%
 Let $\prec$ be a total order on $\{1,2,3\}$ . A \emph{lax cube} of ordering $\prec$ in $\A$ consists of
 \begin{enumerate}
 \item objects $X_{0},\dots,X_{7}$ and $1$-morphisms $X_{[mn]}\colon X_{m} \to X_{n}$ for the twelve edges;
@@ -18,12 +14,10 @@ Let $\prec$ be a total order on $\{1,2,3\}$ . A \emph{lax cube} of ordering $\pr
 \end{enumerate}
 \end{defi}
 
-\gutentag{00B1}%
 So each face spanned by $i \prec j$ is a lax square in the sense of \cref{def:lax-square}, with the $i$-edges horizontal and the $j$-edges vertical. Opposite faces have the same orientation, and the three faces at the vertex $0$ determine all six.
 
 \begin{rmk}
 \label{rmk:lax-cube-hexagon}
-\gutentag{00B2}%
 Whiskered by the remaining edge, the face spanned by $i \prec j$ changes a path $\dots ij \dots$ into $\dots ji \dots$ . For the ordering $p \prec q \prec s$ the six paths therefore form a hexagon with source $pqs$ , sink $sqp$ , and two routes. For $1 \prec 2 \prec 3$ they are
 \begin{align*}
 &[37][13][01] \Rightarrow [37][23][02] \Rightarrow [67][26][02] \Rightarrow [67][46][04] \ , \\
@@ -37,7 +31,6 @@ using the faces $0123$, $2367$, $0246$ , resp.\ $1357$, $0145$, $4567$ : one fac
 
 \begin{defi}
 \label{def:lax-cube-kind}
-\gutentag{00B3}%
 Let $X$ be a lax cube of ordering $\prec$ , let $a$ be an axis and $x \prec y$ the other two. Regard $X$ as a \emph{morphism} $S \to T$ from the $xy$-face at $x_{a} = 0$ to the $xy$-face at $x_{a} = 1$ , with the four $a$-edges $u$ as components. Its \emph{kind} is the rank $r \in \{1,2,3\}$ of $a$ in $\prec$ . The naturality faces compare, for an edge $e$ of $S$ and the parallel edge $e'$ of $T$ , the paths $ue$ (\emph{$e$-first}) and $e'u$ (\emph{$u$-first}), and are oriented as follows:
 \[
 \begin{array}{llll}
@@ -49,17 +42,13 @@ r & \prec & \text{$x$-faces} & \text{$y$-faces} \\ \hline
 \]
 \end{defi}
 
-\gutentag{00B4}%
 Kinds $1$ and $3$ are the two uniform notions of lax transformation between lax squares; kind $2$ is mixed.
 
 \subsubsection*{Rotation}
-\gutentag{00B5}%
-\gutentag{00B6}%
 In a lax square with $i$-edges horizontal and $j$-edges vertical, \cref{constr:mates} reverses the $i$-edges by left adjoints or the $j$-edges by right adjoints. It does not reverse the $i$-edges by right adjoints, nor the $j$-edges by left adjoints.
 
 \begin{prop}
 \label{prop:cube-rotation}
-\gutentag{00B7}%
 Let $X$ be a lax cube of ordering $p \prec q \prec s$ .
 \begin{enumerate}
 \item If the four $p$-edges admit left adjoints, there is a lax cube $\lmate{X}$ of ordering $q \prec s \prec p$ : its $p$-edges are the left adjoints of those of $X$ , its four faces containing $p$-edges are the left mates of those of $X$ , and its $qs$-faces are those of $X$ .
@@ -68,14 +57,12 @@ Let $X$ be a lax cube of ordering $p \prec q \prec s$ .
 \end{prop}
 
 \begin{proof}
-\gutentag{00B8}%
 (1) A face spanned by $p$ and $t \in \{q,s\}$ has the $p$-edges horizontal, so its left mate is defined and is a lax square with the $t$-edges horizontal and the reversed $p$-edges vertical: $t \prec p$ . The $qs$-faces keep $q \prec s$ . For the interior, regard the hexagon $2$-morphism $\sigma$ as a lax square with the two $p$-edges on the paths $pqs$ and $sqp$ horizontal and the $qs$-paths vertical. Each route of the hexagon is a vertical pasting of the two faces containing $p$-edges that it uses, followed or preceded by a $qs$-face whiskered into a vertical side. By \cref{lem:mate-correspondence}, $\sigma \mapsto \lmate{\sigma}$ is an equivalence of mapping spaces compatible with pasting and with whiskering into the vertical sides, so it carries the two routes of $X$ to the two routes of $\lmate{X}$ , from $qsp$ to $psq$ , and the identification (3) of $X$ to one for $\lmate{X}$ .
 (2) is dual: regard $\sigma$ as a lax square with the $s$-edges vertical.
 \end{proof}
 
 \begin{rmk}
 \label{rmk:cube-rotation}
-\gutentag{00B9}%
 \begin{enumerate}
 \item The middle axis $q$ is vertical in the $pq$-faces and horizontal in the $qs$-faces, so neither kind of adjoint reverses it by mates.
 \item Geometrically, $\lmate{X}$ is the rotation of $X$ by $90^{\circ}$ about $q$ or about $s$ that reverses the $p$-edges, and $\rmate{X}$ the one about $p$ or $q$ that reverses the $s$-edges. Of the six rotations by $90^{\circ}$ about an axis, these are the four that mates provide.
@@ -86,7 +73,6 @@ Let $X$ be a lax cube of ordering $p \prec q \prec s$ .
 
 \begin{exmp}
 \label{exmp:cube-rotation}
-\gutentag{00BA}%
 Let $X$ have ordering $1 \prec 2 \prec 3$ , a morphism of kind $3$ along axis $3$ from $S$ , the face $0123$ , to $T$ , the face $4567$ . Rotate it to the left about axis $3$ , reversing $[01],[23],[45],[67]$ ; see \cref{fig:cube-rotation}. The rotated cube $\lmate{X}$ has ordering $2 \prec 3 \prec 1$ , initial vertex $1$ and terminal vertex $6$ . Its position $(x_{1},x_{2},x_{3})$ carries the vertex $X_{m}$ with $m$ the number of $(1-x_{2},x_{1},x_{3})$ , i.e.\ its positions $0,\dots,7$ carry $X_{1},X_{3},X_{0},X_{2},X_{5},X_{7},X_{4},X_{6}$ . Its faces are:
 \[
 \begin{array}{lll}
@@ -107,7 +93,6 @@ Each face of $\lmate{X}$ , spanned by axes $i \prec j$ in the order $2 \prec 3 \
 \end{exmp}
 
 \begin{figure}[ht]
-\gutentag{00BB}%
 \centering
 \begin{tikzpicture}[
   >=stealth,
