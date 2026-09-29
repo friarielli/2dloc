@@ -71,6 +71,21 @@ No choice is involved: a commutative square has one underlying lax square with $
 \gutentag{003F}%
 The reason for the Beck--Chevalley conditions: a lift of $R_{i}(f)$ along $\ell^{*}$ is a $1$-morphism of $\func(\Refl,\Cat)$, i.e.\ a transformation from the reflection $i^{\natural} \dashv (i^{\natural})^{R}$ at $d$ to the one at $d'$ with components $f_{\natural}$. Besides its naturality square $R_{i}(f)$ at $i^{\natural}$, it has an \emph{invertible} naturality square at $(i^{\natural})^{R}$, and in $\htwo\Cat$ this square is the right mate of $R_{i}(f)$ (\cref{rmk:mates-2cat}). Dually for $p$, with $(p^{\natural})^{L}$ and the left mate.
 
+\begin{cor}
+\label{cor:local-yoneda}
+Let $y\colon \D \to \func(\D\opcat,\Cat)$ be the enriched Yoneda embedding and $L\colon \D \to \D\lrrefl{I}{P}$ as in \cref{def:adjoin}. Then $\Pc_{I,P}$ is the pullback of $y$ along the locally full inclusion
+\[
+L^{*}\colon \func\bigl((\D\lrrefl{I}{P})\opcat,\Cat\bigr) \longrightarrow \func(\D\opcat,\Cat) \ .
+\]
+So $d \in \D$ is $(I,P)$-local if and only if $\Hom_{\D}(-,d)$ extends along $L\opcat$, and a $1$-morphism $f$ is $(I,P)$-local if and only if $f_{\natural} = \Hom_{\D}(-,f)$ extends.
+\end{cor}
+
+\begin{proof}
+$\func(-,\Cat)$ turns the pushout of \cref{def:adjoin} into a pullback: $\func((\D\lrrefl{I}{P})\opcat,\Cat)$ is the pullback of restriction along $\prod_{I}\rho\opcat \sqcup \prod_{P}\ell\opcat$ from $\prod_{I}\func(\Refl\opcat,\Cat) \times \prod_{P}\func(\Corefl\opcat,\Cat)$ to $\prod_{I \sqcup P}\func((\Delta^{1})\opcat,\Cat)$, along evaluation at the $1$-morphisms in $I \sqcup P$. The equivalences $\Refl\opcat \simeq \Refl$ and $\Corefl\opcat \simeq \Corefl$ induced by $\Adj \simeq \Adj\opcat$ (\cref{sec:mates}) carry $\rho\opcat$ to $\ell$ and $\ell\opcat$ to $\rho$, so this restriction is the map $\prod_{I}\ell^{*} \times \prod_{P}\rho^{*}$ of \eqref{eq:pullback}, a locally full inclusion by \cref{lem:mates-refl}, and hence so is its pullback $L^{*}$. Evaluating $y$ at $s \in I \sqcup P$ gives $R_{s}$, so pasting this pullback with \eqref{eq:pullback} gives the claim.
+\end{proof}
+
+The $(I,P)$-local objects are thus the objects of $\D$ whose representable presheaves live on the two-dimensional localization $\D\lrrefl{I}{P}$, exactly as the $S$-local objects of \cref{subsec:2dloc-bousfield} are the objects whose representable presheaves live on $\C[S^{-1}]$.
+
 \gutentag{0040}%
 The case $\D = \Pc_{\emptyset,\{s\}}$, i.e.\ every object and $1$-morphism is $\{s\}$-local, characterizes coreflective $1$-morphisms representably:
 
