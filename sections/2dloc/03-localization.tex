@@ -86,16 +86,19 @@ The enriched Yoneda embedding $\D\opcat \to \func(\D,\Cat)$, $d \mapsto \Hom_{\D
 By \cite[Cor.~5.2.12]{abellangagnahaugseng2024straightening}, $s^{\natural}$ is a right adjoint if and only if every component $s^{\natural}\colon \Hom_{\D}(y,d) \to \Hom_{\D}(x,d)$ is one and every transposed naturality square is left Beck--Chevalley; these squares are the second squares of \cref{def:IP-local}. A $2$-morphism of $\func(\D,\Cat)$ is invertible if and only if its components are, so the unit is invertible if and only if every $s^{\natural}$ has a fully faithful left adjoint. The reflective case is dual.
 \end{proof}
 
-\reviewcomment{We do have a $ (\infty, 2) $-cat of $ (\infty, 2) $-cats, right?}
+As $\twoCat$ is cartesian closed, it is enriched over itself, and changing enrichment along the product-preserving functor $\iota_{1}\colon \twoCat \to \Cat$ \cite{gepnerhaugseng2015enriched} gives the $(\infty,2)$-category of (possibly large) $(\infty,2)$-categories, functors and natural transformations, which we also denote $\twoCat$.
+
 \begin{defi}
 \label{def:enriched-adjoint}
 \gutentag{0043}%
-A functor $G\colon \C \to \D$ of $(\infty,2)$-categories \emph{has a left adjoint} if there are a functor $F\colon \D \to \C$ and a transformation $\eta\colon \mathrm{id}_{\D} \Rightarrow GF$ such that
+A functor $G\colon \C \to \D$ of $(\infty,2)$-categories \emph{has a left adjoint} if it is a right adjoint in $\twoCat$ (\cref{def:adjunction}).
+\end{defi}
+
+If $F \dashv G$ with unit $\eta$ and counit $\varepsilon$, then for $y \in \D$ and $q \in \C$ the composite
 \[
 \Hom_{\C}(Fy,q) \xrightarrow{\ G\ } \Hom_{\D}(GFy,Gq) \xrightarrow{\ \eta_{y}^{\natural}\ } \Hom_{\D}(y,Gq)
 \]
-is an equivalence for all $y \in \D$ and $q \in \C$. These equivalences are natural in $y$ and $q$, as functors $\D\opcat \times \C \to \Cat$.
-\end{defi}
+is an equivalence, natural in $y$ and $q$ as functors $\D\opcat \times \C \to \Cat$: an inverse is $g \mapsto \varepsilon_{q} \circ F(g)$, by naturality of $\eta$ and $\varepsilon$ and the triangle identities in $\htwo\twoCat$.
 
 \gutentag{0044}%
 In general $\iota\colon \Pc_{I,P} \to \D$ can fail to have a left adjoint. But when it does, we can compare it with formally making $ I $ reflective and $ P $ coreflective.
@@ -111,10 +114,17 @@ Suppose $\iota\colon \Pc_{I,P} \to \D$ has a left adjoint $L$. Then $Li$ is refl
 The equivalences $\Hom_{\Pc_{I,P}}(Ly,q) \simeq \Hom_{\D}(y,\iota q)$ are natural in $y$ and $q$. They identify $(Li)^{\natural}$ at $q$ with $i^{\natural}$ at $\iota q$, and postcomposition by $g\colon q \to q'$ with $(\iota g)_{\natural}$. So every object and $1$-morphism of $\Pc_{I,P}$ is $\{Li\}$-local, and $Li$ is reflective by \cref{lem:repr-refl}; likewise for $Lp$. Under the Yoneda embedding the reflection $(Li)^{L} \dashv Li$ goes to $(Li)^{\natural} \dashv ((Li)^{L})^{\natural}$, so $((Li)^{L})^{\natural}$ is the right adjoint $(i^{\natural})^{R}$ of $i^{\natural}$; likewise for $p$.
 \end{proof}
 
-\reviewcomment{put the comparison between local objects and the pushout construction here}
-
 \gutentag{0047}%
 By \cref{rmk:mates-2cat}, for $g\colon q \to q'$ in $\Pc_{I,P}$ the squares expressing that $g_{\natural}$ commutes with precomposition by $(Li)^{L}$ and $(Lp)^{R}$ are the mates of the squares of \cref{def:IP-local}: the Beck--Chevalley conditions say that $\iota g$ commutes with precomposition by the adjoined adjoints.
+
+By \cref{prop:local-adjoint-refl,prop:adjoin-univ}, $L\colon \D \to \Pc_{I,P}$ extends to a comparison functor $\Phi\colon \D\lrrefl{I}{P} \to \Pc_{I,P}$ under $\D$. Unlike in \cref{prop:bousfield-pushout}(1), $\Phi$ need not be an equivalence, even after replacing $I$ and $P$ by their saturations, which we will define in \cref{subsec:2dloc-saturation}. The one-dimensional proof \cite[5.2.7.12]{htt} uses that every functor out of the formal localization inverts the units $\eta_{d}$; here such a functor need not invert them.
+
+\begin{exmp}
+\label{ex:local-vs-pushout}
+Let $\D = \Delta^{1}$ and $P = \{e\}$ for $e\colon 0 \to 1$. The hom-categories of $\D$ are spaces, and a functor of spaces with a fully faithful adjoint is an equivalence, so $\Pc_{\emptyset,\{e\}} = \{1\}$ and $\iota$ has the left adjoint $L\colon \Delta^{1} \to \mathrm{pt}$. But $\D\corefl{e} \simeq \Corefl$ (\cref{ex:adjoin-basic}), and $\Phi\colon \Corefl \to \mathrm{pt}$ is not an equivalence. The saturation of $\{e\}$ will consist of $e$ and the identities, and making an identity coreflective changes nothing, as its adjoints are identities.
+\end{exmp}
+
+In the presentable case, \cref{thm:2dloc-local} will identify $\Pc_{I,P}$ with the pushout in presentable $(\infty,2)$-categories instead.
 
 \gutentag{0048}%
 Making $I$ reflective and $P$ coreflective commutes, also on the level of local objects, as soon as the relevant left adjoint exists.

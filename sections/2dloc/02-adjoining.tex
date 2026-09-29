@@ -25,7 +25,7 @@ Pasting pushouts gives $\A\lrrefl{I}{P} \simeq \A\refl{I}\corefl{L_{I}(P)} \sime
 \begin{prop}[universal property]
 \label{prop:adjoin-univ}
 \gutentag{0033}%
-For every $(\infty,2)$-category $\E$, restriction along $L\colon \A \to \A\lrrefl{I}{P}$ identifies $\func(\A\lrrefl{I}{P},\E)$ with the locally full sub-$(\infty,2)$-category\reviewcomment{We said locally full so description of $ 2 $-morphisms is not needed.} of $\func(\A,\E)$ whose
+For every $(\infty,2)$-category $\E$, restriction along $L\colon \A \to \A\lrrefl{I}{P}$ identifies $\func(\A\lrrefl{I}{P},\E)$ with the locally full sub-$(\infty,2)$-category of $\func(\A,\E)$ (so determined by its objects and $1$-morphisms) whose
 \begin{itemize}
 \item objects are the $F$ such that $F(i)$ is reflective for every $i \in I$ and $F(p)$ is coreflective for every $p \in P$;
 \item $1$-morphisms are the $\alpha\colon F \Rightarrow G$ such that for every $(p\colon x \to y) \in P$ the transposed naturality square
@@ -74,6 +74,5 @@ $(-)^{\mathrm{co}}$ exchanges left and right adjoints as well as units and couni
 \label{ex:adjoin-basic}
 \gutentag{0037}%
 $(\Delta^{1})\corefl{e} \simeq \Corefl$ for the generic arrow $e$.
-In general $\A\lrrefl{I}{P}$ is a free construction and not a sub-$(\infty,2)$-category of $\A$. In \cref{subsec:2dloc-local} we will describe the local objects inside a given $(\infty,2)$-category, and \cref{thm:2dloc-local} will identify the two in the presentable case
-\reviewcomment{Identify them if the left adjoint exists?}. For small $\A$ and sets $I$, $P$ this will give $\Free(\A\lrrefl{I}{P}) \simeq \Pc_{y(I),y(P)} \subset \Free(\A)$ (\cref{rmk:free-local}).
+In general $\A\lrrefl{I}{P}$ is a free construction and not a sub-$(\infty,2)$-category of $\A$. In \cref{subsec:2dloc-local} we will describe the local objects inside a given $(\infty,2)$-category and compare them with $\A\lrrefl{I}{P}$ when their inclusion has a left adjoint; unlike in \cref{prop:bousfield-pushout}(1), the two will differ in general (\cref{ex:local-vs-pushout}). \Cref{thm:2dloc-local} will identify the local objects with the pushout in presentable $(\infty,2)$-categories. For small $\A$ and sets $I$, $P$ this will give $\Free(\A\lrrefl{I}{P}) \simeq \Pc_{y(I),y(P)} \subset \Free(\A)$ (\cref{rmk:free-local}).
 \end{exmp}

@@ -30,28 +30,18 @@ We will show that plain adjoining is a special case of \cref{def:IP-local}, prov
 
 \subsubsection*{Reduction to coreflections}
 
-\reviewcomment{just say lax pushouts or tensoring with $ \Delta ^{1} $; people have defined that}
 \begin{defi}[cylinders]
 \label{constr:cylinder}
 \gutentag{0051}%
-Let $s\colon x \to y$ in $\D$. A \emph{cylinder} of $s$ is a cocomma object (lax pushout) of $\mathrm{id}_{x}$ and $s$: an object $\Cyl(s)$ with $1$-morphisms $j_{s}\colon x \to \Cyl(s)$, $q_{s}\colon y \to \Cyl(s)$ and a $2$-morphism $\theta\colon j_{s} \Rightarrow q_{s}s$, such that for every $e \in \D$
-\[
-\Hom_{\D}(\Cyl(s),e) \longrightarrow (\mathrm{id} \downarrow s^{\natural}) \ , \qquad h \mapsto (hj_{s},hq_{s},h\theta) \ ,
-\]
-is an equivalence onto the comma $\infty$-category of triples $(a,b,a \to s^{\natural}b)$ with $a \in \Hom_{\D}(x,e)$ and $b \in \Hom_{\D}(y,e)$.
-Dually, a \emph{cocylinder} of $s$ is a cocomma object of $s$ and $\mathrm{id}_{x}$: an object $\Cyl'(s)$ with $k_{s}\colon x \to \Cyl'(s)$, $q'_{s}\colon y \to \Cyl'(s)$ and $\theta'\colon q'_{s}s \Rightarrow k_{s}$, inducing $\Hom_{\D}(\Cyl'(s),e) \simeq (s^{\natural} \downarrow \mathrm{id})$, the triples $(b,a,s^{\natural}b \to a)$.
+Let $s\colon x \to y$ in $\D$. The \emph{cylinder} $\Cyl(s)$ of $s$ is the lax pushout of $\mathrm{id}_{x}$ and $s$, with $j_{s}\colon x \to \Cyl(s)$, $q_{s}\colon y \to \Cyl(s)$ and $\theta\colon j_{s} \Rightarrow q_{s}s$, so that precomposition gives $\Hom_{\D}(\Cyl(s),e) \simeq (\mathrm{id} \downarrow s^{\natural})$, naturally in $e$. Dually, the \emph{cocylinder} $\Cyl'(s)$ is the lax pushout of $s$ and $\mathrm{id}_{x}$, with $k_{s}\colon x \to \Cyl'(s)$, $q'_{s}\colon y \to \Cyl'(s)$, $\theta'\colon q'_{s}s \Rightarrow k_{s}$ and $\Hom_{\D}(\Cyl'(s),e) \simeq (s^{\natural} \downarrow \mathrm{id})$.
 \end{defi}
 
 \gutentag{0052}%
-These equivalences are given by precomposition, hence natural in $e$, and under them $j_{s}^{\natural}$ and $k_{s}^{\natural}$ are the projections to $a$. Call a pushout $d = b \sqcup_{a} c$ in $\D$ an \emph{$(\infty,2)$-pushout} if
-\[
-\Hom_{\D}(d,e) \to \Hom_{\D}(b,e) \times_{\Hom_{\D}(a,e)} \Hom_{\D}(c,e)
-\]
-is an equivalence for every $e \in \D$. If $\D$ is tensored over $\Cat$, then
+Under these equivalences $j_{s}^{\natural}$ and $k_{s}^{\natural}$ are the projections to $\Hom_{\D}(x,e)$. If $\D$ is tensored over $\Cat$, then
 \[
 \Cyl(s) = (\Delta^{1} \otimes x) \sqcup_{\{1\} \otimes x,\,s} y \ , \qquad \Cyl'(s) = y \sqcup_{s,\,\{0\} \otimes x} (\Delta^{1} \otimes x)
 \]
-whenever these $(\infty,2)$-pushouts exist. We will see in \cref{subsec:2dloc-presentable} that every presentable $\D$ has all cylinders and cocylinders.
+whenever these $(\infty,2)$-pushouts, i.e.\ pushouts taken by every $\Hom_{\D}(-,e)$ to pullbacks, exist. We will see in \cref{subsec:2dloc-presentable} that every presentable $\D$ has all cylinders and cocylinders.
 
 \begin{lem}
 \label{lem:comma-adjoint}
