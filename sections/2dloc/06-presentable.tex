@@ -4,6 +4,19 @@
 In this subsection $\D \in \tprl$ is a presentable $(\infty,2)$-category and $I$, $P$ are \emph{sets} of $1$-morphisms of $\D$. Presentability provides the left adjoint to $\iota\colon \Pc_{I,P} \to \D$, and with it the identification of $\Pc_{I,P}$ with a pushout.
 For classes $I$, $P$ the results of \cref{subsec:2dloc-local,subsec:2dloc-plain,subsec:2dloc-saturation} still apply, but the argument below will not produce a left adjoint.
 
+\subsubsection*{Presentable $(\infty,2)$-categories}
+A \emph{presentable $(\infty,2)$-category} is a $\Cat$-module in $\prl$; we write $\tprl := \modcat{\Cat}{\prl}$ for the $\infty$-category of presentable $\infty$-categories with a colimit-preserving $\Cat$-action (for the cartesian product) and $\Cat$-linear left adjoints.
+By \cite{gepnerhaugseng2015enriched,heine2023enriched} every $\D \in \tprl$ is canonically $\Cat$-enriched, with $\func(K,\Hom_{\D}(d,d')) \simeq \mapp_{\D}(K \otimes d,d')$, tensored and cotensored over $\Cat$, and $\Cat$-linear functors are canonically enriched.
+\todo{Precise references.}
+For small $\A$, $\Free(\A) := \func(\A\opcat,\Cat)$ is in $\tprl$, and by the enriched Yoneda lemma and the universal property of enriched presheaf categories \cite{hinich2020yoneda,heine2023enriched}, restriction along the Yoneda embedding $y\colon \A \to \Free(\A)$ is an equivalence
+\begin{equation}
+\label{eq:free-univ}
+\func^{L}_{\Cat}\bigl(\Free(\A),\D\bigr) \xrightarrow{\ \simeq\ } \func(\A,\D)
+\end{equation}
+for every $\D \in \tprl$, where the left-hand side is the $(\infty,2)$-category of $\Cat$-linear left adjoints.
+A functor $f\colon \A \to \B$ induces $\Free(f) = f_{!}$ (enriched left Kan extension), left adjoint to restriction $f^{*}$, and $\Free\colon \twoCat \to \tprl$ preserves colimits.
+Let $\Edge := \Free(\Delta^{1})$. By \eqref{eq:free-univ} a $1$-morphism $s\colon x \to y$ of $\D \in \tprl$ is a map $s\colon \Edge \to \D$ in $\tprl$, and by \cite[Thm.~4.4]{haugseng2021laxmonads} a left adjoint $s$ extends essentially uniquely along $\Free(\ell)$ to $\Free(\Adj) \to \D$.
+
 \subsubsection*{Colimits}
 Colimits in $\iota_{1}\D$ are colimits in the $(\infty,2)$-categorical sense: $\Hom_{\D}(-,e)$ turns them into limits of $\infty$-categories, since $\func(K,\Hom_{\D}(-,e))^{\simeq} \simeq \mapp_{\D}(K \otimes -,e)$ for $K \in \Cat$, $K \otimes -$ preserves colimits, and the Yoneda lemma applies in $K$. In particular all $(\infty,2)$-pushouts exist, and every $s\colon x \to y$ has the cylinder and cocylinder
 \[
@@ -19,7 +32,7 @@ and likewise for $\Cyl'(s)$.
 
 \begin{defi}
 \label{def:adjoin-pres}
-View $I$ and $P$ as maps $I\colon \bigoplus_{I}\Edge \to \D$ and $P\colon \bigoplus_{P}\Edge \to \D$ in $\tprl$ (\cref{subsec:prelim-inputs}). The pushout in $\tprl$
+View $I$ and $P$ as maps $I\colon \bigoplus_{I}\Edge \to \D$ and $P\colon \bigoplus_{P}\Edge \to \D$ in $\tprl$, by \eqref{eq:free-univ}. The pushout in $\tprl$
 \[
 \begin{tikzcd}[column sep=large]
 \bigoplus_{I}\Edge \oplus \bigoplus_{P}\Edge \ar[r, "{(I,P)}"] \ar[d, "\bigoplus_{I}\Free(\rho) \oplus \bigoplus_{P}\Free(\ell)"'] & \D \ar[d, "L"] \\
@@ -50,13 +63,15 @@ Let $\D \in \tprl$ and let $I$, $P$ be sets of $1$-morphisms of $\D$.
 (1) \emph{The underlying $\infty$-category.}
 Colimits in $\tprl = \modcat{\Cat}{\prl}$ are computed in $\prl$ \cite[4.2.3.5]{ha}\todo{check the tag}, and pushouts in $\prl$ as pullbacks of right adjoints in $\widehat{\Cat}$ \cite[5.5.3.4, 5.5.3.18]{htt}. The right adjoints are:
 \begin{itemize}
-\item for $s \in I \cup P$, the right adjoint of $s\colon \Edge \to \D$. By (I3) it is the underlying functor of $R_{s}\colon \D \to \func(\Delta^{1},\Cat)$ of \cref{subsec:2dloc-local}, under $\func((\Delta^{1})\opcat,\Cat) \simeq \func(\Delta^{1},\Cat)$;
+\item for $s \in I \cup P$, the right adjoint of $s\colon \Edge \to \D$. By the enriched Yoneda lemma \cite{hinich2020yoneda,heine2023enriched}, it is the underlying functor of $R_{s}\colon \D \to \func(\Delta^{1},\Cat)$ of \cref{subsec:2dloc-local}, under $\func((\Delta^{1})\opcat,\Cat) \simeq \func(\Delta^{1},\Cat)$;
 \item the right adjoint of $\Free(\ell) = \ell_{!}$, restriction along $\ell\opcat\colon (\Delta^{1})\opcat \to \Corefl\opcat$. The equivalence $\Adj \simeq \Adj\opcat$, $l \mapsto r\opcat$, $r \mapsto l\opcat$ (in $\Adj\opcat$, $r\opcat \dashv l\opcat$ with the same unit and counit) carries $\rho$ to $\ell\opcat$ and preserves the unit, so it induces $\Corefl \simeq \Corefl\opcat$ and this right adjoint is $\rho^{*}\colon \func(\Corefl,\Cat) \to \func(\Delta^{1},\Cat)$. Likewise the right adjoint of $\Free(\rho)$ is $\ell^{*}\colon \func(\Refl,\Cat) \to \func(\Delta^{1},\Cat)$.
 \end{itemize}
 So $\iota_{1}\D\lrrefl{I}{P}$ is the pullback of the underlying $\infty$-categories of \eqref{eq:pullback}, with projection to $\iota_{1}\D$ the right adjoint $\iota$ of $L$. As $\iota_{1}$ preserves limits, \cref{thm:local-pullback} identifies $\iota$ with the inclusion $\iota_{1}\Pc_{I,P} \subset \iota_{1}\D$.
 
 \emph{The enrichment.}
-By (I4), $\iota$ is enriched. As $L$ is $\Cat$-linear, $\iota$ preserves cotensors: naturally in $d$,
+By \cite[7.3.2.7]{ha}, $\iota$ is canonically lax $\Cat$-linear, hence enriched \cite{heine2023enriched}.
+\todo{Check that the passage from lax-linear functors and transformations to enriched ones in \cite{heine2023enriched} is compatible with natural transformations.}
+As $L$ is $\Cat$-linear, $\iota$ preserves cotensors: naturally in $d$,
 \[
 \mapp_{\D}(d,\iota(K \pitchfork q)) \simeq \mapp(K \otimes Ld,q) \simeq \mapp(L(K \otimes d),q) \simeq \mapp_{\D}(d,K \pitchfork \iota q) \ .
 \]
@@ -70,9 +85,9 @@ Now
 \Hom_{\D}(s,K \pitchfork \iota q') = \func(K,\Hom_{\D}(s,\iota q'))
 \]
 has the fully faithful right adjoint $\func(K,(i^{\natural})^{R})$ for $s = i \in I$ and the fully faithful left adjoint $\func(K,(p^{\natural})^{L})$ for $s = p \in P$, and evaluation at $k \in K$ commutes with $s^{\natural}$, these adjoints, units and counits. So the mates for $g$ evaluate at $k$ to the mates for $g_{k}\colon \iota q \to \iota q'$, and $g$ is $(I,P)$-local if and only if every $g_{k}$ is, i.e.\ if and only if the corresponding functor $K \to \Hom_{\D}(\iota q,\iota q')$ factors through the full subcategory of $(I,P)$-local $1$-morphisms. By Yoneda in $K$, $\Hom_{\D\lrrefl{I}{P}}(q,q') \to \Hom_{\D}(\iota q,\iota q')$ is the inclusion of this full subcategory, i.e.\ agrees with $\Hom_{\Pc_{I,P}}(\iota q,\iota q') \subset \Hom_{\D}(\iota q,\iota q')$.
-So the enriched $\iota$ is locally fully faithful and, by the first part for $K = \Delta^{0}$, a monomorphism on objects, i.e.\ a locally full inclusion with image $\Pc_{I,P}$ (\cref{subsec:prelim-conventions}). The enriched unit of (I4) makes $L$ a left adjoint of $\iota$ in the sense of \cref{def:enriched-adjoint}.
+So the enriched $\iota$ is locally fully faithful and, by the first part for $K = \Delta^{0}$, a monomorphism on objects, i.e.\ a locally full inclusion with image $\Pc_{I,P}$ (\cref{subsec:prelim-conventions}). By \cite{heine2023enriched}, $L \dashv \iota$ is an adjunction in the $(\infty,2)$-category of large $(\infty,2)$-categories, with enriched unit and counit; so $L$ is a left adjoint of $\iota$ in the sense of \cref{def:enriched-adjoint}.
 
-(2) By (I4), $T = \iota L$ is enriched with enriched $\eta$ and $\mu = \iota\varepsilon L$, and on underlying $\infty$-categories it is the monad of $L \dashv \iota$.
+(2) Hence $T = \iota L$ is enriched, with enriched $\eta$ and $\mu = \iota\varepsilon L$ satisfying the monad identities in the homotopy $2$-category. On underlying $\infty$-categories $T$ is the monad of $L \dashv \iota$, an associative algebra in $\func(\iota_{1}\D,\iota_{1}\D)$ \cite[\S 4.7.3]{ha}; monads in an $(\infty,2)$-category are compared with such algebras in \cite{haugseng2021laxmonads}.
 We check the hypotheses of Barr--Beck--Lurie \cite[4.7.3.5]{ha} for $\iota$ on underlying $\infty$-categories.
 $\iota$ is conservative: if $f$ is $(I,P)$-local and invertible in $\D$, then by \cref{lem:mate-correspondence}(3) the mates for $f^{-1}$ are inverse to those for $f$, so $f^{-1}$ is $(I,P)$-local.
 $\iota$ preserves colimits of $\iota$-split simplicial objects: let $q_{\bullet}$ be a simplicial object of $\Pc_{I,P}$ with $\iota q_{\bullet}$ split, and write $q_{\bullet} = (\iota q_{\bullet},F_{\bullet})$ in \eqref{eq:pullback}. Colimits of split simplicial objects are preserved by every functor \cite[6.1.3.16]{htt}, so $|\iota q_{\bullet}|$ exists and $\Hom_{\D}(s,|\iota q_{\bullet}|) \simeq |\Hom_{\D}(s,\iota q_{\bullet})|$ for $s \in I \cup P$; and $|F_{\bullet}|$ exists in $\prod_{I}\func(\Refl,\Cat) \times \prod_{P}\func(\Corefl,\Cat)$ and is preserved by $\ell^{*}$ and $\rho^{*}$, colimits being pointwise. So $(|\iota q_{\bullet}|,|F_{\bullet}|)$ is a colimit of $q_{\bullet}$ preserved by $\iota$.

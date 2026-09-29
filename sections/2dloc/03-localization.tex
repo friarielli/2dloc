@@ -30,7 +30,7 @@ Let $\Pc_{I,P}$ be the locally full sub-$(\infty,2)$-category of $\D$ on the $(I
 $\Pc_{I,P}$ is well defined: identities are $(I,P)$-local, and $(I,P)$-local $1$-morphisms are closed under composition and equivalence since mates are compatible with pasting (\cref{lem:mate-correspondence}).
 By definition $\Pc_{I,P} = \Pc_{I,\emptyset} \cap \Pc_{\emptyset,P}$.
 
-By the enriched Yoneda lemma (I3), $d \mapsto \Hom_{\D}(-,d)$ and $s \mapsto \Hom_{\D}(s,-)$ are functors; for $s\colon x \to y$ the latter gives $s^{\natural}\colon \Hom_{\D}(y,-) \Rightarrow \Hom_{\D}(x,-)$ in $\func(\D,\Cat)$, that is, a functor
+By the enriched Yoneda lemma \cite{hinich2020yoneda,heine2023enriched}, $d \mapsto \Hom_{\D}(-,d)$ and $s \mapsto \Hom_{\D}(s,-)$ are functors; for $s\colon x \to y$ the latter gives $s^{\natural}\colon \Hom_{\D}(y,-) \Rightarrow \Hom_{\D}(x,-)$ in $\func(\D,\Cat)$, that is, a functor
 \[
 R_{s}\colon \D \longrightarrow \func(\Delta^{1},\Cat) \ , \qquad R_{s}(d) = s^{\natural} \ ,
 \]
@@ -71,8 +71,8 @@ A $1$-morphism $s$ of $\D$ is coreflective if and only if $\Pc_{\emptyset,\{s\}}
 \end{lem}
 
 \begin{proof}
-The enriched Yoneda embedding $\D\opcat \to \func(\D,\Cat)$, $d \mapsto \Hom_{\D}(d,-)$, is fully faithful (I3). It takes an adjunction $l \dashv r$ of $\D$ to $r^{\natural} \dashv l^{\natural}$ with the same unit and counit, and every adjunction between representables arises this way. So $s$ is coreflective if and only if $s^{\natural}$ is a right adjoint with invertible unit in $\func(\D,\Cat)$.
-By \cref{thm:adjoints-in-functor-cats}, $s^{\natural}$ is a right adjoint if and only if every component $s^{\natural}\colon \Hom_{\D}(y,d) \to \Hom_{\D}(x,d)$ is one and every transposed naturality square is left Beck--Chevalley; these squares are the second squares of \cref{def:IP-local}. A $2$-morphism of $\func(\D,\Cat)$ is invertible if and only if its components are, so the unit is invertible if and only if every $s^{\natural}$ has a fully faithful left adjoint. The reflective case is dual.
+The enriched Yoneda embedding $\D\opcat \to \func(\D,\Cat)$, $d \mapsto \Hom_{\D}(d,-)$, is fully faithful \cite{hinich2020yoneda,heine2023enriched}. It takes an adjunction $l \dashv r$ of $\D$ to $r^{\natural} \dashv l^{\natural}$ with the same unit and counit, and every adjunction between representables arises this way, as adjunctions are detected in the homotopy $2$-category \cite[Thm.~4.3.11]{riehlverity2016adjunctions} and determined by their left adjoints \cite[Thm.~4.4]{haugseng2021laxmonads}. So $s$ is coreflective if and only if $s^{\natural}$ is a right adjoint with invertible unit in $\func(\D,\Cat)$.
+By \cite[Cor.~5.2.12]{abellangagnahaugseng2024straightening}, $s^{\natural}$ is a right adjoint if and only if every component $s^{\natural}\colon \Hom_{\D}(y,d) \to \Hom_{\D}(x,d)$ is one and every transposed naturality square is left Beck--Chevalley; these squares are the second squares of \cref{def:IP-local}. A $2$-morphism of $\func(\D,\Cat)$ is invertible if and only if its components are, so the unit is invertible if and only if every $s^{\natural}$ has a fully faithful left adjoint. The reflective case is dual.
 \end{proof}
 
 \reviewcomment{We do have a $ (\infty, 2) $-cat of $ (\infty, 2) $-cats, right?}

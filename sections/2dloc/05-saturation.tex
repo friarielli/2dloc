@@ -24,11 +24,11 @@ In particular, if $g$ and $gf$ are coreflective, so is $f$; and if $g$ and $gf$ 
 rather than adjoints.}
 
 \begin{proof}
-Let $\eta$, $\varepsilon$ be the unit and counit of $gf \dashv r$. As $g_{\natural}$ is fully faithful on $\Hom(y,y)$, there is a unique $\varepsilon'\colon frg \Rightarrow \mathrm{id}_{y}$ with $g\varepsilon' = \varepsilon g$. The triangle identities for $(\eta,\varepsilon')$ hold, as $g_{\natural}$ is faithful and
+Let $\eta$, $\varepsilon$ be the unit and counit of $gf \dashv r$. As $g_{\natural}$ is fully faithful on $\Hom(y,y)$, there is a unique $\varepsilon'\colon frg \Rightarrow \mathrm{id}_{y}$ with $g\varepsilon' = \varepsilon g$. The triangle identities for $(\eta,\varepsilon')$ hold in the homotopy $2$-category, as $g_{\natural}$ is faithful and
 \[
-g(\varepsilon'f \cdot f\eta) = \varepsilon gf \cdot gf\eta = \mathrm{id}_{gf} \ , \qquad rg\varepsilon' \cdot \eta rg = (r\varepsilon \cdot \eta r)g = \mathrm{id}_{rg} \ .
+g(\varepsilon'f \cdot f\eta) = \varepsilon gf \cdot gf\eta = \mathrm{id}_{gf} \ , \qquad rg\varepsilon' \cdot \eta rg = (r\varepsilon \cdot \eta r)g = \mathrm{id}_{rg} \ ,
 \]
-The dual follows by applying $(-)^{\mathrm{co}}$.
+so $\eta$ and $\varepsilon'$ are the unit and counit of an adjunction $f \dashv rg$ \cite[Thm.~4.3.11]{riehlverity2016adjunctions}. The dual follows by applying $(-)^{\mathrm{co}}$.
 \end{proof}
 
 \begin{lem}
@@ -104,7 +104,7 @@ The \emph{saturation} of a class $P$ of $1$-morphisms of $\D$ is the class $\ove
 
 By \cref{lem:repr-refl}, $\overline{\emptyset}$ is the class of coreflective $1$-morphisms of $\D$, and $\overline{\emptyset}^{\dashv}$ that of left adjoints. We now describe $\overline{P}$ together with squares.
 
-Let $\iota\colon \C \hookrightarrow \D$ be a locally full sub-$(\infty,2)$-category. By (I3),
+Let $\iota\colon \C \hookrightarrow \D$ be a locally full sub-$(\infty,2)$-category. By the enriched Yoneda lemma \cite{hinich2020yoneda,heine2023enriched},
 \[
 h_{\C}\colon \D\opcat \longrightarrow \func(\C,\Cat) \ , \qquad d \mapsto \Hom_{\D}(d,\iota-) \ , \quad f \mapsto f^{\natural} \ ,
 \]
@@ -141,7 +141,7 @@ In particular, for $\C = \Pc_{I,P}$, $f$ is in $\Sat^{\mathrm{corefl}}_{\C}$ if 
 \end{lem}
 
 \begin{proof}
-By \cref{lem:mates-refl}(2), $f$ is in $\Sat^{\mathrm{corefl}}_{\C}$ if and only if $f^{\natural}$ is the right adjoint of a coreflection in $\func(\C,\Cat)$. By \cref{thm:adjoints-in-functor-cats}, $f^{\natural}$ is a right adjoint if and only if its components are and its transposed naturality squares, which are the second squares of \cref{def:IP-local}, are left Beck--Chevalley; its unit is invertible if and only if its components are. This is (1).
+By \cref{lem:mates-refl}(2), $f$ is in $\Sat^{\mathrm{corefl}}_{\C}$ if and only if $f^{\natural}$ is the right adjoint of a coreflection in $\func(\C,\Cat)$. By \cite[Cor.~5.2.12]{abellangagnahaugseng2024straightening}, $f^{\natural}$ is a right adjoint if and only if its components are and its transposed naturality squares, which are the second squares of \cref{def:IP-local}, are left Beck--Chevalley; its unit is invertible if and only if its components are. This is (1).
 By \cref{lem:mates-refl}(2) and \cref{lem:mates}(2), $\sigma$ is an $\Sat^{\mathrm{corefl}}_{\C}$-square if and only if the square of the statement, viewed in $\func(\C,\Cat)$, is left Beck--Chevalley. Evaluation at $q$ preserves adjunctions and hence mates, and a $2$-morphism of $\func(\C,\Cat)$ is invertible if and only if its components are. This is (2). The reflective case is the same with \cref{lem:mates}(1).
 The last claims follow from (1), as $\Pc_{I,P \cup \{f\}} = \Pc_{I,P} \cap \Pc_{\emptyset,\{f\}}$.
 \end{proof}
@@ -159,7 +159,7 @@ is a pullback, and likewise with $\rho^{*}$: $G$ reflects (co)reflective $1$-mor
 \end{lem}
 
 \begin{proof}
-Both vertical maps are locally full inclusions (\cref{lem:mates-refl}), so it suffices to compare objects and $1$-morphisms. As $G$ is an equivalence on hom-categories, an adjunction in $\htwo\B$ between $1$-morphisms $Ga \to Ga'$, $Ga' \to Ga$ is the image of one in $\htwo\A$, with invertible unit or counit if and only if its image has one. $G$ carries mates to mates and reflects invertibility of $2$-morphisms.
+Both vertical maps are locally full inclusions (\cref{lem:mates-refl}), so it suffices to compare objects and $1$-morphisms. Being a left or right adjoint, and being reflective or coreflective, are detected in the homotopy $2$-category \cite[Thm.~4.3.11]{riehlverity2016adjunctions}. As $G$ is an equivalence on hom-categories, an adjunction in $\htwo\B$ between $1$-morphisms $Ga \to Ga'$, $Ga' \to Ga$ is the image of one in $\htwo\A$, with invertible unit or counit if and only if its image has one. $G$ carries mates to mates and reflects invertibility of $2$-morphisms.
 \end{proof}
 
 \begin{prop}
@@ -172,7 +172,7 @@ Both vertical maps are locally full inclusions (\cref{lem:mates-refl}), so it su
 \end{prop}
 
 \begin{proof}
-(1) $h_{\D}$ is the enriched Yoneda embedding, which is fully faithful (I3). By \cref{lem:ff-reflects} for $X = \Corefl$ and $\rho^{*}$, a $1$-morphism or square of $\func(\Delta^{1},\D\opcat)$ lies in the image of $\rho^{*}\colon \func(\Corefl,\D\opcat) \to \func(\Delta^{1},\D\opcat)$ if and only if its image under $h_{\D}$ does. Under $\Corefl \simeq \Corefl\opcat$ the former image is the opposite of the image of $\ell^{*}\colon \func(\Corefl,\D) \to \func(\Delta^{1},\D)$.
+(1) $h_{\D}$ is the enriched Yoneda embedding, which is fully faithful \cite{hinich2020yoneda,heine2023enriched}. By \cref{lem:ff-reflects} for $X = \Corefl$ and $\rho^{*}$, a $1$-morphism or square of $\func(\Delta^{1},\D\opcat)$ lies in the image of $\rho^{*}\colon \func(\Corefl,\D\opcat) \to \func(\Delta^{1},\D\opcat)$ if and only if its image under $h_{\D}$ does. Under $\Corefl \simeq \Corefl\opcat$ the former image is the opposite of the image of $\ell^{*}\colon \func(\Corefl,\D) \to \func(\Delta^{1},\D)$.
 (2) The equivalences $\Hom_{\C}(Ld,q) \simeq \Hom_{\D}(d,\iota q)$ are natural in $d$ and $q$, so $h_{\C} \simeq h'_{\C} \circ L\opcat$ for the enriched Yoneda embedding $h'_{\C}\colon \C\opcat \to \func(\C,\Cat)$. So $\Sat^{\mathrm{corefl}}_{\C}$ is the preimage under $L$ of the coreflective saturation of $\C$ in itself, which is the image of $\ell^{*}$ by (1) for $\C$.
 \end{proof}
 
