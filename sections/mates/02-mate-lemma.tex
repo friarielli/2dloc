@@ -4,6 +4,10 @@
 In \cref{sec:2dloc} the following lemma will replace the contractibility of the walking equivalence.
 A $1$-morphism from $u\colon x \to y$ to $u'\colon x' \to y'$ in $\func(\Delta^{1},\E)$ is a commutative square $\Delta^{1} \times \Delta^{1} \to \E$ with $u$, $u'$ on opposite sides.
 
+\reviewcomment{I feel like the best way to do the mate lemma is to quote 
+Haugseng's description of lax morphisms. His category of adjunctions + (co)lax
+morphisms contains our category of adjunctions + strong morphisms as a
+locally full subcategory, I guess? If this is true we can use his result directly.}
 \begin{lem}[mates]
 \label{lem:mates}
 Let $\E$ be an $(\infty,2)$-category.
@@ -53,10 +57,13 @@ For $(\infty,2)$-categories, the lax analogue is \cite[Cor.~4.8]{haugseng2021lax
 \begin{defi}
 \label{def:reflection}
 An adjunction $l \dashv r$ in $\A$ is a \emph{reflection} if its counit $\varepsilon$ is invertible, and a \emph{coreflection} if its unit $\eta$ is invertible.
+The left adjoint in a reflection is called a \emph{localization}, and the right adjoint in a coreflection a \emph{colocalization}.
 A $1$-morphism is \emph{reflective} if it is the right adjoint of a reflection, and \emph{coreflective} if it is the left adjoint of a coreflection.
 \end{defi}
 
-By \cref{thm:walking-adjunction} this is a property of $r$, resp.\ $l$. As $r_{\natural}$ and $l_{\natural}$ on $\Hom_{\A}(t,-)$ form an adjunction with counit $\varepsilon_{\natural}$ and unit $\eta_{\natural}$, a right adjoint $r$ is reflective if and only if every $r_{\natural}$ is fully faithful, and a left adjoint $l$ is coreflective if and only if every $l_{\natural}$ is fully faithful.
+By \cref{thm:walking-adjunction}, being reflective is a property of a functor $ r $ that is independant of the choice of a left adjoint,
+and similarly for being coreflective.
+As $r_{\natural}$ and $l_{\natural}$ on $\Hom_{\A}(t,-)$ form an adjunction with counit $\varepsilon_{\natural}$ and unit $\eta_{\natural}$, a right adjoint $r$ is reflective if and only if every $r_{\natural}$ is fully faithful, and a left adjoint $l$ is coreflective if and only if every $l_{\natural}$ is fully faithful.
 
 Let $c\colon \wtc \to \Delta^{1}$ collapse the $2$-morphism, and let $\varepsilon,\eta\colon \wtc \to \Adj$ classify the counit $lr \Rightarrow \mathrm{id}_{+}$ and the unit $\mathrm{id}_{-} \Rightarrow rl$. The \emph{walking reflection} and \emph{walking coreflection} are the pushouts in $\twoCat$
 \[

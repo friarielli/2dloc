@@ -1,11 +1,21 @@
 \subsection{Recollection: Bousfield localization}
 \label{subsec:2dloc-bousfield}
 
-We recall the one-dimensional situation that we categorify, in the same order: local objects in an arbitrary $\infty$-category first, then the presentable case.
+We recall the one-dimensional situation that we categorify.
+
+\begin{defi}
+A \emph{Bousfield localization} of an $ \infty $-category $ C $
+is a localization $ L: C \to D $ in the $ (\infty, 2) $-category of $ \infty $-categories.
+\end{defi}
+
+A Bousfield localization can be described as a category obtained from $ C $ by formally
+inverting a class of morphisms.
 
 \subsubsection*{Local objects}
 Let $\C$ be an $\infty$-category and $S$ a class of morphisms of $\C$. An object $c$ is \emph{$S$-local} if $s^{\natural}\colon \mapp_{\C}(y,c) \to \mapp_{\C}(x,c)$ is an equivalence for every $(s\colon x \to y) \in S$; let $\iota\colon \C_{S} \subset \C$ be the full subcategory of $S$-local objects.
-By the Yoneda lemma, $s$ gives $s^{\natural}\colon \mapp_{\C}(y,-) \Rightarrow \mapp_{\C}(x,-)$, i.e.\ a functor $R_{s}\colon \C \to \func(\Delta^{1},\Spc)$ with $R_{s}(c) = s^{\natural}$. The inclusion of the equivalences $\Spc \subset \func(\Delta^{1},\Spc)$ is fully faithful, and pullbacks of fully faithful functors are fully faithful, so
+By the Yoneda lemma, $s$ gives a functor $R_{s}\colon \C \to \func(\Delta^{1},\Spc)$,
+sending $ c $ to $s^{\natural}\colon \mapp_{\C}(y,c) \Rightarrow \mapp_{\C}(x,c)$.
+The inclusion of the equivalences $\Spc \subset \func(\Delta^{1},\Spc)$ is fully faithful, and pullbacks of fully faithful functors are fully faithful, so
 \begin{equation}
 \label{eq:bousfield-pullback}
 \C_{S} \simeq \C \times_{\prod_{S}\func(\Delta^{1},\Spc)} \textstyle\prod_{S}\Spc \ .
@@ -16,6 +26,9 @@ Its two-dimensional form will be \cref{thm:local-pullback}. Here the walking equ
 Let $\Edge_{1} := \func(\Delta^{1},\Spc) \simeq \Free(\Delta^{1})$ (presheaves of spaces on $\Delta^{1} \simeq (\Delta^{1})\opcat$) be the free presentable $\infty$-category on an arrow, so $\func^{L}(\Edge_{1},\C) \simeq \func(\Delta^{1},\C)$ for $\C \in \prl$. The free presentable $\infty$-category on an \emph{equivalence} is $\Eqc := \Spc$.
 The functor $\Delta^{1} \to \mathrm{pt}$ induces $e_{!}\colon \Edge_{1} \to \Eqc$, $(A \to B) \mapsto B$, with fully faithful right adjoint $e^{*}\colon B \mapsto (B = B)$.
 
+\reviewcomment{I think it's better to put it this way: if the left adjoint exists, then inverting $ S $ is a Bousfield localization;
+in the presentable case, we can guarentee the existence of the left adjoint if $ S $ is strongly saturated and small generated;
+and in this case the pushout in catinf turns out to be presentable, so there is no ambiguity what pushout we take.}
 \begin{prop}
 \label{prop:bousfield-pushout}
 Let $\C \in \prl$ and let $S$ be a set of morphisms of $\C$, viewed as a map $S\colon \bigoplus_{S}\Edge_{1} \to \C$ in $\prl$ ($\bigoplus$ the coproduct in $\prl$).

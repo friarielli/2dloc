@@ -4,22 +4,25 @@
 \begin{defi}
 \label{def:adjoin}
 Let $\A$ be an $(\infty,2)$-category and $I$, $P$ classes of $1$-morphisms of $\A$.
-\emph{Formally making $I$ reflective and $P$ coreflective} (\cref{def:reflection}) gives the pushout $\A\lrrefl{I}{P}$ in $\twoCat$ (enlarging the universe if $\A$ is large)
+Define $\A\lrrefl{I}{P}$ in $\twoCat$ to be the pushout  (enlarging the universe if necessary)
 \[
 \begin{tikzcd}[column sep=large]
 \coprod_{I}\Delta^{1} \sqcup \coprod_{P}\Delta^{1} \ar[r, "{(I,P)}"] \ar[d, "\coprod_{I}\rho \sqcup \coprod_{P}\ell"'] & \A \ar[d, "L"] \\
 \coprod_{I}\Refl \sqcup \coprod_{P}\Corefl \ar[r] & \A\lrrefl{I}{P} \rlap{\ .}
 \end{tikzcd}
 \]
+We say that the functor $ L\colon\A \to \A\lrrefl{I}{P} $
+\emph{formally maks $I$ reflective and $P$ coreflective}. 
 We write $\A\refl{I} := \A\lrrefl{I}{\emptyset}$ and $\A\corefl{P} := \A\lrrefl{\emptyset}{P}$.
 \end{defi}
 
-So $Li$ acquires a left adjoint with invertible counit, and $Lp$ a right adjoint with invertible unit. We will compare this with freely adjoining plain adjoints in \cref{subsec:2dloc-plain}.
+So $Li$ acquires a left adjoint with invertible counit, and $Lp$ a right adjoint with invertible unit.
+We will compare this with freely adjoining plain adjoints in \cref{subsec:2dloc-plain}.
 Pasting pushouts gives $\A\lrrefl{I}{P} \simeq \A\refl{I}\corefl{L_{I}(P)} \simeq \A\corefl{P}\refl{L_{P}(I)}$, where $L_{I}\colon \A \to \A\refl{I}$ and $L_{P}\colon \A \to \A\corefl{P}$; the corresponding statement on local objects will be \cref{prop:2dloc-commute}.
 
 \begin{prop}[universal property]
 \label{prop:adjoin-univ}
-For every $(\infty,2)$-category $\E$, restriction along $L\colon \A \to \A\lrrefl{I}{P}$ identifies $\func(\A\lrrefl{I}{P},\E)$ with the locally full sub-$(\infty,2)$-category of $\func(\A,\E)$ whose
+For every $(\infty,2)$-category $\E$, restriction along $L\colon \A \to \A\lrrefl{I}{P}$ identifies $\func(\A\lrrefl{I}{P},\E)$ with the locally full sub-$(\infty,2)$-category\reviewcomment{We said locally full so description of $ 2 $-morphisms is not needed.} of $\func(\A,\E)$ whose
 \begin{itemize}
 \item objects are the $F$ such that $F(i)$ is reflective for every $i \in I$ and $F(p)$ is coreflective for every $p \in P$;
 \item $1$-morphisms are the $\alpha\colon F \Rightarrow G$ such that for every $(p\colon x \to y) \in P$ the transposed naturality square
@@ -38,8 +41,7 @@ G(x) \ar[r, "G(i)"'] & G(y)
 \end{tikzcd}
 \qquad \alpha_{i}\colon \alpha_{y}F(i) \simeq G(i)\alpha_{x} \ ,
 \]
-is left Beck--Chevalley, i.e.\ $G(i)^{L}\alpha_{y} \Rightarrow \alpha_{x}F(i)^{L}$ is invertible;
-\item $2$-morphisms are all modifications.
+is left Beck--Chevalley, i.e.\ $G(i)^{L}\alpha_{y} \Rightarrow \alpha_{x}F(i)^{L}$ is invertible.
 \end{itemize}
 \end{prop}
 
@@ -65,5 +67,6 @@ $(-)^{\mathrm{co}}$ exchanges left and right adjoints as well as units and couni
 \begin{exmp}
 \label{ex:adjoin-basic}
 $(\Delta^{1})\corefl{e} \simeq \Corefl$ for the generic arrow $e$.
-In general $\A\lrrefl{I}{P}$ is a free construction and not a sub-$(\infty,2)$-category of $\A$. In \cref{subsec:2dloc-local} we will describe the local objects inside a given $(\infty,2)$-category, and \cref{thm:2dloc-local} will identify the two in the presentable case. For small $\A$ and sets $I$, $P$ this will give $\Free(\A\lrrefl{I}{P}) \simeq \Pc_{y(I),y(P)} \subset \Free(\A)$ (\cref{rmk:free-local}).
+In general $\A\lrrefl{I}{P}$ is a free construction and not a sub-$(\infty,2)$-category of $\A$. In \cref{subsec:2dloc-local} we will describe the local objects inside a given $(\infty,2)$-category, and \cref{thm:2dloc-local} will identify the two in the presentable case
+\reviewcomment{Identify them if the left adjoint exists?}. For small $\A$ and sets $I$, $P$ this will give $\Free(\A\lrrefl{I}{P}) \simeq \Pc_{y(I),y(P)} \subset \Free(\A)$ (\cref{rmk:free-local}).
 \end{exmp}
