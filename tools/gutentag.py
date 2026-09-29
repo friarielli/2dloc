@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 r"""Maintain the permanent \gutentag tags of the LaTeX sources in sections/.
 
-The tagged units are sectioning commands, top-level environments and top-level
-paragraphs. Displayed math and diagrams (INLINE) belong to the surrounding
-paragraph; lines holding a comment or a single command (\label, \input, \todo,
-...) belong to no unit. A unit's tag is a line \gutentag{XXXX}% with four
-uppercase hex digits, placed
-  - after a sectioning command and its \label lines,
+The tagged units are top-level environments and top-level paragraphs.
+Headings (\section to \subsubsection) are not tagged, since LaTeX would place
+their tags on the next line. Displayed math and diagrams (INLINE) belong to
+the surrounding paragraph; lines holding a comment or a single command
+(\label, \input, \todo, ...) belong to no unit. A unit's tag is a line
+\gutentag{XXXX}% with four uppercase hex digits, placed
   - inside an environment, after the \begin line and its \label lines,
   - before the first line of a paragraph.
 Environments must begin and end in the same file.
 
-Tags are assigned in increasing order, and the file maxtag holds the largest
-tag assigned so far. Without options, report problems and exit 1 on errors,
+Tags are assigned in increasing order from 0001, and the file maxtag holds the
+largest tag assigned so far (0000 before the first). Without options, report problems and exit 1 on errors,
 including tags above maxtag, which only the script may assign. With --write,
 also tag the untagged units in reading order and add every tag up to maxtag
 that left the sources to removed.tags, as "TAG HASH" with HASH the last commit
@@ -37,8 +37,8 @@ INLINE = {'equation', 'equation*', 'align', 'align*', 'alignat', 'alignat*',
 TAG = re.compile(r'\\gutentag\{([^}]*)\}')
 VALID = re.compile(r'[0-9A-F]{4}')
 TAG_LINE = re.compile(r'\s*\\gutentag\{([0-9A-F]{4})\}%?\s*$')
-HEADING = re.compile(r'\s*\\(part|chapter|section|subsection|subsubsection'
-                     r'|paragraph|subparagraph)\*?\s*[\[{]')
+HEADING = re.compile(r'\s*\\(part|chapter|section|subsection|subsubsection)'
+                     r'\*?\s*[\[{]')
 BEGIN = re.compile(r'\s*\\begin\{([^}]*)\}')
 ENV = re.compile(r'\\(begin|end)\{')
 LABEL = re.compile(r'\s*\\label\{[^}]*\}\s*(%.*)?$')
@@ -125,8 +125,6 @@ def parse(rel, lines, errors):
             pass
         elif HEADING.match(line):
             para = False
-            k = after_labels(i + 1)
-            units.append((claim(k) or claim(i - 1), k))
         elif m and m[1] not in INLINE:
             para = False
             j = end_of_env(i)
@@ -194,8 +192,7 @@ def main():
                     help='tag untagged units and update removed.tags and maxtag')
     args = ap.parse_args()
 
-    maxtag = MAXTAG.read_text().strip() if MAXTAG.exists() else ''
-    top = int(maxtag, 16) if maxtag else -1
+    top = int(MAXTAG.read_text().strip() or '0', 16) if MAXTAG.exists() else 0
     errors, warnings, files, where = [], [], {}, {}
     for path in reading_order():
         rel = path.relative_to(ROOT)
@@ -208,9 +205,9 @@ def main():
                     errors.append(f'{rel}:{n + 1}: malformed tag {t!r}')
                     continue
                 where.setdefault(t, []).append(f'{rel}:{n + 1}')
-                if int(t, 16) > top:
-                    errors.append(f'{rel}:{n + 1}: tag {t} exceeds maxtag; '
-                                  'tags are assigned by tools/gutentag.py')
+                if not 0 < int(t, 16) <= top:
+                    errors.append(f'{rel}:{n + 1}: tag {t} is not in 0001..maxtag, '
+                                  'so tools/gutentag.py did not assign it')
                 if n not in claimed:
                     warnings.append(f'{rel}:{n + 1}: tag {t} belongs to no unit')
     errors += [f'tag {t} occurs at {", ".join(locs)}'
@@ -229,7 +226,7 @@ def main():
     old = REMOVED.read_text().split('\n') if REMOVED.exists() else []
     old = [l for l in old if l.strip()]
     listed = {l.split()[0] for l in old}
-    gone = {f'{x:04X}' for x in range(top + 1)} - set(where) - listed
+    gone = {f'{x:04X}' for x in range(1, top + 1)} - set(where) - listed
     last = last_commits(gone) if gone else {}
     for t in sorted(gone - set(last)):
         print(f'warning: tag {t} is gone but not in the history of HEAD')
