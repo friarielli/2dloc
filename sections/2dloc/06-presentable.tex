@@ -1,10 +1,14 @@
 \subsection{The presentable case}
 \label{subsec:2dloc-presentable}
+\gutentag{0099}%
 
+\gutentag{009A}%
 In this subsection $\D \in \tprl$ is a presentable $(\infty,2)$-category and $I$, $P$ are \emph{sets} of $1$-morphisms of $\D$. Presentability provides the left adjoint to $\iota\colon \Pc_{I,P} \to \D$, and with it the identification of $\Pc_{I,P}$ with a pushout.
 For classes $I$, $P$ the results of \cref{subsec:2dloc-local,subsec:2dloc-plain,subsec:2dloc-saturation} still apply, but the argument below will not produce a left adjoint.
 
 \subsubsection*{Presentable $(\infty,2)$-categories}
+\gutentag{009B}%
+\gutentag{009C}%
 A \emph{presentable $(\infty,2)$-category} is a $\Cat$-module in $\prl$; we write $\tprl := \modcat{\Cat}{\prl}$ for the $\infty$-category of presentable $\infty$-categories with a colimit-preserving $\Cat$-action (for the cartesian product) and $\Cat$-linear left adjoints.
 By \cite{gepnerhaugseng2015enriched,heine2023enriched} every $\D \in \tprl$ is canonically $\Cat$-enriched, with $\func(K,\Hom_{\D}(d,d')) \simeq \mapp_{\D}(K \otimes d,d')$, tensored and cotensored over $\Cat$, and $\Cat$-linear functors are canonically enriched.
 \todo{Precise references.}
@@ -18,6 +22,8 @@ A functor $f\colon \A \to \B$ induces $\Free(f) = f_{!}$ (enriched left Kan exte
 Let $\Edge := \Free(\Delta^{1})$. By \eqref{eq:free-univ} a $1$-morphism $s\colon x \to y$ of $\D \in \tprl$ is a map $s\colon \Edge \to \D$ in $\tprl$, and by \cite[Thm.~4.4]{haugseng2021laxmonads} a left adjoint $s$ extends essentially uniquely along $\Free(\ell)$ to $\Free(\Adj) \to \D$.
 
 \subsubsection*{Colimits}
+\gutentag{009D}%
+\gutentag{009E}%
 Colimits in $\iota_{1}\D$ are colimits in the $(\infty,2)$-categorical sense: $\Hom_{\D}(-,e)$ turns them into limits of $\infty$-categories, since $\func(K,\Hom_{\D}(-,e))^{\simeq} \simeq \mapp_{\D}(K \otimes -,e)$ for $K \in \Cat$, $K \otimes -$ preserves colimits, and the Yoneda lemma applies in $K$. In particular all $(\infty,2)$-pushouts exist, and every $s\colon x \to y$ has the cylinder and cocylinder
 \[
 \Cyl(s) = (\Delta^{1} \otimes x) \sqcup_{\{1\} \otimes x,\,s} y \ , \qquad \Cyl'(s) = y \sqcup_{s,\,\{0\} \otimes x} (\Delta^{1} \otimes x) \ ,
@@ -29,9 +35,11 @@ with $j_{s}\colon x \simeq \{0\} \otimes x \to \Cyl(s)$ and $k_{s}\colon x \sime
 and likewise for $\Cyl'(s)$.
 
 \subsubsection*{The localization as a pushout}
+\gutentag{009F}%
 
 \begin{defi}
 \label{def:adjoin-pres}
+\gutentag{00A0}%
 View $I$ and $P$ as maps $I\colon \bigoplus_{I}\Edge \to \D$ and $P\colon \bigoplus_{P}\Edge \to \D$ in $\tprl$, by \eqref{eq:free-univ}. The pushout in $\tprl$
 \[
 \begin{tikzcd}[column sep=large]
@@ -42,16 +50,19 @@ View $I$ and $P$ as maps $I\colon \bigoplus_{I}\Edge \to \D$ and $P\colon \bigop
 is again denoted $\D\lrrefl{I}{P}$; likewise $\D\lradj{I}{P}$ with $\Adj$ in place of $\Refl$ and $\Corefl$.
 \end{defi}
 
+\gutentag{00A1}%
 As $\Free$ preserves colimits, $\Free(\A\lrrefl{I}{P}) \simeq \Free(\A)\lrrefl{y(I)}{y(P)}$ for small $\A$, with $\A\lrrefl{I}{P}$ as in \cref{def:adjoin}.
 By \eqref{eq:free-univ}, $\func^{L}_{\Cat}(\D\lrrefl{I}{P},\E)$ is the pullback of $\func^{L}_{\Cat}(\D,\E) \to \prod_{I \sqcup P}\func(\Delta^{1},\E)$ along $\prod_{I}\rho^{*} \times \prod_{P}\ell^{*}$, so the proof of \cref{prop:adjoin-univ} gives:
 
 \begin{prop}
 \label{prop:adjoin-univ-pres}
+\gutentag{00A2}%
 For $\E \in \tprl$, restriction along $L$ identifies $\func^{L}_{\Cat}(\D\lrrefl{I}{P},\E)$ with the locally full sub-$(\infty,2)$-category of $\func^{L}_{\Cat}(\D,\E)$ described in \cref{prop:adjoin-univ}.
 \end{prop}
 
 \begin{thm}
 \label{thm:2dloc-local}
+\gutentag{00A3}%
 Let $\D \in \tprl$ and let $I$, $P$ be sets of $1$-morphisms of $\D$.
 \begin{enumerate}
 \item $L\colon \D \to \D\lrrefl{I}{P}$ has a right adjoint, which is a locally full inclusion with image $\Pc_{I,P}$. Hence $\D\lrrefl{I}{P} \simeq \Pc_{I,P}$, and $\iota\colon \Pc_{I,P} \to \D$ has the left adjoint $L$ in the sense of \cref{def:enriched-adjoint}.
@@ -60,6 +71,7 @@ Let $\D \in \tprl$ and let $I$, $P$ be sets of $1$-morphisms of $\D$.
 \end{thm}
 
 \begin{proof}
+\gutentag{00A4}%
 (1) \emph{The underlying $\infty$-category.}
 Colimits in $\tprl = \modcat{\Cat}{\prl}$ are computed in $\prl$ \cite[4.2.3.5]{ha}\todo{check the tag}, and pushouts in $\prl$ as pullbacks of right adjoints in $\widehat{\Cat}$ \cite[5.5.3.4, 5.5.3.18]{htt}. The right adjoints are:
 \begin{itemize}
@@ -94,14 +106,18 @@ $\iota$ preserves colimits of $\iota$-split simplicial objects: let $q_{\bullet}
 Thus $\iota$ is monadic, $\Pc_{I,P} \simeq \Alg_{T}(\D)$ over $\D$, and as $\iota$ is a monomorphism the fibres of $\Alg_{T}(\D) \to \D$ are empty or contractible, non-empty exactly over the $(I,P)$-local objects.
 \end{proof}
 
+\gutentag{00A5}%
 The proof with $\Adj$ in place of $\Refl$ and $\Corefl$, and the pullback description of $\Pc^{\dashv}_{I,P}$ in \cref{subsec:2dloc-plain}, give $\D\lradj{I}{P} \simeq \Pc^{\dashv}_{I,P}$ with the analogous monadicity statement.
 By \cref{prop:adjoin-univ-pres}, $L^{*}\colon \func^{L}_{\Cat}(\D\lrrefl{I}{P},\E) \to \func^{L}_{\Cat}(\D,\E)$ is a locally full inclusion for every $\E \in \tprl$.
 
 \subsubsection*{Consequences of the plain results}
+\gutentag{00A6}%
+\gutentag{00A7}%
 As $\iota$ has a left adjoint, the results of \cref{subsec:2dloc-local,subsec:2dloc-plain,subsec:2dloc-saturation} specialize as follows.
 
 \begin{cor}
 \label{cor:presentable}
+\gutentag{00A8}%
 Let $\D \in \tprl$ and $I$, $P$ sets of $1$-morphisms.
 \begin{enumerate}
 \item $Li$ is reflective and $Lp$ coreflective in $\D\lrrefl{I}{P}$, and $(i^{\natural})^{R} \simeq ((Li)^{L})^{\natural}$, $(p^{\natural})^{L} \simeq ((Lp)^{R})^{\natural}$ (\cref{prop:local-adjoint-refl}).
@@ -119,12 +135,14 @@ Let $\D \in \tprl$ and $I$, $P$ sets of $1$-morphisms.
 \end{cor}
 
 \begin{proof}
+\gutentag{00A9}%
 (1)--(3) are the cited results together with \cref{thm:2dloc-local}; in (2) the identifications are unique over $\D$, since a locally full sub-$(\infty,2)$-category is determined by its objects and $1$-morphisms, so they agree with the one from pasting pushouts.
 (4) and (5) are \cref{prop:saturation-L}(2) and \cref{thm:sat-units} with \cref{thm:2dloc-local}; the description of $\overline{P}$ is \cref{lem:saturation-explicit}. For $\overline{P}^{\dashv}$: by the plain version of \cref{lem:repr-refl} applied in $\Pc^{\dashv}_{\emptyset,P}$, $Lf$ is a left adjoint if and only if every object and $1$-morphism of $\Pc^{\dashv}_{\emptyset,P}$ is $(\emptyset,\{Lf\})$-local in the plain sense, and under $\Hom_{\Pc^{\dashv}_{\emptyset,P}}(L-,q) \simeq \Hom_{\D}(-,\iota q)$ this says that $f \in \overline{P}^{\dashv}$.
 \end{proof}
 
 \begin{rmk}
 \label{rmk:free-local}
+\gutentag{00AA}%
 For small $\A$ and sets $I$, $P$ of $1$-morphisms of $\A$, \cref{thm:2dloc-local} gives
 \[
 \Free(\A\lrrefl{I}{P}) \simeq \Free(\A)\lrrefl{y(I)}{y(P)} \simeq \Pc_{y(I),y(P)}(\Free(\A)) \ .
@@ -133,12 +151,14 @@ For small $\A$ and sets $I$, $P$ of $1$-morphisms of $\A$, \cref{thm:2dloc-local
 
 \begin{rmk}
 \label{rmk:eilenberg-moore-enriched}
+\gutentag{00AB}%
 \Cref{thm:2dloc-local}(2) identifies $\Pc_{I,P}$ with $\Alg_{T}(\D)$ as $\infty$-categories. On $2$-morphisms: if $f,g\colon \iota q \to \iota q'$ are $(I,P)$-local, every $\alpha\colon f \Rightarrow g$ is an algebra $2$-morphism, i.e.\ $a_{q'}T(\alpha) = \alpha a_{q}$ as $2$-morphisms $a_{q'}T(f) \simeq fa_{q} \Rightarrow ga_{q} \simeq a_{q'}T(g)$, where $a_{q} = \iota\varepsilon_{q}$. Indeed, both sides are $2$-morphisms between $(I,P)$-local $1$-morphisms $T\iota q \to \iota q'$ restricting along $\eta_{\iota q}$ to $\alpha$, and restriction along $\eta_{\iota q}$ is an equivalence $\Hom_{\Pc_{I,P}}(L\iota q,q') \simeq \Hom_{\D}(\iota q,\iota q')$ by the adjunction, and $\Pc_{I,P}$ is locally full. This is a computation in $\htwo\D$. So $T$-algebras, strong morphisms and algebra $2$-morphisms form an $(\infty,2)$-category with the same hom-categories as $\Pc_{I,P}$.
 \todo{Compare with the Eilenberg--Moore object of \cite{riehlverity2016adjunctions,haugseng2021laxmonads}.}
 \end{rmk}
 
 \begin{rmk}
 \label{rmk:2dloc-compare-bousfield}
+\gutentag{00AC}%
 In \cref{prop:bousfield-pushout} the local objects are those $c$ for which $s^{\natural}$ is an \emph{equivalence}; here $i^{\natural}$ is a \emph{localization} and $p^{\natural}$ a \emph{colocalization}.
 The Beck--Chevalley condition on $1$-morphisms has no one-dimensional counterpart, since, unlike adjoints, inverses are preserved by every square.
 It is what prevents $\iota$ from being fully faithful and $T$ from being idempotent: in general $L\iota q \not\simeq q$, because $\Hom_{\Pc_{I,P}}(L\iota q,q') \simeq \Hom_{\D}(\iota q,\iota q')$ also contains the non-local $1$-morphisms.
