@@ -1,6 +1,10 @@
 \subsection{Plain adjoints}
 \label{subsec:2dloc-plain}
 
+Arguably it is more natural to formally add adjoints than to formally make certain maps (co)reflective.
+We show here that, when lax pushouts exist, we do not lose generality.
+
+First of all, we define formally adjoining adjoints in the same way as in \cref{def:adjoin}.
 Replacing $\Refl$ and $\Corefl$ by $\Adj$ in \cref{def:adjoin} gives the pushout $\A\lradj{I}{P}$, which \emph{freely adjoins left adjoints to $I$ and right adjoints to $P$}. We write $\A\ladj{I} := \A\lradj{I}{\emptyset}$ and $\A\radj{P} := \A\lradj{\emptyset}{P}$.
 The proof of \cref{prop:adjoin-univ}, with \cref{lem:mates} in place of \cref{lem:mates-refl}, gives its universal property: that of \cref{prop:adjoin-univ} with ``right adjoint'' in place of ``reflective'' and ``left adjoint'' in place of ``coreflective''.
 
@@ -21,6 +25,7 @@ We will show that plain adjoining is a special case of \cref{def:IP-local}, prov
 
 \subsubsection*{Reduction to coreflections}
 
+\reviewcomment{just say lax pushouts or tensoring with $ \Delta ^{1} $; people have defined that}
 \begin{defi}[cylinders]
 \label{constr:cylinder}
 Let $s\colon x \to y$ in $\D$. A \emph{cylinder} of $s$ is a cocomma object (lax pushout) of $\mathrm{id}_{x}$ and $s$: an object $\Cyl(s)$ with $1$-morphisms $j_{s}\colon x \to \Cyl(s)$, $q_{s}\colon y \to \Cyl(s)$ and a $2$-morphism $\theta\colon j_{s} \Rightarrow q_{s}s$, such that for every $e \in \D$
