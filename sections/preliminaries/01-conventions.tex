@@ -1,12 +1,16 @@
 \subsection{Conventions}
 \label{subsec:prelim-conventions}
+\gutentag{0001}%
 
 \subsubsection*{$(\infty,2)$-categories}
+\gutentag{0002}%
+\gutentag{0003}%
 $\Cat$ is the $\infty$-category of small $(\infty,1)$-categories and $\Spc \subset \Cat$ the full subcategory of spaces.
 An \emph{$(\infty,2)$-category} is a $\Cat$-enriched $\infty$-category in the sense of Gepner--Haugseng \cite{gepnerhaugseng2015enriched}; $\twoCat$ is the $\infty$-category of small ones.
 For objects $x,y$ of $\A$ we write $\Hom_{\A}(x,y) \in \Cat$ for the hom-category and $\mapp_{\A}(x,y) = \Hom_{\A}(x,y)^{\simeq}$ for the mapping space of the underlying $\infty$-category $\iota_{1}\A$.
 Via $\Spc \subset \Cat$, every $\infty$-category, e.g.\ $\Delta^{n}$, is an $(\infty,2)$-category. The \emph{walking $2$-cell} $\wtc$ has objects $0,1$ and $\Hom(0,1) = \Delta^{1}$, $\Hom(1,0) = \emptyset$, $\Hom(0,0) = \Hom(1,1) = \mathrm{pt}$; $\bwtc \subset \wtc$ is the sub-$(\infty,2)$-category with $\Hom(0,1) = \partial\Delta^{1}$.
 
+\gutentag{0004}%
 $\twoCat$ is presentable and cartesian closed, with internal hom $\func(\A,\B)$.
 \todo{Reference for cartesian closedness in the enriched model, e.g.\ via the comparison with complete Segal spaces.}
 Its objects are functors, its $1$-morphisms $\Delta^{1} \to \func(\A,\B)$ are \emph{natural transformations} (naturality squares commute up to \emph{invertible} $2$-morphisms), and its $2$-morphisms are modifications.
@@ -15,11 +19,14 @@ Results proved in other models of $(\infty,2)$-categories, e.g.\ complete $2$-fo
 \todo{Check the precise statements of the comparison theorems in \cite{gepnerhaugseng2015enriched,haugseng2015rectification}.}
 
 \subsubsection*{The homotopy $2$-category}
+\gutentag{0005}%
+\gutentag{0006}%
 The functor $h\colon \Cat \to \Cat_{\leq 1}$ preserves finite products; changing enrichment along it \cite{gepnerhaugseng2015enriched} gives the \emph{homotopy $2$-category} $\htwo\A$, a $(2,2)$-category, which we regard as a bicategory.
 \todo{Reference for $\Cat_{\leq 1}$-enriched $\infty$-categories $=$ bicategories.}
 It has the objects and $1$-morphisms of $\A$, and equivalence classes of $2$-morphisms of $\A$ as $2$-morphisms. Functors $\A \to \B$ induce pseudofunctors $\htwo\A \to \htwo\B$.
 Arguments asserting that certain $2$-morphisms exist, or that two composites of $2$-morphisms agree (triangle identities, mate computations, interchange), take place in $\htwo\A$ and are imported verbatim from $2$-category theory.
 
+\gutentag{0007}%
 \textbf{Notation.} For a $1$-morphism $f\colon x \to y$ of $\A$ and $t \in \A$ we write
 \[
 f_{\natural} := f \circ -\colon \Hom_{\A}(t,x) \to \Hom_{\A}(t,y) \ , \qquad f^{\natural} := - \circ f\colon \Hom_{\A}(y,t) \to \Hom_{\A}(x,t)
@@ -27,10 +34,13 @@ f_{\natural} := f \circ -\colon \Hom_{\A}(t,x) \to \Hom_{\A}(t,y) \ , \qquad f^{
 for postcomposition and precomposition, and $(-)^{L}$, $(-)^{R}$ for left and right adjoints, e.g.\ $(f^{\natural})^{R}$. The notation $(-)^{*}$, $(-)_{*}$, $(-)_{!}$ is reserved for restriction along functors of $(\infty,2)$-categories, such as the restriction $\ell^{*}\colon \func(\Adj,\E) \to \func(\Delta^{1},\E)$ that will appear in \cref{sec:mates}, and for Kan extensions.
 
 \subsubsection*{Locally fully faithful functors and locally full sub-$(\infty,2)$-categories}
+\gutentag{0008}%
+\gutentag{0009}%
 We follow \cite[\S 2.6]{abellangagnahaugseng2024straightening}.
 A functor $G\colon \A \to \B$ is \emph{locally fully faithful} if every $\Hom_{\A}(x,x') \to \Hom_{\B}(Gx,Gx')$ is fully faithful, and a \emph{monomorphism} if every $\mapp_{\twoCat}(K,\A) \to \mapp_{\twoCat}(K,\B)$ is a monomorphism of spaces; it suffices to test $K = \Delta^{0}$, $\Delta^{1}$, $\wtc$ \cite[Prop.~2.6.10]{abellangagnahaugseng2024straightening}.
 Neither condition implies the other: the fold map $\mathrm{pt} \sqcup \mathrm{pt} \to \mathrm{pt}$ is locally fully faithful but not a monomorphism, and $\iota_{1}\B \to \B$ is a monomorphism but in general not locally fully faithful.
 
+\gutentag{000A}%
 By \cite[Prop.~2.6.5]{abellangagnahaugseng2024straightening}, $G$ is locally fully faithful if and only if the square
 \begin{equation}
 \label{eq:lff-square}
@@ -42,6 +52,7 @@ By \cite[Prop.~2.6.5]{abellangagnahaugseng2024straightening}, $G$ is locally ful
 is a pullback: over a pair of parallel $1$-morphisms $f,g\colon x \to x'$ of $\A$, the map on vertical fibres is $\mapp_{\Hom_{\A}(x,x')}(f,g) \to \mapp_{\Hom_{\B}(Gx,Gx')}(Gf,Gg)$.
 If $G$ is a monomorphism, both horizontal maps in \eqref{eq:lff-square} are monomorphisms, hence so is the map from $\mapp(\wtc,\A)$ to the pullback, and \eqref{eq:lff-square} is a pullback if and only if this map is surjective on $\pi_{0}$: every $2$-morphism of $\B$ between $1$-morphisms in the image of $G$ lies in the image of $G$.
 
+\gutentag{000B}%
 A \emph{locally full inclusion} is a locally fully faithful monomorphism $G\colon \A \to \B$; equivalently, a locally fully faithful $G$ with $\A^{\simeq} \to \B^{\simeq}$ a monomorphism \cite[Def.~2.6.3, Prop.~2.6.17]{abellangagnahaugseng2024straightening}. We then say that $G$ exhibits $\A$ as a \emph{locally full sub-$(\infty,2)$-category} of $\B$. A locally full sub-$(\infty,2)$-category is determined by a class of objects and a class of $1$-morphisms of $\B$, closed under equivalence and composition and containing the identities: $\mapp(K,\A) \subset \mapp(K,\B)$ consists of the functors sending the objects and $1$-morphisms of $K$ into these classes \cite[Cor.~2.6.6]{abellangagnahaugseng2024straightening}. Conversely, every such pair of classes is the image of a locally full inclusion.
 \todo{Reference for the existence, e.g.\ in the enriched model.}
 Being locally fully faithful and being a locally full inclusion are right orthogonality conditions \cite[Prop.~2.6.5, Cor.~2.6.7]{abellangagnahaugseng2024straightening}, so both are stable under pullbacks and products.

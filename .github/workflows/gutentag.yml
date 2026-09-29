@@ -1,0 +1,41 @@
+# Tags every new unit of the LaTeX sources and records removed tags; see tools/gutentag.py.
+name: gutentag
+
+on:
+  push:
+    branches: [main]
+    paths: ['sections/**', 'tools/gutentag.py', '.github/workflows/gutentag.yml']
+  pull_request:
+    paths: ['sections/**', 'tools/gutentag.py', '.github/workflows/gutentag.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/gutentag.py
+
+  tag:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency: gutentag-main
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - run: python3 tools/gutentag.py --write
+      - name: Push the new tags
+        run: |
+          git diff --quiet && exit 0
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898248+github-actions[bot]@users.noreply.github.com'
+          git commit -qam 'Assign gutentags'
+          git push origin HEAD:main || echo '::warning::main moved during tagging; the queued run tags it'
