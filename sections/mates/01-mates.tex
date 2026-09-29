@@ -1,10 +1,8 @@
 \subsection{Lax squares and mates}
 \label{subsec:mates-mates}
-\gutentag{0013}%
 
 \begin{defi}
 \label{def:lax-square}
-\gutentag{0014}%
 A \emph{lax square} in $\A$ is a diagram
 \[
 \begin{tikzcd}
@@ -15,13 +13,11 @@ C \ar[r, "k"'] & D
 with a $2$-morphism $\alpha\colon hf \Rightarrow kg$ from the top-right to the bottom-left composite. It is a \emph{commutative square} if $\alpha$ is invertible.
 \end{defi}
 
-\gutentag{0015}%
 The \emph{transpose} of a commutative square, its reflection in the diagonal through $A$ and $D$, is the commutative square with $g$, $k$ horizontal, $f$, $h$ vertical and $2$-morphism $\alpha^{-1}\colon kg \Rightarrow hf$.
 So a commutative square has two underlying lax squares. \textbf{Convention:} we speak of the mates, or of the Beck--Chevalley condition, of a commutative square only after fixing its underlying lax square.
 
 \begin{constru}[mates]
 \label{constr:mates}
-\gutentag{0016}%
 Let $\alpha$ be the lax square of \cref{def:lax-square}.
 \begin{enumerate}
 \item If $f^{L} \dashv f$ and $k^{L} \dashv k$, the \emph{left mate} of $\alpha$ is the lax square
@@ -48,13 +44,11 @@ Thus the left mate replaces the horizontal $1$-morphisms by their left adjoints 
 
 \begin{defi}
 \label{def:BC}
-\gutentag{0017}%
 A lax square is \emph{left Beck--Chevalley} if $f$, $k$ admit left adjoints and $\lmate{\alpha}$ is invertible, and \emph{right Beck--Chevalley} if $g$, $h$ admit right adjoints and $\rmate{\alpha}$ is invertible.
 \end{defi}
 
 \begin{lem}[mate correspondence]
 \label{lem:mate-correspondence}
-\gutentag{0018}%
 In the situation of \cref{constr:mates}:
 \begin{enumerate}
 \item $\alpha \mapsto \lmate{\alpha}$ and $\alpha \mapsto \rmate{\alpha}$ are equivalences of spaces
@@ -67,7 +61,6 @@ In the situation of \cref{constr:mates}:
 \end{lem}
 
 \begin{proof}
-\gutentag{0019}%
 (1) The adjunctions $(k^{L})_{\natural} \dashv k_{\natural}$ and $f^{\natural} \dashv (f^{L})^{\natural}$ of \eqref{eq:hom-adjunctions} give
 \[
 \mapp(hf,kg) \simeq \mapp(k^{L}hf,g) \simeq \mapp(k^{L}h,gf^{L}) \ ,
@@ -81,6 +74,5 @@ and unwinding units and counits shows that the composite is $\alpha \mapsto \lma
 
 \begin{rmk}
 \label{rmk:mates-memo}
-\gutentag{001A}%
 If $\alpha$ is commutative with transpose $\alpha^{\mathrm{T}}$, the left mate of $\alpha^{\mathrm{T}}$ replaces $g$, $h$ by their left adjoints and its right mate replaces $f$, $k$ by their right adjoints; by our convention these are mates of $\alpha^{\mathrm{T}}$, not of $\alpha$.
 \end{rmk}

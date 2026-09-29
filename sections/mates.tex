@@ -1,13 +1,10 @@
 \section{Mate calculus}
 \label{sec:mates}
-\gutentag{000C}%
 
-\gutentag{000D}%
 Let $\Adj$ be the free homotopy coherent adjunction of Riehl--Verity \cite[\S 3.1]{riehlverity2016adjunctions}, a simplicial category whose hom-simplicial sets are quasi-categories, regarded as an $(\infty,2)$-category \cite{haugseng2015rectification}. It has objects $-$ and $+$, $1$-morphisms $l\colon - \to +$, $r\colon + \to -$ and $2$-morphisms $\eta\colon \mathrm{id}_{-} \Rightarrow rl$, $\varepsilon\colon lr \Rightarrow \mathrm{id}_{+}$ satisfying the triangle identities. By \cite[Cor.~3.3.5]{riehlverity2016adjunctions} it is isomorphic to the Schanuel--Street free adjunction \cite{schanuelstreet1986free}, so its hom-simplicial sets are nerves of categories. Let $\ell,\rho\colon \Delta^{1} \to \Adj$ select $l$ and $r$.
 
 \begin{defi}
 \label{def:adjunction}
-\gutentag{000E}%
 An \emph{adjunction} in an $(\infty,2)$-category $\A$ is a functor $A\colon \Adj \to \A$. We write it as $A(l) \dashv A(r)$, with \emph{unit} $A(\eta)$ and \emph{counit} $A(\varepsilon)$. A $1$-morphism of $\A$ is a \emph{left adjoint}, resp.\ a \emph{right adjoint}, if it lies in the image of
 \[
 \ell^{*},\ \rho^{*}\colon \mapp_{\twoCat}(\Adj,\A) \longrightarrow \mapp_{\twoCat}(\Delta^{1},\A) \ ,
@@ -15,10 +12,8 @@ An \emph{adjunction} in an $(\infty,2)$-category $\A$ is a functor $A\colon \Adj
 respectively.
 \end{defi}
 
-\gutentag{000F}%
 By Riehl--Verity \cite[Thms.~4.3.11, 4.4.18]{riehlverity2016adjunctions} (see \cite[Thm.~4.4]{haugseng2021laxmonads}, and \cite[Thm.~5.1]{abellan2026bifibrations} for a model-independent proof), $\ell^{*}$ and $\rho^{*}$ are monomorphisms, so being a left or a right adjoint is a property of a $1$-morphism. Moreover, $1$-morphisms $l\colon x \to y$, $r\colon y \to x$ and $2$-morphisms $\mathrm{id}_{x} \Rightarrow rl$, $lr \Rightarrow \mathrm{id}_{y}$ satisfying the triangle identities in $\htwo\A$ extend to an adjunction $l \dashv r$ with this unit and counit.
 
-\gutentag{0010}%
 Functors preserve adjunctions. In particular, for $t \in \A$ the functors $\Hom_{\A}(t,-)\colon \A \to \Cat$ and $\Hom_{\A}(-,t)\colon \A\opcat \to \Cat$ \cite{hinich2020yoneda,heine2023enriched} take an adjunction $l \dashv r$ to adjunctions of $\infty$-categories
 \begin{equation}
 \label{eq:hom-adjunctions}
@@ -28,13 +23,11 @@ where for the second we use the equivalence $\Adj \simeq \Adj\opcat$, $l \mapsto
 
 \begin{defi}
 \label{def:reflection}
-\gutentag{0011}%
 An adjunction $l \dashv r$ in $\A$ is a \emph{reflection} if its counit $\varepsilon$ is invertible, and a \emph{coreflection} if its unit $\eta$ is invertible.
 The left adjoint in a reflection is called a \emph{localization}, and the right adjoint in a coreflection a \emph{colocalization}.
 A $1$-morphism is \emph{reflective} if it is the right adjoint of a reflection, and \emph{coreflective} if it is the left adjoint of a coreflection.
 \end{defi}
 
-\gutentag{0012}%
 By \cite[Thm.~4.4]{haugseng2021laxmonads}, being reflective is a property of a $1$-morphism $r$, independent of the choice of a left adjoint,
 and similarly for being coreflective.
 As $r_{\natural}$ and $l_{\natural}$ on $\Hom_{\A}(t,-)$ form an adjunction with counit $\varepsilon_{\natural}$ and unit $\eta_{\natural}$ \eqref{eq:hom-adjunctions}, a right adjoint $r$ is reflective if and only if every $r_{\natural}$ is fully faithful, and a left adjoint $l$ is coreflective if and only if every $l_{\natural}$ is fully faithful.

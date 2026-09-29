@@ -1,16 +1,12 @@
 \subsection{Morphisms between adjunctions}
 \label{subsec:mates-morphisms}
-\gutentag{001B}%
 
-\gutentag{001C}%
 The objects of $\func(\Adj,\E)$ are the adjunctions in $\E$ (\cref{def:adjunction}), and its $1$-morphisms are natural transformations of adjunctions. We first describe $\func(\Adj,\E)$ inside $\func(\Delta^{1},\E)$: this is the mate lemma. We then show that, when $\E$ has lax pullbacks, adjunctions can equivalently be defined as equivalences of lax pullbacks, without reference to $\Adj$, and that morphisms between adjunctions so defined are pairs of mate squares, neither of which needs to be invertible.
 
 \subsubsection*{The mate lemma}
-\gutentag{001D}%
 
 \begin{lem}[mates]
 \label{lem:mates}
-\gutentag{001E}%
 Let $\E$ be an $(\infty,2)$-category.
 \begin{enumerate}
 \item $\ell^{*}\colon \func(\Adj,\E) \to \func(\Delta^{1},\E)$ is a locally full inclusion. It exhibits $\func(\Adj,\E)$ as the locally full sub-$(\infty,2)$-category whose objects are the left adjoints $u\colon x \to y$, and whose $1$-morphisms from $u$ to $u'$ are the commutative squares for which the lax square
@@ -35,7 +31,6 @@ is left Beck--Chevalley: $\lmate{\psi}\colon u'^{L}f_{1} \Rightarrow f_{0}u^{L}$
 \end{lem}
 
 \begin{proof}
-\gutentag{001F}%
 We prove (1); (2) is (1) for $\E^{\mathrm{co}}$, since $\Adj^{\mathrm{co}} \simeq \Adj$ exchanges $\ell$ and $\rho$, while passing to $\E^{\mathrm{co}}$ exchanges left and right adjoints and turns right mates into left mates of the transposed squares.
 
 Let $\func(\Adj,\E)^{\mathrm{colax}}$ be the $(\infty,2)$-category of adjunctions in $\E$ and colax morphisms of adjunctions \cite[Def.~4.2]{haugseng2021laxmonads}, i.e.\ of colax transformations $\Adj \otimes \Delta^{1} \to \E$ for the Gray tensor product.
@@ -48,22 +43,18 @@ A $1$-morphism of $\func(\Delta^{1},\E)$ between left adjoints $u$, $u'$ is a co
 
 \begin{rmk}
 \label{rmk:mates-2cat}
-\gutentag{0020}%
 For $2$-categories, \cref{lem:mates} is the classical fact that a morphism of adjunctions is determined by its left adjoint part, the right adjoint part being the mate \cite{kellystreet1974review}.
 For $(\infty,2)$-categories, we know of no reference stating \cref{lem:mates} itself; the proof above deduces it from the lax version \cite[Cor.~4.8]{haugseng2021laxmonads}, in which $\ell^{*}$, resp.\ $\rho^{*}$, is an equivalence from adjunctions with colax, resp.\ lax, morphisms onto the full sub-$(\infty,2)$-category of $\func(\Delta^{1},\E)$ on the left, resp.\ right, adjoints. We will give a proof from the Riehl--Verity theorem and \cite[Cor.~5.2.12]{abellangagnahaugseng2024straightening} in \cref{rmk:mates-alternative}.
 \end{rmk}
 
 \subsubsection*{Adjunctions via lax pullbacks}
-\gutentag{0021}%
 
-\gutentag{0022}%
 \textbf{Notation.} For $1$-morphisms $f\colon X \to Y$ and $g\colon Z \to Y$ of $\E$ we write $(f \downarrow g) := X \ratimes_{Y} Z$ for their lax pullback, with projections $p$, $q$ and $2$-morphism $\alpha\colon fp \Rightarrow gq$, and $(u,v,\varphi)\colon T \to (f \downarrow g)$ for the $1$-morphism given by $u\colon T \to X$, $v\colon T \to Z$ and $\varphi\colon fu \Rightarrow gv$. For $\E = \Cat$, $(f \downarrow g)$ is the comma $\infty$-category.
 For $f\colon X \to Y$ and $g\colon Y \to X$ we write $(f \downarrow Y) := (f \downarrow \mathrm{id}_{Y})$ and $(X \downarrow g) := (\mathrm{id}_{X} \downarrow g)$; both are spans from $X$ to $Y$. They receive the $1$-morphisms
 \[
 i := (\mathrm{id}_{X},f,\mathrm{id}_{f})\colon X \to (f \downarrow Y) \ , \qquad j := (g,\mathrm{id}_{Y},\mathrm{id}_{g})\colon Y \to (X \downarrow g) \ .
 \]
 
-\gutentag{0023}%
 Let $\Lambda := \{0 \leftarrow 2 \rightarrow 1\}$ be the walking span and $\Span(\E) := \func(\Lambda,\E)$ the $(\infty,2)$-category of spans in $\E$. We write a span as $S = (X \xleftarrow{p} E \xrightarrow{q} Y)$, a span from $X$ to $Y$, and $\Span_{\E}(X,Y)$ for the fibre of $\Span(\E) \to \E \times \E$, evaluation at $0$ and $1$, over $(X,Y)$. A $1$-morphism $S \to S'$ of $\Span(\E)$ over $(a,b) \in \Hom(X,X') \times \Hom(Y,Y')$ is a \emph{map of spans}: a $1$-morphism $c\colon E \to E'$ with equivalences $p'c \simeq ap$ and $q'c \simeq bq$. By \cite[Prop.~4.1.2]{abellangagnahaugseng2024straightening}, applied to strong transformations,
 \[
 \Hom_{\Span(\E)}(S,S') \simeq \Hom(X,X') \times_{\Hom(E,X')} \Hom(E,E') \times_{\Hom(E,Y')} \Hom(Y,Y') \ ,
@@ -72,18 +63,15 @@ and the hom-$\infty$-categories of $\Span_{\E}(X,Y)$ are the fibres over $(\math
 
 \begin{lem}
 \label{lem:comma-fibrewise}
-\gutentag{0024}%
 Let $F\colon A \to C$, $G\colon B \to C$, $F'\colon A \to C'$ and $G'\colon B \to C'$ be functors of $\infty$-categories. A functor $(F \downarrow G) \to (F' \downarrow G')$ over $A \times B$ is an equivalence if and only if it induces equivalences $\mapp(Fa,Gb) \to \mapp(F'a,G'b)$ on the fibres over all $(a,b)$.
 \end{lem}
 
 \begin{proof}
-\gutentag{0025}%
 $(F \downarrow G) \to A \times B$ is the pullback of $\func(\Delta^{1},C) \to C \times C$ along $F \times G$, hence a bifibration \cite[Cor.~2.4.7.11]{htt}, with fibre $\mapp(Fa,Gb)$ over $(a,b)$. A functor over $A \times B$ between bifibrations that is an equivalence on fibres is an equivalence \cite[Prop.~2.4.7.6]{htt}.
 \end{proof}
 
 \begin{defi}
 \label{def:transposing-adjunction}
-\gutentag{0026}%
 Let $\E$ have lax pullbacks.
 \begin{enumerate}
 \item A \emph{transposing adjunction} between $f\colon X \to Y$ and $g\colon Y \to X$ is an equivalence $e\colon (f \downarrow Y) \xrightarrow{\simeq} (X \downarrow g)$ in $\Span_{\E}(X,Y)$.
@@ -102,12 +90,10 @@ along $e'_{\natural}$ and $e^{\natural}$, over $\Hom(X,X') \times \Hom(Y,Y')$.
 \end{enumerate}
 \end{defi}
 
-\gutentag{0027}%
 For $\E = \Cat$, $(f \downarrow Y)$ and $(X \downarrow g)$ are bifibrations over $X \times Y$ with fibres $\mapp_{Y}(fx,y)$ and $\mapp_{X}(x,gy)$, so by \cref{lem:comma-fibrewise} a transposing adjunction is a functor over $X \times Y$ inducing equivalences $\mapp_{Y}(fx,y) \simeq \mapp_{X}(x,gy)$. The name is taken from Riehl--Shulman's synthetic setting \cite[Def.~11.1]{riehlshulman2017synthetic}.
 
 \begin{thm}[adjunctions via lax pullbacks]
 \label{thm:comma-adjunctions}
-\gutentag{0028}%
 Let $\E$ be an $(\infty,2)$-category with lax pullbacks.
 \begin{enumerate}
 \item \emph{Adjunctions are transposing adjunctions.} Let $f\colon X \to Y$ and $g\colon Y \to X$. Every $1$-morphism $(f \downarrow Y) \to (X \downarrow g)$ of $\Span_{\E}(X,Y)$ is, for a unique $\eta\colon \mathrm{id}_{X} \Rightarrow gf$, the map
@@ -136,12 +122,10 @@ onto the $\infty$-categories of lax squares $\sigma$, resp.\ $\tau$.
 \end{enumerate}
 \end{thm}
 
-\gutentag{0029}%
 So when $\E$ has lax pullbacks, an adjunction can be defined as a transposing adjunction, without reference to $\Adj$. For $\E = \Cat$, $e_{\eta}$ is $\varphi \mapsto g\varphi \circ \eta_{x}$ on the fibres, so (1) says that $\eta$ is the unit of an adjunction if and only if it is a unit transformation in the sense of \cite[Def.~5.2.2.7]{htt}.
 Morphisms of adjunctions can then be defined as the $1$-morphisms of $\TAdj(\E)$, which also provides their composition and $2$-morphisms. By \cref{thm:comma-adjunctions}(2), such a morphism is a pair of lax squares $(\sigma,\rmate{\sigma})$, neither of which needs to be invertible, and it is determined by either of them. The $1$-morphisms of $\func(\Adj,\E)$ correspond to the pairs in which both are invertible (\cref{lem:mates}), and the (co)lax morphisms of adjunctions of \cite[Def.~4.2]{haugseng2021laxmonads} to those in which one of them is invertible \cite[Cor.~4.8, 4.9]{haugseng2021laxmonads}.
 
 \begin{proof}[Proof of \cref{thm:comma-adjunctions}]
-\gutentag{002A}%
 We write $p$, $q$, $\alpha\colon fp \Rightarrow q$ for the structure of $(f \downarrow Y)$ and $\bar p$, $\bar q$, $\beta\colon \bar p \Rightarrow g\bar q$ for that of $(X \downarrow g)$. By the universal property of lax pullbacks, $\Hom(T,(h \downarrow k))$ is the comma $\infty$-category $(h_{\natural} \downarrow k_{\natural})$, naturally in $T$.
 
 \emph{Step 1: restriction along $i$ and $j$.} We have $pi = \mathrm{id}_{X}$, $qi = f$ and $\alpha i = \mathrm{id}_{f}$. The pair $(\mathrm{id}_{p},\alpha)$ is a $2$-morphism $ip = (p,fp,\mathrm{id}_{fp}) \Rightarrow (p,q,\alpha) = \mathrm{id}$, and it is the counit of an adjunction $i \dashv p$ with identity unit \cite[Thm.~4.3.11]{riehlverity2016adjunctions}, as the triangle identities $p(\mathrm{id}_{p},\alpha) = \mathrm{id}_{p}$ and $(\mathrm{id}_{p},\alpha)i = \mathrm{id}_{i}$ hold. By \eqref{eq:hom-adjunctions}, $p^{\natural} \dashv i^{\natural}$ with identity unit, so restriction along $i$ is an equivalence
@@ -187,23 +171,19 @@ so $\tau = g'b\varepsilon \circ g'\sigma g \circ \eta'ag$, the right mate of $\s
 
 \begin{rmk}
 \label{rmk:comma-literature}
-\gutentag{002B}%
 Riehl--Shulman compare transposing adjunctions with adjunctions with a given unit in their synthetic setting \cite[Cor.~11.21, Thm.~11.23]{riehlshulman2017synthetic}. When $\E$ is presented by an $\infty$-cosmos, \cref{thm:comma-adjunctions}(1) is \cite[Prop.~4.1.1]{riehlverity2022elements}, with the strict comma objects of the cosmos; for $\E = \Cat$ see \cite[Prop.~4.4.3]{riehlverity2015twocategory}. If $\E$ does not have lax pullbacks, one can apply \cref{thm:comma-adjunctions}(1) to $\Hom_{\E}(-,f)$ and $\Hom_{\E}(-,g)$ in $\func(\E\opcat,\Cat)$, into which $\E$ embeds fully faithfully by the enriched Yoneda lemma \cite{hinich2020yoneda,heine2023enriched}.
 \cref{thm:comma-adjunctions}(2) upgrades \cref{lem:mate-correspondence}(1) from spaces to $\infty$-categories. The equivalence $(f'_{\natural} \downarrow f^{\natural}) \simeq (g^{\natural} \downarrow g'_{\natural})$ itself only needs the adjunctions $f'_{\natural} \dashv g'_{\natural}$ and $g^{\natural} \dashv f^{\natural}$ of $\infty$-categories and \cref{lem:comma-fibrewise}; lax pullbacks realize it inside $\E$, as conjugation by $e$ and $e'$.
 \end{rmk}
 
 \begin{rmk}
 \label{rmk:mates-alternative}
-\gutentag{002C}%
 \cref{lem:mates} also follows from the Riehl--Verity theorem \cite[Thm.~4.4]{haugseng2021laxmonads} and the characterization of adjoints in functor $(\infty,2)$-categories \cite[Cor.~5.2.12]{abellangagnahaugseng2024straightening}: a $1$-morphism of $\func(\A,\B)$ is a left adjoint if and only if its components are left adjoints and its naturality squares are right Beck--Chevalley. For $K \in \twoCat$, $\ell^{*}$ on $\mapp(K,-)$ is adjoint to $\ell^{*}\colon \mapp(\Adj,\func(K,\E)) \to \mapp(\Delta^{1},\func(K,\E))$, a monomorphism onto the left adjoints of $\func(K,\E)$ by \cite[Thm.~4.4]{haugseng2021laxmonads}, and \cite[Cor.~5.2.12]{abellangagnahaugseng2024straightening} computes these for $K = \Delta^{0}$, $\Delta^{1}$, $\wtc$: for $K = \Delta^{1}$ they are the right Beck--Chevalley squares between left adjoints, and for $K = \wtc$ every $2$-morphism of $\func(\Delta^{1},\E)$ between two such squares is a left adjoint of $\func(\wtc,\E)$. So $\ell^{*}$ is a monomorphism and \eqref{eq:lff-square} is a pullback (\cref{subsec:prelim-conventions}), i.e.\ $\ell^{*}$ is a locally full inclusion.
 
 When $\E$ has lax pullbacks, the two cases of \cite[Cor.~5.2.12]{abellangagnahaugseng2024straightening} used here follow from \cref{thm:comma-adjunctions}, granting that the hom-categories of $\func(K,\E)$ are the limits of the hom-categories of $\E$ indexed by $K$ \todo{Reference.}: then lax pullbacks in $\func(K,\E)$ exist and are computed pointwise, and a $1$-morphism of $\func(K,\E)$ is an equivalence if and only if its components are. For $K = \Delta^{1}$, let $L = (u,u',\varphi)\colon f_{0} \Rightarrow f_{1}$ be a $1$-morphism of $\func(\Delta^{1},\E)$ with $u$, $u'$ left adjoints, and let $e$, $e'$ be the transposing adjunctions of $u \dashv u^{R}$ and $u' \dashv u'^{R}$. If $\rmate{\varphi}$ is invertible, then $R := (u^{R},u'^{R},\rmate{\varphi})\colon f_{1} \Rightarrow f_{0}$ is a $1$-morphism, and the morphism $(c_{\varphi},d_{\rmate{\varphi}})\colon e \to e'$ of \cref{thm:comma-adjunctions}(2) makes $(e,e')$ a pointwise equivalence $(L \downarrow f_{1}) \simeq (f_{0} \downarrow R)$ in $\Span_{\func(\Delta^{1},\E)}(f_{0},f_{1})$, i.e.\ a transposing adjunction between $L$ and $R$, so $L \dashv R$ by \cref{thm:comma-adjunctions}(1). Conversely, if $L \dashv R$, then $u \dashv R_{0}$ and $u' \dashv R_{1}$, and the transposing adjunction of $L \dashv R$ is a $1$-morphism of $\TAdj(\E)$ between those of $u \dashv R_{0}$ and $u' \dashv R_{1}$, with lax squares $\varphi$ and the naturality square of $R$. By \cref{thm:comma-adjunctions}(2) the latter is $\rmate{\varphi}$, which is therefore invertible. For $K = \wtc$ one argues in the same way, transporting the identification of the pastings of the two squares along the equivalences of \cref{thm:comma-adjunctions}(2).
 \end{rmk}
 
 \subsubsection*{Mates for reflections}
-\gutentag{002D}%
 
-\gutentag{002E}%
 Let $c\colon \wtc \to \Delta^{1}$ collapse the $2$-morphism, and let $\varepsilon,\eta\colon \wtc \to \Adj$ classify the counit $lr \Rightarrow \mathrm{id}_{+}$ and the unit $\mathrm{id}_{-} \Rightarrow rl$. The \emph{walking reflection} and \emph{walking coreflection} are the pushouts in $\twoCat$
 \[
 \Refl := \Adj \sqcup_{\wtc,\varepsilon} \Delta^{1} \ , \qquad \Corefl := \Adj \sqcup_{\wtc,\eta} \Delta^{1}
@@ -212,7 +192,6 @@ along $c$. We write $\ell$, $\rho$ also for the composites $\Delta^{1} \to \Adj 
 
 \begin{lem}[mates for reflections]
 \label{lem:mates-refl}
-\gutentag{002F}%
 Let $\E$ be an $(\infty,2)$-category.
 \begin{enumerate}
 \item $\func(\Refl,\E) \to \func(\Adj,\E)$ is fully faithful and exhibits $\func(\Refl,\E)$ as the full sub-$(\infty,2)$-category on the reflections; likewise $\func(\Corefl,\E)$ is the full sub-$(\infty,2)$-category on the coreflections.
@@ -221,7 +200,6 @@ Let $\E$ be an $(\infty,2)$-category.
 \end{lem}
 
 \begin{proof}
-\gutentag{0030}%
 (1) $\mapp(\wtc,\B)$ is the space of objects $x,y \in \B$ with a morphism of $\Hom_{\B}(x,y)$, and $c^{*}$ sends $f$ to $\mathrm{id}_{f}$. As $C^{\simeq} \to \func(\Delta^{1},C)^{\simeq}$ is a monomorphism onto the equivalences for every $\infty$-category $C$, $c^{*}$ is a monomorphism onto the invertible $2$-morphisms.
 Applying this to $\B = \func(K,\E)$, the map
 \[
