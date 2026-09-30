@@ -59,6 +59,32 @@ Thus the left mate replaces the horizontal $1$-morphisms by their left adjoints 
 A lax square is \emph{left Beck--Chevalley} if $f$, $k$ admit left adjoints and $\lmate{\alpha}$ is invertible, and \emph{right Beck--Chevalley} if $g$, $h$ admit right adjoints and $\rmate{\alpha}$ is invertible.
 \end{defi}
 
+\begin{lem}[the two mates are conjugate]
+\label{lem:mates-conjugate}
+Let $\alpha$ be the lax square of \cref{def:lax-square}, with $f^{L} \dashv f$, $k^{L} \dashv k$, $g \dashv g^{R}$ and $h \dashv h^{R}$. Then $\rmate{\alpha}\colon fg^{R} \Rightarrow h^{R}k$ is the right mate of $\lmate{\alpha}\colon k^{L}h \Rightarrow gf^{L}$, viewed as a lax square with identity horizontal edges and vertical edges $gf^{L} \dashv fg^{R}$ and $k^{L}h \dashv h^{R}k$. In particular, $\alpha$ is left Beck--Chevalley if and only if it is right Beck--Chevalley.
+\end{lem}
+
+\begin{proof}
+The right mate of $\lmate{\alpha}$ is the composite
+\[
+fg^{R} \xRightarrow{\ \eta\ } h^{R}k\,k^{L}h\,fg^{R} \xRightarrow{\ h^{R}k\,\lmate{\alpha}\,fg^{R}\ } h^{R}k\,gf^{L}\,fg^{R} \xRightarrow{\ \varepsilon\ } h^{R}k \ ,
+\]
+where $\eta = h^{R}\eta_{k}h \circ \eta_{h}$ is the unit of $k^{L}h \dashv h^{R}k$ and $\varepsilon = \varepsilon_{g} \circ g\varepsilon_{f}g^{R}$ the counit of $gf^{L} \dashv fg^{R}$. Insert the formula of \cref{constr:mates} for $\lmate{\alpha}$. By interchange in $\htwo\A$, $\eta_{k}$ and $\varepsilon_{k}$ cancel by the triangle identity $k\varepsilon_{k} \circ \eta_{k}k = \mathrm{id}_{k}$, and $\eta_{f}$ and $\varepsilon_{f}$ by $f\varepsilon_{f} \circ \eta_{f}f = \mathrm{id}_{f}$. What remains is $h^{R}k\varepsilon_{g} \circ h^{R}\alpha g^{R} \circ \eta_{h}fg^{R} = \rmate{\alpha}$.
+For the last claim: by \cref{lem:mate-correspondence}(1) and (3), taking mates of squares with identity horizontal edges is a bijection compatible with composition and identities, so it preserves and reflects invertibility.
+\end{proof}
+
+\begin{rmk}
+\label{rmk:double-BC}
+The lemma does not extend to the \emph{double Beck--Chevalley map} of Cnossen--Lenz--Linskens \cite[Def.~2.1(4)]{cnossenlenzlinskens2025universal}. If $\alpha$ is left Beck--Chevalley, replacing $f$ and $k$ by their left adjoints gives the \emph{mirror} of $\alpha$, the commutative square
+\[
+\begin{tikzcd}
+B \ar[r, "f^{L}"] \ar[d, "h"'] & A \ar[d, "g"] \ar[dl, Rightarrow, shorten=3mm, "{\lmate{\alpha}}^{-1}"'] \\
+D \ar[r, "k^{L}"'] & C
+\end{tikzcd}
+\]
+whose right mate $\delta\colon f^{L}h^{R} \Rightarrow g^{R}k^{L}$ is the double Beck--Chevalley map. Following \cite{cnossenlenzlinskens2025universal}, $\alpha$ is \emph{biadjointable} if it is left Beck--Chevalley and $\delta$ is invertible. This is a further condition: in $\Cat$, let $u\colon \Delta^{1} \to \Delta^{2}$ be the inclusion of $\{0,2\}$, which is fully faithful with both adjoints, and let $\alpha$ be the identity square with $f = g = \mathrm{id}_{\Delta^{1}}$ and $h = k = u$. Its mates are the counit $u^{L}u \simeq \mathrm{id}$ and the unit $\mathrm{id} \simeq u^{R}u$, both invertible, while $\delta\colon u^{R} \Rightarrow u^{L}$ is at $1 \in \Delta^{2}$ the morphism $0 \to 1$ of $\Delta^{1}$.
+\end{rmk}
+
 \begin{lem}[mate correspondence]
 \label{lem:mate-correspondence}
 \gutentag{0012}%
