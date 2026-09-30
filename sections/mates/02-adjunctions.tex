@@ -103,6 +103,7 @@ this colax morphism is strong if and only if $\rmate{\varphi}$ is invertible.
 
 \begin{thm}[morphisms of transposing adjunctions]
 \label{thm:comma-morphisms}
+\gutentag{00B3}%
 Let $\E$ be an $(\infty,2)$-category with lax pullbacks, let $e$ and $e'$ be
 transposing adjunctions between $f\colon X \to Y$ and $g\colon Y \to X$ and
 between $f'\colon X' \to Y'$ and $g'\colon Y' \to X'$,
@@ -139,7 +140,9 @@ g'_{\natural})
 onto the $\infty$-categories of lax squares $\sigma$, resp.\ $\tau$.
 \end{thm}
 
-So when $\E$ has lax pullbacks, morphisms of adjunctions can be defined as the $1$-morphisms of
+\gutentag{00B4}%
+So when $\E$ has lax pullbacks, morphisms of adjunctions can be defined as the
+$1$-morphisms of
 $\TAdj(\E)$, which also provides their composition and $2$-morphisms.
 By \cref{thm:comma-morphisms}, such a morphism is a pair of lax squares
 $(\sigma,\rmate{\sigma})$,
@@ -150,17 +153,20 @@ invertible (\cref{lem:mates}), and the (co)lax morphisms of adjunctions of
 invertible \cite[Cor.~4.8, 4.9]{haugseng2021laxmonads}.
 
 \begin{proof}[Proof of \cref{thm:comma-morphisms}]
+\gutentag{00B5}%
 We use the notation of the proof of \cref{thm:comma-adjunctions}.
 As $e$ and $e'$ are equivalences,
 so are $e'_{\natural}$ and $e^{\natural}$, hence so are both projections from
-$\Hom_{\TAdj(\E)}(e,e')$ (\cref{def:transposing-adjunction}).
+$\Hom_{\TAdj(\E)}(e,e')$
+(\cref{def:transposing-adjunction}).
 Composed with \eqref{eq:maps-of-commas},
 they send $(c,d)$ to $\sigma$ and $\tau$ with $c \simeq c_{\sigma}$ and $d
 \simeq d_{\tau}$; this gives the two equivalences.
 By \cref{thm:comma-adjunctions} we may take $e = e_{\eta}$ and $e' = e_{\eta'}$
 for the units $\eta$, $\eta'$ of $f \dashv g$ and $f' \dashv g'$, and then
 $e^{-1} = d_{\varepsilon}$
-by Step 3 of its proof, for the counit $\varepsilon$ of $f \dashv g$. As $d \simeq e'ce^{-1}$,
+by Step 3 of its proof, for the counit $\varepsilon$ of $f \dashv g$.
+As $d \simeq e'ce^{-1}$,
 the lax square $\tau$ is read off from
 \begin{equation*}
 dj \simeq e_{\eta'}c_{\sigma}d_{\varepsilon}j =
@@ -175,6 +181,7 @@ the right mate of $\sigma$ (\cref{constr:mates}).
 
 \begin{rmk}
 \label{rmk:comma-morphisms}
+\gutentag{00B6}%
 \cref{thm:comma-morphisms} upgrades \cref{lem:mate-correspondence}(1) from
 spaces to $\infty$-categories. The equivalence
 $(f'_{\natural} \downarrow f^{\natural}) \simeq (g^{\natural} \downarrow
@@ -227,7 +234,8 @@ inclusion.
 
 When $\E$ has lax pullbacks, the two cases of
 \cite[Cor.~5.2.12]{abellangagnahaugseng2024straightening} used here follow from
-\cref{thm:comma-adjunctions} and \cref{thm:comma-morphisms}, granting that the hom-categories of $\func(K,\E)$
+\cref{thm:comma-adjunctions} and \cref{thm:comma-morphisms},
+granting that the hom-categories of $\func(K,\E)$
 are the limits of the hom-categories of $\E$ indexed by $K$ \todo{Reference.}:
 then lax pullbacks in $\func(K,\E)$ exist and are computed pointwise,
 and a $1$-morphism of $\func(K,\E)$ is an equivalence if and only if its
@@ -330,7 +338,8 @@ $(\rho \times \ell)^{*}\colon \func(\Adj \times \Adj,\E) \to
 \func(\Delta^{1} \times \Delta^{1},\E)$
 is a locally full inclusion. Its objects are the commutative squares $\alpha$ as
 in \cref{def:lax-square} with $f$, $k$ right adjoints and $g$, $h$ left adjoints
-that are biadjointable (\cref{rmk:double-BC}); equivalently, that are right Beck--Chevalley and such
+that are biadjointable (\cref{rmk:double-BC}); equivalently,
+that are right Beck--Chevalley and such
 that replacing $g$, $h$ by $g^{R}$, $h^{R}$ and filling with
 ${\rmate{\alpha}}^{-1}$
 gives a left Beck--Chevalley square. Its $1$-morphisms are the transformations
