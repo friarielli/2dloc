@@ -1,0 +1,410 @@
+\subsection{Adjunctions}
+\label{subsec:prelim-adjunctions}
+
+\gutentag{0008}%
+Let $\Adj$ be the free homotopy coherent adjunction of Riehl--Verity \cite[\S
+3.1]{riehlverity2016adjunctions}, a simplicial category whose hom-simplicial
+sets are quasi-categories, regarded as an $(\infty,2)$-category
+\cite{haugseng2015rectification}. It has objects $-$ and $+$,
+$1$-morphisms $l\colon - \to +$, $r\colon + \to -$ and $2$-morphisms
+$\eta\colon \mathrm{id}_{-} \Rightarrow rl$,
+$\varepsilon\colon lr \Rightarrow \mathrm{id}_{+}$
+satisfying the triangle identities. By
+\cite[Cor.~3.3.5]{riehlverity2016adjunctions} it is isomorphic to the
+Schanuel--Street free adjunction \cite{schanuelstreet1986free},
+so its hom-simplicial sets are nerves of categories. Let
+$\ell,\rho\colon \Delta^{1} \to \Adj$
+select $l$ and $r$.
+
+\begin{defi}
+\label{def:adjunction}
+\gutentag{0009}%
+An \emph{adjunction} in an $(\infty,2)$-category $\A$ is a functor $A\colon \Adj
+\to \A$. We write it as $A(l) \dashv A(r)$,
+with \emph{unit} $A(\eta)$ and \emph{counit} $A(\varepsilon)$.
+A $1$-morphism of $\A$ is a \emph{left adjoint}, resp.\ a \emph{right adjoint},
+if it lies in the image of
+\begin{equation*}
+\ell^{*},\ \rho^{*}\colon \mapp_{\twoCat}(\Adj,\A) \longrightarrow
+\mapp_{\twoCat}(\Delta^{1},\A) \ ,
+\end{equation*}
+respectively.
+\end{defi}
+
+\gutentag{000A}%
+By Riehl--Verity \cite[Thms.~4.3.11, 4.4.18]{riehlverity2016adjunctions} (see
+\cite[Thm.~4.4]{haugseng2021laxmonads}, and
+\cite[Thm.~5.1]{abellan2026bifibrations} for a model-independent proof),
+$\ell^{*}$ and $\rho^{*}$ are monomorphisms,
+so being a left or a right adjoint is a property of a $1$-morphism. Moreover,
+$1$-morphisms $l\colon x \to y$, $r\colon y \to x$ and $2$-morphisms
+$\mathrm{id}_{x} \Rightarrow rl$,
+$lr \Rightarrow \mathrm{id}_{y}$
+satisfying the triangle identities in $\htwo\A$ extend to an adjunction $l
+\dashv r$ with this unit and counit.
+
+\gutentag{000B}%
+Functors preserve adjunctions. In particular, for $t \in \A$ the functors
+$\Hom_{\A}(t,-)\colon \A \to \Cat$
+and
+$\Hom_{\A}(-,t)\colon \A\opcat \to \Cat$
+\cite{hinich2020yoneda,heine2023enriched} take an adjunction $l \dashv r$ to
+adjunctions of $\infty$-categories
+\begin{equation}
+\label{eq:hom-adjunctions}
+l_{\natural} \dashv r_{\natural}\colon \Hom_{\A}(t,x) \rightleftarrows
+\Hom_{\A}(t,y) \ , \qquad r^{\natural} \dashv l^{\natural}\colon \Hom_{\A}(x,t)
+\rightleftarrows \Hom_{\A}(y,t) \ ,
+\end{equation}
+where for the second we use the equivalence
+$\Adj \simeq \Adj\opcat$,
+$l \mapsto r\opcat$, $r \mapsto l\opcat$,
+which fixes the objects and preserves the unit and counit
+\cite[Rem.~4.3]{haugseng2021laxmonads}.
+
+\begin{defi}
+\label{def:reflection}
+\gutentag{000C}%
+An adjunction $l \dashv r$ in $\A$ is a \emph{reflection} if its counit
+$\varepsilon$ is invertible, and a \emph{coreflection} if its unit $\eta$ is
+invertible.
+The left adjoint in a reflection is called a \emph{localization},
+and the right adjoint in a coreflection a \emph{colocalization}.
+A $1$-morphism is \emph{reflective} if it is the right adjoint of a reflection,
+and \emph{coreflective} if it is the left adjoint of a coreflection.
+\end{defi}
+
+\gutentag{000D}%
+By \cite[Thm.~4.4]{haugseng2021laxmonads},
+being reflective is a property of a $1$-morphism $r$,
+independent of the choice of a left adjoint,
+and similarly for being coreflective.
+As $r_{\natural}$ and $l_{\natural}$ on $\Hom_{\A}(t,-)$ form an adjunction with
+counit
+$\varepsilon_{\natural}$
+and unit $\eta_{\natural}$ \eqref{eq:hom-adjunctions},
+a right adjoint $r$ is reflective if and only if every $r_{\natural}$ is fully
+faithful, and a left adjoint $l$ is coreflective if and only if every
+$l_{\natural}$ is fully faithful.
+
+\gutentag{0019}%
+\textbf{Notation.} For $1$-morphisms $f\colon X \to Y$ and $g\colon Z \to Y$ of
+an $(\infty,2)$-category $\E$ we write
+$(f \downarrow g) := X \ratimes_{Y} Z$
+for their lax pullback, with projections $p$, $q$ and $2$-morphism
+$\alpha\colon fp \Rightarrow gq$,
+and
+$(u,v,\varphi)\colon T \to (f \downarrow g)$
+for the $1$-morphism given by $u\colon T \to X$, $v\colon T \to Z$ and
+$\varphi\colon fu \Rightarrow gv$.
+For $\E = \Cat$, $(f \downarrow g)$ is the comma $\infty$-category.
+For $f\colon X \to Y$ and $g\colon Y \to X$ we write
+$(f \downarrow Y) := (f \downarrow \mathrm{id}_{Y})$
+and
+$(X \downarrow g) := (\mathrm{id}_{X} \downarrow g)$;
+both are spans from $X$ to $Y$. They receive the $1$-morphisms
+\begin{equation*}
+i := (\mathrm{id}_{X},f,\mathrm{id}_{f})\colon X \to (f \downarrow Y) \ ,
+\qquad j := (g,\mathrm{id}_{Y},\mathrm{id}_{g})\colon Y \to (X \downarrow g) \ .
+\end{equation*}
+
+\gutentag{001A}%
+Let
+$\Lambda := \{0 \leftarrow 2 \rightarrow 1\}$
+be the walking span and
+$\Span(\E) := \func(\Lambda,\E)$
+the $(\infty,2)$-category of spans in $\E$. We write a span as
+$S = (X \xleftarrow{p} E \xrightarrow{q} Y)$,
+a span from $X$ to $Y$, and $\Span_{\E}(X,Y)$ for the fibre of
+$\Span(\E) \to \E \times \E$,
+evaluation at $0$ and $1$, over $(X,Y)$.
+A $1$-morphism $S \to S'$ of $\Span(\E)$ over
+$(a,b) \in \Hom(X,X') \times \Hom(Y,Y')$
+is a \emph{map of spans}: a $1$-morphism $c\colon E \to E'$ with equivalences
+$p'c \simeq ap$ and $q'c \simeq bq$. By
+\cite[Prop.~4.1.2]{abellangagnahaugseng2024straightening},
+applied to strong transformations,
+\begin{equation*}
+\Hom_{\Span(\E)}(S,S') \simeq \Hom(X,X') \times_{\Hom(E,X')} \Hom(E,E')
+\times_{\Hom(E,Y')} \Hom(Y,Y') \ ,
+\end{equation*}
+and the hom-$\infty$-categories of $\Span_{\E}(X,Y)$ are the fibres over
+$(\mathrm{id}_{X},\mathrm{id}_{Y})$.
+The underlying $\infty$-category of $\Span_{\E}(X,Y)$ is the fibre of
+$\func(\Lambda,\iota_{1}\E)$
+over $(X,Y)$, so a $1$-morphism of $\Span_{\E}(X,Y)$ is an equivalence if and
+only if it is one in $\E$.
+
+\begin{lem}
+\label{lem:comma-fibrewise}
+\gutentag{001B}%
+Let $F\colon A \to C$, $G\colon B \to C$,
+$F'\colon A \to C'$ and $G'\colon B \to C'$ be functors of $\infty$-categories.
+A functor
+$(F \downarrow G) \to (F' \downarrow G')$
+over $A \times B$ is an equivalence if and only if it induces equivalences
+$\mapp(Fa,Gb) \to \mapp(F'a,G'b)$
+on the fibres over all $(a,b)$.
+\end{lem}
+
+\begin{proof}
+\gutentag{001C}%
+$(F \downarrow G) \to A \times B$
+is the pullback of
+$\func(\Delta^{1},C) \to C \times C$
+along $F \times G$, hence a bifibration \cite[Cor.~2.4.7.11]{htt},
+with fibre $\mapp(Fa,Gb)$ over $(a,b)$. A functor over $A \times B$ between
+bifibrations that is an equivalence on fibres is an equivalence
+\cite[Prop.~2.4.7.6]{htt}.
+\end{proof}
+
+\begin{defi}
+\label{def:transposing-adjunction}
+\gutentag{001D}%
+Let $\E$ have lax pullbacks.
+\begin{enumerate}
+\item A \emph{transposing adjunction} between $f\colon X \to Y$ and $g\colon Y
+\to X$ is an equivalence
+$e\colon (f \downarrow Y) \xrightarrow{\simeq} (X \downarrow g)$
+in $\Span_{\E}(X,Y)$.
+\item Let $\TAdj(\E)$ be the full sub-$(\infty,2)$-category of
+$\func(\Delta^{1},\Span(\E))$
+on the transposing adjunctions. A $1$-morphism $(c,d)\colon e \to e'$ of
+$\TAdj(\E)$, from a transposing adjunction between $f$ and $g$ to one between
+$f'\colon X' \to Y'$ and $g'\colon Y' \to X'$,
+consists of maps of spans $c$ and $d$ over some
+$(a,b) \in \Hom(X,X') \times \Hom(Y,Y')$
+and an equivalence $de \simeq e'c$:
+\begin{equation*}
+\begin{tikzcd}
+(f \downarrow Y) \ar[r, "e"] \ar[d, "c"'] & (X \downarrow g) \ar[d, "d"] \\
+(f' \downarrow Y') \ar[r, "e'"'] & (X' \downarrow g')
+\end{tikzcd}
+\end{equation*}
+By \cite[Prop.~4.1.2]{abellangagnahaugseng2024straightening} again,
+its hom-$\infty$-category is the pullback
+\begin{equation*}
+\Hom_{\TAdj(\E)}(e,e') \simeq \Hom_{\Span(\E)}\bigl((f \downarrow Y),(f'
+\downarrow Y')\bigr) \times_{\Hom_{\Span(\E)}((f \downarrow Y),(X' \downarrow
+g'))} \Hom_{\Span(\E)}\bigl((X \downarrow g),(X' \downarrow g')\bigr)
+\end{equation*}
+along $e'_{\natural}$ and $e^{\natural}$, over
+$\Hom(X,X') \times \Hom(Y,Y')$.
+\end{enumerate}
+\end{defi}
+
+\gutentag{001E}%
+For $\E = \Cat$, $(f \downarrow Y)$ and $(X \downarrow g)$ are bifibrations over
+$X \times Y$ with fibres $\mapp_{Y}(fx,y)$ and $\mapp_{X}(x,gy)$,
+so by \cref{lem:comma-fibrewise} a transposing adjunction is a functor over $X
+\times Y$ inducing equivalences
+$\mapp_{Y}(fx,y) \simeq \mapp_{X}(x,gy)$.
+The name is taken from Riehl--Shulman's synthetic setting
+\cite[Def.~11.1]{riehlshulman2017synthetic}.
+
+\begin{thm}[adjunctions via lax pullbacks]
+\label{thm:comma-adjunctions}
+\gutentag{001F}%
+Let $\E$ be an $(\infty,2)$-category with lax pullbacks, and let $f\colon X \to
+Y$ and $g\colon Y \to X$. Every $1$-morphism
+$(f \downarrow Y) \to (X \downarrow g)$
+of $\Span_{\E}(X,Y)$ is, for a unique
+$\eta\colon \mathrm{id}_{X} \Rightarrow gf$,
+the map
+\begin{equation*}
+e_{\eta}\colon (f \downarrow Y) \to (X \downarrow g) \ ,
+\qquad (u,v,\varphi\colon fu \Rightarrow v) \mapsto (u,v,g\varphi \circ \eta
+u\colon u \Rightarrow gv) \ ;
+\end{equation*}
+that is,
+$\eta \mapsto e_{\eta}$
+is an equivalence
+$\mapp(\mathrm{id}_{X},gf) \simeq \Hom_{\Span_{\E}(X,Y)}((f \downarrow Y),(X
+\downarrow g))$.
+The map $e_{\eta}$ is a transposing adjunction if and only if $\eta$ is the unit
+of an adjunction $f \dashv g$, and
+$A \mapsto e_{A(\eta)}$
+is an equivalence from the space of adjunctions $A$ with $A(l) = f$ and $A(r) =
+g$ to the space of transposing adjunctions between $f$ and $g$.
+In particular, $f$ is a left adjoint if and only if there is a transposing
+adjunction between $f$ and some $g$, and $g$ is then a right adjoint of $f$.
+\end{thm}
+
+\gutentag{0020}%
+So when $\E$ has lax pullbacks, an adjunction can be defined as a transposing
+adjunction, without reference to $\Adj$. For $\E = \Cat$, $e_{\eta}$ is
+$\varphi \mapsto g\varphi \circ \eta_{x}$
+on the fibres, so \cref{thm:comma-adjunctions} says that $\eta$ is the unit of an adjunction if and only
+if it is a unit transformation in the sense of \cite[Def.~5.2.2.7]{htt}.
+
+\begin{proof}[Proof of \cref{thm:comma-adjunctions}]
+\gutentag{0021}%
+We write $p$, $q$,
+$\alpha\colon fp \Rightarrow q$
+for the structure of $(f \downarrow Y)$ and $\bar p$, $\bar q$,
+$\beta\colon \bar p \Rightarrow g\bar q$
+for that of $(X \downarrow g)$. By the universal property of lax pullbacks,
+$\Hom(T,(h \downarrow k))$
+is the comma $\infty$-category
+$(h_{\natural} \downarrow k_{\natural})$,
+naturally in $T$.
+
+\emph{Step 1: restriction along $i$ and $j$.} We have $pi = \mathrm{id}_{X}$,
+$qi = f$ and
+$\alpha i = \mathrm{id}_{f}$.
+The pair
+$(\mathrm{id}_{p},\alpha)$
+is a $2$-morphism
+$ip = (p,fp,\mathrm{id}_{fp}) \Rightarrow (p,q,\alpha) = \mathrm{id}$,
+and it is the counit of an adjunction $i \dashv p$ with identity unit
+\cite[Thm.~4.3.11]{riehlverity2016adjunctions}, as the triangle identities
+$p(\mathrm{id}_{p},\alpha) = \mathrm{id}_{p}$
+and
+$(\mathrm{id}_{p},\alpha)i = \mathrm{id}_{i}$
+hold. By \eqref{eq:hom-adjunctions},
+$p^{\natural} \dashv i^{\natural}$
+with identity unit, so restriction along $i$ is an equivalence
+\begin{equation}
+\label{eq:comma-yoneda}
+\mapp(sp,t) \xrightarrow{\ \simeq\ } \mapp(s,ti) \ ,
+\qquad \theta \mapsto \theta i \ ,
+\end{equation}
+for all $s\colon X \to T$ and
+$t\colon (f \downarrow Y) \to T$
+\cite[Prop.~5.2.2.8]{htt}. Dually, $\bar p j = g$,
+$\bar q j = \mathrm{id}_{Y}$
+and
+$\beta j = \mathrm{id}_{g}$,
+and
+$(\beta,\mathrm{id}_{\bar q})\colon \mathrm{id} \Rightarrow j\bar q$
+is the unit of an adjunction $\bar q \dashv j$ with identity counit,
+so restriction along $j$ is an equivalence
+$\mapp(t,s\bar q) \simeq \mapp(tj,s)$
+for all $s\colon Y \to T$ and
+$t\colon (X \downarrow g) \to T$.
+
+\emph{Step 2: maps between lax pullbacks.} Let $(h \downarrow k)$ be $(f'
+\downarrow Y')$ or $(X' \downarrow g')$
+for some $f'\colon X' \to Y'$ and $g'\colon Y' \to X'$, with $h\colon X' \to Z'$ and $k\colon Y' \to Z'$. Restriction along $i$,
+resp.\ $j$, gives equivalences over
+$\Hom(X,X') \times \Hom(Y,Y')$
+\begin{equation}
+\label{eq:maps-of-commas}
+\Hom_{\Span(\E)}\bigl((f \downarrow Y),(h \downarrow k)\bigr) \simeq
+(h_{\natural} \downarrow k_{\natural}f^{\natural}) \ ,
+\qquad \Hom_{\Span(\E)}\bigl((X \downarrow g),(h \downarrow k)\bigr) \simeq
+(h_{\natural}g^{\natural} \downarrow k_{\natural}) \ .
+\end{equation}
+Indeed,
+$\Hom_{\Span(\E)}((f \downarrow Y),(h \downarrow k))$
+is the pullback of
+$\Hom((f \downarrow Y),(h \downarrow k)) \simeq (h_{\natural} \downarrow
+k_{\natural})$
+along
+$p^{\natural} \times q^{\natural}$,
+i.e.\ the comma $\infty$-category
+$(h_{\natural}p^{\natural} \downarrow k_{\natural}q^{\natural})$
+of triples
+$(a,b,\theta\colon hap \Rightarrow kbq)$.
+As $pi = \mathrm{id}_{X}$ and $qi = f$, restriction along $i$ is a functor to
+$(h_{\natural} \downarrow k_{\natural}f^{\natural})$
+over
+$\Hom(X,X') \times \Hom(Y,Y')$,
+which on fibres is the equivalence \eqref{eq:comma-yoneda};
+by \cref{lem:comma-fibrewise} it is an equivalence. The case of $j$ is dual.
+Explicitly, for
+$(h \downarrow k) = (f' \downarrow Y')$
+in the first and
+$(h \downarrow k) = (X' \downarrow g')$
+in the second equivalence, a $2$-morphism
+$\sigma\colon f'a \Rightarrow bf$,
+resp.\
+$\tau\colon ag \Rightarrow g'b$,
+corresponds to
+\begin{equation*}
+c_{\sigma}\colon (u,v,\varphi) \mapsto (au,\,bv,\,b\varphi \circ \sigma u) \ ,
+\quad \text{resp.} \quad d_{\tau}\colon (u,v,\psi) \mapsto (au,\,bv,\,\tau v
+\circ a\psi) \ ,
+\end{equation*}
+as
+$c_{\sigma}i = (a,bf,\sigma)$
+and
+$d_{\tau}j = (ag,b,\tau)$.
+For
+$(a,b) = (\mathrm{id}_{X},\mathrm{id}_{Y})$
+and $(f',g') = (f,g)$, this shows that the $1$-morphisms
+$(f \downarrow Y) \to (X \downarrow g)$
+of $\Span_{\E}(X,Y)$ are the $e_{\eta}$, with
+$e_{\eta}i = (\mathrm{id}_{X},f,\eta)$,
+which is the first claim; that the $1$-morphisms
+$(X \downarrow g) \to (f \downarrow Y)$
+of $\Span_{\E}(X,Y)$ are the
+\begin{equation*}
+d_{\varepsilon}\colon (u,v,\psi) \mapsto (u,\,v,\,\varepsilon v \circ f\psi) \ ,
+\qquad d_{\varepsilon}j = (g,\mathrm{id}_{Y},\varepsilon) \ ,
+\end{equation*}
+for
+$\varepsilon\colon fg \Rightarrow \mathrm{id}_{Y}$;
+and that an endomorphism of $(f \downarrow Y)$, resp.\ $(X \downarrow g)$,
+in $\Span_{\E}(X,Y)$ is the identity if and only if its restriction along $i$ is
+$i$, resp.\ its restriction along $j$ is $j$.
+
+\emph{Step 3: $e_{\eta}$ is an equivalence if and only if $\eta$ is a unit.} As
+equivalences in $\Span_{\E}(X,Y)$ are detected in $\E$,
+$e_{\eta}$ is an equivalence if and only if it has an inverse in
+$\Span_{\E}(X,Y)$, i.e.\ by Step 2 an $\varepsilon$ with
+\begin{equation*}
+d_{\varepsilon}e_{\eta}i = (\mathrm{id}_{X},\,f,\,\varepsilon f \circ f\eta)
+\simeq i \ , \qquad e_{\eta}d_{\varepsilon}j =
+(g,\,\mathrm{id}_{Y},\,g\varepsilon \circ \eta g) \simeq j \ .
+\end{equation*}
+These are the triangle identities for $\eta$ and $\varepsilon$ in $\htwo\E$.
+So $e_{\eta}$ is an equivalence if and only if $\eta$ is the unit of an
+adjunction $f \dashv g$ \cite[Thm.~4.3.11]{riehlverity2016adjunctions}, and then
+$e_{\eta}^{-1} = d_{\varepsilon}$
+for its counit $\varepsilon$.
+
+\emph{Step 4: adjunctions are transposing adjunctions.} Let $\mathrm{Ad}(f)$ be
+the fibre of $\ell^{*}$ over $f$, the space of adjunctions $A$ with $A(l) = f$,
+and let $\mathrm{Un}(f)$ be the space of pairs $(g,\eta)$ with $\eta$ the unit
+of an adjunction $f \dashv g$. Both lie over $\mapp(Y,X)$, and
+$A \mapsto (A(r),A(\eta))$
+is a map
+$\mathrm{Ad}(f) \to \mathrm{Un}(f)$
+over $\mapp(Y,X)$. By Steps 2 and 3,
+$\eta \mapsto e_{\eta}$
+identifies the fibre of $\mathrm{Un}(f)$ over $g$ with the space of transposing
+adjunctions between $f$ and $g$, so it suffices to show that
+$\mathrm{Ad}(f) \to \mathrm{Un}(f)$
+is an equivalence.
+If $f$ is not a left adjoint, both spaces are empty.
+Otherwise $\mathrm{Ad}(f)$ is contractible,
+as $\ell^{*}$ is a monomorphism \cite[Thm.~4.4]{haugseng2021laxmonads},
+and so is $\mathrm{Un}(f)$: let $f \dashv f^{R}$ with unit $\eta_{0}$.
+The transposition
+$\mapp(f^{R},g) \simeq \mapp(\mathrm{id}_{X},gf)$,
+$\theta \mapsto \theta f \circ \eta_{0}$,
+of
+$(f^{R})^{\natural} \dashv f^{\natural}$
+\eqref{eq:hom-adjunctions} is natural in $g \in \Hom(Y,X)$,
+and by uniqueness of adjoints in $\htwo\E$ it identifies the units with the
+invertible $\theta$. So $\mathrm{Un}(f)$ is the space of pairs
+$(g,\theta\colon f^{R} \simeq g)$,
+which is contractible.
+\end{proof}
+
+\begin{rmk}
+\label{rmk:comma-literature}
+\gutentag{0022}%
+Riehl--Shulman compare transposing adjunctions with adjunctions with a given
+unit in their synthetic setting \cite[Cor.~11.21,
+Thm.~11.23]{riehlshulman2017synthetic}. When $\E$ is presented by an
+$\infty$-cosmos, \cref{thm:comma-adjunctions} is
+\cite[Prop.~4.1.1]{riehlverity2022elements},
+with the strict comma objects of the cosmos;
+for $\E = \Cat$ see \cite[Prop.~4.4.3]{riehlverity2015twocategory}.
+If $\E$ does not have lax pullbacks, one can apply
+\cref{thm:comma-adjunctions} to $\Hom_{\E}(-,f)$ and $\Hom_{\E}(-,g)$ in
+$\func(\E\opcat,\Cat)$, into which $\E$ embeds fully faithfully by the enriched
+Yoneda lemma \cite{hinich2020yoneda,heine2023enriched}.
+\end{rmk}
