@@ -113,6 +113,7 @@ By \cite[Cor.~5.2.12]{abellangagnahaugseng2024straightening}, $s^{\natural}$ is 
 Now let $\sigma = (a,b)\colon p \to p'$ be a commutative square between coreflective $1$-morphisms. As $h$ preserves adjunctions, units and counits, it takes the right mate $ap^{R} \Rightarrow p'^{R}b$ of $\sigma$ to the left mate $(p^{\natural})^{L}a^{\natural} \Rightarrow b^{\natural}(p'^{\natural})^{L}$ of the square $\Hom_{\D}(\sigma,-)$ of $\func(\D,\Cat)$, and it reflects invertibility, being fully faithful. The components of this left mate are the $2$-morphisms of \cref{thm:local-pullback}(1) for $\tau = \sigma$, so $\sigma$ is right Beck--Chevalley if and only if every object satisfies the condition of \cref{thm:local-pullback}(1) at $\sigma$. By the first part, the other conditions defining $\Pc_{\emptyset,\{\sigma\}}$ hold for all objects and $1$-morphisms. The reflective cases are dual.
 \end{proof}
 
+\gutentag{00A6}%
 As $\twoCat$ is cartesian closed, it is enriched over itself, and changing enrichment along the product-preserving functor $\iota_{1}\colon \twoCat \to \Cat$ \cite{gepnerhaugseng2015enriched} gives the $(\infty,2)$-category of (possibly large) $(\infty,2)$-categories, functors and natural transformations, which we also denote $\twoCat$.
 
 \begin{defi}
@@ -121,6 +122,7 @@ As $\twoCat$ is cartesian closed, it is enriched over itself, and changing enric
 A functor $G\colon \C \to \D$ of $(\infty,2)$-categories \emph{has a left adjoint} if it is a right adjoint in $\twoCat$ (\cref{def:adjunction}).
 \end{defi}
 
+\gutentag{00A7}%
 If $F \dashv G$ with unit $\eta$ and counit $\varepsilon$, then for $y \in \D$ and $q \in \C$ the composite
 \[
 \Hom_{\C}(Fy,q) \xrightarrow{\ G\ } \Hom_{\D}(GFy,Gq) \xrightarrow{\ \eta_{y}^{\natural}\ } \Hom_{\D}(y,Gq)
@@ -146,10 +148,12 @@ By \cref{rmk:mates-2cat}, for $g\colon q \to q'$ in $\Pc_{I,P}$ the squares expr
 
 \subsubsection*{Local objects and the formal localization}
 
+\gutentag{00A8}%
 By \cref{prop:local-adjoint-refl,prop:adjoin-univ}, $L$ extends to a functor $\Phi\colon \D\lrrefl{I}{P} \to \Pc_{I,P}$ with $\Phi\gamma \simeq L$. Unlike in \cref{prop:bousfield-pushout}(1), $\Phi$ need not be an equivalence. The following describes $\Phi$ in the terms of \cref{def:IP-local}.
 
 \begin{prop}
 \label{prop:local-vs-free}
+\gutentag{00A9}%
 Suppose $\iota$ has a left adjoint $L$, and let $y'$ be the enriched Yoneda embedding of $\D\lrrefl{I}{P}$.
 \begin{enumerate}
 \item $N \simeq \Hom_{\Pc_{I,P}}(\Phi-,-)$, and for every $x \in \D\lrrefl{I}{P}$ the $1$-morphism $y'(x) \to N\Phi(x)$ classifying $\mathrm{id}_{\Phi x}$ exhibits $N\Phi(x)$ as a reflection of $y'(x)$ into the full sub-$(\infty,2)$-category $N(\Pc_{I,P})$.
@@ -161,6 +165,7 @@ Conversely, if every $y'(x)$ has a reflection into $N(\Pc_{I,P})$, then $\iota$ 
 \end{prop}
 
 \begin{proof}
+\gutentag{00AA}%
 (1) Both $N$ and $\Hom_{\Pc_{I,P}}(\Phi-,-)$ restrict along $\gamma$ to $\Hom_{\D}(-,\iota-) \simeq \Hom_{\Pc_{I,P}}(L-,-)$, as functors $\Pc_{I,P} \to \func(\D\opcat,\Cat)$. As $\gamma^{*}$ is a monomorphism, so is postcomposition with it, and the two agree. So, naturally in $q \in \Pc_{I,P}$,
 \[
 \Hom\bigl(y'(x),Nq\bigr) \simeq (Nq)(x) \simeq \Hom_{\Pc_{I,P}}(\Phi x,q) \simeq \Hom\bigl(N\Phi(x),Nq\bigr)
@@ -171,10 +176,12 @@ by the Yoneda lemma and as $N$ is fully faithful, and the composite is restricti
 For the converse, a reflection $r$ of $y'(\gamma d)$ into $N(\Pc_{I,P})$ satisfies $\Hom_{\Pc_{I,P}}(r,q) \simeq (Nq)(\gamma d) \simeq \Hom_{\D}(d,\iota q)$, naturally in $q$, and every $x$ is equivalent to some $\gamma d$.
 \end{proof}
 
+\gutentag{00AB}%
 So there are two obstructions to $\Phi$ being an equivalence. The first, that the presheaves $\Hom(\gamma-,x)$ need not be representable, depends on the squares in $I$ and $P$, and adding squares can remove it (\cref{ex:local-vs-pushout}(1)). The second, that a local object need not be of the form $Ld$, comes from $T = \iota L$ not being idempotent, and in \cref{ex:local-vs-pushout}(2) no choice of squares removes it. In one dimension neither occurs for the class $W$ of $S$-local equivalences, which is how \cite[5.2.7.12]{htt} reads in these terms.
 
 \begin{exmp}
 \label{ex:local-vs-pushout}
+\gutentag{00AC}%
 \leavevmode
 \begin{enumerate}
 \item Let $\D = \Delta^{1}$ and $P = \{e\}$ for $e\colon 0 \to 1$. The hom-categories of $\D$ are spaces, and a functor of spaces with a fully faithful adjoint is an equivalence, so $\Pc_{\emptyset,\{e\}} = \{1\}$ and $\iota$ has the left adjoint $L\colon \Delta^{1} \to \mathrm{pt}$. But $\D\corefl{e} \simeq \Corefl$ (\cref{ex:adjoin-basic}), and $\Phi\colon \Corefl \to \mathrm{pt}$ is not fully faithful: $\Hom_{\Corefl}(\gamma-,1)$ takes the value $\Hom_{\Corefl}(1,1) \simeq \Delta^{1}$ at $1$, so it is not representable on $\Delta^{1}$.
@@ -184,21 +191,25 @@ Moreover $L$ is not a lax epimorphism (\cref{rmk:lax-epi}). A functor $Q \to d^{
 \end{enumerate}
 \end{exmp}
 
+\gutentag{00AD}%
 A universal property of $\Pc_{I,P}$ for functors out of it therefore has to restrict the functors. We expect the following to be the right restriction.
 
 \begin{conj}
 \label{conj:split-realizations}
+\gutentag{00AE}%
 Suppose $\iota$ has a left adjoint $L$, and let $K \subset \Pc_{I,P}$ be as in \cref{prop:local-vs-free}(3). Let $\E$ be an $(\infty,2)$-category with geometric realizations, i.e.\ colimits of simplicial objects that every $\Hom_{\E}(-,e)$ turns into limits. Then restriction along $K \subset \Pc_{I,P}$ is an equivalence from the full sub-$(\infty,2)$-category of $\func(\Pc_{I,P},\E)$ on the functors preserving geometric realizations of $\iota$-split simplicial objects onto $\func(K,\E)$.
 \todo{Unproved; the evidence is in \cref{rmk:split-realizations}.}
 \end{conj}
 
 \begin{rmk}
 \label{rmk:split-realizations}
+\gutentag{00AF}%
 For $Q \in \Pc_{I,P}$ let $\mathrm{Bar}_{\bullet}(Q) := (L\iota)^{\bullet+1}Q$ be the bar resolution, a simplicial object of $K$ augmented over $Q$ whose image under $\iota$ is split. For $Q = Ld$ it is split already in $K$, by the $1$-morphisms $L\eta_{T^{n}d}$, so every functor preserves its realization $Ld$. So a functor preserving $\iota$-split realizations is determined by its restriction to $K$, provided $Q \simeq |\mathrm{Bar}_{\bullet}(Q)|$ in $\Pc_{I,P}$, and the inverse of the restriction should send $G_{0}\colon K \to \E$ to $Q \mapsto |G_{0}\mathrm{Bar}_{\bullet}(Q)|$.
 \todo{Prove $Q \simeq |\mathrm{Bar}_{\bullet}(Q)|$ in $\Pc_{I,P}$ as an $(\infty,2)$-categorical colimit, and construct the inverse as a functor, e.g.\ as an enriched left Kan extension along $K \subset \Pc_{I,P}$, together with its effect on transformations.}
 In one dimension $T$ is idempotent, $K = \Pc$ and the statement is empty. If $\Phi$ is fully faithful, then $K \simeq \D\lrrefl{I}{P}$ by \cref{prop:local-vs-free}, and \cref{conj:split-realizations} says that $L$ is universal among the functors described in \cref{prop:adjoin-univ}, relative to functors out of $\Pc_{I,P}$ preserving $\iota$-split realizations. In general $\Phi$ is not fully faithful (\cref{ex:local-vs-pushout}(1)); for $I = \emptyset$ and lax idempotent $T$, \cref{conj:kleisli} will propose squares $\Sigma_{\eta}$ for which the functor $\D\corefl{\Sigma_{\eta}} \to K$ induced by $L$ is an equivalence.
 \end{rmk}
 
+\gutentag{00B0}%
 In the presentable case, \cref{thm:2dloc-local} will identify $\Pc_{I,P}$ with the pushout in presentable $(\infty,2)$-categories instead.
 
 \gutentag{0048}%
