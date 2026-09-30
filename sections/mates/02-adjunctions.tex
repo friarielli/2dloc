@@ -227,3 +227,19 @@ is a monomorphism onto the adjunctions in $\func(K,\E)$ with invertible counit. 
 So for $K = \Delta^{0}$, $\Delta^{1}$, $\wtc$ the image consists of all $K \to \func(\Adj,\E)$ whose objects are reflections. The case of $\Corefl$ is the same.
 (2) follows from (1) and \cref{lem:mates}.
 \end{proof}
+
+\begin{lem}[biadjointable squares]
+\label{lem:biadjointable}
+Let $\E$ be an $(\infty,2)$-category, and draw $\Delta^{1} \times \Delta^{1}$ with the first factor horizontal. Then $(\rho \times \ell)^{*}\colon \func(\Refl \times \Corefl,\E) \to \func(\Delta^{1} \times \Delta^{1},\E)$ is a locally full inclusion. Its objects are the commutative squares $\alpha$ as in \cref{def:lax-square} with $f$, $k$ reflective and $g$, $h$ coreflective that are biadjointable (\cref{rmk:double-BC}); equivalently, that are right Beck--Chevalley and such that replacing $g$, $h$ by $g^{R}$, $h^{R}$ and filling with ${\rmate{\alpha}}^{-1}$ gives a left Beck--Chevalley square. Its $1$-morphisms are the transformations whose naturality squares at $f$ and $k$ are left, and at $g$ and $h$ right, Beck--Chevalley.
+\end{lem}
+
+\begin{proof}
+Factor $(\rho \times \ell)^{*}$ as restriction along $\mathrm{id} \times \ell$ followed by restriction along $\rho \times \mathrm{id}$, i.e.\ as
+\[
+\func\bigl(\Refl,\func(\Corefl,\E)\bigr) \xrightarrow{\ (\ell^{*})_{*}\ } \func\bigl(\Refl,\func(\Delta^{1},\E)\bigr) \simeq \func\bigl(\Delta^{1},\func(\Refl,\E)\bigr) \xrightarrow{\ (\rho^{*})_{*}\ } \func\bigl(\Delta^{1},\func(\Delta^{1},\E)\bigr) \ ,
+\]
+with $\Delta^{1}$ the vertical factor. Both maps are locally full inclusions by \cref{lem:mates-refl} and \cref{subsec:prelim-conventions}, so we compute images with \cite[Cor.~2.6.6]{abellangagnahaugseng2024straightening}.
+By \cref{lem:mates-refl}(2) and \cref{lem:mates}(2), the objects in the image of $(\rho^{*})_{*}$ are the squares with $f$, $k$ reflective that are left Beck--Chevalley. Such an $\alpha$ lifts to a transformation between the reflections $f^{L} \dashv f$ and $k^{L} \dashv k$, whose naturality square at $r$ is $\alpha$ and at $l$ is the mirror of $\alpha$, as in the proof of \cref{lem:mates} \cite[Cor.~4.9]{haugseng2021laxmonads}. Viewed as $G\colon \Refl \to \func(\Delta^{1},\E)$, it lies in the image of $(\ell^{*})_{*}$ if and only if $G(\pm)$, i.e.\ $g$ and $h$, are coreflective and $G(r)$, $G(l)$, i.e.\ $\alpha$ and its mirror, are right Beck--Chevalley (\cref{lem:mates-refl}(2), \cref{lem:mates}(1)); here we use that the $1$-morphisms of $\Refl$ are composites of $l$ and $r$ and that Beck--Chevalley squares are closed under pasting. As $\alpha$ is right Beck--Chevalley if and only if it is left Beck--Chevalley (\cref{lem:mates-conjugate}), this is the first description of the objects. Factoring through $\func(\Delta^{1} \times \Corefl,\E)$ instead gives the second in the same way.
+A $1$-morphism between squares in the image is a functor from $\Delta^{1} \times \Delta^{1}$, the first factor being the direction of the transformation and the second the vertical one, to $\func(\Delta^{1},\E)$. It lies in the image of $(\rho^{*})_{*}$ if and only if its naturality squares at $f$ and $k$ are left Beck--Chevalley, as the other $1$-morphisms of $\Delta^{1} \times \Delta^{1}$ go to the given squares or to composites; likewise its lift lies in the image of $(\ell^{*})_{*}$ if and only if its naturality squares at $g$ and $h$ are right Beck--Chevalley.
+The same proof, with \cref{lem:mates} in place of \cref{lem:mates-refl}, gives the version for $\Adj \times \Adj$, which is \cite[Prop.~2.12(3)]{cnossenlenzlinskens2025universal}.
+\end{proof}
