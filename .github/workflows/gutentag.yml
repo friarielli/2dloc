@@ -1,12 +1,13 @@
-# Tags every new unit of the LaTeX sources and records removed tags; see tools/gutentag.py.
+# Formats the LaTeX sources (tools/texformat.py), then tags every new unit and records
+# removed tags (tools/gutentag.py). Formatting never changes the tagged units.
 name: gutentag
 
 on:
   push:
     branches: [main]
-    paths: ['sections/**', 'tools/gutentag.py', '.github/workflows/gutentag.yml']
+    paths: ['sections/**', 'tools/*.py', '.github/workflows/gutentag.yml']
   pull_request:
-    paths: ['sections/**', 'tools/gutentag.py', '.github/workflows/gutentag.yml']
+    paths: ['sections/**', 'tools/*.py', '.github/workflows/gutentag.yml']
   workflow_dispatch:
 
 permissions:
@@ -18,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: python3 tools/texformat.py
       - run: python3 tools/gutentag.py
 
   tag:
@@ -31,16 +33,17 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+      - run: python3 tools/texformat.py --write
       - run: python3 tools/gutentag.py --write
-      - name: Push the new tags
+      - name: Push the formatting and the new tags
         run: |
           git diff --quiet && exit 0
           git config user.name 'github-actions[bot]'
           git config user.email '41898248+github-actions[bot]@users.noreply.github.com'
-          git commit -qam 'Assign gutentags'
+          git commit -qam 'Format sources and assign gutentags'
           if ! git push origin HEAD:main; then
             git fetch -q origin main
             # Fail unless the push lost a race against a newer push, whose queued run tags it.
             test "$(git rev-parse FETCH_HEAD)" != "$(git rev-parse HEAD~1)"
-            echo '::warning::main moved during tagging; the queued run tags it'
+            echo '::warning::main moved during tagging; the queued run handles it'
           fi
