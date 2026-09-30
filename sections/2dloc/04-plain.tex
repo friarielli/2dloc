@@ -2,100 +2,311 @@
 \label{subsec:2dloc-plain}
 
 \gutentag{004C}%
-Arguably it is more natural to formally add adjoints than to formally make certain maps (co)reflective.
+Arguably it is more natural to formally add adjoints than to formally make
+certain maps (co)reflective.
 We show here that, when lax pushouts exist, we do not lose generality.
 
 \gutentag{004D}%
-First of all, we define formally adjoining adjoints in the same way as in \cref{def:adjoin}.
-Replacing $\Refl$ and $\Corefl$ by $\Adj$ in \cref{def:adjoin} gives the pushout $\A\lradj{I}{P}$, which \emph{freely adjoins left adjoints to $I$ and right adjoints to $P$}. We write $\A\ladj{I} := \A\lradj{I}{\emptyset}$ and $\A\radj{P} := \A\lradj{\emptyset}{P}$.
-The proof of \cref{prop:adjoin-univ}, with \cref{lem:mates} in place of \cref{lem:mates-refl}, gives its universal property: that of \cref{prop:adjoin-univ} with ``right adjoint'' in place of ``reflective'' and ``left adjoint'' in place of ``coreflective''.
+First of all, we define formally adjoining adjoints in the same way as in
+\cref{def:adjoin}.
+Replacing $\Refl$ and $\Corefl$ by $\Adj$ in \cref{def:adjoin} gives the pushout
+$\A\lradj{I}{P}$, which \emph{freely adjoins left adjoints to $I$ and right
+adjoints to $P$}. We write
+$\A\ladj{I} := \A\lradj{I}{\emptyset}$
+and
+$\A\radj{P} := \A\lradj{\emptyset}{P}$.
+The proof of \cref{prop:adjoin-univ}, with \cref{lem:mates} in place of
+\cref{lem:mates-refl}, gives its universal property:
+that of \cref{prop:adjoin-univ} with ``right adjoint'' in place of
+``reflective'' and ``left adjoint'' in place of ``coreflective''.
 
 \gutentag{004E}%
-Define $\Pc^{\dashv}_{I,P}$ as in \cref{def:IP-local}, with $\D \to \D\lradj{I}{P}$ in place of $\gamma$. The proofs of \cref{thm:local-pullback,lem:repr-refl}, with \cref{lem:mates} in place of \cref{lem:mates-refl}, show the following. $\Pc^{\dashv}_{I,P}$ is the pullback \eqref{eq:pullback} with $\Adj$ in place of $\Refl$ and $\Corefl$, i.e.\ the locally full sub-$(\infty,2)$-category of $\D$ described by \cref{thm:local-pullback}(1) and (2), except that the adjoints $(i^{\natural})^{R}$ and $(p^{\natural})^{L}$ need not be fully faithful. A $1$-morphism $s$ is a left adjoint if and only if $\Pc^{\dashv}_{\emptyset,\{s\}} = \D$, and a right adjoint if and only if $\Pc^{\dashv}_{\{s\},\emptyset} = \D$. A commutative square $\sigma$ between left adjoints, drawn with these vertical, is right Beck--Chevalley if and only if $\Pc^{\dashv}_{\emptyset,\{\sigma\}} = \D$, and one between right adjoints, drawn with these horizontal, is left Beck--Chevalley if and only if $\Pc^{\dashv}_{\{\sigma\},\emptyset} = \D$.
+Define $\Pc^{\dashv}_{I,P}$ as in \cref{def:IP-local}, with
+$\D \to \D\lradj{I}{P}$
+in place of $\gamma$. The proofs of \cref{thm:local-pullback,lem:repr-refl},
+with \cref{lem:mates} in place of \cref{lem:mates-refl}, show the following.
+$\Pc^{\dashv}_{I,P}$ is the pullback \eqref{eq:pullback} with $\Adj$ in place of
+$\Refl$ and $\Corefl$, i.e.\ the locally full sub-$(\infty,2)$-category of $\D$
+described by \cref{thm:local-pullback}(1) and (2),
+except that the adjoints $(i^{\natural})^{R}$ and $(p^{\natural})^{L}$ need not
+be fully faithful. A $1$-morphism $s$ is a left adjoint if and only if
+$\Pc^{\dashv}_{\emptyset,\{s\}} = \D$,
+and a right adjoint if and only if
+$\Pc^{\dashv}_{\{s\},\emptyset} = \D$.
+A commutative square $\sigma$ between left adjoints, drawn with these vertical,
+is right Beck--Chevalley if and only if
+$\Pc^{\dashv}_{\emptyset,\{\sigma\}} = \D$,
+and one between right adjoints, drawn with these horizontal,
+is left Beck--Chevalley if and only if
+$\Pc^{\dashv}_{\{\sigma\},\emptyset} = \D$.
 
 \begin{exmp}
 \label{ex:plain-spans}
 \gutentag{004F}%
-For small $\A$ and $P$ all $1$-morphisms, $\A\radj{P}$ is the free $(\infty,2)$-category with right adjoints on $\A$. Spans need squares as well. Let $\C$ be an $\infty$-category and $I \subset \C$ a wide subcategory closed under pullbacks, and let $I' \subset \func(\Delta^{1},\C\opcat)$ be the locally full sub-$(\infty,2)$-category whose objects are the $i\opcat$, $i \in I$, and whose $1$-morphisms are the opposites of pullback squares. By the plain version of \cref{prop:adjoin-univ}, $\func(\C\opcat\ladj{I'},\E)$ is the $(\infty,2)$-category of left $I$-adjointable functors $\C\opcat \to \E$ and transformations of Cnossen--Lenz--Linskens \cite[Def.~2.4]{cnossenlenzlinskens2025universal}. So if $I$ is moreover left cancellable, then $\C\opcat\ladj{I'}$ is the $(\infty,2)$-category $\Span_{1\frac{1}{2}}(\C,I)$ of spans whose forward leg is in $I$, by the theorem of Macpherson and Stefanich \cite{macpherson2022bivariant,stefanich2020correspondences} in the form of \cite[Cor.~4.21]{cnossenlenzlinskens2025universal}.
-The squares matter already for $\C = I = \Delta^{1}$: the pullback of $e\colon 0 \to 1$ along itself is $\mathrm{id}_{0}$, and the corresponding square of $I'$ is left Beck--Chevalley under $F$ if and only if the unit of $F(e\opcat)^{L} \dashv F(e\opcat)$ is invertible. So $(\Delta^{1})\opcat\ladj{I'} \simeq \Corefl$ by \cref{lem:mates-refl}, while $(\Delta^{1})\opcat\ladj{\{e\opcat\}} \simeq \Adj$.
-More generally, the universal $(I,P)$-biadjointable functor $\C\opcat \to \mathbb{B}_{I,P}(\C)$ of \cite[Thm.~2.10]{cnossenlenzlinskens2025universal} is constructed as $\C\opcat\lradj{I'}{P'}$, with $P'$ defined like $I'$ and drawn vertically, followed by a pushout along $\rho \times \ell\colon \Delta^{1} \times \Delta^{1} \to \Adj \times \Adj$ at the pullback squares with horizontal edges in $I$ and vertical edges in $P$, which imposes biadjointability \cite[Prop.~2.12]{cnossenlenzlinskens2025universal}. This is the plain version of \cref{rmk:biadjointable}.
+For small $\A$ and $P$ all $1$-morphisms,
+$\A\radj{P}$ is the free $(\infty,2)$-category with right adjoints on $\A$.
+Spans need squares as well. Let $\C$ be an $\infty$-category and $I \subset \C$
+a wide subcategory closed under pullbacks, and let
+$I' \subset \func(\Delta^{1},\C\opcat)$
+be the locally full sub-$(\infty,2)$-category whose objects are the $i\opcat$,
+$i \in I$, and whose $1$-morphisms are the opposites of pullback squares.
+By the plain version of \cref{prop:adjoin-univ},
+$\func(\C\opcat\ladj{I'},\E)$
+is the $(\infty,2)$-category of left $I$-adjointable functors $\C\opcat \to \E$
+and transformations of Cnossen--Lenz--Linskens
+\cite[Def.~2.4]{cnossenlenzlinskens2025universal}.
+So if $I$ is moreover left cancellable, then $\C\opcat\ladj{I'}$ is the
+$(\infty,2)$-category
+$\Span_{1\frac{1}{2}}(\C,I)$
+of spans whose forward leg is in $I$, by the theorem of Macpherson and Stefanich
+\cite{macpherson2022bivariant,stefanich2020correspondences} in the form of
+\cite[Cor.~4.21]{cnossenlenzlinskens2025universal}.
+The squares matter already for $\C = I = \Delta^{1}$:
+the pullback of $e\colon 0 \to 1$ along itself is $\mathrm{id}_{0}$,
+and the corresponding square of $I'$ is left Beck--Chevalley under $F$ if and
+only if the unit of
+$F(e\opcat)^{L} \dashv F(e\opcat)$
+is invertible. So
+$(\Delta^{1})\opcat\ladj{I'} \simeq \Corefl$
+by \cref{lem:mates-refl}, while
+$(\Delta^{1})\opcat\ladj{\{e\opcat\}} \simeq \Adj$.
+More generally, the universal $(I,P)$-biadjointable functor
+$\C\opcat \to \mathbb{B}_{I,P}(\C)$
+of \cite[Thm.~2.10]{cnossenlenzlinskens2025universal} is constructed as
+$\C\opcat\lradj{I'}{P'}$,
+with $P'$ defined like $I'$ and drawn vertically, followed by a pushout along
+$\rho \times \ell\colon \Delta^{1} \times \Delta^{1} \to \Adj \times \Adj$
+at the pullback squares with horizontal edges in $I$ and vertical edges in $P$,
+which imposes biadjointability
+\cite[Prop.~2.12]{cnossenlenzlinskens2025universal}.
+This is the plain version of \cref{rmk:biadjointable}.
 \end{exmp}
 
 \gutentag{0050}%
-We will show that plain adjoining is a special case of \cref{def:IP-local}, provided certain lax pushouts exist. Why \cref{def:IP-local} is the better-behaved notion will be explained in \cref{subsec:2dloc-saturation}.
+We will show that plain adjoining is a special case of \cref{def:IP-local},
+provided certain lax pushouts exist. Why \cref{def:IP-local} is the
+better-behaved notion will be explained in \cref{subsec:2dloc-saturation}.
 
 \subsubsection*{Reduction to coreflections}
 
 \begin{defi}[cylinders]
 \label{constr:cylinder}
 \gutentag{0051}%
-Let $s\colon x \to y$ in $\D$. The \emph{cylinder} $\Cyl(s)$ of $s$ is the lax pushout of $\mathrm{id}_{x}$ and $s$, with $j_{s}\colon x \to \Cyl(s)$, $q_{s}\colon y \to \Cyl(s)$ and $\theta\colon j_{s} \Rightarrow q_{s}s$, so that precomposition gives $\Hom_{\D}(\Cyl(s),e) \simeq (\mathrm{id} \downarrow s^{\natural})$, naturally in $e$. Dually, the \emph{cocylinder} $\Cyl'(s)$ is the lax pushout of $s$ and $\mathrm{id}_{x}$, with $k_{s}\colon x \to \Cyl'(s)$, $q'_{s}\colon y \to \Cyl'(s)$, $\theta'\colon q'_{s}s \Rightarrow k_{s}$ and $\Hom_{\D}(\Cyl'(s),e) \simeq (s^{\natural} \downarrow \mathrm{id})$.
+Let $s\colon x \to y$ in $\D$. The \emph{cylinder} $\Cyl(s)$ of $s$ is the lax
+pushout of $\mathrm{id}_{x}$ and $s$, with
+$j_{s}\colon x \to \Cyl(s)$,
+$q_{s}\colon y \to \Cyl(s)$
+and
+$\theta\colon j_{s} \Rightarrow q_{s}s$,
+so that precomposition gives
+$\Hom_{\D}(\Cyl(s),e) \simeq (\mathrm{id} \downarrow s^{\natural})$,
+naturally in $e$. Dually, the \emph{cocylinder} $\Cyl'(s)$ is the lax pushout of
+$s$ and $\mathrm{id}_{x}$, with
+$k_{s}\colon x \to \Cyl'(s)$,
+$q'_{s}\colon y \to \Cyl'(s)$,
+$\theta'\colon q'_{s}s \Rightarrow k_{s}$
+and
+$\Hom_{\D}(\Cyl'(s),e) \simeq (s^{\natural} \downarrow \mathrm{id})$.
 \end{defi}
 
 \gutentag{0052}%
-Under these equivalences $j_{s}^{\natural}$ and $k_{s}^{\natural}$ are the projections to $\Hom_{\D}(x,e)$. If $\D$ is tensored over $\Cat$, then
-\[
-\Cyl(s) = (\Delta^{1} \otimes x) \sqcup_{\{1\} \otimes x,\,s} y \ , \qquad \Cyl'(s) = y \sqcup_{s,\,\{0\} \otimes x} (\Delta^{1} \otimes x)
-\]
-whenever these $(\infty,2)$-pushouts, i.e.\ pushouts taken by every $\Hom_{\D}(-,e)$ to pullbacks, exist. We will see in \cref{subsec:2dloc-presentable} that every presentable $\D$ has all cylinders and cocylinders.
+Under these equivalences $j_{s}^{\natural}$ and $k_{s}^{\natural}$ are the
+projections to $\Hom_{\D}(x,e)$. If $\D$ is tensored over $\Cat$, then
+\begin{equation*}
+\Cyl(s) = (\Delta^{1} \otimes x) \sqcup_{\{1\} \otimes x,\,s} y \ ,
+\qquad \Cyl'(s) = y \sqcup_{s,\,\{0\} \otimes x} (\Delta^{1} \otimes x)
+\end{equation*}
+whenever these $(\infty,2)$-pushouts, i.e.\ pushouts taken by every
+$\Hom_{\D}(-,e)$ to pullbacks, exist. We will see in
+\cref{subsec:2dloc-presentable} that every presentable $\D$ has all cylinders
+and cocylinders.
 
 \begin{lem}
 \label{lem:comma-adjoint}
 \gutentag{0053}%
-Let $R\colon B \to A$ be a functor of $\infty$-categories and $\pi\colon (\mathrm{id}_{A} \downarrow R) \to A$ the projection $(a,b,a \to Rb) \mapsto a$. The following are equivalent:
-(a) $R$ is a right adjoint; (b) $\pi$ is a right adjoint; (c) $\pi$ has a fully faithful left adjoint.
-If $\Lambda \dashv R$ with unit $\eta$, the left adjoint of $\pi$ is $a \mapsto (a,\Lambda a,\eta_{a})$.
-Dually, a functor $G\colon B \to A$ is a left adjoint if and only if the projection $(G \downarrow \mathrm{id}_{A}) \to A$ has a fully faithful right adjoint, given by $a \mapsto (G^{R}a,a,\varepsilon_{a})$.
+Let $R\colon B \to A$ be a functor of $\infty$-categories and
+$\pi\colon (\mathrm{id}_{A} \downarrow R) \to A$
+the projection
+$(a,b,a \to Rb) \mapsto a$.
+The following are equivalent:
+(a) $R$ is a right adjoint; (b) $\pi$ is a right adjoint;
+(c) $\pi$ has a fully faithful left adjoint.
+If $\Lambda \dashv R$ with unit $\eta$, the left adjoint of $\pi$ is
+$a \mapsto (a,\Lambda a,\eta_{a})$.
+Dually, a functor $G\colon B \to A$ is a left adjoint if and only if the
+projection
+$(G \downarrow \mathrm{id}_{A}) \to A$
+has a fully faithful right adjoint, given by
+$a \mapsto (G^{R}a,a,\varepsilon_{a})$.
 \end{lem}
 
 \begin{proof}
 \gutentag{0054}%
-(a) $\Rightarrow$ (c): $\mapp((a,\Lambda a,\eta_{a}),(a',b',\varphi'))$ is the space of pairs $\alpha\colon a \to a'$, $\beta\colon \Lambda a \to b'$ with $\varphi'\alpha \simeq R(\beta)\eta_{a}$. As $\beta \mapsto R(\beta)\eta_{a}$ is an equivalence $\mapp(\Lambda a,b') \simeq \mapp(a,Rb')$, this space is $\mapp(a,a')$, and the unit is the identity.
+(a) $\Rightarrow$ (c):
+$\mapp((a,\Lambda a,\eta_{a}),(a',b',\varphi'))$
+is the space of pairs
+$\alpha\colon a \to a'$,
+$\beta\colon \Lambda a \to b'$
+with
+$\varphi'\alpha \simeq R(\beta)\eta_{a}$.
+As
+$\beta \mapsto R(\beta)\eta_{a}$
+is an equivalence
+$\mapp(\Lambda a,b') \simeq \mapp(a,Rb')$,
+this space is $\mapp(a,a')$, and the unit is the identity.
 (c) $\Rightarrow$ (b) is clear.
-(b) $\Rightarrow$ (a): let $\sigma \dashv \pi$ with unit $u$, and $\sigma(a) = (a_{0},b_{0},\varphi\colon a_{0} \to Rb_{0})$. For $b' \in B$, a map $\sigma(a) \to (Rb',b',\mathrm{id})$ is a pair $(R(\beta)\varphi,\beta)$, so $\mapp(\sigma(a),(Rb',b',\mathrm{id})) \simeq \mapp(b_{0},b')$. The adjunction identifies this with $\mapp(a,Rb')$ via $\beta \mapsto R(\beta)\varphi u_{a}$. So $\varphi u_{a}\colon a \to Rb_{0}$ is a universal arrow, and $R$ is a right adjoint.
+(b) $\Rightarrow$ (a): let $\sigma \dashv \pi$ with unit $u$, and
+$\sigma(a) = (a_{0},b_{0},\varphi\colon a_{0} \to Rb_{0})$.
+For $b' \in B$, a map
+$\sigma(a) \to (Rb',b',\mathrm{id})$
+is a pair
+$(R(\beta)\varphi,\beta)$,
+so
+$\mapp(\sigma(a),(Rb',b',\mathrm{id})) \simeq \mapp(b_{0},b')$.
+The adjunction identifies this with $\mapp(a,Rb')$ via
+$\beta \mapsto R(\beta)\varphi u_{a}$.
+So
+$\varphi u_{a}\colon a \to Rb_{0}$
+is a universal arrow, and $R$ is a right adjoint.
 The dual statement follows by passing to opposite $\infty$-categories.
 \end{proof}
 
 \gutentag{0055}%
-So lax pullbacks turn adjunctions into (co)reflections: in the comma square of $R$ and $\mathrm{id}_{A}$, the edge $\pi$ parallel to $R$ is a colocalization exactly when $R$ is a right adjoint, and dually a localization exactly when $G$ is a left adjoint.
+So lax pullbacks turn adjunctions into (co)reflections:
+in the comma square of $R$ and $\mathrm{id}_{A}$,
+the edge $\pi$ parallel to $R$ is a colocalization exactly when $R$ is a right
+adjoint, and dually a localization exactly when $G$ is a left adjoint.
 
 \begin{prop}
 \label{prop:cylinder}
 \gutentag{0056}%
 Let $s\colon x \to y$ be a $1$-morphism of $\D$ with a cylinder $\Cyl(s)$.
 \begin{enumerate}
-\item For $d \in \D$, $s^{\natural}$ has a left adjoint if and only if $j_{s}^{\natural}$ has a fully faithful left adjoint. For $g\colon d \to d'$ between such objects, the second square of \cref{thm:local-pullback}(2) for $(g,s)$ is left Beck--Chevalley if and only if the one for $(g,j_{s})$ is.
-Let $\sigma = (a,b)\colon s \to s'$ be a commutative square, where $s'$ also has a cylinder, and let $c_{\sigma}\colon \Cyl(s) \to \Cyl(s')$ correspond to $(j_{s'}a,\,q_{s'}b,\,\theta_{s'}a)$, using $q_{s'}s'a \simeq q_{s'}bs$. Then $\Cyl(\sigma) := (a,c_{\sigma})\colon j_{s} \to j_{s'}$ is a commutative square, and for $d$ such that $s^{\natural}$ and $s'^{\natural}$ have left adjoints, the second square of \cref{thm:local-pullback}(1) for $\tau = \sigma$ is left Beck--Chevalley if and only if the one for $\tau = \Cyl(\sigma)$ is.
-\item $s$ is a left adjoint if and only if $j_{s}$ is coreflective. If $s$ and $s'$ are left adjoints, then $\sigma$, drawn with $s$ and $s'$ vertical, is right Beck--Chevalley if and only if $\Cyl(\sigma)$ is.
+\item For $d \in \D$, $s^{\natural}$ has a left adjoint if and only if
+$j_{s}^{\natural}$ has a fully faithful left adjoint.
+For $g\colon d \to d'$ between such objects,
+the second square of \cref{thm:local-pullback}(2) for $(g,s)$ is left
+Beck--Chevalley if and only if the one for $(g,j_{s})$ is.
+Let
+$\sigma = (a,b)\colon s \to s'$
+be a commutative square, where $s'$ also has a cylinder, and let
+$c_{\sigma}\colon \Cyl(s) \to \Cyl(s')$
+correspond to
+$(j_{s'}a,\,q_{s'}b,\,\theta_{s'}a)$,
+using
+$q_{s'}s'a \simeq q_{s'}bs$.
+Then
+$\Cyl(\sigma) := (a,c_{\sigma})\colon j_{s} \to j_{s'}$
+is a commutative square, and for $d$ such that $s^{\natural}$ and
+$s'^{\natural}$ have left adjoints, the second square of
+\cref{thm:local-pullback}(1) for $\tau = \sigma$ is left Beck--Chevalley if and
+only if the one for $\tau = \Cyl(\sigma)$ is.
+\item $s$ is a left adjoint if and only if $j_{s}$ is coreflective.
+If $s$ and $s'$ are left adjoints, then $\sigma$,
+drawn with $s$ and $s'$ vertical, is right Beck--Chevalley if and only if
+$\Cyl(\sigma)$ is.
 \end{enumerate}
-Dually, if $s$ has a cocylinder, the same holds for right adjoints, $k_{s}$ and the analogous square $\Cyl'(\sigma)\colon k_{s} \to k_{s'}$, with $k_{s}$ reflective in (2).
-Consequently, suppose that every object of $P$ has a cylinder and every object of $I$ a cocylinder. Let $J_{P} \subset \func(\Delta^{1},\D)$ be the locally full sub-$(\infty,2)$-category generated by the $j_{p}$ and the $\Cyl(\tau)$, for the objects $p$ and $1$-morphisms $\tau$ of $P$, and $K_{I}$ the one generated by the $k_{i}$ and the $\Cyl'(\sigma)$ for those of $I$. Then
-\[
+Dually, if $s$ has a cocylinder, the same holds for right adjoints,
+$k_{s}$ and the analogous square
+$\Cyl'(\sigma)\colon k_{s} \to k_{s'}$,
+with $k_{s}$ reflective in (2).
+Consequently, suppose that every object of $P$ has a cylinder and every object
+of $I$ a cocylinder. Let
+$J_{P} \subset \func(\Delta^{1},\D)$
+be the locally full sub-$(\infty,2)$-category generated by the $j_{p}$ and the
+$\Cyl(\tau)$, for the objects $p$ and $1$-morphisms $\tau$ of $P$,
+and $K_{I}$ the one generated by the $k_{i}$ and the $\Cyl'(\sigma)$ for those
+of $I$. Then
+\begin{equation*}
 \Pc^{\dashv}_{I,P} = \Pc_{K_{I},J_{P}}
-\]
+\end{equation*}
 as locally full sub-$(\infty,2)$-categories of $\D$.
 \end{prop}
 
 \begin{proof}
 \gutentag{0057}%
-(1) The first claim is \cref{lem:comma-adjoint} for $R = s^{\natural}$ and \cref{constr:cylinder}. The left adjoint of $j_{s}^{\natural}$ is $\lambda_{s}(u) = (u,(s^{\natural})^{L}u,\eta_{u})$, and as the unit of $\lambda_{s} \dashv j_{s}^{\natural}$ is the identity, the left mate $\lambda_{s}(g_{\natural}u) \to g_{\natural}\lambda_{s}(u)$ is the map
-\[
-\bigl(gu,(s^{\natural})^{L}(gu),\eta_{gu}\bigr) \to \bigl(gu,g(s^{\natural})^{L}u,g\eta_{u}\bigr)
-\]
-with first component $\mathrm{id}_{gu}$. Its second component $\beta$ satisfies $s^{\natural}(\beta)\eta_{gu} \simeq g\eta_{u}$, so it is the left mate $(s^{\natural})^{L}g_{\natural}u \to g_{\natural}(s^{\natural})^{L}u$ for $s$. A map of $(\mathrm{id} \downarrow s^{\natural})$ is invertible if and only if its components are, so one mate is invertible if and only if the other is.
-For $\sigma$: by construction $c_{\sigma}j_{s} \simeq j_{s'}a$, and precomposition with $c_{\sigma}$ is the functor $(\mathrm{id} \downarrow s'^{\natural}) \to (\mathrm{id} \downarrow s^{\natural})$, $(u',v',\varphi') \mapsto (u'a,v'b,\varphi'a)$, using $v's'a \simeq v'bs$. The same computation, with $a^{\natural}$ and $c_{\sigma}^{\natural}$ in place of the two $g_{\natural}$, shows that the left mate $\lambda_{s}(a^{\natural}u') \to c_{\sigma}^{\natural}\lambda_{s'}(u')$ for $\Cyl(\sigma)$ has first component $\mathrm{id}_{u'a}$ and second component the left mate $(s^{\natural})^{L}a^{\natural}u' \to b^{\natural}(s'^{\natural})^{L}u'$ for $\sigma$.
-(2) By \cref{lem:repr-refl} and its plain version, $s$ is a left adjoint if and only if $\Pc^{\dashv}_{\emptyset,\{s\}} = \D$, and $j_{s}$ is coreflective if and only if $\Pc_{\emptyset,\{j_{s}\}} = \D$; likewise for $\sigma$ and $\Cyl(\sigma)$, whose edges $j_{s}$, $j_{s'}$ are then coreflective. By (1) these conditions agree.
-The dual is the same argument with $(s^{\natural} \downarrow \mathrm{id})$. For the last claim, both sides are locally full, so it suffices to compare objects and $1$-morphisms of $\D$. As Beck--Chevalley squares are closed under pasting (\cref{lem:mate-correspondence}(3)), the conditions of \cref{thm:local-pullback} at the generators of $K_{I}$ and $J_{P}$ imply those at all their objects and $1$-morphisms, and by (1) they are the conditions defining $\Pc^{\dashv}_{I,P}$.
+(1) The first claim is \cref{lem:comma-adjoint} for $R = s^{\natural}$ and
+\cref{constr:cylinder}. The left adjoint of $j_{s}^{\natural}$ is
+$\lambda_{s}(u) = (u,(s^{\natural})^{L}u,\eta_{u})$,
+and as the unit of
+$\lambda_{s} \dashv j_{s}^{\natural}$
+is the identity, the left mate
+$\lambda_{s}(g_{\natural}u) \to g_{\natural}\lambda_{s}(u)$
+is the map
+\begin{equation*}
+\bigl(gu,(s^{\natural})^{L}(gu),\eta_{gu}\bigr) \to
+\bigl(gu,g(s^{\natural})^{L}u,g\eta_{u}\bigr)
+\end{equation*}
+with first component $\mathrm{id}_{gu}$. Its second component $\beta$ satisfies
+$s^{\natural}(\beta)\eta_{gu} \simeq g\eta_{u}$,
+so it is the left mate
+$(s^{\natural})^{L}g_{\natural}u \to g_{\natural}(s^{\natural})^{L}u$
+for $s$. A map of
+$(\mathrm{id} \downarrow s^{\natural})$
+is invertible if and only if its components are,
+so one mate is invertible if and only if the other is.
+For $\sigma$: by construction
+$c_{\sigma}j_{s} \simeq j_{s'}a$,
+and precomposition with $c_{\sigma}$ is the functor
+$(\mathrm{id} \downarrow s'^{\natural}) \to (\mathrm{id} \downarrow
+s^{\natural})$,
+$(u',v',\varphi') \mapsto (u'a,v'b,\varphi'a)$,
+using $v's'a \simeq v'bs$. The same computation, with $a^{\natural}$ and
+$c_{\sigma}^{\natural}$
+in place of the two $g_{\natural}$, shows that the left mate
+$\lambda_{s}(a^{\natural}u') \to c_{\sigma}^{\natural}\lambda_{s'}(u')$
+for $\Cyl(\sigma)$ has first component $\mathrm{id}_{u'a}$ and second component
+the left mate
+$(s^{\natural})^{L}a^{\natural}u' \to b^{\natural}(s'^{\natural})^{L}u'$
+for $\sigma$.
+(2) By \cref{lem:repr-refl} and its plain version,
+$s$ is a left adjoint if and only if
+$\Pc^{\dashv}_{\emptyset,\{s\}} = \D$,
+and $j_{s}$ is coreflective if and only if
+$\Pc_{\emptyset,\{j_{s}\}} = \D$;
+likewise for $\sigma$ and $\Cyl(\sigma)$, whose edges $j_{s}$,
+$j_{s'}$ are then coreflective. By (1) these conditions agree.
+The dual is the same argument with
+$(s^{\natural} \downarrow \mathrm{id})$.
+For the last claim, both sides are locally full,
+so it suffices to compare objects and $1$-morphisms of $\D$.
+As Beck--Chevalley squares are closed under pasting
+(\cref{lem:mate-correspondence}(3)), the conditions of \cref{thm:local-pullback}
+at the generators of $K_{I}$ and $J_{P}$ imply those at all their objects and
+$1$-morphisms, and by (1) they are the conditions defining $\Pc^{\dashv}_{I,P}$.
 \end{proof}
 
 \gutentag{0058}%
-So every plain localization is a reflective one, at the cost of replacing $s$ by the inclusion of $x$ into the lax pushout $\Cyl(s)$ or $\Cyl'(s)$, and a square $\sigma$ by $\Cyl(\sigma)$ or $\Cyl'(\sigma)$. The only hypothesis is the existence of these lax pushouts.
-This is the $(\infty,2)$-categorical form of the mapping cone construction of Di Liberti--Lobbia--Sousa \cite[Proposition 1.14]{dilibertilobbiasousa2022kz}: in their terms, for a class $P$, $\Pc^{\dashv}_{\emptyset,P}$ is the $2$-category $\mathrm{WLInj}(P)$ of weakly left Kan injective objects and $\Pc_{\emptyset,P}$ is $\mathrm{LInj}(P)$.
+So every plain localization is a reflective one,
+at the cost of replacing $s$ by the inclusion of $x$ into the lax pushout
+$\Cyl(s)$ or $\Cyl'(s)$, and a square $\sigma$ by $\Cyl(\sigma)$ or
+$\Cyl'(\sigma)$. The only hypothesis is the existence of these lax pushouts.
+This is the $(\infty,2)$-categorical form of the mapping cone construction of Di
+Liberti--Lobbia--Sousa \cite[Proposition 1.14]{dilibertilobbiasousa2022kz}:
+in their terms, for a class $P$,
+$\Pc^{\dashv}_{\emptyset,P}$
+is the $2$-category $\mathrm{WLInj}(P)$ of weakly left Kan injective objects and
+$\Pc_{\emptyset,P}$ is $\mathrm{LInj}(P)$.
 
 \begin{exmp}
 \label{ex:adjoin-products}
 \gutentag{0059}%
-Let $\D = \Cat$ and $\nabla\colon \mathrm{pt} \sqcup \mathrm{pt} \to \mathrm{pt}$ the fold map, so that $\nabla^{\natural}\colon \C \to \C \times \C$ is the diagonal. Then $\Cyl(\nabla) = \{a \to c \leftarrow b\}$ and $\Cyl'(\nabla) = \{a \leftarrow c \to b\}$, and $j_{\nabla}$, $k_{\nabla}$ are the inclusions of $\{a,b\}$. Restriction $j_{\nabla}^{\natural}$ has the fully faithful left adjoint $(a,b) \mapsto (a \to a \sqcup b \leftarrow b)$ exactly when $\C$ has binary coproducts.
-So $\Pc^{\dashv}_{\{\nabla\},\{\nabla\}} = \Pc_{\{k_{\nabla}\},\{j_{\nabla}\}}$ consists of the $\infty$-categories with binary products and binary coproducts, and the functors preserving both.
+Let $\D = \Cat$ and
+$\nabla\colon \mathrm{pt} \sqcup \mathrm{pt} \to \mathrm{pt}$
+the fold map, so that
+$\nabla^{\natural}\colon \C \to \C \times \C$
+is the diagonal. Then
+$\Cyl(\nabla) = \{a \to c \leftarrow b\}$
+and
+$\Cyl'(\nabla) = \{a \leftarrow c \to b\}$,
+and $j_{\nabla}$, $k_{\nabla}$ are the inclusions of $\{a,b\}$. Restriction
+$j_{\nabla}^{\natural}$
+has the fully faithful left adjoint
+$(a,b) \mapsto (a \to a \sqcup b \leftarrow b)$
+exactly when $\C$ has binary coproducts.
+So
+$\Pc^{\dashv}_{\{\nabla\},\{\nabla\}} = \Pc_{\{k_{\nabla}\},\{j_{\nabla}\}}$
+consists of the $\infty$-categories with binary products and binary coproducts,
+and the functors preserving both.
 \end{exmp}
 

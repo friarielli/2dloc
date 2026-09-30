@@ -2,37 +2,81 @@
 \label{subsec:2dloc-local}
 
 \gutentag{0038}%
-Fix an $(\infty,2)$-category $\D$ and locally full sub-$(\infty,2)$-categories $I$, $P \subset \func(\Delta^{1},\D)$, drawn as in \cref{def:adjoin}, and let $\gamma\colon \D \to \D\lrrefl{I}{P}$. $\D$ may be large (e.g.\ $\D = \Cat$), with small hom-categories; functor $(\infty,2)$-categories out of $\D$ are then formed in a larger universe. No other assumption on $\D$ is made in this subsection.
+Fix an $(\infty,2)$-category $\D$ and locally full sub-$(\infty,2)$-categories
+$I$,
+$P \subset \func(\Delta^{1},\D)$,
+drawn as in \cref{def:adjoin}, and let
+$\gamma\colon \D \to \D\lrrefl{I}{P}$.
+$\D$ may be large (e.g.\ $\D = \Cat$), with small hom-categories;
+functor $(\infty,2)$-categories out of $\D$ are then formed in a larger
+universe. No other assumption on $\D$ is made in this subsection.
 For $s\colon x \to y$ in $\D$ and $d \in \D$ let
-\[
+\begin{equation*}
 s^{\natural} := \Hom_{\D}(s,d)\colon \Hom_{\D}(y,d) \to \Hom_{\D}(x,d) \ ,
-\]
+\end{equation*}
 and for $f\colon d \to d'$ let $f_{\natural}$ be postcomposition.
 
 \begin{defi}
 \label{def:IP-local}
 \gutentag{0039}%
-An object $d \in \D$ is \emph{$(I,P)$-local} if the representable presheaf $\Hom_{\D}(-,d)$ extends along $\gamma\opcat$, and a $1$-morphism $f$ of $\D$ is \emph{$(I,P)$-local} if $f_{\natural} = \Hom_{\D}(-,f)$ does. That is, $\Pc_{I,P}$ is the pullback
-\[
+An object $d \in \D$ is \emph{$(I,P)$-local} if the representable presheaf
+$\Hom_{\D}(-,d)$ extends along $\gamma\opcat$,
+and a $1$-morphism $f$ of $\D$ is \emph{$(I,P)$-local} if
+$f_{\natural} = \Hom_{\D}(-,f)$
+does. That is, $\Pc_{I,P}$ is the pullback
+\begin{equation*}
 \begin{tikzcd}[column sep=large]
-\Pc_{I,P} \ar[r, "N"] \ar[d, "\iota"'] & \func\bigl((\D\lrrefl{I}{P})\opcat,\Cat\bigr) \ar[d, "\gamma^{*}"] \\
+\Pc_{I,P} \ar[r, "N"] \ar[d, "\iota"'] &
+\func\bigl((\D\lrrefl{I}{P})\opcat,\Cat\bigr) \ar[d, "\gamma^{*}"] \\
 \D \ar[r, "y"'] & \func(\D\opcat,\Cat)
 \end{tikzcd}
-\]
-of the enriched Yoneda embedding $y$ \cite{hinich2020yoneda,heine2023enriched}. When $\D$ needs to be named we write $\Pc_{I,P}(\D)$.
+\end{equation*}
+of the enriched Yoneda embedding $y$ \cite{hinich2020yoneda,heine2023enriched}.
+When $\D$ needs to be named we write $\Pc_{I,P}(\D)$.
 \end{defi}
 
 \gutentag{003A}%
-We will see in \cref{thm:local-pullback} that $\gamma^{*}$ is a locally full inclusion. Hence so is $\iota$, and $\Pc_{I,P}$ is the locally full sub-$(\infty,2)$-category of $\D$ on the $(I,P)$-local objects and $1$-morphisms; and $N$ is fully faithful, as $y$ is. So $\Pc_{I,P}$ is also the full sub-$(\infty,2)$-category of $\func((\D\lrrefl{I}{P})\opcat,\Cat)$ on the presheaves whose restriction along $\gamma$ is representable, while $\D\lrrefl{I}{P}$ is the one on the representable presheaves; we will compare the two in \cref{prop:local-vs-free}.
-Thus the $(I,P)$-local objects are those whose representable presheaves live on the two-dimensional localization, exactly as the $S$-local objects of \cref{subsec:2dloc-bousfield} are those whose representable presheaves live on $\C[S^{-1}]$. This is a universal property of $\Pc_{I,P}$ for functors into it: a functor $\C \to \Pc_{I,P}$ is a functor $G\colon \C \to \D$ for which $\Hom_{\D}(-,G-)$ extends along $\gamma\opcat \times \C$.
-The definition only uses $\gamma$, so it also applies to the two steps of \cref{subsec:2dloc-adjoining}: for a locally full $P' \subset \func(\Delta^{1},\D\refl{I})$ we define $\Pc_{I,P'}$ in the same way, with $\D \to \D\refl{I}\corefl{P'}$ in place of $\gamma$. For $P' = \gamma_{I}(P)$ this is $\Pc_{I,P}$.
+We will see in \cref{thm:local-pullback} that $\gamma^{*}$ is a locally full
+inclusion. Hence so is $\iota$, and $\Pc_{I,P}$ is the locally full
+sub-$(\infty,2)$-category of $\D$ on the $(I,P)$-local objects and
+$1$-morphisms; and $N$ is fully faithful, as $y$ is.
+So $\Pc_{I,P}$ is also the full sub-$(\infty,2)$-category of
+$\func((\D\lrrefl{I}{P})\opcat,\Cat)$
+on the presheaves whose restriction along $\gamma$ is representable,
+while $\D\lrrefl{I}{P}$ is the one on the representable presheaves;
+we will compare the two in \cref{prop:local-vs-free}.
+Thus the $(I,P)$-local objects are those whose representable presheaves live on
+the two-dimensional localization, exactly as the $S$-local objects of
+\cref{subsec:2dloc-bousfield} are those whose representable presheaves live on
+$\C[S^{-1}]$. This is a universal property of $\Pc_{I,P}$ for functors into it:
+a functor $\C \to \Pc_{I,P}$ is a functor $G\colon \C \to \D$ for which
+$\Hom_{\D}(-,G-)$ extends along
+$\gamma\opcat \times \C$.
+The definition only uses $\gamma$, so it also applies to the two steps of
+\cref{subsec:2dloc-adjoining}: for a locally full
+$P' \subset \func(\Delta^{1},\D\refl{I})$
+we define $\Pc_{I,P'}$ in the same way, with
+$\D \to \D\refl{I}\corefl{P'}$
+in place of $\gamma$. For $P' = \gamma_{I}(P)$ this is $\Pc_{I,P}$.
 
 \gutentag{003B}%
-Restricting $y$ along $\mathrm{ev}\colon \Delta^{1} \times I \to \D$ and using $(\Delta^{1})\opcat \simeq \Delta^{1}$ gives a functor
-\[
-R_{I}\colon \D \longrightarrow \func\bigl(I\opcat,\func(\Delta^{1},\Cat)\bigr) \ , \qquad R_{I}(d)(i) = i^{\natural} \ .
-\]
-It sends a $1$-morphism $\sigma = (a,b)\colon i \to i'$ of $I$ to the commutative square with sides $i'^{\natural}$, $i^{\natural}$, $b^{\natural}$, $a^{\natural}$, and $f\colon d \to d'$ to the transformation with components $f_{\natural}$, whose naturality square at $i$ is filled by the associativity equivalence $i^{\natural}f_{\natural} \simeq f_{\natural}i^{\natural}$ (both sides are $f \circ - \circ i$). Likewise we get $R_{P}$.
+Restricting $y$ along
+$\mathrm{ev}\colon \Delta^{1} \times I \to \D$
+and using
+$(\Delta^{1})\opcat \simeq \Delta^{1}$
+gives a functor
+\begin{equation*}
+R_{I}\colon \D \longrightarrow \func\bigl(I\opcat,\func(\Delta^{1},\Cat)\bigr)
+\ , \qquad R_{I}(d)(i) = i^{\natural} \ .
+\end{equation*}
+It sends a $1$-morphism
+$\sigma = (a,b)\colon i \to i'$
+of $I$ to the commutative square with sides $i'^{\natural}$, $i^{\natural}$,
+$b^{\natural}$, $a^{\natural}$, and $f\colon d \to d'$ to the transformation
+with components $f_{\natural}$, whose naturality square at $i$ is filled by the
+associativity equivalence
+$i^{\natural}f_{\natural} \simeq f_{\natural}i^{\natural}$
+(both sides are $f \circ - \circ i$). Likewise we get $R_{P}$.
 
 \begin{thm}
 \label{thm:local-pullback}
@@ -41,203 +85,648 @@ The square
 \begin{equation}
 \label{eq:pullback}
 \begin{tikzcd}[column sep=large]
-\Pc_{I,P} \ar[r] \ar[d, "\iota"'] & \func\bigl(I\opcat,\func(\Refl,\Cat)\bigr) \times \func\bigl(P\opcat,\func(\Corefl,\Cat)\bigr) \ar[d, "(\ell^{*})_{*} \times (\rho^{*})_{*}"] \\
-\D \ar[r, "{(R_{I},R_{P})}"'] & \func\bigl(I\opcat,\func(\Delta^{1},\Cat)\bigr) \times \func\bigl(P\opcat,\func(\Delta^{1},\Cat)\bigr)
+\Pc_{I,P} \ar[r] \ar[d, "\iota"'] & \func\bigl(I\opcat,\func(\Refl,\Cat)\bigr)
+\times \func\bigl(P\opcat,\func(\Corefl,\Cat)\bigr) \ar[d,
+"(\ell^{*})_{*} \times (\rho^{*})_{*}"] \\
+\D \ar[r, "{(R_{I},R_{P})}"'] & \func\bigl(I\opcat,\func(\Delta^{1},\Cat)\bigr)
+\times \func\bigl(P\opcat,\func(\Delta^{1},\Cat)\bigr)
 \end{tikzcd}
 \end{equation}
-is a pullback of $(\infty,2)$-categories, and its vertical maps and $\gamma^{*}$ are locally full inclusions. The top map sends $d$ to the reflections $i^{\natural} \dashv (i^{\natural})^{R}$ and the coreflections $(p^{\natural})^{L} \dashv p^{\natural}$. Explicitly:
+is a pullback of $(\infty,2)$-categories,
+and its vertical maps and $\gamma^{*}$ are locally full inclusions.
+The top map sends $d$ to the reflections
+$i^{\natural} \dashv (i^{\natural})^{R}$
+and the coreflections
+$(p^{\natural})^{L} \dashv p^{\natural}$.
+Explicitly:
 \begin{enumerate}
-\item $d \in \D$ is $(I,P)$-local if and only if $i^{\natural}$ has a fully faithful right adjoint $(i^{\natural})^{R}$ for every object $i$ of $I$, $p^{\natural}$ has a fully faithful left adjoint $(p^{\natural})^{L}$ for every object $p$ of $P$, and for all $1$-morphisms $\sigma = (a,b)\colon (i\colon x \to y) \to (i'\colon x' \to y')$ of $I$ and $\tau = (a,b)\colon (p\colon x \to y) \to (p'\colon x' \to y')$ of $P$ the commutative squares
-\[
+\item $d \in \D$ is $(I,P)$-local if and only if $i^{\natural}$ has a fully
+faithful right adjoint $(i^{\natural})^{R}$ for every object $i$ of $I$,
+$p^{\natural}$ has a fully faithful left adjoint $(p^{\natural})^{L}$ for every
+object $p$ of $P$, and for all $1$-morphisms
+$\sigma = (a,b)\colon (i\colon x \to y) \to (i'\colon x' \to y')$
+of $I$ and
+$\tau = (a,b)\colon (p\colon x \to y) \to (p'\colon x' \to y')$
+of $P$ the commutative squares
+\begin{equation*}
 \begin{tikzcd}[column sep=large]
-\Hom_{\D}(y',d) \ar[r, "b^{\natural}"] \ar[d, "i'^{\natural}"'] & \Hom_{\D}(y,d) \ar[d, "i^{\natural}"] \ar[dl, Rightarrow, shorten=4mm] \\
+\Hom_{\D}(y',d) \ar[r, "b^{\natural}"] \ar[d,
+"i'^{\natural}"'] & \Hom_{\D}(y,d) \ar[d, "i^{\natural}"] \ar[dl, Rightarrow,
+shorten=4mm] \\
 \Hom_{\D}(x',d) \ar[r, "a^{\natural}"'] & \Hom_{\D}(x,d)
 \end{tikzcd}
 \qquad
 \begin{tikzcd}[column sep=large]
-\Hom_{\D}(y',d) \ar[r, "p'^{\natural}"] \ar[d, "b^{\natural}"'] & \Hom_{\D}(x',d) \ar[d, "a^{\natural}"] \ar[dl, Rightarrow, shorten=4mm] \\
+\Hom_{\D}(y',d) \ar[r, "p'^{\natural}"] \ar[d,
+"b^{\natural}"'] & \Hom_{\D}(x',d) \ar[d, "a^{\natural}"] \ar[dl, Rightarrow,
+shorten=4mm] \\
 \Hom_{\D}(y,d) \ar[r, "p^{\natural}"'] & \Hom_{\D}(x,d)
 \end{tikzcd}
-\]
-filled by $\sigma$, resp.\ $\tau$, are right, resp.\ left, Beck--Chevalley, i.e.\ $b^{\natural}(i'^{\natural})^{R} \Rightarrow (i^{\natural})^{R}a^{\natural}$ and $(p^{\natural})^{L}a^{\natural} \Rightarrow b^{\natural}(p'^{\natural})^{L}$ are invertible.
-\item A $1$-morphism $f\colon d \to d'$ between $(I,P)$-local objects is $(I,P)$-local if and only if for every object $i\colon x \to y$ of $I$ and every object $p\colon x \to y$ of $P$ the lax squares
-\[
+\end{equation*}
+filled by $\sigma$, resp.\ $\tau$, are right, resp.\ left, Beck--Chevalley,
+i.e.\
+$b^{\natural}(i'^{\natural})^{R} \Rightarrow (i^{\natural})^{R}a^{\natural}$
+and
+$(p^{\natural})^{L}a^{\natural} \Rightarrow b^{\natural}(p'^{\natural})^{L}$
+are invertible.
+\item A $1$-morphism $f\colon d \to d'$ between $(I,P)$-local objects is
+$(I,P)$-local if and only if for every object $i\colon x \to y$ of $I$ and every
+object $p\colon x \to y$ of $P$ the lax squares
+\begin{equation*}
 \begin{tikzcd}[column sep=large]
-\Hom_{\D}(y,d) \ar[r, "f_{\natural}"] \ar[d, "i^{\natural}"'] & \Hom_{\D}(y,d') \ar[d, "i^{\natural}"] \ar[dl, Rightarrow, shorten=4mm, "="'] \\
+\Hom_{\D}(y,d) \ar[r, "f_{\natural}"] \ar[d,
+"i^{\natural}"'] & \Hom_{\D}(y,d') \ar[d, "i^{\natural}"] \ar[dl, Rightarrow,
+shorten=4mm, "="'] \\
 \Hom_{\D}(x,d) \ar[r, "f_{\natural}"'] & \Hom_{\D}(x,d')
 \end{tikzcd}
 \qquad
 \begin{tikzcd}[column sep=large]
-\Hom_{\D}(y,d) \ar[r, "p^{\natural}"] \ar[d, "f_{\natural}"'] & \Hom_{\D}(x,d) \ar[d, "f_{\natural}"] \ar[dl, Rightarrow, shorten=4mm, "="'] \\
+\Hom_{\D}(y,d) \ar[r, "p^{\natural}"] \ar[d,
+"f_{\natural}"'] & \Hom_{\D}(x,d) \ar[d, "f_{\natural}"] \ar[dl, Rightarrow,
+shorten=4mm, "="'] \\
 \Hom_{\D}(y,d') \ar[r, "p^{\natural}"'] & \Hom_{\D}(x,d')
 \end{tikzcd}
-\]
-(given by associativity $i^{\natural}f_{\natural} \simeq f_{\natural}i^{\natural}$, resp.\ $f_{\natural}p^{\natural} \simeq p^{\natural}f_{\natural}$) are right, resp.\ left, Beck--Chevalley, i.e.\ $f_{\natural}(i^{\natural})^{R} \Rightarrow (i^{\natural})^{R}f_{\natural}$ and $(p^{\natural})^{L}f_{\natural} \Rightarrow f_{\natural}(p^{\natural})^{L}$ are invertible.
+\end{equation*}
+(given by associativity
+$i^{\natural}f_{\natural} \simeq f_{\natural}i^{\natural}$,
+resp.\
+$f_{\natural}p^{\natural} \simeq p^{\natural}f_{\natural}$)
+are right, resp.\ left, Beck--Chevalley, i.e.\
+$f_{\natural}(i^{\natural})^{R} \Rightarrow (i^{\natural})^{R}f_{\natural}$
+and
+$(p^{\natural})^{L}f_{\natural} \Rightarrow f_{\natural}(p^{\natural})^{L}$
+are invertible.
 \end{enumerate}
 \end{thm}
 
 \gutentag{003D}%
-So $d$ is $(I,P)$-local if and only if its representable presheaf takes the objects of $I$ to left adjoints of reflections and the $1$-morphisms of $I$ to right Beck--Chevalley squares, and the objects of $P$ to right adjoints of coreflections and the $1$-morphisms of $P$ to left Beck--Chevalley squares; similarly for $1$-morphisms, with the Beck--Chevalley conditions of \cref{lem:mates}.
-The exchange of $\ell$ and $\rho$, and of the two ways of drawing squares, reflects the contravariance of $\Hom_{\D}(-,d)$: the $ (-)\opcat $ involution takes a (co)reflection to a (co)reflection, but exchanges the roles of the left and right adjoints.
-The proof shows more generally that a presheaf $X$ on $\D$ extends along $\gamma\opcat$ if and only if it satisfies (1) with $X(s)$ in place of $s^{\natural}$, and that a transformation between such presheaves extends if and only if it satisfies (2).
-By (1) and (2), $\Pc_{I,P} = \Pc_{I,\emptyset} \cap \Pc_{\emptyset,P}$, and $\Pc_{I,P}$ is the intersection of the $\Pc_{\{s\},\emptyset}$, $\Pc_{\{\sigma\},\emptyset}$, $\Pc_{\emptyset,\{t\}}$, $\Pc_{\emptyset,\{\tau\}}$ over the objects $s$ and $1$-morphisms $\sigma$ of $I$ and the objects $t$ and $1$-morphisms $\tau$ of $P$, where $\{\sigma\}$ denotes the locally full sub-$(\infty,2)$-category generated by $\sigma$.
+So $d$ is $(I,P)$-local if and only if its representable presheaf takes the
+objects of $I$ to left adjoints of reflections and the $1$-morphisms of $I$ to
+right Beck--Chevalley squares, and the objects of $P$ to right adjoints of
+coreflections and the $1$-morphisms of $P$ to left Beck--Chevalley squares;
+similarly for $1$-morphisms, with the Beck--Chevalley conditions of
+\cref{lem:mates}.
+The exchange of $\ell$ and $\rho$, and of the two ways of drawing squares,
+reflects the contravariance of $\Hom_{\D}(-,d)$:
+the $ (-)\opcat $ involution takes a (co)reflection to a (co)reflection,
+but exchanges the roles of the left and right adjoints.
+The proof shows more generally that a presheaf $X$ on $\D$ extends along
+$\gamma\opcat$ if and only if it satisfies (1) with $X(s)$ in place of
+$s^{\natural}$, and that a transformation between such presheaves extends if and
+only if it satisfies (2).
+By (1) and (2),
+$\Pc_{I,P} = \Pc_{I,\emptyset} \cap \Pc_{\emptyset,P}$,
+and $\Pc_{I,P}$ is the intersection of the
+$\Pc_{\{s\},\emptyset}$,
+$\Pc_{\{\sigma\},\emptyset}$,
+$\Pc_{\emptyset,\{t\}}$,
+$\Pc_{\emptyset,\{\tau\}}$
+over the objects $s$ and $1$-morphisms $\sigma$ of $I$ and the objects $t$ and
+$1$-morphisms $\tau$ of $P$, where $\{\sigma\}$ denotes the locally full
+sub-$(\infty,2)$-category generated by $\sigma$.
 
 \begin{proof}
 \gutentag{003E}%
-$\func(-,\Cat)$ turns the pushout of \cref{def:adjoin}, applied to $\D\opcat$, into a pullback: $\gamma^{*}$ is the pullback, along restriction along $\mathrm{ev}\opcat$, of restriction along $\rho\opcat \times \mathrm{id}$ and $\ell\opcat \times \mathrm{id}$ from $\func(I\opcat,\func(\Refl\opcat,\Cat)) \times \func(P\opcat,\func(\Corefl\opcat,\Cat))$. The equivalences $\Refl\opcat \simeq \Refl$ and $\Corefl\opcat \simeq \Corefl$ induced by $\Adj \simeq \Adj\opcat$ (\cref{sec:mates}) carry $\rho\opcat$ to $\ell$ and $\ell\opcat$ to $\rho$, so the latter restriction is the right-hand map of \eqref{eq:pullback}. It is a locally full inclusion by \cref{lem:mates-refl} and \cref{subsec:prelim-conventions}, hence so are its pullbacks $\gamma^{*}$ and $\iota$. As $y$ restricted along $\mathrm{ev}$ is $(R_{I},R_{P})$, pasting this pullback with the one of \cref{def:IP-local} shows that \eqref{eq:pullback} is a pullback.
+$\func(-,\Cat)$ turns the pushout of \cref{def:adjoin}, applied to $\D\opcat$,
+into a pullback: $\gamma^{*}$ is the pullback,
+along restriction along $\mathrm{ev}\opcat$, of restriction along
+$\rho\opcat \times \mathrm{id}$
+and
+$\ell\opcat \times \mathrm{id}$
+from
+$\func(I\opcat,\func(\Refl\opcat,\Cat)) \times
+\func(P\opcat,\func(\Corefl\opcat,\Cat))$.
+The equivalences
+$\Refl\opcat \simeq \Refl$
+and
+$\Corefl\opcat \simeq \Corefl$
+induced by
+$\Adj \simeq \Adj\opcat$
+(\cref{sec:mates}) carry $\rho\opcat$ to $\ell$ and $\ell\opcat$ to $\rho$,
+so the latter restriction is the right-hand map of \eqref{eq:pullback}.
+It is a locally full inclusion by \cref{lem:mates-refl} and
+\cref{subsec:prelim-conventions}, hence so are its pullbacks $\gamma^{*}$ and
+$\iota$. As $y$ restricted along $\mathrm{ev}$ is $(R_{I},R_{P})$,
+pasting this pullback with the one of \cref{def:IP-local} shows that
+\eqref{eq:pullback} is a pullback.
 
-By \cite[Cor.~2.6.6]{abellangagnahaugseng2024straightening}, $d$ lies in the image if and only if $R_{I}(d)$ sends the objects and $1$-morphisms of $I\opcat$ into the image of $\ell^{*}$ and $R_{P}(d)$ those of $P\opcat$ into the image of $\rho^{*}$; and $f$ does if and only if $R_{I}(f)$ and $R_{P}(f)$, as functors out of $\Delta^{1} \times I\opcat$ and $\Delta^{1} \times P\opcat$, send $1$-morphisms into these images. As in the proof of \cref{prop:adjoin-univ}, for $f$ only the naturality squares at the objects of $I$ and $P$ impose a condition. As a locally full sub-$(\infty,2)$-category is determined by its objects and $1$-morphisms (\cref{subsec:prelim-conventions}), it remains to compute these conditions.
+By \cite[Cor.~2.6.6]{abellangagnahaugseng2024straightening},
+$d$ lies in the image if and only if $R_{I}(d)$ sends the objects and
+$1$-morphisms of $I\opcat$ into the image of $\ell^{*}$ and $R_{P}(d)$ those of
+$P\opcat$ into the image of $\rho^{*}$; and $f$ does if and only if $R_{I}(f)$
+and $R_{P}(f)$, as functors out of
+$\Delta^{1} \times I\opcat$
+and
+$\Delta^{1} \times P\opcat$,
+send $1$-morphisms into these images. As in the proof of
+\cref{prop:adjoin-univ}, for $f$ only the naturality squares at the objects of
+$I$ and $P$ impose a condition. As a locally full sub-$(\infty,2)$-category is
+determined by its objects and $1$-morphisms (\cref{subsec:prelim-conventions}),
+it remains to compute these conditions.
 
-By \cref{lem:mates-refl}, $R_{I}(d)(i) = i^{\natural}$ lies in the image of $\ell^{*}$ if and only if $i^{\natural}$ has a right adjoint $(i^{\natural})^{R}$ with invertible counit, i.e.\ a fully faithful one, and $R_{P}(d)(p) = p^{\natural}$ in that of $\rho^{*}$ if and only if $p^{\natural}$ has a fully faithful left adjoint $(p^{\natural})^{L}$. For $\sigma = (a,b)\colon i \to i'$, $R_{I}(d)(\sigma)$ is the $1$-morphism from $u = i'^{\natural}$ to $u' = i^{\natural}$ in $\func(\Delta^{1},\Cat)$ with components $f_{0} = b^{\natural}$ and $f_{1} = a^{\natural}$; by \cref{lem:mates-refl}(2) and \cref{lem:mates}(1) it lies in the image of $\ell^{*}$ if and only if its right mate $b^{\natural}(i'^{\natural})^{R} \Rightarrow (i^{\natural})^{R}a^{\natural}$ is invertible. Dually, \cref{lem:mates}(2) reads $R_{P}(d)(\tau)$ as the lax square with $u = p'^{\natural}$ and $u' = p^{\natural}$ horizontal, which lies in the image of $\rho^{*}$ if and only if its left mate $(p^{\natural})^{L}a^{\natural} \Rightarrow b^{\natural}(p'^{\natural})^{L}$ is invertible. This is (1).
-Let $f\colon d \to d'$ with $d$, $d'$ local. The naturality square of $R_{I}(f)$ at $i$ is a $1$-morphism from $u = i^{\natural}$ to $u' = i^{\natural}$ in $\func(\Delta^{1},\Cat)$ with $f_{0} = f_{\natural}$ on $\Hom_{\D}(y,-)$ and $f_{1} = f_{\natural}$ on $\Hom_{\D}(x,-)$. By \cref{lem:mates-refl}(2), \cref{lem:mates}(1) applies and reads it as the lax square with $u$ vertical and $\varphi\colon u'f_{0} \simeq f_{1}u$, here the associativity $i^{\natural}f_{\natural} \simeq f_{\natural}i^{\natural}$: this is the first square of (2), and it lies in the image of $\ell^{*}$ if and only if its right mate $f_{\natural}(i^{\natural})^{R} \Rightarrow (i^{\natural})^{R}f_{\natural}$ is invertible. Dually, \cref{lem:mates}(2) reads the naturality square of $R_{P}(f)$ at $p$ as the lax square with $u = p^{\natural}$ horizontal and $\psi\colon f_{1}u \simeq u'f_{0}$, here $f_{\natural}p^{\natural} \simeq p^{\natural}f_{\natural}$: the second square of (2), which lies in the image of $\rho^{*}$ if and only if its left mate $(p^{\natural})^{L}f_{\natural} \Rightarrow f_{\natural}(p^{\natural})^{L}$ is invertible.
-No choice is involved: a commutative square has one underlying lax square with $u$ on a given side, and the $2$-morphism is the one given by $R_{I}$ or $R_{P}$. (The Beck--Chevalley condition depends on this $2$-morphism, not only on the edges.)
+By \cref{lem:mates-refl},
+$R_{I}(d)(i) = i^{\natural}$
+lies in the image of $\ell^{*}$ if and only if $i^{\natural}$ has a right
+adjoint $(i^{\natural})^{R}$ with invertible counit, i.e.\ a fully faithful one,
+and
+$R_{P}(d)(p) = p^{\natural}$
+in that of $\rho^{*}$ if and only if $p^{\natural}$ has a fully faithful left
+adjoint $(p^{\natural})^{L}$. For
+$\sigma = (a,b)\colon i \to i'$,
+$R_{I}(d)(\sigma)$ is the $1$-morphism from $u = i'^{\natural}$ to $u' =
+i^{\natural}$ in
+$\func(\Delta^{1},\Cat)$
+with components $f_{0} = b^{\natural}$ and $f_{1} = a^{\natural}$;
+by \cref{lem:mates-refl}(2) and \cref{lem:mates}(1) it lies in the image of
+$\ell^{*}$ if and only if its right mate
+$b^{\natural}(i'^{\natural})^{R} \Rightarrow (i^{\natural})^{R}a^{\natural}$
+is invertible. Dually, \cref{lem:mates}(2) reads $R_{P}(d)(\tau)$ as the lax
+square with $u = p'^{\natural}$ and $u' = p^{\natural}$ horizontal,
+which lies in the image of $\rho^{*}$ if and only if its left mate
+$(p^{\natural})^{L}a^{\natural} \Rightarrow b^{\natural}(p'^{\natural})^{L}$
+is invertible. This is (1).
+Let $f\colon d \to d'$ with $d$, $d'$ local.
+The naturality square of $R_{I}(f)$ at $i$ is a $1$-morphism from $u =
+i^{\natural}$ to $u' = i^{\natural}$ in
+$\func(\Delta^{1},\Cat)$
+with $f_{0} = f_{\natural}$ on $\Hom_{\D}(y,-)$ and $f_{1} = f_{\natural}$ on
+$\Hom_{\D}(x,-)$. By \cref{lem:mates-refl}(2),
+\cref{lem:mates}(1) applies and reads it as the lax square with $u$ vertical and
+$\varphi\colon u'f_{0} \simeq f_{1}u$,
+here the associativity
+$i^{\natural}f_{\natural} \simeq f_{\natural}i^{\natural}$:
+this is the first square of (2), and it lies in the image of $\ell^{*}$ if and
+only if its right mate
+$f_{\natural}(i^{\natural})^{R} \Rightarrow (i^{\natural})^{R}f_{\natural}$
+is invertible. Dually, \cref{lem:mates}(2) reads the naturality square of
+$R_{P}(f)$ at $p$ as the lax square with $u = p^{\natural}$ horizontal and
+$\psi\colon f_{1}u \simeq u'f_{0}$,
+here
+$f_{\natural}p^{\natural} \simeq p^{\natural}f_{\natural}$:
+the second square of (2), which lies in the image of $\rho^{*}$ if and only if
+its left mate
+$(p^{\natural})^{L}f_{\natural} \Rightarrow f_{\natural}(p^{\natural})^{L}$
+is invertible.
+No choice is involved: a commutative square has one underlying lax square with
+$u$ on a given side, and the $2$-morphism is the one given by $R_{I}$ or
+$R_{P}$. (The Beck--Chevalley condition depends on this $2$-morphism,
+not only on the edges.)
 \end{proof}
 
 \gutentag{003F}%
-The reason for the Beck--Chevalley conditions on $1$-morphisms: a lift of the naturality square of $R_{I}(f)$ at $i$ along $\ell^{*}$ is a $1$-morphism of $\func(\Refl,\Cat)$, i.e.\ a transformation from the reflection $i^{\natural} \dashv (i^{\natural})^{R}$ at $d$ to the one at $d'$ with components $f_{\natural}$. Besides its naturality square at $i^{\natural}$, it has an \emph{invertible} naturality square at $(i^{\natural})^{R}$, and in $\htwo\Cat$ this square is the right mate of the former (\cref{rmk:mates-2cat}). Dually for $p$, with $(p^{\natural})^{L}$ and the left mate.
+The reason for the Beck--Chevalley conditions on $1$-morphisms:
+a lift of the naturality square of $R_{I}(f)$ at $i$ along $\ell^{*}$ is a
+$1$-morphism of $\func(\Refl,\Cat)$, i.e.\ a transformation from the reflection
+$i^{\natural} \dashv (i^{\natural})^{R}$
+at $d$ to the one at $d'$ with components $f_{\natural}$.
+Besides its naturality square at $i^{\natural}$,
+it has an \emph{invertible} naturality square at $(i^{\natural})^{R}$,
+and in $\htwo\Cat$ this square is the right mate of the former
+(\cref{rmk:mates-2cat}). Dually for $p$,
+with $(p^{\natural})^{L}$ and the left mate.
 
 \gutentag{0040}%
-The case $\D = \Pc_{\emptyset,\{s\}}$, i.e.\ every object and $1$-morphism is $\{s\}$-local, characterizes coreflective $1$-morphisms, and Beck--Chevalley squares between them, representably:
+The case
+$\D = \Pc_{\emptyset,\{s\}}$,
+i.e.\ every object and $1$-morphism is $\{s\}$-local,
+characterizes coreflective $1$-morphisms,
+and Beck--Chevalley squares between them, representably:
 
 \begin{lem}
 \label{lem:repr-refl}
 \gutentag{0041}%
-A $1$-morphism $s$ of $\D$ is coreflective if and only if $\Pc_{\emptyset,\{s\}} = \D$, and reflective if and only if $\Pc_{\{s\},\emptyset} = \D$.
-A commutative square $\sigma$ between coreflective $1$-morphisms, drawn with these vertical, is right Beck--Chevalley if and only if $\Pc_{\emptyset,\{\sigma\}} = \D$; one between reflective $1$-morphisms, drawn with these horizontal, is left Beck--Chevalley if and only if $\Pc_{\{\sigma\},\emptyset} = \D$.
+A $1$-morphism $s$ of $\D$ is coreflective if and only if
+$\Pc_{\emptyset,\{s\}} = \D$,
+and reflective if and only if
+$\Pc_{\{s\},\emptyset} = \D$.
+A commutative square $\sigma$ between coreflective $1$-morphisms,
+drawn with these vertical, is right Beck--Chevalley if and only if
+$\Pc_{\emptyset,\{\sigma\}} = \D$;
+one between reflective $1$-morphisms, drawn with these horizontal,
+is left Beck--Chevalley if and only if
+$\Pc_{\{\sigma\},\emptyset} = \D$.
 \end{lem}
 
 \begin{proof}
 \gutentag{0042}%
-The enriched Yoneda embedding $h\colon \D\opcat \to \func(\D,\Cat)$, $d \mapsto \Hom_{\D}(d,-)$, is fully faithful \cite{hinich2020yoneda,heine2023enriched}. It takes an adjunction $l \dashv r$ of $\D$ to $r^{\natural} \dashv l^{\natural}$ with the same unit and counit, and every adjunction between representables arises this way, as adjunctions are detected in the homotopy $2$-category \cite[Thm.~4.3.11]{riehlverity2016adjunctions} and determined by their left adjoints \cite[Thm.~4.4]{haugseng2021laxmonads}. So $s$ is coreflective if and only if $s^{\natural}$ is a right adjoint with invertible unit in $\func(\D,\Cat)$.
-By \cite[Cor.~5.2.12]{abellangagnahaugseng2024straightening}, $s^{\natural}$ is a right adjoint if and only if every component $s^{\natural}\colon \Hom_{\D}(y,d) \to \Hom_{\D}(x,d)$ is one and every transposed naturality square is left Beck--Chevalley; these squares are the second squares of \cref{thm:local-pullback}(2). A $2$-morphism of $\func(\D,\Cat)$ is invertible if and only if its components are, so the unit is invertible if and only if every $s^{\natural}$ has a fully faithful left adjoint.
-Now let $\sigma = (a,b)\colon p \to p'$ be a commutative square between coreflective $1$-morphisms. As $h$ preserves adjunctions, units and counits, it takes the right mate $ap^{R} \Rightarrow p'^{R}b$ of $\sigma$ to the left mate $(p^{\natural})^{L}a^{\natural} \Rightarrow b^{\natural}(p'^{\natural})^{L}$ of the square $\Hom_{\D}(\sigma,-)$ of $\func(\D,\Cat)$, and it reflects invertibility, being fully faithful. The components of this left mate are the $2$-morphisms of \cref{thm:local-pullback}(1) for $\tau = \sigma$, so $\sigma$ is right Beck--Chevalley if and only if every object satisfies the condition of \cref{thm:local-pullback}(1) at $\sigma$. By the first part, the other conditions defining $\Pc_{\emptyset,\{\sigma\}}$ hold for all objects and $1$-morphisms. The reflective cases are dual.
+The enriched Yoneda embedding
+$h\colon \D\opcat \to \func(\D,\Cat)$,
+$d \mapsto \Hom_{\D}(d,-)$,
+is fully faithful \cite{hinich2020yoneda,heine2023enriched}.
+It takes an adjunction $l \dashv r$ of $\D$ to
+$r^{\natural} \dashv l^{\natural}$
+with the same unit and counit, and every adjunction between representables
+arises this way, as adjunctions are detected in the homotopy $2$-category
+\cite[Thm.~4.3.11]{riehlverity2016adjunctions} and determined by their left
+adjoints \cite[Thm.~4.4]{haugseng2021laxmonads}.
+So $s$ is coreflective if and only if $s^{\natural}$ is a right adjoint with
+invertible unit in $\func(\D,\Cat)$.
+By \cite[Cor.~5.2.12]{abellangagnahaugseng2024straightening},
+$s^{\natural}$ is a right adjoint if and only if every component
+$s^{\natural}\colon \Hom_{\D}(y,d) \to \Hom_{\D}(x,d)$
+is one and every transposed naturality square is left Beck--Chevalley;
+these squares are the second squares of \cref{thm:local-pullback}(2).
+A $2$-morphism of $\func(\D,\Cat)$ is invertible if and only if its components
+are, so the unit is invertible if and only if every $s^{\natural}$ has a fully
+faithful left adjoint.
+Now let
+$\sigma = (a,b)\colon p \to p'$
+be a commutative square between coreflective $1$-morphisms.
+As $h$ preserves adjunctions, units and counits, it takes the right mate
+$ap^{R} \Rightarrow p'^{R}b$
+of $\sigma$ to the left mate
+$(p^{\natural})^{L}a^{\natural} \Rightarrow b^{\natural}(p'^{\natural})^{L}$
+of the square $\Hom_{\D}(\sigma,-)$ of $\func(\D,\Cat)$,
+and it reflects invertibility, being fully faithful.
+The components of this left mate are the $2$-morphisms of
+\cref{thm:local-pullback}(1) for $\tau = \sigma$,
+so $\sigma$ is right Beck--Chevalley if and only if every object satisfies the
+condition of \cref{thm:local-pullback}(1) at $\sigma$. By the first part,
+the other conditions defining
+$\Pc_{\emptyset,\{\sigma\}}$
+hold for all objects and $1$-morphisms. The reflective cases are dual.
 \end{proof}
 
 \gutentag{00A6}%
-As $\twoCat$ is cartesian closed, it is enriched over itself, and changing enrichment along the product-preserving functor $\iota_{1}\colon \twoCat \to \Cat$ \cite{gepnerhaugseng2015enriched} gives the $(\infty,2)$-category of (possibly large) $(\infty,2)$-categories, functors and natural transformations, which we also denote $\twoCat$.
+As $\twoCat$ is cartesian closed, it is enriched over itself,
+and changing enrichment along the product-preserving functor
+$\iota_{1}\colon \twoCat \to \Cat$
+\cite{gepnerhaugseng2015enriched} gives the $(\infty,2)$-category of (possibly
+large) $(\infty,2)$-categories, functors and natural transformations,
+which we also denote $\twoCat$.
 
 \begin{defi}
 \label{def:enriched-adjoint}
 \gutentag{0043}%
-A functor $G\colon \C \to \D$ of $(\infty,2)$-categories \emph{has a left adjoint} if it is a right adjoint in $\twoCat$ (\cref{def:adjunction}).
+A functor $G\colon \C \to \D$ of $(\infty,2)$-categories \emph{has a left
+adjoint} if it is a right adjoint in $\twoCat$ (\cref{def:adjunction}).
 \end{defi}
 
 \gutentag{00A7}%
-If $F \dashv G$ with unit $\eta$ and counit $\varepsilon$, then for $y \in \D$ and $q \in \C$ the composite
-\[
-\Hom_{\C}(Fy,q) \xrightarrow{\ G\ } \Hom_{\D}(GFy,Gq) \xrightarrow{\ \eta_{y}^{\natural}\ } \Hom_{\D}(y,Gq)
-\]
-is an equivalence, natural in $y$ and $q$ as functors $\D\opcat \times \C \to \Cat$: an inverse is $g \mapsto \varepsilon_{q} \circ F(g)$, by naturality of $\eta$ and $\varepsilon$ and the triangle identities in $\htwo\twoCat$.
+If $F \dashv G$ with unit $\eta$ and counit $\varepsilon$,
+then for $y \in \D$ and $q \in \C$ the composite
+\begin{equation*}
+\Hom_{\C}(Fy,q) \xrightarrow{\ G\ } \Hom_{\D}(GFy,Gq)
+\xrightarrow{\ \eta_{y}^{\natural}\ } \Hom_{\D}(y,Gq)
+\end{equation*}
+is an equivalence, natural in $y$ and $q$ as functors
+$\D\opcat \times \C \to \Cat$:
+an inverse is
+$g \mapsto \varepsilon_{q} \circ F(g)$,
+by naturality of $\eta$ and $\varepsilon$ and the triangle identities in
+$\htwo\twoCat$.
 
 \gutentag{0044}%
-In general $\iota\colon \Pc_{I,P} \to \D$ can fail to have a left adjoint. But when it does, we can compare it with formally making $ I $ reflective and $ P $ coreflective.
+In general
+$\iota\colon \Pc_{I,P} \to \D$
+can fail to have a left adjoint. But when it does,
+we can compare it with formally making $ I $ reflective and $ P $ coreflective.
 
 \begin{prop}
 \label{prop:local-adjoint-refl}
 \gutentag{0045}%
-Suppose $\iota\colon \Pc_{I,P} \to \D$ has a left adjoint $L$. Then $Li$ is reflective and $L\sigma$ is left Beck--Chevalley for every object $i$ and $1$-morphism $\sigma$ of $I$, and $Lp$ is coreflective and $L\tau$ is right Beck--Chevalley for every object $p$ and $1$-morphism $\tau$ of $P$. Moreover $(i^{\natural})^{R} \simeq ((Li)^{L})^{\natural}$ and $(p^{\natural})^{L} \simeq ((Lp)^{R})^{\natural}$ on $\Hom_{\D}(-,\iota q) \simeq \Hom_{\Pc_{I,P}}(L-,q)$.
+Suppose
+$\iota\colon \Pc_{I,P} \to \D$
+has a left adjoint $L$. Then $Li$ is reflective and $L\sigma$ is left
+Beck--Chevalley for every object $i$ and $1$-morphism $\sigma$ of $I$,
+and $Lp$ is coreflective and $L\tau$ is right Beck--Chevalley for every object
+$p$ and $1$-morphism $\tau$ of $P$. Moreover
+$(i^{\natural})^{R} \simeq ((Li)^{L})^{\natural}$
+and
+$(p^{\natural})^{L} \simeq ((Lp)^{R})^{\natural}$
+on
+$\Hom_{\D}(-,\iota q) \simeq \Hom_{\Pc_{I,P}}(L-,q)$.
 \end{prop}
 
 \begin{proof}
 \gutentag{0046}%
-The equivalences $\Hom_{\Pc_{I,P}}(Ly,q) \simeq \Hom_{\D}(y,\iota q)$ are natural in $y$ and $q$. They identify $(Li)^{\natural}$ at $q$ with $i^{\natural}$ at $\iota q$, the square $\Hom_{\Pc_{I,P}}(L\sigma,q)$ with $\Hom_{\D}(\sigma,\iota q)$, and postcomposition by $g\colon q \to q'$ with $(\iota g)_{\natural}$. So every object and $1$-morphism of $\Pc_{I,P}$ is $\{Li\}$- and $\{L\sigma\}$-local, and $Li$ is reflective and $L\sigma$ left Beck--Chevalley by \cref{lem:repr-refl}; likewise for $P$. Under the Yoneda embedding the reflection $(Li)^{L} \dashv Li$ goes to $(Li)^{\natural} \dashv ((Li)^{L})^{\natural}$, so $((Li)^{L})^{\natural}$ is the right adjoint $(i^{\natural})^{R}$ of $i^{\natural}$; likewise for $p$.
+The equivalences
+$\Hom_{\Pc_{I,P}}(Ly,q) \simeq \Hom_{\D}(y,\iota q)$
+are natural in $y$ and $q$. They identify $(Li)^{\natural}$ at $q$ with
+$i^{\natural}$ at $\iota q$, the square
+$\Hom_{\Pc_{I,P}}(L\sigma,q)$
+with
+$\Hom_{\D}(\sigma,\iota q)$,
+and postcomposition by $g\colon q \to q'$ with $(\iota g)_{\natural}$.
+So every object and $1$-morphism of $\Pc_{I,P}$ is $\{Li\}$- and
+$\{L\sigma\}$-local, and $Li$ is reflective and $L\sigma$ left Beck--Chevalley
+by \cref{lem:repr-refl}; likewise for $P$.
+Under the Yoneda embedding the reflection $(Li)^{L} \dashv Li$ goes to
+$(Li)^{\natural} \dashv ((Li)^{L})^{\natural}$,
+so
+$((Li)^{L})^{\natural}$
+is the right adjoint $(i^{\natural})^{R}$ of $i^{\natural}$; likewise for $p$.
 \end{proof}
 
 \gutentag{0047}%
-By \cref{rmk:mates-2cat}, for $g\colon q \to q'$ in $\Pc_{I,P}$ the squares expressing that $g_{\natural}$ commutes with precomposition by $(Li)^{L}$ and $(Lp)^{R}$ are the mates of the squares of \cref{thm:local-pullback}(2): the Beck--Chevalley conditions say that $\iota g$ commutes with precomposition by the adjoined adjoints.
+By \cref{rmk:mates-2cat}, for $g\colon q \to q'$ in $\Pc_{I,P}$ the squares
+expressing that $g_{\natural}$ commutes with precomposition by $(Li)^{L}$ and
+$(Lp)^{R}$ are the mates of the squares of \cref{thm:local-pullback}(2):
+the Beck--Chevalley conditions say that $\iota g$ commutes with precomposition
+by the adjoined adjoints.
 
 \subsubsection*{Local objects and the formal localization}
 
 \gutentag{00A8}%
-By \cref{prop:local-adjoint-refl,prop:adjoin-univ}, $L$ extends to a functor $\Phi\colon \D\lrrefl{I}{P} \to \Pc_{I,P}$ with $\Phi\gamma \simeq L$. Unlike in \cref{prop:bousfield-pushout}(1), $\Phi$ need not be an equivalence. The following describes $\Phi$ in the terms of \cref{def:IP-local}.
+By \cref{prop:local-adjoint-refl,prop:adjoin-univ}, $L$ extends to a functor
+$\Phi\colon \D\lrrefl{I}{P} \to \Pc_{I,P}$
+with $\Phi\gamma \simeq L$. Unlike in \cref{prop:bousfield-pushout}(1),
+$\Phi$ need not be an equivalence. The following describes $\Phi$ in the terms
+of \cref{def:IP-local}.
 
 \begin{prop}
 \label{prop:local-vs-free}
 \gutentag{00A9}%
-Suppose $\iota$ has a left adjoint $L$, and let $y'$ be the enriched Yoneda embedding of $\D\lrrefl{I}{P}$.
+Suppose $\iota$ has a left adjoint $L$, and let $y'$ be the enriched Yoneda
+embedding of $\D\lrrefl{I}{P}$.
 \begin{enumerate}
-\item $N \simeq \Hom_{\Pc_{I,P}}(\Phi-,-)$, and for every $x \in \D\lrrefl{I}{P}$ the $1$-morphism $y'(x) \to N\Phi(x)$ classifying $\mathrm{id}_{\Phi x}$ exhibits $N\Phi(x)$ as a reflection of $y'(x)$ into the full sub-$(\infty,2)$-category $N(\Pc_{I,P})$.
-\item $\Phi$ is fully faithful if and only if every presheaf $\Hom_{\D\lrrefl{I}{P}}(\gamma-,x)$ on $\D$ is representable. This holds if $\gamma$ has a right adjoint, which is then $\iota\Phi$.
-\item The essential image of $\Phi$ is the full sub-$(\infty,2)$-category $K \subset \Pc_{I,P}$ on the objects $Ld$, $d \in \D$. So $\Phi$ is an equivalence if and only if it is fully faithful and every $(I,P)$-local object is equivalent to some $Ld$.
+\item
+$N \simeq \Hom_{\Pc_{I,P}}(\Phi-,-)$,
+and for every
+$x \in \D\lrrefl{I}{P}$
+the $1$-morphism $y'(x) \to N\Phi(x)$ classifying $\mathrm{id}_{\Phi x}$
+exhibits $N\Phi(x)$ as a reflection of $y'(x)$ into the full
+sub-$(\infty,2)$-category $N(\Pc_{I,P})$.
+\item $\Phi$ is fully faithful if and only if every presheaf
+$\Hom_{\D\lrrefl{I}{P}}(\gamma-,x)$
+on $\D$ is representable. This holds if $\gamma$ has a right adjoint,
+which is then $\iota\Phi$.
+\item The essential image of $\Phi$ is the full sub-$(\infty,2)$-category $K
+\subset \Pc_{I,P}$ on the objects $Ld$, $d \in \D$.
+So $\Phi$ is an equivalence if and only if it is fully faithful and every
+$(I,P)$-local object is equivalent to some $Ld$.
 \end{enumerate}
-Conversely, if every $y'(x)$ has a reflection into $N(\Pc_{I,P})$, then $\iota$ has a left adjoint.
-\todo{The converse uses the pointwise criterion that $G\colon \C \to \D$ has a left adjoint if every $\Hom_{\D}(d,G-)$ is corepresentable. Find a reference, e.g.\ in \cite{hinich2020yoneda,heine2023enriched}.}
+Conversely, if every $y'(x)$ has a reflection into $N(\Pc_{I,P})$,
+then $\iota$ has a left adjoint.
+\todo{The converse uses the pointwise criterion that $G\colon \C \to \D$ has a
+left adjoint if every $\Hom_{\D}(d,G-)$ is corepresentable. Find a reference,
+e.g.\ in \cite{hinich2020yoneda,heine2023enriched}.}
 \end{prop}
 
 \begin{proof}
 \gutentag{00AA}%
-(1) Both $N$ and $\Hom_{\Pc_{I,P}}(\Phi-,-)$ restrict along $\gamma$ to $\Hom_{\D}(-,\iota-) \simeq \Hom_{\Pc_{I,P}}(L-,-)$, as functors $\Pc_{I,P} \to \func(\D\opcat,\Cat)$. As $\gamma^{*}$ is a monomorphism, so is postcomposition with it, and the two agree. So, naturally in $q \in \Pc_{I,P}$,
-\[
-\Hom\bigl(y'(x),Nq\bigr) \simeq (Nq)(x) \simeq \Hom_{\Pc_{I,P}}(\Phi x,q) \simeq \Hom\bigl(N\Phi(x),Nq\bigr)
-\]
-by the Yoneda lemma and as $N$ is fully faithful, and the composite is restriction along $y'(x) \to N\Phi(x)$.
-(2) By (1) and the Yoneda lemma, the component at $x'$ of $y'(x) \to N\Phi(x)$ is $\Phi\colon \Hom(x',x) \to \Hom_{\Pc_{I,P}}(\Phi x',\Phi x)$. As equivalences in functor $(\infty,2)$-categories are detected componentwise (\cref{rmk:mates-alternative}), $\Phi$ is fully faithful if and only if every $y'(x) \to N\Phi(x)$ is an equivalence, i.e.\ if and only if every $y'(x)$ lies in $N(\Pc_{I,P})$, i.e.\ if and only if every $\gamma^{*}y'(x) = \Hom(\gamma-,x)$ is representable (\cref{def:IP-local}). If $\gamma$ has a right adjoint $G$, then $\Hom(\gamma-,x) \simeq \Hom_{\D}(-,Gx)$ by \cref{def:enriched-adjoint} and the paragraph after it; and then $\Hom_{\D}(-,\iota\Phi x) = \gamma^{*}N\Phi(x) \simeq \gamma^{*}y'(x)$ gives $\iota\Phi \simeq G$ by the Yoneda lemma for $\D$.
-(3) $\gamma$ is essentially surjective, being a pushout of functors that are essentially surjective, the left class of a factorization system \cite{gepnerhaugseng2015enriched}; and $\Phi\gamma \simeq L$.
-For the converse, a reflection $r$ of $y'(\gamma d)$ into $N(\Pc_{I,P})$ satisfies $\Hom_{\Pc_{I,P}}(r,q) \simeq (Nq)(\gamma d) \simeq \Hom_{\D}(d,\iota q)$, naturally in $q$, and every $x$ is equivalent to some $\gamma d$.
+(1) Both $N$ and
+$\Hom_{\Pc_{I,P}}(\Phi-,-)$
+restrict along $\gamma$ to
+$\Hom_{\D}(-,\iota-) \simeq \Hom_{\Pc_{I,P}}(L-,-)$,
+as functors
+$\Pc_{I,P} \to \func(\D\opcat,\Cat)$.
+As $\gamma^{*}$ is a monomorphism, so is postcomposition with it,
+and the two agree. So, naturally in $q \in \Pc_{I,P}$,
+\begin{equation*}
+\Hom\bigl(y'(x),Nq\bigr) \simeq (Nq)(x) \simeq \Hom_{\Pc_{I,P}}(\Phi x,q) \simeq
+\Hom\bigl(N\Phi(x),Nq\bigr)
+\end{equation*}
+by the Yoneda lemma and as $N$ is fully faithful,
+and the composite is restriction along $y'(x) \to N\Phi(x)$.
+(2) By (1) and the Yoneda lemma, the component at $x'$ of $y'(x) \to N\Phi(x)$
+is
+$\Phi\colon \Hom(x',x) \to \Hom_{\Pc_{I,P}}(\Phi x',\Phi x)$.
+As equivalences in functor $(\infty,2)$-categories are detected componentwise
+(\cref{rmk:mates-alternative}), $\Phi$ is fully faithful if and only if every
+$y'(x) \to N\Phi(x)$ is an equivalence, i.e.\ if and only if every $y'(x)$ lies
+in $N(\Pc_{I,P})$, i.e.\ if and only if every
+$\gamma^{*}y'(x) = \Hom(\gamma-,x)$
+is representable (\cref{def:IP-local}). If $\gamma$ has a right adjoint $G$,
+then
+$\Hom(\gamma-,x) \simeq \Hom_{\D}(-,Gx)$
+by \cref{def:enriched-adjoint} and the paragraph after it; and then
+$\Hom_{\D}(-,\iota\Phi x) = \gamma^{*}N\Phi(x) \simeq \gamma^{*}y'(x)$
+gives $\iota\Phi \simeq G$ by the Yoneda lemma for $\D$.
+(3) $\gamma$ is essentially surjective, being a pushout of functors that are
+essentially surjective, the left class of a factorization system
+\cite{gepnerhaugseng2015enriched}; and $\Phi\gamma \simeq L$.
+For the converse, a reflection $r$ of $y'(\gamma d)$ into $N(\Pc_{I,P})$
+satisfies
+$\Hom_{\Pc_{I,P}}(r,q) \simeq (Nq)(\gamma d) \simeq \Hom_{\D}(d,\iota q)$,
+naturally in $q$, and every $x$ is equivalent to some $\gamma d$.
 \end{proof}
 
 \gutentag{00AB}%
-So there are two obstructions to $\Phi$ being an equivalence. The first, that the presheaves $\Hom(\gamma-,x)$ need not be representable, depends on the squares in $I$ and $P$, and adding squares can remove it (\cref{ex:local-vs-pushout}(1)). The second, that a local object need not be of the form $Ld$, comes from $T = \iota L$ not being idempotent, and in \cref{ex:local-vs-pushout}(2) no choice of squares removes it. In one dimension neither occurs for the class $W$ of $S$-local equivalences, which is how \cite[5.2.7.12]{htt} reads in these terms.
+So there are two obstructions to $\Phi$ being an equivalence. The first,
+that the presheaves $\Hom(\gamma-,x)$ need not be representable,
+depends on the squares in $I$ and $P$, and adding squares can remove it
+(\cref{ex:local-vs-pushout}(1)). The second,
+that a local object need not be of the form $Ld$,
+comes from $T = \iota L$ not being idempotent,
+and in \cref{ex:local-vs-pushout}(2) no choice of squares removes it.
+In one dimension neither occurs for the class $W$ of $S$-local equivalences,
+which is how \cite[5.2.7.12]{htt} reads in these terms.
 
 \begin{exmp}
 \label{ex:local-vs-pushout}
 \gutentag{00AC}%
 \leavevmode
 \begin{enumerate}
-\item Let $\D = \Delta^{1}$ and $P = \{e\}$ for $e\colon 0 \to 1$. The hom-categories of $\D$ are spaces, and a functor of spaces with a fully faithful adjoint is an equivalence, so $\Pc_{\emptyset,\{e\}} = \{1\}$ and $\iota$ has the left adjoint $L\colon \Delta^{1} \to \mathrm{pt}$. But $\D\corefl{e} \simeq \Corefl$ (\cref{ex:adjoin-basic}), and $\Phi\colon \Corefl \to \mathrm{pt}$ is not fully faithful: $\Hom_{\Corefl}(\gamma-,1)$ takes the value $\Hom_{\Corefl}(1,1) \simeq \Delta^{1}$ at $1$, so it is not representable on $\Delta^{1}$.
-Adding a square removes this. Let $P'$ be generated by $e$ and the square $(e,\mathrm{id}_{1})\colon e \to \mathrm{id}_{1}$, the naturality square of the unit $\eta$ at $e$. As all hom-categories into $1$ are points, $\Pc_{\emptyset,P'} = \Pc_{\emptyset,\{e\}}$. A functor $F\colon \Delta^{1} \to \E$ sends the square to a right Beck--Chevalley square if and only if the counit $F(e)F(e)^{R} \Rightarrow \mathrm{id}$ is invertible, so $F$ extends to $\D\corefl{P'}$ if and only if $F(e)$ is an equivalence, and $\Phi\colon \D\corefl{P'} \simeq \mathrm{pt} \to \Pc_{\emptyset,P'}$ is an equivalence.
-\item Let $\D = \Cat$ and $P = \{\emptyset \to \mathrm{pt}\}$, so that, by \cref{thm:local-pullback}, $\Pc_{\emptyset,P}$ consists of the $\infty$-categories with an initial object and the functors preserving it; we will treat general $P = \{u\}$ in \cref{ex:local-cat}. Here $\iota$ has the left adjoint $L(d) = d^{\triangleleft}$: a functor $d^{\triangleleft} \to Q$ preserves the initial object if and only if it is left Kan extended from $d$, so $\Hom_{\Pc_{\emptyset,P}}(d^{\triangleleft},Q) \simeq \func(d,Q)$. The essential image of $L$ consists of the $Q$ whose initial object $0$ has $\mapp_{Q}(x,0) = \emptyset$ for $x \not\simeq 0$. The category $Q$ in which $0$ is a retract of $1$, with $i\colon 0 \to 1$, $r\colon 1 \to 0$ and $ri = \mathrm{id}_{0}$, has $0$ initial but is not in this image.
-Moreover $L$ is not a lax epimorphism (\cref{rmk:lax-epi}). A functor $Q \to d^{\triangleleft}$ preserving the initial object sends $0$ to the cone point, and hence also $1$, as $r\colon 1 \to 0$ and no other object maps to the cone point; so $\Hom_{\Pc_{\emptyset,P}}(Q,Ld) \simeq \mathrm{pt}$ for all $d$. But $\mathrm{id}_{Q}$ and the constant functor at $0$ are non-equivalent objects of $\Hom_{\Pc_{\emptyset,P}}(Q,Q)$, so they induce non-equivalent endomorphisms of $\Hom_{\Pc_{\emptyset,P}}(Q,-)$ in $\func(\Pc_{\emptyset,P},\Cat)$, which $L^{*}$ sends to endomorphisms of the terminal functor. So $L^{*}\colon \func(\Pc_{\emptyset,P},\Cat) \to \func(\Cat,\Cat)$ is not locally fully faithful. As every functor $\D \to \D\refl{I'}\corefl{P'}$ of \cref{subsec:2dloc-adjoining} is a lax epimorphism, $\Pc_{\emptyset,P}$ is not equivalent under $\D$ to any of them, whatever squares $I'$ and $P'$ contain.
+\item Let $\D = \Delta^{1}$ and $P = \{e\}$ for $e\colon 0 \to 1$.
+The hom-categories of $\D$ are spaces, and a functor of spaces with a fully
+faithful adjoint is an equivalence, so
+$\Pc_{\emptyset,\{e\}} = \{1\}$
+and $\iota$ has the left adjoint
+$L\colon \Delta^{1} \to \mathrm{pt}$.
+But
+$\D\corefl{e} \simeq \Corefl$
+(\cref{ex:adjoin-basic}), and
+$\Phi\colon \Corefl \to \mathrm{pt}$
+is not fully faithful:
+$\Hom_{\Corefl}(\gamma-,1)$
+takes the value
+$\Hom_{\Corefl}(1,1) \simeq \Delta^{1}$
+at $1$, so it is not representable on $\Delta^{1}$.
+Adding a square removes this. Let $P'$ be generated by $e$ and the square
+$(e,\mathrm{id}_{1})\colon e \to \mathrm{id}_{1}$,
+the naturality square of the unit $\eta$ at $e$.
+As all hom-categories into $1$ are points,
+$\Pc_{\emptyset,P'} = \Pc_{\emptyset,\{e\}}$.
+A functor
+$F\colon \Delta^{1} \to \E$
+sends the square to a right Beck--Chevalley square if and only if the counit
+$F(e)F(e)^{R} \Rightarrow \mathrm{id}$
+is invertible, so $F$ extends to $\D\corefl{P'}$ if and only if $F(e)$ is an
+equivalence, and
+$\Phi\colon \D\corefl{P'} \simeq \mathrm{pt} \to \Pc_{\emptyset,P'}$
+is an equivalence.
+\item Let $\D = \Cat$ and
+$P = \{\emptyset \to \mathrm{pt}\}$,
+so that, by \cref{thm:local-pullback}, $\Pc_{\emptyset,P}$ consists of the
+$\infty$-categories with an initial object and the functors preserving it;
+we will treat general $P = \{u\}$ in \cref{ex:local-cat}.
+Here $\iota$ has the left adjoint
+$L(d) = d^{\triangleleft}$:
+a functor
+$d^{\triangleleft} \to Q$
+preserves the initial object if and only if it is left Kan extended from $d$, so
+$\Hom_{\Pc_{\emptyset,P}}(d^{\triangleleft},Q) \simeq \func(d,Q)$.
+The essential image of $L$ consists of the $Q$ whose initial object $0$ has
+$\mapp_{Q}(x,0) = \emptyset$
+for $x \not\simeq 0$. The category $Q$ in which $0$ is a retract of $1$,
+with $i\colon 0 \to 1$, $r\colon 1 \to 0$ and $ri = \mathrm{id}_{0}$,
+has $0$ initial but is not in this image.
+Moreover $L$ is not a lax epimorphism (\cref{rmk:lax-epi}). A functor
+$Q \to d^{\triangleleft}$
+preserving the initial object sends $0$ to the cone point, and hence also $1$,
+as $r\colon 1 \to 0$ and no other object maps to the cone point; so
+$\Hom_{\Pc_{\emptyset,P}}(Q,Ld) \simeq \mathrm{pt}$
+for all $d$. But $\mathrm{id}_{Q}$ and the constant functor at $0$ are
+non-equivalent objects of
+$\Hom_{\Pc_{\emptyset,P}}(Q,Q)$,
+so they induce non-equivalent endomorphisms of
+$\Hom_{\Pc_{\emptyset,P}}(Q,-)$
+in
+$\func(\Pc_{\emptyset,P},\Cat)$,
+which $L^{*}$ sends to endomorphisms of the terminal functor. So
+$L^{*}\colon \func(\Pc_{\emptyset,P},\Cat) \to \func(\Cat,\Cat)$
+is not locally fully faithful. As every functor
+$\D \to \D\refl{I'}\corefl{P'}$
+of \cref{subsec:2dloc-adjoining} is a lax epimorphism,
+$\Pc_{\emptyset,P}$ is not equivalent under $\D$ to any of them,
+whatever squares $I'$ and $P'$ contain.
 \end{enumerate}
 \end{exmp}
 
 \gutentag{00AD}%
-A universal property of $\Pc_{I,P}$ for functors out of it therefore has to restrict the functors. We expect the following to be the right restriction.
+A universal property of $\Pc_{I,P}$ for functors out of it therefore has to
+restrict the functors. We expect the following to be the right restriction.
 
 \begin{conj}
 \label{conj:split-realizations}
 \gutentag{00AE}%
-Suppose $\iota$ has a left adjoint $L$, and let $K \subset \Pc_{I,P}$ be as in \cref{prop:local-vs-free}(3). Let $\E$ be an $(\infty,2)$-category with geometric realizations, i.e.\ colimits of simplicial objects that every $\Hom_{\E}(-,e)$ turns into limits. Then restriction along $K \subset \Pc_{I,P}$ is an equivalence from the full sub-$(\infty,2)$-category of $\func(\Pc_{I,P},\E)$ on the functors preserving geometric realizations of $\iota$-split simplicial objects onto $\func(K,\E)$.
+Suppose $\iota$ has a left adjoint $L$, and let $K \subset \Pc_{I,P}$ be as in
+\cref{prop:local-vs-free}(3). Let $\E$ be an $(\infty,2)$-category with
+geometric realizations, i.e.\ colimits of simplicial objects that every
+$\Hom_{\E}(-,e)$ turns into limits. Then restriction along $K \subset \Pc_{I,P}$
+is an equivalence from the full sub-$(\infty,2)$-category of
+$\func(\Pc_{I,P},\E)$ on the functors preserving geometric realizations of
+$\iota$-split simplicial objects onto $\func(K,\E)$.
 \todo{Unproved; the evidence is in \cref{rmk:split-realizations}.}
 \end{conj}
 
 \begin{rmk}
 \label{rmk:split-realizations}
 \gutentag{00AF}%
-For $Q \in \Pc_{I,P}$ let $\mathrm{Bar}_{\bullet}(Q) := (L\iota)^{\bullet+1}Q$ be the bar resolution, a simplicial object of $K$ augmented over $Q$ whose image under $\iota$ is split. For $Q = Ld$ it is split already in $K$, by the $1$-morphisms $L\eta_{T^{n}d}$, so every functor preserves its realization $Ld$. So a functor preserving $\iota$-split realizations is determined by its restriction to $K$, provided $Q \simeq |\mathrm{Bar}_{\bullet}(Q)|$ in $\Pc_{I,P}$, and the inverse of the restriction should send $G_{0}\colon K \to \E$ to $Q \mapsto |G_{0}\mathrm{Bar}_{\bullet}(Q)|$.
-\todo{Prove $Q \simeq |\mathrm{Bar}_{\bullet}(Q)|$ in $\Pc_{I,P}$ as an $(\infty,2)$-categorical colimit, and construct the inverse as a functor, e.g.\ as an enriched left Kan extension along $K \subset \Pc_{I,P}$, together with its effect on transformations.}
-In one dimension $T$ is idempotent, $K = \Pc$ and the statement is empty. If $\Phi$ is fully faithful, then $K \simeq \D\lrrefl{I}{P}$ by \cref{prop:local-vs-free}, and \cref{conj:split-realizations} says that $L$ is universal among the functors described in \cref{prop:adjoin-univ}, relative to functors out of $\Pc_{I,P}$ preserving $\iota$-split realizations. In general $\Phi$ is not fully faithful (\cref{ex:local-vs-pushout}(1)); for $I = \emptyset$ and lax idempotent $T$, \cref{conj:kleisli} will propose squares $\Sigma_{\eta}$ for which the functor $\D\corefl{\Sigma_{\eta}} \to K$ induced by $L$ is an equivalence.
+For $Q \in \Pc_{I,P}$ let
+$\mathrm{Bar}_{\bullet}(Q) := (L\iota)^{\bullet+1}Q$
+be the bar resolution, a simplicial object of $K$ augmented over $Q$ whose image
+under $\iota$ is split. For $Q = Ld$ it is split already in $K$,
+by the $1$-morphisms $L\eta_{T^{n}d}$, so every functor preserves its
+realization $Ld$. So a functor preserving $\iota$-split realizations is
+determined by its restriction to $K$, provided
+$Q \simeq |\mathrm{Bar}_{\bullet}(Q)|$
+in $\Pc_{I,P}$, and the inverse of the restriction should send $G_{0}\colon K
+\to \E$ to
+$Q \mapsto |G_{0}\mathrm{Bar}_{\bullet}(Q)|$.
+\todo{Prove
+$Q \simeq |\mathrm{Bar}_{\bullet}(Q)|$
+in $\Pc_{I,P}$ as an $(\infty,2)$-categorical colimit,
+and construct the inverse as a functor, e.g.\ as an enriched left Kan extension
+along $K \subset \Pc_{I,P}$, together with its effect on transformations.}
+In one dimension $T$ is idempotent, $K = \Pc$ and the statement is empty.
+If $\Phi$ is fully faithful, then
+$K \simeq \D\lrrefl{I}{P}$
+by \cref{prop:local-vs-free}, and \cref{conj:split-realizations} says that $L$
+is universal among the functors described in \cref{prop:adjoin-univ},
+relative to functors out of $\Pc_{I,P}$ preserving $\iota$-split realizations.
+In general $\Phi$ is not fully faithful (\cref{ex:local-vs-pushout}(1));
+for $I = \emptyset$ and lax idempotent $T$,
+\cref{conj:kleisli} will propose squares $\Sigma_{\eta}$ for which the functor
+$\D\corefl{\Sigma_{\eta}} \to K$
+induced by $L$ is an equivalence.
 \end{rmk}
 
 \gutentag{00B0}%
-In the presentable case, \cref{thm:2dloc-local} will identify $\Pc_{I,P}$ with the pushout in presentable $(\infty,2)$-categories instead.
+In the presentable case, \cref{thm:2dloc-local} will identify $\Pc_{I,P}$ with
+the pushout in presentable $(\infty,2)$-categories instead.
 
 \gutentag{0048}%
-Making $I$ reflective and $P$ coreflective commutes, also on the level of local objects, as soon as the relevant left adjoint exists.
+Making $I$ reflective and $P$ coreflective commutes,
+also on the level of local objects, as soon as the relevant left adjoint exists.
 
 \begin{prop}
 \label{prop:2dloc-commute}
 \gutentag{0049}%
-Suppose $\iota_{I}\colon \Pc_{I,\emptyset} \to \D$ has a left adjoint $L_{I}$, with extension $\Phi_{I}\colon \D\refl{I} \to \Pc_{I,\emptyset}$. For every locally full $P' \subset \func(\Delta^{1},\D\refl{I})$, $\iota_{I}$ restricts to an equivalence from $\Pc_{\emptyset,\Phi_{I}(P')}(\Pc_{I,\emptyset})$ onto $\Pc_{I,P'}$, where $\Phi_{I}(P')$ is generated by the image of $P'$. In particular $\Pc_{\emptyset,L_{I}(P)}(\Pc_{I,\emptyset}) \simeq \Pc_{I,P}$ for $P \subset \func(\Delta^{1},\D)$. Dually, if $\iota_{P}\colon \Pc_{\emptyset,P} \to \D$ has a left adjoint $L_{P}$, then $\iota_{P}$ restricts to an equivalence from $\Pc_{L_{P}(I),\emptyset}(\Pc_{\emptyset,P})$ onto $\Pc_{I,P}$, and likewise for $I' \subset \func(\Delta^{1},\D\corefl{P})$.
+Suppose
+$\iota_{I}\colon \Pc_{I,\emptyset} \to \D$
+has a left adjoint $L_{I}$, with extension
+$\Phi_{I}\colon \D\refl{I} \to \Pc_{I,\emptyset}$.
+For every locally full
+$P' \subset \func(\Delta^{1},\D\refl{I})$,
+$\iota_{I}$ restricts to an equivalence from
+$\Pc_{\emptyset,\Phi_{I}(P')}(\Pc_{I,\emptyset})$
+onto $\Pc_{I,P'}$, where $\Phi_{I}(P')$ is generated by the image of $P'$.
+In particular
+$\Pc_{\emptyset,L_{I}(P)}(\Pc_{I,\emptyset}) \simeq \Pc_{I,P}$
+for
+$P \subset \func(\Delta^{1},\D)$.
+Dually, if
+$\iota_{P}\colon \Pc_{\emptyset,P} \to \D$
+has a left adjoint $L_{P}$, then $\iota_{P}$ restricts to an equivalence from
+$\Pc_{L_{P}(I),\emptyset}(\Pc_{\emptyset,P})$
+onto $\Pc_{I,P}$, and likewise for
+$I' \subset \func(\Delta^{1},\D\corefl{P})$.
 \end{prop}
 
 \begin{proof}
 \gutentag{004A}%
-By \cref{prop:local-vs-free}(1) for $(I,\emptyset)$, the extension of $\Hom_{\D}(-,\iota_{I}q)$ to $\D\refl{I}$ is $\Hom_{\Pc_{I,\emptyset}}(\Phi_{I}-,q)$, naturally in $q \in \Pc_{I,\emptyset}$. As restriction along $\D \to \D\refl{I}$ is a monomorphism, $\iota_{I}q$ is $(I,P')$-local if and only if $\Hom_{\Pc_{I,\emptyset}}(\Phi_{I}-,q)$ extends along $\D\refl{I} \to \D\refl{I}\corefl{P'}$. By the presheaf form of \cref{thm:local-pullback} (the paragraph after it), this says that $\Hom_{\Pc_{I,\emptyset}}(-,q)$ satisfies \cref{thm:local-pullback}(1) at the objects and $1$-morphisms of $\Phi_{I}(P')$, i.e.\ that $q$ is $(\emptyset,\Phi_{I}(P'))$-local in $\Pc_{I,\emptyset}$; likewise for $1$-morphisms, with \cref{thm:local-pullback}(2). For $P' = \gamma_{I}(P)$ we have $\Phi_{I}(P') = L_{I}(P)$, as $\Phi_{I}\gamma_{I} \simeq L_{I}$. The other case is dual.
+By \cref{prop:local-vs-free}(1) for $(I,\emptyset)$, the extension of
+$\Hom_{\D}(-,\iota_{I}q)$
+to $\D\refl{I}$ is
+$\Hom_{\Pc_{I,\emptyset}}(\Phi_{I}-,q)$,
+naturally in
+$q \in \Pc_{I,\emptyset}$.
+As restriction along $\D \to \D\refl{I}$ is a monomorphism,
+$\iota_{I}q$ is $(I,P')$-local if and only if
+$\Hom_{\Pc_{I,\emptyset}}(\Phi_{I}-,q)$
+extends along
+$\D\refl{I} \to \D\refl{I}\corefl{P'}$.
+By the presheaf form of \cref{thm:local-pullback} (the paragraph after it),
+this says that
+$\Hom_{\Pc_{I,\emptyset}}(-,q)$
+satisfies \cref{thm:local-pullback}(1) at the objects and $1$-morphisms of
+$\Phi_{I}(P')$, i.e.\ that $q$ is
+$(\emptyset,\Phi_{I}(P'))$-local
+in $\Pc_{I,\emptyset}$; likewise for $1$-morphisms,
+with \cref{thm:local-pullback}(2). For $P' = \gamma_{I}(P)$ we have
+$\Phi_{I}(P') = L_{I}(P)$,
+as
+$\Phi_{I}\gamma_{I} \simeq L_{I}$.
+The other case is dual.
 \end{proof}
 
 \begin{exmp}
 \label{ex:local-cat}
 \gutentag{004B}%
-Let $\D = \Cat$ and $P = \{u\}$ for $u\colon X \to Y$. Then $\Pc_{\emptyset,\{u\}}$ is the locally full sub-$(\infty,2)$-category of $\Cat$ on the $\C$ for which $u^{\natural}\colon \func(Y,\C) \to \func(X,\C)$ has a fully faithful left adjoint $(u^{\natural})^{L}$, and the $F\colon \C \to \C'$ for which the commutative square
-\[
+Let $\D = \Cat$ and $P = \{u\}$ for $u\colon X \to Y$. Then
+$\Pc_{\emptyset,\{u\}}$
+is the locally full sub-$(\infty,2)$-category of $\Cat$ on the $\C$ for which
+$u^{\natural}\colon \func(Y,\C) \to \func(X,\C)$
+has a fully faithful left adjoint $(u^{\natural})^{L}$,
+and the $F\colon \C \to \C'$ for which the commutative square
+\begin{equation*}
 \begin{tikzcd}
-\func(Y,\C) \ar[r, "u^{\natural}"] \ar[d, "F_{\natural}"'] & \func(X,\C) \ar[d, "F_{\natural}"] \ar[dl, Rightarrow, shorten=3mm, "="'] \\
+\func(Y,\C) \ar[r, "u^{\natural}"] \ar[d, "F_{\natural}"'] & \func(X,\C) \ar[d,
+"F_{\natural}"] \ar[dl, Rightarrow, shorten=3mm, "="'] \\
 \func(Y,\C') \ar[r, "u^{\natural}"'] & \func(X,\C')
 \end{tikzcd}
-\]
-is left Beck--Chevalley, i.e.\ $(u^{\natural})^{L}F_{\natural} \Rightarrow F_{\natural}(u^{\natural})^{L}$ is invertible.
-If $u$ is fully faithful, a pointwise left Kan extension along $u$ is fully faithful, so every $\C$ with colimits indexed by the comma $\infty$-categories $X \times_{Y} Y_{/y}$ lies in $\Pc_{\emptyset,\{u\}}$. But $(u^{\natural})^{L}$ need not be pointwise: for $u\colon \{1\} \to \Delta^{1}$, a space $\C$ with two points lies in $\Pc_{\emptyset,\{u\}}$, as $u^{\natural}$ is an equivalence, but pointwise left Kan extension along $u$ would require an initial object.
-Dually, $\Pc_{\{u\},\emptyset}$ consists of the $\C$ for which $u^{\natural}$ has a fully faithful right adjoint $(u^{\natural})^{R}$, and the $F$ with $F_{\natural}(u^{\natural})^{R} \Rightarrow (u^{\natural})^{R}F_{\natural}$ invertible.
-\Cref{thm:2dloc-local} will identify these with $\Cat\corefl{u}$ and $\Cat\refl{u}$.
+\end{equation*}
+is left Beck--Chevalley, i.e.\
+$(u^{\natural})^{L}F_{\natural} \Rightarrow F_{\natural}(u^{\natural})^{L}$
+is invertible.
+If $u$ is fully faithful, a pointwise left Kan extension along $u$ is fully
+faithful, so every $\C$ with colimits indexed by the comma $\infty$-categories
+$X \times_{Y} Y_{/y}$ lies in
+$\Pc_{\emptyset,\{u\}}$.
+But $(u^{\natural})^{L}$ need not be pointwise: for
+$u\colon \{1\} \to \Delta^{1}$,
+a space $\C$ with two points lies in
+$\Pc_{\emptyset,\{u\}}$,
+as $u^{\natural}$ is an equivalence, but pointwise left Kan extension along $u$
+would require an initial object.
+Dually,
+$\Pc_{\{u\},\emptyset}$
+consists of the $\C$ for which $u^{\natural}$ has a fully faithful right adjoint
+$(u^{\natural})^{R}$, and the $F$ with
+$F_{\natural}(u^{\natural})^{R} \Rightarrow (u^{\natural})^{R}F_{\natural}$
+invertible.
+\Cref{thm:2dloc-local} will identify these with $\Cat\corefl{u}$ and
+$\Cat\refl{u}$.
 \end{exmp}
