@@ -48,10 +48,12 @@ $\func((\D\lrqrefl{I}{P}{Q})\opcat,\Cat)$
 on the presheaves whose restriction along $\gamma$ is representable,
 while $\D\lrqrefl{I}{P}{Q}$ is the one on the representable presheaves;
 we will compare the two in \cref{prop:local-vs-free}.
-Thus the $(I,P,Q)$-local objects are those whose representable presheaves live on
+Thus the $(I,P,Q)$-local objects are those whose representable presheaves live
+on
 the two-dimensional localization, exactly as the $S$-local objects of
 \cref{subsec:2dloc-bousfield} are those whose representable presheaves live on
-$\C[S^{-1}]$. This is a universal property of $\Pc_{I,P,Q}$ for functors into it:
+$\C[S^{-1}]$. This is a universal property of $\Pc_{I,P,Q}$ for functors into
+it:
 a functor $\C \to \Pc_{I,P,Q}$ is a functor $G\colon \C \to \D$ for which
 $\Hom_{\D}(-,G-)$ extends along
 $\gamma\opcat \times \C$.
@@ -165,7 +167,8 @@ Beck--Chevalley, i.e.\ its double Beck--Chevalley map
 \end{equation*}
 is invertible.
 \item A $1$-morphism $f\colon d \to d'$ between $(I,P,Q)$-local objects is
-$(I,P,Q)$-local if and only if for every object $i\colon x \to y$ of $I$ and every
+$(I,P,Q)$-local if and only if for every object $i\colon x \to y$ of $I$ and
+every
 object $p\colon x \to y$ of $P$ the lax squares
 \begin{equation*}
 \begin{tikzcd}[column sep=large]
@@ -260,7 +263,9 @@ By \cite[Cor.~2.6.6]{abellangagnahaugseng2024straightening},
 $d$ lies in the image if and only if $R_{I}(d)$ sends the objects and
 $1$-morphisms of $I\opcat$ into the image of $\ell^{*}$ and $R_{P}(d)$ those of
 $P\opcat$ into the image of $\rho^{*}$, and every $R_{Q}(d)(\sigma)$ lies in
-the image of $(\rho \times \ell)^{*}$; and $f$ does if and only if $R_{I}(f)$,
+the image of
+$(\rho \times \ell)^{*}$;
+and $f$ does if and only if $R_{I}(f)$,
 $R_{P}(f)$ and the $R_{Q}(f)(\sigma)$, as functors out of
 $\Delta^{1} \times I\opcat$,
 $\Delta^{1} \times P\opcat$
@@ -301,7 +306,9 @@ Given the previous conditions, its edges are right adjoints of coreflections,
 resp.\ left adjoints of reflections, and it is right, hence left,
 Beck--Chevalley (\cref{lem:mates-conjugate}).
 So by \cref{lem:biadjointable}(2) for $X = \Corefl$ and $X' = \Refl$,
-it lies in the image of $(\rho \times \ell)^{*}$ if and only if the right mate
+it lies in the image of
+$(\rho \times \ell)^{*}$
+if and only if the right mate
 of its mirror, the displayed double Beck--Chevalley map, is invertible.
 This is (1).
 Let $f\colon d \to d'$ with $d$, $d'$ local.
@@ -409,7 +416,9 @@ condition of \cref{thm:local-pullback}(1) at $\sigma$. By the first part,
 the other conditions defining
 $\Pc_{\emptyset,\{\sigma\}}$
 hold for all objects and $1$-morphisms. The reflective cases are dual.
-For the last claim, $\Pc_{I_{\sigma},P_{\sigma}} = \D$ by what we have shown,
+For the last claim,
+$\Pc_{I_{\sigma},P_{\sigma}} = \D$
+by what we have shown,
 and $Q = \{\sigma\}$ imposes no condition on $1$-morphisms
 (\cref{thm:local-pullback}(2)). The double Beck--Chevalley map $\delta$ of
 $\sigma$ is obtained from $\sigma$ by pasting with the units and counits of the
@@ -552,7 +561,8 @@ $\Pc_{I,P,Q} \to \func(\D\opcat,\Cat)$.
 As $\gamma^{*}$ is a monomorphism, so is postcomposition with it,
 and the two agree. So, naturally in $q \in \Pc_{I,P,Q}$,
 \begin{equation*}
-\Hom\bigl(y'(x),Nq\bigr) \simeq (Nq)(x) \simeq \Hom_{\Pc_{I,P,Q}}(\Phi x,q) \simeq
+\Hom\bigl(y'(x),Nq\bigr) \simeq (Nq)(x) \simeq \Hom_{\Pc_{I,P,Q}}(\Phi x,q)
+\simeq
 \Hom\bigl(N\Phi(x),Nq\bigr)
 \end{equation*}
 by the Yoneda lemma and as $N$ is fully faithful,
@@ -669,12 +679,16 @@ restrict the functors. We expect the following to be the right restriction.
 \begin{conj}
 \label{conj:split-realizations}
 \gutentag{00AE}%
-Suppose $\iota$ has a left adjoint $L$, and let $K \subset \Pc_{I,P,Q}$ be as in
+Suppose $\iota$ has a left adjoint $L$, and let
+$K \subset \Pc_{I,P,Q}$
+be as in
 \cref{prop:local-vs-free}(3). Let $\E$ be an $(\infty,2)$-category with
 geometric realizations, i.e.\ colimits of simplicial objects that every
-$\Hom_{\E}(-,e)$ turns into limits. Then restriction along $K \subset \Pc_{I,P,Q}$
+$\Hom_{\E}(-,e)$ turns into limits. Then restriction along
+$K \subset \Pc_{I,P,Q}$
 is an equivalence from the full sub-$(\infty,2)$-category of
-$\func(\Pc_{I,P,Q},\E)$ on the functors preserving geometric realizations of
+$\func(\Pc_{I,P,Q},\E)$
+on the functors preserving geometric realizations of
 $\iota$-split simplicial objects onto $\func(K,\E)$.
 \todo{Unproved; the evidence is in \cref{rmk:split-realizations}.}
 \end{conj}
@@ -697,7 +711,9 @@ $Z \mapsto |G_{0}\mathrm{Bar}_{\bullet}(Z)|$.
 $Z \simeq |\mathrm{Bar}_{\bullet}(Z)|$
 in $\Pc_{I,P,Q}$ as an $(\infty,2)$-categorical colimit,
 and construct the inverse as a functor, e.g.\ as an enriched left Kan extension
-along $K \subset \Pc_{I,P,Q}$, together with its effect on transformations.}
+along
+$K \subset \Pc_{I,P,Q}$,
+together with its effect on transformations.}
 In one dimension $T$ is idempotent, $K = \Pc$ and the statement is empty.
 If $\Phi$ is fully faithful, then
 $K \simeq \D\lrqrefl{I}{P}{Q}$
@@ -770,7 +786,10 @@ $\Phi_{I}\gamma_{I} \simeq L_{I}$.
 The other case is dual.
 \end{proof}
 
-As $\Pc_{I,P,Q} = \Pc_{I,P'}$ for $P'$ generated by $\gamma_{I}(P)$ and the
+\gutentag{00B7}%
+As
+$\Pc_{I,P,Q} = \Pc_{I,P'}$
+for $P'$ generated by $\gamma_{I}(P)$ and the
 mirrors of the $\gamma_{I}(\sigma)$, $\sigma \in Q$,
 \cref{prop:2dloc-commute} also applies to $\Pc_{I,P,Q}$.
 
