@@ -2,3 +2,4 @@ build
 target
 .container
 *.latexmain
+__pycache__/

@@ -15,8 +15,8 @@ broken is left as it is, with a warning.
 
 Coexistence with tools/gutentag.py, which reads the sources line by line:
 equation* is one of its INLINE environments, so pass 1 creates no units; lines
-that it reads as one piece (headings, \begin lines with their arguments, lines
-holding a single command) are never broken; and no break starts a line with a
+that it reads as one piece (headings and \begin lines with their arguments)
+are never broken; and no break starts a line with a
 heading or a \begin of a tagged environment. So formatting never changes the
 tagged units. CI runs --write before gutentag.py --write on main
 (.github/workflows/gutentag.yml).
@@ -31,7 +31,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from gutentag import BEGIN, HEADING, INLINE, is_command  # noqa: E402
+from gutentag import BEGIN, HEADING, INLINE  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCES = 'sections'
@@ -68,8 +68,7 @@ def safe_start(s):
 
 def frozen(line):
     """Lines gutentag.py reads as one piece."""
-    return bool(HEADING.match(line) or BEGIN.match(line)) or (
-        line.strip() and is_command(line) and not line.lstrip().startswith('%'))
+    return bool(HEADING.match(line) or BEGIN.match(line))
 
 
 # Pass 1 ---------------------------------------------------------------------

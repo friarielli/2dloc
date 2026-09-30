@@ -5,7 +5,8 @@ The tagged units are top-level environments and top-level paragraphs.
 Headings (\section to \subsubsection) are not tagged, since LaTeX would place
 their tags on the next line. Displayed math and diagrams (INLINE) belong to
 the surrounding paragraph; lines holding a comment or a single command
-(\label, \input, \todo, ...) belong to no unit. A unit's tag is a line
+(\label, \input, \todo, ...), possibly spanning lines while an argument
+is open, belong to no unit. A unit's tag is a line
 \gutentag{XXXX}% with four uppercase hex digits, placed
   - inside an environment, after the \begin line and its \label lines,
   - before the first line of a paragraph.
@@ -89,6 +90,23 @@ def is_command(line):
     return True
 
 
+def command_end(lines, i):
+    """The last line of the single command (with arguments) starting at line i,
+    which may span lines while a group is open, or None."""
+    text, depth = '', 0
+    for j in range(i, min(len(lines), i + 50)):
+        if j > i and not lines[j].strip():
+            return None
+        code = COMMENT.sub('', lines[j])
+        text += code + '\n'
+        depth += len(re.findall(r'(?<!\\)[{\[]', code)) - len(re.findall(r'(?<!\\)[}\]]', code))
+        if is_command(text):
+            return j
+        if depth <= 0:
+            return None
+    return None
+
+
 def parse(rel, lines, errors):
     """The units of a file as (tag or None, slot for a new tag line), and the
     indices of the tag lines they claim."""
@@ -135,7 +153,10 @@ def parse(rel, lines, errors):
                 units.append((claim(k) or claim(i - 1), k))
             i = j + 1
             continue
-        elif not para and not is_command(line):
+        elif (j := command_end(lines, i)) is not None:
+            i = j + 1
+            continue
+        elif not para:
             para = True
             units.append((claim(i - 1), i))
         if depth_change(line) < 0:
