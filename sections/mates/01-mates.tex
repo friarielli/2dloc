@@ -213,3 +213,190 @@ $h$ by their left adjoints and its right mate replaces $f$,
 $k$ by their right adjoints; by our convention these are mates of
 $\alpha^{\mathrm{T}}$, not of $\alpha$.
 \end{rmk}
+
+We now recognize module maps over a lax idempotent monad $T$ on $\D$
+(\cref{subsec:prelim-monads}) by mates, and prove \cref{thm:kz-modules}.
+The \emph{unit square} of a $1$-morphism $f\colon x \to y$ of $\D$ is the lax
+square
+\begin{equation*}
+\begin{tikzcd}
+x \ar[r, "\eta_{x}"] \ar[d, "f"'] & Tx \ar[d, "Tf"] \ar[dl, Rightarrow,
+shorten=3mm, "\alpha_{f}"'] \\
+y \ar[r, "\eta_{y}"'] & Ty
+\end{tikzcd}
+\end{equation*}
+whose $2$-morphism
+$\alpha_{f}\colon Tf \circ \eta_{x} \simeq \eta_{y} \circ f$
+is the naturality equivalence of $\eta$. If $\eta_{x}$ and $\eta_{y}$ are
+reflective, with left adjoints $a$ and $b$, its left mate is a $2$-morphism
+$\lmate{\alpha_{f}}\colon b \circ Tf \Rightarrow f \circ a$.
+Let
+$\D_{T} \subset \D$
+be the locally full sub-$(\infty,2)$-category whose objects are the $x$ with
+$\eta_{x}$ reflective, and whose $1$-morphisms are the $f$ with left
+Beck--Chevalley unit square (\cref{def:BC}).
+These classes are closed under equivalence and composition and contain the
+identities by \cref{lem:mate-correspondence}(3), as the unit square of a
+composite is the pasting of those of the factors.
+
+\begin{thm}[recognition of module maps]
+\label{thm:kz-module-maps}
+Let $T$ be a lax idempotent monad on $\D$, and let $(x,a)$ and $(y,b)$ be
+$T$-modules. A $1$-morphism $f\colon x \to y$ lifts to a module map $(x,a) \to
+(y,b)$ if and only if its unit square is left Beck--Chevalley, and the space of
+such lifts is then contractible, with structure equivalence
+$\lmate{\alpha_{f}}\colon b \circ Tf \simeq f \circ a$.
+More precisely, $U$ factors through an equivalence
+$\modcat{T}{\D} \simeq \iota_{1}\D_{T}$.
+Dually, for $T$ colax idempotent, $f$ lifts if and only if the transpose of its
+unit square is right Beck--Chevalley.
+\end{thm}
+
+\begin{proof}[Proof of \cref{thm:kz-modules,thm:kz-module-maps}]
+The colax case is the lax case for $\D^{\mathrm{co}}$
+(\cref{lem:kz-basic}(2)): $(-)^{\mathrm{co}}$ exchanges left and right
+adjoints, and a lax square in $\D^{\mathrm{co}}$ is the transpose of a lax
+square in $\D$, whose left mate in $\D^{\mathrm{co}}$ is its right mate in $\D$.
+So let $T$ be lax idempotent, and let
+$j\colon \iota_{1}\D_{T} \to \iota_{1}\D$
+be the inclusion, a monomorphism of $\infty$-categories.
+It suffices to show that $U \simeq j\Phi$ for an equivalence $\Phi$:
+then the fibres of $U^{\simeq}$ are those of $j^{\simeq}$, contractible over
+the objects of $\D_{T}$ and empty elsewhere, and the fibre of
+$\mapp((x,a),(y,b)) \to \mapp(x,y)$
+over $f$ is contractible if $f$ is in $\D_{T}$ and empty otherwise; the action
+and the structure equivalence are identified by \cref{prop:kz-action} and
+Step 1.
+
+\emph{Step 1: $U$ factors through $j$.} For a module $(x,a)$, $\eta_{x}$ is
+reflective with left adjoint $a$ (\cref{prop:kz-action}).
+A module map over $f$ induces a pseudo-morphism in $\htwo\D$, whose structure
+$2$-morphism
+$b \circ Tf \simeq f \circ a$
+is $\lmate{\alpha_{f}}$ \cite[Lemma~10.6]{marmolejo1997doctrines}
+(\cite[Cor.~6.3]{kellylack1997propertylike} for $2$-monads); so $f$ is in
+$\D_{T}$. As $j$ is a monomorphism, $U = j\Phi$ for a unique $\Phi$.
+
+\emph{Step 2: $j$ has the left adjoint $T$, with unit $\eta$.}
+By Step 1 for the free modules $(Tz,\mu_{z})$ and the free maps $Tg$,
+$T\colon \iota_{1}\D \to \iota_{1}\D$
+factors through $j$. Let $y$ be in $\D_{T}$, with
+$b \dashv \eta_{y}$.
+Then $b\colon Ty \to y$ is in $\D_{T}$
+\cite[Prop.~5.5]{marmolejo1997doctrines}, and for $z \in \D$ restriction along
+$\eta_{z}$,
+$\mapp_{\D_{T}}(Tz,y) \to \mapp_{\D}(z,y)$,
+has the inverse
+$g \mapsto b \circ Tg$:
+naturally in $g$ and in
+$h \in \mapp_{\D_{T}}(Tz,y)$,
+\begin{equation*}
+b\,Tg\,\eta_{z} \simeq b\,\eta_{y}\,g \simeq g \ , \qquad b\,T(h\eta_{z})
+\simeq h\,\mu_{z}\,T\eta_{z} \simeq h \ ,
+\end{equation*}
+by the counit of
+$b \dashv \eta_{y}$,
+the invertible left mate
+$\lmate{\alpha_{h}}\colon b\,Th \Rightarrow h\,\mu_{z}$
+(with $\mu_{z} \dashv \eta_{Tz}$, \cref{lem:kz-basic}(1)) and the unit law.
+So $T \dashv j$ with unit $\eta$ \cite[Prop.~5.2.2.8]{htt}; the counit at $y$
+is $b$, and the triangle identity
+$b\eta_{y} \simeq \mathrm{id}_{y}$
+is the counit of
+$b \dashv \eta_{y}$.
+
+\emph{Step 3: $j$-split simplicial objects.} Let $V$ be a simplicial object of
+$\iota_{1}\D_{T}$ such that $jV$ is split, with colimit $x$, colimit cocone
+$v_{n}\colon V_{n} \to x$
+and
+$s\colon x \to V_{0}$
+with
+$v_{0}s \simeq \mathrm{id}_{x}$
+from the splitting. Every functor preserves this colimit
+\cite[Rem.~4.7.2.4]{ha}, so $Tx$ is the colimit of $TV$, and the colimit of
+$\eta_{V}\colon V \Rightarrow TV$
+is $\eta_{x}$. By Step 2, applying $j$ to the counit of $T \dashv j$ gives a
+natural transformation
+$a_{\bullet}\colon TV \Rightarrow V$
+of simplicial objects of $\iota_{1}\D$, with $a_{n}$ left adjoint to
+$\eta_{V_{n}}$, and the counits $c_{n}$ of these adjunctions identify
+$a_{\bullet}\eta_{V}$ with $\mathrm{id}_{V}$. Taking colimits gives
+$a\colon Tx \to x$
+with
+$\psi\colon a\,Tv_{0} \simeq v_{0}\,a_{0}$
+and
+$c\colon a\eta_{x} \simeq \mathrm{id}_{x}$,
+such that $cv_{0}$ is the composite
+\begin{equation}
+\label{eq:kz-colimit-counit}
+a\,\eta_{x}\,v_{0} \overset{\alpha_{v_{0}}}{\simeq} a\,Tv_{0}\,\eta_{V_{0}}
+\overset{\psi}{\simeq} v_{0}\,a_{0}\,\eta_{V_{0}} \overset{c_{0}}{\simeq} v_{0}
+\ .
+\end{equation}
+\begin{enumerate}
+\item[(i)] $a \dashv \eta_{x}$ with counit $c$ and unit
+\begin{equation*}
+\mathrm{id}_{Tx} \simeq Tv_{0}\,Ts \xRightarrow{\ Tv_{0}\,\theta_{0}\,Ts\ }
+Tv_{0}\,\eta_{V_{0}}\,a_{0}\,Ts \overset{\alpha_{v_{0}}}{\simeq}
+\eta_{x}\,v_{0}\,a_{0}\,Ts \overset{\psi}{\simeq} \eta_{x}\,a\,Tv_{0}\,Ts \simeq
+\eta_{x}\,a \ ,
+\end{equation*}
+where $\theta_{0}$ is the unit of
+$a_{0} \dashv \eta_{V_{0}}$:
+by \eqref{eq:kz-colimit-counit} and interchange in $\htwo\D$,
+the triangle identities reduce to those of
+$a_{0} \dashv \eta_{V_{0}}$.
+So $x$ is in $\D_{T}$.
+\item[(ii)] The left mate of the unit square of $v_{0}$ is
+\begin{equation*}
+a\,Tv_{0} \xRightarrow{\ a\,Tv_{0}\,\theta_{0}\ }
+a\,Tv_{0}\,\eta_{V_{0}}\,a_{0} \overset{\alpha_{v_{0}}}{\simeq}
+a\,\eta_{x}\,v_{0}\,a_{0} \xRightarrow{\ c\,v_{0}\,a_{0}\ } v_{0}\,a_{0} \ ,
+\end{equation*}
+which is $\psi$ by \eqref{eq:kz-colimit-counit}, interchange and a triangle
+identity. So $v_{0}$, and with it every $v_{n}$, is in $\D_{T}$.
+\item[(iii)] Let
+$g\colon x \to y$
+with $y$ and $gv_{0}$ in $\D_{T}$. By \cref{lem:mate-correspondence}(3),
+$\lmate{\alpha_{gv_{0}}}$
+is the pasting of
+$g\,\lmate{\alpha_{v_{0}}}$
+and
+$\lmate{\alpha_{g}}\,Tv_{0}$,
+so
+$\lmate{\alpha_{g}}\,Tv_{0}$
+is invertible by (ii), and hence so is
+$\lmate{\alpha_{g}} \simeq \lmate{\alpha_{g}}\,Tv_{0}\,Ts$.
+So $g$ is in $\D_{T}$.
+\end{enumerate}
+As the mapping spaces of $\D_{T}$ are unions of components of those of $\D$,
+(i)--(iii) show that $x$, with the cocone $v$, is a colimit of $V$ in
+$\iota_{1}\D_{T}$, and $j$ preserves it.
+
+\emph{Step 4: conclusion.} We apply \cite[Cor.~4.7.3.16]{ha} to $\Phi$ over
+$\iota_{1}\D$. Its hypotheses hold: $U$ and $j$ have the left adjoints $F$ and
+$T$ (Step 2); $U$-split simplicial objects have colimits preserved by $U$
+(\cref{subsec:prelim-monads}), and $j$-split ones colimits preserved by $j$
+(Step 3); $j$ is conservative, as for $f$ in $\D_{T}$ invertible in $\D$, the
+left mates of the unit squares of $f$ and $f^{-1}$ paste to an identity
+(\cref{lem:mate-correspondence}(3)), so
+$\lmate{\alpha_{f^{-1}}}$
+is invertible; and for $z \in \D$ the map
+$Tz \to \Phi F(z) = Tz$
+induced by $\eta_{z}$ is the identity. So $\Phi$ has a fully faithful left
+adjoint, and $\Phi$ is an equivalence as $U$ is conservative.
+\end{proof}
+
+\begin{rmk}
+\label{rmk:kz-literature}
+By \cref{thm:kz-module-maps}, $\D_{T}$ refines $\modcat{T}{\D}$ to an
+$(\infty,2)$-category, whose $2$-morphisms are all $2$-morphisms of $\D$ between
+module maps; for $2$-monads, these are all compatible with the actions
+\cite[Prop.~6.4]{kellylack1997propertylike}.
+For $2$-categories, \cref{thm:kz-modules,thm:kz-module-maps} are due to Kock
+\cite{kock1995monads} and Marmolejo \cite[Thm.~10.7]{marmolejo1997doctrines},
+see also \cite[Thm.~6.2, Cor.~6.3]{kellylack1997propertylike}. We know of no
+reference for $(\infty,2)$-categories; a homotopy coherent theory of lax
+idempotent monads is announced by Abell\'an and Blom
+\cite[Introduction]{abellan2026bifibrations}.
+\end{rmk}

@@ -145,10 +145,10 @@ $\D\lrrefl{I}{P} \simeq \Pc_{I,P}$,
 and
 $\iota\colon \Pc_{I,P} \to \D$
 has the left adjoint $L$ in the sense of \cref{def:enriched-adjoint}.
-\item $T := \iota L$ is a $\Cat$-enriched monad on $\D$ and $\iota$ is monadic,
-so
-$\Pc_{I,P} \simeq \Alg_{T}(\D)$.
-The space of $T$-algebra structures on $d \in \D$ is empty or contractible,
+\item $T := \iota L$ is a monad on $\D$ (\cref{def:monad}) and $\iota$ is
+monadic, so
+$\Pc_{I,P} \simeq \modcat{T}{\D}$.
+The space of $T$-module structures on $d \in \D$ is empty or contractible,
 and non-empty if and only if $d$ is $(I,P)$-local.
 \end{enumerate}
 \end{thm}
@@ -249,14 +249,15 @@ $L \dashv \iota$ is an adjunction in the $(\infty,2)$-category $\twoCat$ of
 large $(\infty,2)$-categories, with enriched unit and counit,
 as required in \cref{def:enriched-adjoint}.
 
-(2) Hence $T = \iota L$ is enriched, with enriched $\eta$ and
-$\mu = \iota\varepsilon L$
-satisfying the monad identities in the homotopy $2$-category.
-On underlying $\infty$-categories $T$ is the monad of $L \dashv \iota$,
-an associative algebra in
-$\func(\iota_{1}\D,\iota_{1}\D)$
-\cite[\S 4.7.3]{ha}; monads in an $(\infty,2)$-category are compared with such
-algebras in \cite{haugseng2021laxmonads}.
+(2) Restricting the adjunction $L \dashv \iota$ in $\twoCat$ to the walking
+monad \cite[Not.~5.1]{haugseng2021laxmonads} makes $T = \iota L$ an associative
+algebra in
+$\iota_{1}\func(\D,\D)$
+\cite[Cor.~8.9]{haugseng2021laxmonads}, i.e.\ a monad on $\D$
+(\cref{def:monad}), with unit $\eta$ and multiplication
+$\mu = \iota\varepsilon L$.
+On underlying $\infty$-categories it is the monad of $L \dashv \iota$
+\cite[\S 4.7.3]{ha}, see \cite[\S 8]{haugseng2021laxmonads}.
 We check the hypotheses of Barr--Beck--Lurie \cite[4.7.3.5]{ha} for $\iota$ on
 underlying $\infty$-categories.
 $\iota$ is conservative: if $f$ is $(I,P)$-local and invertible in $\D$,
@@ -276,8 +277,9 @@ colimits being pointwise. So
 $(|\iota q_{\bullet}|,|F_{\bullet}|)$
 is a colimit of $q_{\bullet}$ preserved by $\iota$.
 Thus $\iota$ is monadic,
-$\Pc_{I,P} \simeq \Alg_{T}(\D)$
-over $\D$, and as $\iota$ is a monomorphism the fibres of $\Alg_{T}(\D) \to \D$
+$\Pc_{I,P} \simeq \modcat{T}{\D}$
+over $\D$, and as $\iota$ is a monomorphism the fibres of
+$\modcat{T}{\D} \to \iota_{1}\D$
 are empty or contractible, non-empty exactly over the $(I,P)$-local objects.
 \end{proof}
 
@@ -393,12 +395,12 @@ which is restriction along $\gamma\opcat$.
 \begin{rmk}
 \label{rmk:eilenberg-moore-enriched}
 \gutentag{008E}%
-\Cref{thm:2dloc-local}(2) identifies $\Pc_{I,P}$ with $\Alg_{T}(\D)$ as
+\Cref{thm:2dloc-local}(2) identifies $\Pc_{I,P}$ with $\modcat{T}{\D}$ as
 $\infty$-categories. On $2$-morphisms: if
 $f,g\colon \iota q \to \iota q'$
 are $(I,P)$-local, every
 $\alpha\colon f \Rightarrow g$
-is an algebra $2$-morphism, i.e.\
+is a module $2$-morphism, i.e.\
 $a_{q'}T(\alpha) = \alpha a_{q}$
 as $2$-morphisms
 $a_{q'}T(f) \simeq fa_{q} \Rightarrow ga_{q} \simeq a_{q'}T(g)$,
@@ -410,8 +412,8 @@ restricting along $\eta_{\iota q}$ to $\alpha$,
 and restriction along $\eta_{\iota q}$ is an equivalence
 $\Hom_{\Pc_{I,P}}(L\iota q,q') \simeq \Hom_{\D}(\iota q,\iota q')$
 by the adjunction, and $\Pc_{I,P}$ is locally full.
-This is a computation in $\htwo\D$. So $T$-algebras,
-strong morphisms and algebra $2$-morphisms form an $(\infty,2)$-category with
+This is a computation in $\htwo\D$. So $T$-modules,
+module maps and module $2$-morphisms form an $(\infty,2)$-category with
 the same hom-categories as $\Pc_{I,P}$.
 \todo{Compare with the Eilenberg--Moore object of
 \cite{riehlverity2016adjunctions,haugseng2021laxmonads}.}
