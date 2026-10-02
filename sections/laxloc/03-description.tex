@@ -162,8 +162,8 @@ for a functor
 $L_{T}\colon \D \to \D_{T}$,
 and
 $L_{T} \dashv \iota$
-with unit $\eta$ and counit with components $a_{x}$. This adjunction is a lax
-localization, whose monad has underlying functor $T$ and unit $\eta$.
+with unit $\eta$, and its counit has components $a_{x}$. This adjunction is a
+lax localization, whose monad has underlying functor $T$ and unit $\eta$.
 \end{prop}
 
 \begin{proof}
@@ -188,6 +188,9 @@ $\iota(aL_{T} \circ L_{T}\eta) \simeq aL_{T} \circ T\eta \simeq \mu \circ T\eta
 as $aL_{T}$ and $\mu$ are both left adjoint to $\eta T$
 (\cref{lem:kz-basic}(1)); this lifts along the locally fully faithful
 $\iota_{\natural}\colon \func(\D,\D_{T}) \to \func(\D,\D)$.
+So $\eta$ and the lift of $a$ are the unit and counit of an adjunction
+$L_{T} \dashv \iota$
+(\cref{subsec:prelim-adjunctions}).
 Finally, \cref{lem:laxloc-equiv}(5) holds for
 $L_{T} \dashv \iota$,
 as

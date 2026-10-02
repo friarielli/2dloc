@@ -1,36 +1,27 @@
 \subsection{Lax localizations}
 \label{subsec:laxloc-def}
 
-As $\twoCat$ is cartesian closed, it is enriched over itself, and changing
-enrichment along the product-preserving functor
-$\iota_{1}\colon \twoCat \to \Cat$
-\cite{gepnerhaugseng2015enriched} gives the $(\infty,2)$-category of (possibly
-large) $(\infty,2)$-categories, functors and natural transformations, which we
-also denote $\twoCat$. An \emph{adjunction of $(\infty,2)$-categories} is an
-adjunction in $\twoCat$ (\cref{def:adjunction}).
-\reviewcomment{We dont't need to any of explain this.
-But we do need to specify that we throw away non-invertible $ 2 $-morphisms,
-not inverting them.} 
+An \emph{adjunction of $(\infty,2)$-categories} is an adjunction
+(\cref{def:adjunction}) in $\twoCat$, regarded as an $(\infty,2)$-category with
+hom-categories
+$\iota_{1}\func(\A,\B)$:
+the non-invertible $2$-morphisms of $\func(\A,\B)$ are discarded, not inverted.
 
-Throughout this section, $L \dashv R$ is an adjunction of
+Throughout the rest of this section, $L \dashv R$ is an adjunction of
 $(\infty,2)$-categories, with
-$L\colon \D \to \C$
-and
-$R\colon \C \to \D$,
-unit
-$\eta\colon \mathrm{id}_{\D} \Rightarrow RL$,
-counit
+$L\colon \D \to \C$,
+$R\colon \C \to \D$
+and unit
+$\eta\colon \mathrm{id}_{\D} \Rightarrow RL$.
+We write
 $\varepsilon\colon LR \Rightarrow \mathrm{id}_{\C}$
-and triangle identities
+for its counit and
 \begin{equation*}
 \varphi\colon \varepsilon L \circ L\eta \simeq \mathrm{id}_{L} \ , \qquad
-\theta\colon R\varepsilon \circ \eta R \simeq \mathrm{id}_{R} \ ,
+\theta\colon R\varepsilon \circ \eta R \simeq \mathrm{id}_{R}
 \end{equation*}
-invertible $2$-morphisms of $\func(\D,\C)$ and $\func(\C,\D)$.
-\reviewcomment{This is not the correct data to specify a homotopy coherent adjunction.
-We always fix one of the two arrows on the top level.
-I know this is what people did for $ (2, 2) $-categories but their work have to be
-used only as a loose guiding principle here.}
+for the invertible $2$-morphisms of $\func(\D,\C)$ and $\func(\C,\D)$ given by
+the triangle identities.
 For $d \in \D$ and $c \in \C$ the composite
 \begin{equation}
 \label{eq:laxloc-adjunction}
@@ -42,7 +33,7 @@ $\D\opcat \times \C \to \Cat$:
 an inverse is
 $g \mapsto \varepsilon_{c} \circ Lg$,
 by naturality of $\eta$ and
-$\varepsilon$ and the triangle identities in $\htwo\twoCat$.
+$\varepsilon$ and by $\varphi$ and $\theta$.
 Restricting the adjunction
 $\Adj \to \twoCat$
 to the full sub-$(\infty,2)$-category of $\Adj$ on $-$, the walking monad
@@ -82,11 +73,16 @@ with $cf$ and $uc$ invertible.
 \end{lem}
 
 \begin{proof}
-\reviewcomment{Cite the model independant lifting to homotopy coherent adjunctions.
-I don't want to see $ h _{2} $.}
-As adjunctions are detected in $\htwo\A$ (\cref{subsec:prelim-adjunctions}),
-(1) is \cite[Cor.~2.2]{bourke2025recognition}, a consequence of
-\cite[Lemma~2.1.11]{riehlverity2022elements}; (2) is (1) in
+(1) The unit of an adjunction $f \dashv u$ with counit $c$ is such a $\nu$,
+as $c$ is invertible, by
+the triangle identities. Conversely, by \cite[Cor.~2.2]{bourke2025recognition},
+a consequence of \cite[Lemma~2.1.11]{riehlverity2022elements}, a $\nu$ as in
+(1) yields a $2$-morphism
+$\mathrm{id}_{x} \Rightarrow uf$
+satisfying the triangle identities with $c$. By the theorem of Riehl--Verity
+\cite[Thm.~4.3.11]{riehlverity2016adjunctions}, proved model-independently in
+\cite[Thm.~5.1]{abellan2026bifibrations}, these extend to an adjunction
+$f \dashv u$ with counit $c$ (\cref{subsec:prelim-adjunctions}). (2) is (1) in
 $\A^{\mathrm{co}}$.
 \end{proof}
 
