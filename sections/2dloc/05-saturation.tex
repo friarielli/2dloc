@@ -70,15 +70,14 @@ As $g_{\natural}$ is fully faithful on $\Hom(y,y)$, there is a unique
 $\varepsilon'\colon frg \Rightarrow \mathrm{id}_{y}$
 with
 $g\varepsilon' = \varepsilon g$.
-The triangle identities for $(\eta,\varepsilon')$ hold in the homotopy
-$2$-category, as $g_{\natural}$ is faithful and
+The triangle identities for $(\eta,\varepsilon')$ hold, as $g_{\natural}$ is faithful and
 \begin{equation*}
 g(\varepsilon'f \cdot f\eta) = \varepsilon gf \cdot gf\eta = \mathrm{id}_{gf}
 \ , \qquad rg\varepsilon' \cdot \eta rg = (r\varepsilon \cdot \eta r)g =
 \mathrm{id}_{rg} \ ,
 \end{equation*}
 so $\eta$ and $\varepsilon'$ are the unit and counit of an adjunction $f \dashv
-rg$ \cite[Thm.~4.3.11]{riehlverity2016adjunctions}.
+rg$ (\cref{thm:adj-lifting}(2)).
 The dual follows by applying $(-)^{\mathrm{co}}$.
 \end{proof}
 
@@ -470,13 +469,12 @@ them.
 \gutentag{0072}%
 Both vertical maps are locally full inclusions (\cref{lem:mates-refl}),
 so it suffices to compare objects and $1$-morphisms.
-Being a left or right adjoint, and being reflective or coreflective,
-are detected in the homotopy $2$-category
-\cite[Thm.~4.3.11]{riehlverity2016adjunctions}.
-As $G$ is an equivalence on hom-categories,
-an adjunction in $\htwo\B$ between $1$-morphisms $Ga \to Ga'$,
-$Ga' \to Ga$ is the image of one in $\htwo\A$,
-with invertible unit or counit if and only if its image has one.
+By \cref{thm:adj-lifting}(2), being a left or right adjoint, and being
+reflective or coreflective, are witnessed by $2$-morphisms satisfying the
+triangle identities.
+As $G$ is an equivalence on hom-categories, such $2$-morphisms between
+$1$-morphisms $Ga \to Ga'$, $Ga' \to Ga$ are the images of such $2$-morphisms in
+$\A$, which are invertible if and only if their images are.
 $G$ carries mates to mates and reflects invertibility of $2$-morphisms.
 \end{proof}
 

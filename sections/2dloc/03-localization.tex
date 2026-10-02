@@ -347,7 +347,7 @@ $i^{\natural} \dashv (i^{\natural})^{R}$
 at $d$ to the one at $d'$ with components $f_{\natural}$.
 Besides its naturality square at $i^{\natural}$,
 it has an \emph{invertible} naturality square at $(i^{\natural})^{R}$,
-and in $\htwo\Cat$ this square is the right mate of the former
+and this square is the right mate of the former
 (\cref{rmk:mates-2cat}). Dually for $p$,
 with $(p^{\natural})^{L}$ and the left mate.
 
@@ -387,9 +387,7 @@ is fully faithful \cite{hinich2020yoneda,heine2023enriched}.
 It takes an adjunction $l \dashv r$ of $\D$ to
 $r^{\natural} \dashv l^{\natural}$
 with the same unit and counit, and every adjunction between representables
-arises this way, as adjunctions are detected in the homotopy $2$-category
-\cite[Thm.~4.3.11]{riehlverity2016adjunctions} and determined by their left
-adjoints \cite[Thm.~4.4]{haugseng2021laxmonads}.
+arises this way by \cref{thm:adj-lifting}, as $h$ is fully faithful.
 So $s$ is coreflective if and only if $s^{\natural}$ is a right adjoint with
 invertible unit in $\func(\D,\Cat)$.
 By \cite[Cor.~5.2.12]{abellangagnahaugseng2024straightening},
@@ -459,8 +457,7 @@ is an equivalence, natural in $y$ and $q$ as functors
 $\D\opcat \times \C \to \Cat$:
 an inverse is
 $g \mapsto \varepsilon_{q} \circ F(g)$,
-by naturality of $\eta$ and $\varepsilon$ and the triangle identities in
-$\htwo\twoCat$.
+by naturality of $\eta$ and $\varepsilon$ and the triangle identities.
 
 \gutentag{0044}%
 In general
