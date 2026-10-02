@@ -1,6 +1,7 @@
 \subsection{The modules of a lax localization}
 \label{subsec:laxloc-description}
 
+\gutentag{00DB}%
 Let $L \dashv R$ be a lax localization. By
 \cref{thm:kz-modules,thm:kz-module-maps}, the $T$-modules form the locally full
 sub-$(\infty,2)$-category
@@ -21,16 +22,19 @@ We consider the following conditions on a locally full
 sub-$(\infty,2)$-category
 $\B \subset \D$:
 \begin{enumerate}
+\gutentag{00DC}%
 \item[(R1)] if $d$ is in $\B$ and $i\colon e \to d$ is reflective, then $e$ and
 $i^{L}$ are in $\B$;
 \item[(R2)] if $i\colon e \to d$ is reflective and $i^{L}$ and $fi^{L}$ are in
 $\B$, then $f$ is in $\B$.
 \end{enumerate}
+\gutentag{00DD}%
 By \cref{lem:laxloc-closure}, every $\Pc_{\emptyset,P}$ satisfies (R1) and
 (R2).
 
 \begin{thm}
 \label{thm:laxloc-local}
+\gutentag{00DE}%
 Let $L \dashv R$ be a lax localization.
 \begin{enumerate}
 \item $R$ factors through $\D_{T}$.
@@ -46,6 +50,7 @@ a reflective $1$-morphism to some $Rc$.
 \end{thm}
 
 \begin{proof}
+\gutentag{00DF}%
 (1) By \cref{lem:laxloc-equiv}(3),
 $R\varepsilon \dashv \eta R$
 is a reflection in $\func(\C,\D)$. By \cref{lem:mates-refl}(2), every
@@ -142,6 +147,7 @@ is reflective for $x \in \D_{T}$.
 
 \begin{rmk}
 \label{rmk:laxloc-local}
+\gutentag{00E0}%
 For $2$-categories, the equality
 $\D_{T} = \Pc_{\emptyset,\{\eta_{d}\}}$
 is \cite[Thm.~2.7]{dilibertilobbiasousa2022kz}, based on Marmolejo--Wood
@@ -154,6 +160,7 @@ equivalences.
 
 \begin{prop}
 \label{prop:laxloc-normalize}
+\gutentag{00E1}%
 Let $L \dashv R$ be a lax localization, and
 $\iota\colon \D_{T} \to \D$
 the inclusion. Then
@@ -167,6 +174,7 @@ lax localization, whose monad has underlying functor $T$ and unit $\eta$.
 \end{prop}
 
 \begin{proof}
+\gutentag{00E2}%
 By \cref{thm:laxloc-local}(1), $T = RL$ factors as $\iota L_{T}$. The
 components $\eta_{x}$ of
 $\eta\iota\colon \iota \Rightarrow T\iota$
@@ -200,10 +208,12 @@ with counit the triangle identity.
 
 \begin{defi}
 \label{def:laxloc-normalized}
+\gutentag{00E3}%
 A lax localization is \emph{normalized} if $R$ factors through an equivalence
 $\C \simeq \D_{T}$.
 \end{defi}
 
+\gutentag{00E4}%
 By \cref{thm:laxloc-local}, a lax localization is normalized if and only if $R$
 is a locally full inclusion whose image satisfies (R1) and (R2), and
 \cref{prop:laxloc-normalize} replaces every lax localization by a normalized one
@@ -211,6 +221,7 @@ with the same monad functor and unit. Normalization is not automatic:
 
 \begin{exmp}
 \label{ex:laxloc-initial}
+\gutentag{00E5}%
 If $\C$ has an object $0$ with
 $\Hom_{\C}(0,c) \simeq \mathrm{pt}$
 for all $c$, then
@@ -223,6 +234,7 @@ normalized only if
 $\C \simeq \mathrm{pt}$.
 \end{exmp}
 
+\gutentag{00E6}%
 Let
 $\Sat_{L} \subset \func(\Delta^{1},\D)$
 be the preimage under $L$ of the image of
@@ -235,6 +247,7 @@ locally full, as locally full inclusions are stable under pullback.
 
 \begin{prop}
 \label{prop:laxloc-class}
+\gutentag{00E7}%
 Let $L \dashv R$ be a lax localization.
 \begin{enumerate}
 \item
@@ -253,6 +266,7 @@ $\D_{T} \subset \Pc_{\emptyset,P}$.
 \end{prop}
 
 \begin{proof}
+\gutentag{00E8}%
 (1) was shown in the proof of \cref{thm:laxloc-local}(2). (2) By
 \cref{prop:laxloc-adjunction}, $f$ is in $\Sat_{L}$ if and only if every $Rc$
 and $Rg$ lies in
@@ -277,6 +291,7 @@ by (2).
 
 \begin{rmk}
 \label{rmk:laxloc-saturated}
+\gutentag{00E9}%
 By \cref{prop:laxloc-class}(2) and \cref{lem:saturation-explicit}, which we will
 prove in \cref{subsec:2dloc-saturation},
 $\Sat_{L} = \Sat^{\mathrm{corefl}}_{\D_{T}}$,
