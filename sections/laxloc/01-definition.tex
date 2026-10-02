@@ -8,6 +8,9 @@ $\iota_{1}\colon \twoCat \to \Cat$
 large) $(\infty,2)$-categories, functors and natural transformations, which we
 also denote $\twoCat$. An \emph{adjunction of $(\infty,2)$-categories} is an
 adjunction in $\twoCat$ (\cref{def:adjunction}).
+\reviewcomment{We dont't need to any of explain this.
+But we do need to specify that we throw away non-invertible $ 2 $-morphisms,
+not inverting them.} 
 
 Throughout this section, $L \dashv R$ is an adjunction of
 $(\infty,2)$-categories, with
@@ -24,6 +27,10 @@ and triangle identities
 \theta\colon R\varepsilon \circ \eta R \simeq \mathrm{id}_{R} \ ,
 \end{equation*}
 invertible $2$-morphisms of $\func(\D,\C)$ and $\func(\C,\D)$.
+\reviewcomment{This is not the correct data to specify a homotopy coherent adjunction.
+We always fix one of the two arrows on the top level.
+I know this is what people did for $ (2, 2) $-categories but their work have to be
+used only as a loose guiding principle here.}
 For $d \in \D$ and $c \in \C$ the composite
 \begin{equation}
 \label{eq:laxloc-adjunction}
@@ -75,6 +82,8 @@ with $cf$ and $uc$ invertible.
 \end{lem}
 
 \begin{proof}
+\reviewcomment{Cite the model independant lifting to homotopy coherent adjunctions.
+I don't want to see $ h _{2} $.}
 As adjunctions are detected in $\htwo\A$ (\cref{subsec:prelim-adjunctions}),
 (1) is \cite[Cor.~2.2]{bourke2025recognition}, a consequence of
 \cite[Lemma~2.1.11]{riehlverity2022elements}; (2) is (1) in
