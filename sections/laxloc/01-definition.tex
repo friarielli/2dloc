@@ -1,0 +1,233 @@
+\subsection{Lax localizations}
+\label{subsec:laxloc-def}
+
+An \emph{adjunction of $(\infty,2)$-categories} is an adjunction
+(\cref{def:adjunction}) in $\twoCat$, regarded as an $(\infty,2)$-category with
+hom-categories
+$\iota_{1}\func(\A,\B)$:
+the non-invertible $2$-morphisms of $\func(\A,\B)$ are discarded, not inverted.
+
+Throughout the rest of this section, $L \dashv R$ is an adjunction of
+$(\infty,2)$-categories, with
+$L\colon \D \to \C$,
+$R\colon \C \to \D$
+and unit
+$\eta\colon \mathrm{id}_{\D} \Rightarrow RL$.
+We write
+$\varepsilon\colon LR \Rightarrow \mathrm{id}_{\C}$
+for its counit and
+\begin{equation*}
+\varphi\colon \varepsilon L \circ L\eta \simeq \mathrm{id}_{L} \ , \qquad
+\theta\colon R\varepsilon \circ \eta R \simeq \mathrm{id}_{R}
+\end{equation*}
+for the invertible $2$-morphisms of $\func(\D,\C)$ and $\func(\C,\D)$ given by
+the triangle identities.
+For $d \in \D$ and $c \in \C$ the composite
+\begin{equation}
+\label{eq:laxloc-adjunction}
+\Hom_{\C}(Ld,c) \xrightarrow{\ R\ } \Hom_{\D}(RLd,Rc)
+\xrightarrow{\ \eta_{d}^{\natural}\ } \Hom_{\D}(d,Rc)
+\end{equation}
+is an equivalence, natural in $d$ and $c$ as functors
+$\D\opcat \times \C \to \Cat$:
+an inverse is
+$g \mapsto \varepsilon_{c} \circ Lg$,
+by naturality of $\eta$ and
+$\varepsilon$ and by $\varphi$ and $\theta$.
+Restricting the adjunction
+$\Adj \to \twoCat$
+to the full sub-$(\infty,2)$-category of $\Adj$ on $-$, the walking monad
+\cite[Not.~5.1]{haugseng2021laxmonads}, gives a monad $T := RL$ on $\D$
+(\cref{def:monad}) by \cite[Cor.~8.9]{haugseng2021laxmonads}, with unit
+$\eta$, multiplication
+$\mu := R\varepsilon L$
+and unit laws
+\begin{equation*}
+\theta L\colon \mu \circ \eta T \simeq \mathrm{id}_{T} \ , \qquad
+R\varphi\colon \mu \circ T\eta \simeq \mathrm{id}_{T} \ .
+\end{equation*}
+
+\begin{defi}
+\label{def:laxloc}
+The adjunction $L \dashv R$ is a \emph{lax localization} if $T$ is lax
+idempotent, and a \emph{colax localization} if $T$ is colax idempotent
+(\cref{def:kz}).
+\end{defi}
+
+\begin{lem}
+\label{lem:laxloc-criterion}
+Let $f\colon x \to y$ and $u\colon y \to x$ be $1$-morphisms of an
+$(\infty,2)$-category $\A$.
+\begin{enumerate}
+\item Given an invertible
+$c\colon fu \simeq \mathrm{id}_{y}$,
+we have $f \dashv u$ with counit $c$ if and only if there is
+$\nu\colon \mathrm{id}_{x} \Rightarrow uf$
+with $f\nu$ and $\nu u$ invertible.
+\item Given an invertible
+$\nu\colon \mathrm{id}_{x} \simeq uf$,
+we have $f \dashv u$ with unit $\nu$ if and only if there is
+$c\colon fu \Rightarrow \mathrm{id}_{y}$
+with $cf$ and $uc$ invertible.
+\end{enumerate}
+\end{lem}
+
+\begin{proof}
+(1) The unit of an adjunction $f \dashv u$ with counit $c$ is such a $\nu$,
+as $c$ is invertible, by
+the triangle identities. Conversely, by \cite[Cor.~2.2]{bourke2025recognition},
+a consequence of \cite[Lemma~2.1.11]{riehlverity2022elements}, a $\nu$ as in
+(1) yields a $2$-morphism
+$\mathrm{id}_{x} \Rightarrow uf$
+satisfying the triangle identities with $c$. By the theorem of Riehl--Verity
+\cite[Thm.~4.3.11]{riehlverity2016adjunctions}, proved model-independently in
+\cite[Thm.~5.1]{abellan2026bifibrations}, these extend to an adjunction
+$f \dashv u$ with counit $c$ (\cref{subsec:prelim-adjunctions}). (2) is (1) in
+$\A^{\mathrm{co}}$.
+\end{proof}
+
+\begin{lem}
+\label{lem:laxloc-equiv}
+The following are equivalent:
+\begin{enumerate}
+\item $L \dashv R$ is a lax localization;
+\item
+$L\eta \dashv \varepsilon L$
+in $\func(\D,\C)$, with unit $\varphi^{-1}$;
+\item
+$R\varepsilon \dashv \eta R$
+in $\func(\C,\D)$, with counit $\theta$;
+\item
+$L\eta_{d} \dashv \varepsilon_{Ld}$
+with unit $\varphi_{d}^{-1}$, for
+every $d \in \D$;
+\item
+$R\varepsilon_{c} \dashv \eta_{Rc}$
+with counit $\theta_{c}$, for every
+$c \in \C$.
+\end{enumerate}
+In particular, for a lax localization, $L\eta$ is coreflective in
+$\func(\D,\C)$ and $\eta R$ is reflective in $\func(\C,\D)$
+(\cref{def:reflection}), and so are their components $L\eta_{d}$ and
+$\eta_{Rc}$.
+\end{lem}
+
+\begin{proof}
+Evaluation preserves adjunctions, so (2) implies (4) and (3) implies (5).
+Postcomposition with $R$ takes (2) to
+$T\eta \dashv \mu$
+with unit $(R\varphi)^{-1}$, and precomposition with $L$ takes (3) to
+$\mu \dashv \eta T$
+with counit $\theta L$; so (2) and (3) each imply (1), by \cref{def:kz} and
+\cref{lem:kz-basic}(1).
+
+Assume (1). Let $\upsilon$ be the unit of
+$\mu \dashv \eta T$
+(\cref{lem:kz-basic}(1)) and
+$\delta\colon T\eta \Rightarrow \eta T$
+the $2$-morphism $\upsilon T\eta$ followed by the unit law, as in
+\cref{prop:kz-action}. By the triangle identities, as the counit of
+$\mu \dashv \eta T$
+is invertible, so are $\mu\upsilon$ and $\upsilon\eta T$. Hence $\mu\delta$ is
+invertible, and so is $\delta_{d}\eta_{d}$: up to invertible $2$-morphisms, it
+is $\upsilon_{d}$ whiskered with
+$T\eta_{d} \circ \eta_{d} \simeq \eta_{Td} \circ \eta_{d}$.
+
+(1)$\Rightarrow$(5). Let $x := Rc$ and
+$a := R\varepsilon_{c}$,
+so that
+$\theta_{c}\colon a\eta_{x} \simeq \mathrm{id}_{x}$,
+and let $\nu$ be the composite
+\begin{equation*}
+\mathrm{id}_{Tx} \simeq Ta \circ T\eta_{x} \xRightarrow{\ Ta\,\delta_{x}\ } Ta
+\circ \eta_{Tx} \simeq \eta_{x} \circ a \ .
+\end{equation*}
+Then $\nu\eta_{x}$ is invertible as $\delta_{x}\eta_{x}$ is, and $a\nu$ is
+invertible as $a\mu_{x}\delta_{x}$ is, since
+$a \circ Ta \simeq a \circ \mu_{x}$
+by $R$ applied to the naturality of $\varepsilon$ at $\varepsilon_{c}$.
+So $a \dashv \eta_{x}$ with counit $\theta_{c}$ by
+\cref{lem:laxloc-criterion}(1).
+
+(1)$\Rightarrow$(4). The equivalence \eqref{eq:laxloc-adjunction}
+$\Hom_{\C}(LTd,LTd) \simeq \Hom_{\D}(Td,TTd)$
+sends
+$L\eta_{d} \circ \varepsilon_{Ld}$
+to
+$T\eta_{d} \circ \mu_{d} \circ \eta_{Td} \simeq T\eta_{d}$
+and $\mathrm{id}_{LTd}$ to $\eta_{Td}$, so $\delta_{d}$ corresponds to a
+$2$-morphism
+$\kappa\colon L\eta_{d} \circ \varepsilon_{Ld} \Rightarrow \mathrm{id}_{LTd}$.
+By naturality of \eqref{eq:laxloc-adjunction},
+$\varepsilon_{Ld}\kappa$
+corresponds to $\mu_{d}\delta_{d}$ and $\kappa L\eta_{d}$ to
+$\delta_{d}\eta_{d}$, so both are invertible, and
+$L\eta_{d} \dashv \varepsilon_{Ld}$
+with unit $\varphi_{d}^{-1}$ by \cref{lem:laxloc-criterion}(2).
+
+(5)$\Rightarrow$(3). By
+\cite[Cor.~5.2.12]{abellangagnahaugseng2024straightening},
+$R\varepsilon$ is a left adjoint in $\func(\C,\D)$ if its components are and
+its naturality squares are right Beck--Chevalley (\cref{lem:mates}(1)).
+At $g\colon c \to c'$ the right mate is
+\begin{equation*}
+TRg \circ \eta_{Rc} \Longrightarrow \eta_{Rc'}R\varepsilon_{c'} \circ TRg \circ
+\eta_{Rc} \simeq \eta_{Rc'} \circ Rg \circ R\varepsilon_{c} \circ \eta_{Rc}
+\overset{\theta_{c}}{\simeq} \eta_{Rc'} \circ Rg \ ,
+\end{equation*}
+whose first $2$-morphism is the unit of
+$R\varepsilon_{c'} \dashv \eta_{Rc'}$
+at
+$TRg \circ \eta_{Rc} \simeq \eta_{Rc'} \circ Rg$,
+invertible by a triangle identity as the counit is invertible. So
+$R\varepsilon \dashv G$
+for some $G$. The $2$-morphism
+$\eta R \Rightarrow G$
+adjunct to $\theta$ has as components the comparisons between the right adjoints
+$\eta_{Rc}$ and $G_{c}$ of $R\varepsilon_{c}$, so it is invertible, as
+$2$-morphisms of $\func(\C,\D)$ are detected componentwise (see the proof of
+\cref{lem:mates-refl}). Hence
+$R\varepsilon \dashv \eta R$
+with counit $\theta$.
+
+(4)$\Rightarrow$(2). Likewise, at $g\colon d \to d'$ the right mate of the
+naturality square of $L\eta$ is
+\begin{equation*}
+Lg \circ \varepsilon_{Ld} \xRightarrow{\ \varphi_{d'}^{-1}\ }
+\varepsilon_{Ld'}L\eta_{d'} \circ Lg \circ \varepsilon_{Ld} \simeq
+\varepsilon_{Ld'} \circ LTg \circ L\eta_{d} \circ \varepsilon_{Ld}
+\Longrightarrow \varepsilon_{Ld'} \circ LTg \ ,
+\end{equation*}
+whose last $2$-morphism is the counit $\kappa_{d}$ of
+$L\eta_{d} \dashv \varepsilon_{Ld}$
+whiskered with
+$\varepsilon_{Ld'} \circ LTg \simeq Lg \circ \varepsilon_{Ld}$;
+it is invertible as
+$\varepsilon_{Ld}\kappa_{d}$
+is, by a triangle identity.
+So $L\eta \dashv G'$ for some $G'$, and the $2$-morphism
+$G' \Rightarrow \varepsilon L$
+adjunct to $\varphi^{-1}$ is invertible, as its components are the comparisons
+between the right adjoints $G'_{d}$ and $\varepsilon_{Ld}$ of $L\eta_{d}$.
+\end{proof}
+
+\begin{rmk}
+\label{rmk:laxloc-literature}
+For $2$-categories, Bourke \cite[\S 2.1]{bourke2025recognition} calls a
+biadjunction lax-idempotent if (3) holds, and the equivalence of (1) and (3) is
+\cite[Prop.~2.5.12]{stepan2025thesis}. For $(\infty,2)$-categories we know of no
+reference (\cref{rmk:kz-literature}).
+\end{rmk}
+
+As $(-)^{\mathrm{co}}$ is an automorphism of $\twoCat$ with
+$\iota_{1}\func(\A^{\mathrm{co}},\B^{\mathrm{co}}) \simeq
+\iota_{1}\func(\A,\B)$
+compatibly with composition (proof of \cref{lem:kz-basic}(2)), an adjunction
+$L \dashv R$ is also an adjunction
+$L^{\mathrm{co}} \dashv R^{\mathrm{co}}$
+between $\D^{\mathrm{co}}$ and $\C^{\mathrm{co}}$, with the same unit, counit
+and monad. By \cref{lem:kz-basic}(2), $L \dashv R$ is a colax localization if
+and only if
+$L^{\mathrm{co}} \dashv R^{\mathrm{co}}$
+is a lax localization. We treat lax localizations, and will spell out the colax
+case in \cref{rmk:laxloc-colax}.

@@ -1,0 +1,250 @@
+\subsection{Recognizing lax localizations}
+\label{subsec:laxloc-recognition}
+
+For a $1$-morphism $f\colon d \to e$ of $\D$ we call the lax pullback
+$(e \downarrow f) := (\mathrm{id}_{e} \downarrow f)$
+(\cref{subsec:prelim-adjunctions}), if it exists, the \emph{colax limit} of $f$,
+following \cite[\S 2.3]{bourke2025recognition}. We write
+$\bar{p}\colon (e \downarrow f) \to e$,
+$\bar{q}\colon (e \downarrow f) \to d$
+and
+$\bar{\alpha}\colon \bar{p} \Rightarrow f\bar{q}$
+for its structure, so that
+$h \mapsto (\bar{p}h,\bar{q}h,\bar{\alpha}h)$
+is an equivalence
+$\Hom_{\D}(t,(e \downarrow f)) \simeq (\Hom_{\D}(t,e) \downarrow f_{\natural})$,
+naturally in $t$. For example, $\Cat$ has the colax limits of all
+$1$-morphisms, given by comma $\infty$-categories.
+
+\begin{lem}
+\label{lem:laxloc-colax-limits}
+Let
+$P \subset \func(\Delta^{1},\D)$
+be locally full, and let $f\colon d \to e$ be a $1$-morphism between $P$-local
+objects that has a colax limit. Then $(e \downarrow f)$, $\bar{p}$ and $\bar{q}$
+are $P$-local.
+\end{lem}
+
+\begin{proof}
+Let $p\colon x \to y$ be an object of $P$. Under the equivalences above,
+$p^{\natural}$ on
+$\Hom_{\D}(-,(e \downarrow f))$
+is the functor
+$(\Hom_{\D}(y,e) \downarrow f_{\natural}) \to (\Hom_{\D}(x,e) \downarrow
+f_{\natural})$,
+$(m_{1},m_{2},\kappa) \mapsto (m_{1}p,m_{2}p,\kappa p)$.
+Let $\lambda_{e}$ and $\lambda_{d}$ be the left adjoints of $p^{\natural}$ on
+$\Hom_{\D}(-,e)$ and $\Hom_{\D}(-,d)$, and
+$\zeta\colon \lambda_{e}f_{\natural} \Rightarrow f_{\natural}\lambda_{d}$
+the left mate of (M) for $f$, which need not be invertible. Then
+\begin{equation*}
+\Lambda(m_{1},m_{2},\kappa) := \bigl(\lambda_{e}m_{1},\,\lambda_{d}m_{2},\,
+\zeta_{m_{2}} \circ \lambda_{e}\kappa\bigr)
+\end{equation*}
+is left adjoint to $p^{\natural}$, with unit given componentwise by the units of
+$\lambda_{e}$ and $\lambda_{d}$: the mapping spaces of a comma $\infty$-category
+are pullbacks of mapping spaces of the factors \todo{Reference.}, the adjunction
+equivalences of $\lambda_{e}$ and $\lambda_{d}$ are compatible with these
+pullbacks, as $\zeta$ corresponds under
+$\lambda_{e} \dashv p^{\natural}$
+to $f_{\natural}$ applied to the unit of $\lambda_{d}$ (\cref{constr:mates} and
+a triangle identity), and \cite[Prop.~5.2.2.8]{htt} applies. As the unit is
+invertible, $\Lambda$ is fully faithful, which is (O1). The counit is
+componentwise as well, so the essential image of $\Lambda$ consists of the
+$(n_{1},n_{2},\kappa)$ with $n_{1}$ and $n_{2}$ in the essential images of
+$\lambda_{e}$ and $\lambda_{d}$. As $b^{\natural}$, $\bar{p}_{\natural}$ and
+$\bar{q}_{\natural}$ act componentwise, the criterion after
+\cref{def:laxloc-local} gives (O2) for $(e \downarrow f)$ from (O2) for $d$ and
+$e$, and (M) for $\bar{p}$ and $\bar{q}$.
+\end{proof}
+
+\begin{thm}
+\label{thm:laxloc-bourke}
+Let $L \dashv R$ be an adjunction with $R$ locally fully faithful. Suppose that
+for every $c \in \C$ the unit $\eta_{Rc}$ has a colax limit of the form $RZ$,
+with
+$\bar{p} = R(p_{Z})$
+and
+$\bar{q} = R(q_{Z})$
+for some
+$p_{Z}\colon Z \to LRc$
+and
+$q_{Z}\colon Z \to c$.
+Then $L \dashv R$ is a lax localization.
+\end{thm}
+
+\begin{proof}
+We follow \cite[Thm.~3.1]{bourke2025recognition} and verify
+\cref{lem:laxloc-equiv}(5). Let $c \in \C$, $x := Rc$ and
+$a := R\varepsilon_{c}$.
+The colax limit provides
+$h\colon x \to RZ$
+with
+$\bar{p}h \simeq \eta_{x}$,
+$\bar{q}h \simeq \mathrm{id}_{x}$
+and $\bar{\alpha}h$ identified with
+$\mathrm{id}_{\eta_{x}}$.
+By \eqref{eq:laxloc-adjunction},
+$h \simeq Rh' \circ \eta_{x}$
+for some
+$h'\colon Lx \to Z$,
+and as
+$R(p_{Z}h')\eta_{x} \simeq \eta_{x}$
+and
+$R(q_{Z}h')\eta_{x} \simeq \mathrm{id}_{x} \simeq R(\varepsilon_{c})\eta_{x}$,
+\eqref{eq:laxloc-adjunction} also gives
+$p_{Z}h' \simeq \mathrm{id}_{Lx}$
+and
+$q_{Z}h' \simeq \varepsilon_{c}$.
+So
+$\bar{p}Rh' \simeq \mathrm{id}_{Tx}$
+and
+$\bar{q}Rh' \simeq a$,
+and $\bar{\alpha}Rh'$ becomes a $2$-morphism
+$\nu\colon \mathrm{id}_{Tx} \Rightarrow \eta_{x}a$.
+Then $\nu\eta_{x}$ is invertible, as $\bar{\alpha}h$ is. As $R$ is locally fully
+faithful, the $2$-morphism
+$\theta_{c}a \circ a\nu\colon a \Rightarrow a$
+is $R\gamma$ for some
+$\gamma\colon \varepsilon_{c} \Rightarrow \varepsilon_{c}$,
+and
+$R\gamma\,\eta_{x} = \theta_{c}a\eta_{x} \circ a\nu\eta_{x}$
+is invertible. By \eqref{eq:laxloc-adjunction}, $\gamma$ is invertible, hence
+so is $a\nu$, and
+$a \dashv \eta_{x}$
+with counit $\theta_{c}$ by \cref{lem:laxloc-criterion}(1).
+\end{proof}
+
+\begin{rmk}
+\label{rmk:laxloc-bourke}
+Bourke assumes the colax limits of all $1$-morphisms
+$Rc \to Rc'$
+in the form of \cref{thm:laxloc-bourke}. The proof only uses those of the
+units, only that
+$\theta_{c}a \circ a\nu$
+lies in the image of $R$, and only the
+one-dimensional universal property of the colax limits, i.e.\ that the functors
+$\Hom_{\D}(t,(e \downarrow f)) \to (\Hom_{\D}(t,e) \downarrow f_{\natural})$
+are essentially surjective \cite[Rem.~3.2]{bourke2025recognition}.
+\end{rmk}
+
+\begin{cor}
+\label{cor:laxloc-P}
+Let
+$P \subset \func(\Delta^{1},\D)$
+be locally full such that
+$\iota\colon \Pc_{\emptyset,P} \to \D$
+has a left adjoint $L$, and suppose that every $1$-morphism of $\D$ between
+$P$-local objects has a colax limit. Then
+$L \dashv \iota$
+is a normalized lax localization. In particular
+$\Pc_{\emptyset,P} = \D_{T} = \Pc_{\emptyset,\Sigma_{\eta}}$,
+$\eta_{x}$ is reflective for every $P$-local $x$, and
+$P \subset \Sat_{L}$.
+\end{cor}
+
+\begin{proof}
+$\iota$ is a locally full inclusion. For $P$-local $c$,
+$\eta_{c}\colon c \to Tc$
+is a $1$-morphism between $P$-local objects, so its colax limit and the
+projections lie in $\Pc_{\emptyset,P}$ by \cref{lem:laxloc-colax-limits}, and
+\cref{thm:laxloc-bourke} applies. The lax localization is normalized by
+\cref{lem:laxloc-closure} and the paragraph after
+\cref{def:laxloc-normalized}; the rest is \cref{thm:laxloc-local}(2),
+\cref{lem:laxloc-equiv}(5) and \cref{prop:laxloc-class}(3).
+\end{proof}
+
+\begin{cor}
+\label{cor:laxloc-classes}
+Suppose that $\D$ has colax limits of all $1$-morphisms. Then
+$\C \mapsto \Sat_{L}$
+and
+$P \mapsto \Pc_{\emptyset,P}$
+are mutually inverse bijections between
+\begin{enumerate}
+\item the locally full sub-$(\infty,2)$-categories $\C \subset \D$ whose
+inclusion $\iota$ has a left adjoint $L$ such that
+$L \dashv \iota$
+is a normalized lax localization, and
+\item the locally full sub-$(\infty,2)$-categories
+$P \subset \func(\Delta^{1},\D)$
+such that
+$\iota\colon \Pc_{\emptyset,P} \to \D$
+has a left adjoint $L$ and $P = \Sat_{L}$.
+\end{enumerate}
+\end{cor}
+
+\begin{proof}
+For $\C$ as in (1), $\C = \D_{T}$, so
+$\Pc_{\emptyset,\Sat_{L}} = \C$
+by \cref{prop:laxloc-class}(3), and $\Sat_{L}$ is as in (2). For $P$ as in (2),
+$L \dashv \iota$
+is a normalized lax localization by \cref{cor:laxloc-P}, so
+$\Pc_{\emptyset,P}$
+is as in (1), with class $\Sat_{L} = P$.
+\end{proof}
+
+By \cref{rmk:laxloc-saturated} and \cref{cor:laxloc-P}, the condition
+$P = \Sat_{L}$
+in (2) says that
+$P = \overline{P}$
+for the saturation that will be defined in \cref{def:saturation}. In one
+dimension, the analogous bijection is between reflective full subcategories and
+the classes $W$ of morphisms whose local objects form a reflective full
+subcategory and that equal the class of $W$-local equivalences, and
+for a presentable $\infty$-category and a set $S$, the $S$-local equivalences
+form the strongly saturated class generated by $S$ \cite[5.5.4.15]{htt}. We do
+not know whether $\overline{P}$
+is generated by $P$ under the operations of \cref{def:saturated}
+(\cref{rmk:sat-open}(2)).
+
+\begin{rmk}
+\label{rmk:laxloc-presentable}
+Let $\D \in \tprl$ and let $P$ be essentially small. Then
+$\iota\colon \Pc_{\emptyset,P} \to \D$
+will have a left adjoint by \cref{thm:2dloc-local}, and $\D$ has the colax
+limits
+$(e \downarrow f) \simeq e^{\Delta^{1}} \times_{e} d$
+of all $1$-morphisms $f\colon d \to e$: limits in $\iota_{1}\D$ are
+$(\infty,2)$-categorical by the argument that we will give for colimits in
+\cref{subsec:2dloc-presentable}, as
+$\mapp_{\D}(K \otimes t,-)$
+preserves limits. So \cref{cor:laxloc-P} applies:
+$L \dashv \iota$
+is a normalized lax localization, and
+$\Sigma_{\eta} \subset \overline{P}$,
+as
+$\Pc_{\emptyset,P} = \Pc_{\emptyset,\Sigma_{\eta}}$.
+The same holds under the hypotheses of \cref{cor:laxloc-P}. There, this answers
+the question of \cref{rmk:sat-open}(1), gives the hypothesis of
+\cref{thm:sat-units}(3) (see \cref{rmk:sat-units-kz}), and shows that $T$ is
+lax idempotent in \cref{conj:kleisli}, as asked in \cref{rmk:kleisli}.
+\todo{Update these remarks when \cref{sec:2dloc} is restructured.}
+\end{rmk}
+
+\begin{rmk}
+\label{rmk:laxloc-adjoining}
+By \cref{lem:laxloc-equiv}(2) and \cref{prop:adjoin-univ},
+which we will prove in
+\cref{subsec:2dloc-adjoining}, a lax localization $L$ factors as
+$\D \xrightarrow{\gamma} \D\corefl{\Sigma_{\eta}} \xrightarrow{\Phi} \C$,
+and $\Phi$ takes values in the full sub-$(\infty,2)$-category
+$K \subset \C$
+on the objects $Ld$, as $\gamma$ is essentially surjective. The statement of
+\cref{conj:kleisli}, that $\Phi$ is fully faithful, makes sense for every lax
+localization, and the evidence in \cref{rmk:kleisli} applies verbatim. Granting
+it, $L$ is a formal adjoining of coreflections, i.e.\ $\Phi$ is an equivalence,
+if and only if every object of $\C$ is equivalent to some $Ld$. For normalized
+lax localizations this fails in general: by \cref{thm:laxloc-local}(3),
+$\D_{T}$ is the closure of $K$ under (R1) and (R2), and in
+\cref{ex:local-vs-pushout}(2) (with $\D = \Cat$ and
+$P = \{\emptyset \to \mathrm{pt}\}$)
+this closure is strictly larger than $K$. In the presentable setting,
+\cref{thm:2dloc-local} identifies the presentable formal adjoining
+$\D\corefl{P}$ with $\Pc_{\emptyset,P}$, a normalized lax localization by
+\cref{rmk:laxloc-presentable}; so the normalized lax localizations of this form
+are those with
+$\D_{T} = \Pc_{\emptyset,P}$
+for some essentially small $P$. We do not know which normalized lax
+localizations of a presentable $\D$ are of this form.
+\end{rmk}
