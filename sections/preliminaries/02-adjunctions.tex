@@ -149,28 +149,18 @@ a right adjoint $r$ is reflective if and only if every $r_{\natural}$ is fully
 faithful, and a left adjoint $l$ is coreflective if and only if every
 $l_{\natural}$ is fully faithful.
 
-\gutentag{0019}%
-\textbf{Notation.} For $1$-morphisms $f\colon X \to Y$ and $g\colon Z \to Y$ of
-an $(\infty,2)$-category $\E$ we write
-$(f \downarrow g) := X \ratimes_{Y} Z$
-for their lax pullback, with projections $p$, $q$ and $2$-morphism
-$\alpha\colon fp \Rightarrow gq$,
-and
-$(u,v,\varphi)\colon T \to (f \downarrow g)$
-for the $1$-morphism given by $u\colon T \to X$, $v\colon T \to Z$ and
-$\varphi\colon fu \Rightarrow gv$.
-For $\E = \Cat$, $(f \downarrow g)$ is the comma $\infty$-category.
-For $f\colon X \to Y$ and $g\colon Y \to X$ we write
-$(f \downarrow Y) := (f \downarrow \mathrm{id}_{Y})$
-and
-$(X \downarrow g) := (\mathrm{id}_{X} \downarrow g)$;
-both are spans from $X$ to $Y$. They receive the $1$-morphisms
+Now we turn to an alternative formulation of adjunctions.
+The idea is to reformulate the equivalence
 \begin{equation*}
-i := (\mathrm{id}_{X},f,\mathrm{id}_{f})\colon X \to (f \downarrow Y) \ ,
-\qquad j := (g,\mathrm{id}_{Y},\mathrm{id}_{g})\colon Y \to (X \downarrow g) \ .
+\Hom _{C} (Lx, y) \simeq \Hom _{D} (x, Ry)
 \end{equation*}
+from adjunctions of functors between $ \infty $-categories,
+in a general $ (\infty, 2) $-category $ \E $.
+We will make the technical assumption that $ \E $ admits lax pullbacks
+for the remainder of this subsection.
 
 \gutentag{001A}%
+We will use the category of spans to organize the combinatorics.
 Let
 $\Lambda := \{0 \leftarrow 2 \rightarrow 1\}$
 be the walking span and
@@ -196,6 +186,30 @@ The underlying $\infty$-category of $\Span_{\E}(X,Y)$ is the fibre of
 $\func(\Lambda,\iota_{1}\E)$
 over $(X,Y)$, so a $1$-morphism of $\Span_{\E}(X,Y)$ is an equivalence if and
 only if it is one in $\E$.
+
+\gutentag{0019}%
+\textbf{Notation.} For $1$-morphisms $f\colon X \to Y$ and $g\colon Z \to Y$ of
+an $(\infty,2)$-category $\E$ we write
+$(f \downarrow g) := X \ratimes_{Y} Z$
+for their lax pullback, with projections $p$, $q$ and $2$-morphism
+$\alpha\colon fp \Rightarrow gq$,
+and
+$(u,v,\varphi)\colon T \to (f \downarrow g)$
+for the $1$-morphism given by $u\colon T \to X$, $v\colon T \to Z$ and
+$\varphi\colon fu \Rightarrow gv$.
+We consider $ (f\downarrow g) $ as the span 
+$ X \xleftarrow{p} (f\downarrow g) \xrightarrow{q} Z $
+from $ X $ to $ Z $.
+For $\E = \Cat$, $(f \downarrow g)$ is the comma $\infty$-category.
+For $f\colon X \to Y$ and $g\colon Y \to X$ we write
+$(f \downarrow Y) := (f \downarrow \mathrm{id}_{Y})$
+and
+$(X \downarrow g) := (\mathrm{id}_{X} \downarrow g)$;
+both are spans from $X$ to $Y$. They receive the $1$-morphisms
+\begin{equation*}
+i := (\mathrm{id}_{X},f,\mathrm{id}_{f})\colon X \to (f \downarrow Y) \ ,
+\qquad j := (g,\mathrm{id}_{Y},\mathrm{id}_{g})\colon Y \to (X \downarrow g) \ .
+\end{equation*}
 
 \begin{lem}
 \label{lem:comma-fibrewise}
@@ -231,27 +245,7 @@ $e\colon (f \downarrow Y) \xrightarrow{\simeq} (X \downarrow g)$
 in $\Span_{\E}(X,Y)$.
 \item Let $\TAdj(\E)$ be the full sub-$(\infty,2)$-category of
 $\func(\Delta^{1},\Span(\E))$
-on the transposing adjunctions. A $1$-morphism $(c,d)\colon e \to e'$ of
-$\TAdj(\E)$, from a transposing adjunction between $f$ and $g$ to one between
-$f'\colon X' \to Y'$ and $g'\colon Y' \to X'$,
-consists of maps of spans $c$ and $d$ over some
-$(a,b) \in \Hom(X,X') \times \Hom(Y,Y')$
-and an equivalence $de \simeq e'c$:
-\begin{equation*}
-\begin{tikzcd}
-(f \downarrow Y) \ar[r, "e"] \ar[d, "c"'] & (X \downarrow g) \ar[d, "d"] \\
-(f' \downarrow Y') \ar[r, "e'"'] & (X' \downarrow g')
-\end{tikzcd}
-\end{equation*}
-By \cite[Prop.~4.1.2]{abellangagnahaugseng2024straightening} again,
-its hom-$\infty$-category is the pullback
-\begin{equation*}
-\Hom_{\TAdj(\E)}(e,e') \simeq \Hom_{\Span(\E)}\bigl((f \downarrow Y),(f'
-\downarrow Y')\bigr) \times_{\Hom_{\Span(\E)}((f \downarrow Y),(X' \downarrow
-g'))} \Hom_{\Span(\E)}\bigl((X \downarrow g),(X' \downarrow g')\bigr)
-\end{equation*}
-along $e'_{\natural}$ and $e^{\natural}$, over
-$\Hom(X,X') \times \Hom(Y,Y')$.
+on the transposing adjunctions. 
 \end{enumerate}
 \end{defi}
 
