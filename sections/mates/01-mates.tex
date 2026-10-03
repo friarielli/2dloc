@@ -110,7 +110,8 @@ $\eta = h^{R}\eta_{k}h \circ \eta_{h}$
 is the unit of $k^{L}h \dashv h^{R}k$ and
 $\varepsilon = \varepsilon_{g} \circ g\varepsilon_{f}g^{R}$
 the counit of $gf^{L} \dashv fg^{R}$. Insert the formula of \cref{constr:mates}
-for $\lmate{\alpha}$. By interchange in $\htwo\A$,
+for $\lmate{\alpha}$. \todo{2-categorical input: check that the argument works verbatim.}
+By interchange,
 $\eta_{k}$ and $\varepsilon_{k}$ cancel by the triangle identity
 $k\varepsilon_{k} \circ \eta_{k}k = \mathrm{id}_{k}$,
 and $\eta_{f}$ and $\varepsilon_{f}$ by
@@ -200,8 +201,9 @@ give
 \begin{equation*}
 \mapp(hf,kg) \simeq \mapp(f,h^{R}kg) \simeq \mapp(fg^{R},h^{R}k) \ .
 \end{equation*}
-(2) and (3) follow from the triangle identities and interchange in $\htwo\A$ as
+(2) and (3) follow from the triangle identities and interchange as
 in \cite{kellystreet1974review}.
+\todo{2-categorical input: check that the argument works verbatim.}
 \end{proof}
 
 \begin{rmk}
@@ -257,7 +259,7 @@ unit square is right Beck--Chevalley.
 \begin{proof}[Proof of \cref{thm:kz-modules,thm:kz-module-maps}]
 \gutentag{00C5}%
 The colax case is the lax case for $\D^{\mathrm{co}}$
-(\cref{lem:kz-basic}(2)): $(-)^{\mathrm{co}}$ exchanges left and right
+(\cref{def:kz}): $(-)^{\mathrm{co}}$ exchanges left and right
 adjoints, and a lax square in $\D^{\mathrm{co}}$ is the transpose of a lax
 square in $\D$, whose left mate in $\D^{\mathrm{co}}$ is its right mate in $\D$.
 So let $T$ be lax idempotent, and let
@@ -273,9 +275,8 @@ Step 1.
 
 \emph{Step 1: $U$ factors through $j$.} For a module $(x,a)$, $\eta_{x}$ is
 reflective with left adjoint $a$ (\cref{prop:kz-action}).
-A module map over $f$ induces a pseudo-morphism in $\htwo\D$, whose structure
-$2$-morphism
-$b \circ Tf \simeq f \circ a$
+The structure $2$-morphism of a module map over $f$,
+$b \circ Tf \simeq f \circ a$,
 is $\lmate{\alpha_{f}}$ \cite[Lemma~10.6]{marmolejo1997doctrines}
 (\cite[Cor.~6.3]{kellylack1997propertylike} for $2$-monads); so $f$ is in
 $\D_{T}$. As $j$ is a monomorphism, $U = j\Phi$ for a unique $\Phi$.
@@ -286,7 +287,8 @@ $T\colon \iota_{1}\D \to \iota_{1}\D$
 factors through $j$. Let $y$ be in $\D_{T}$, with
 $b \dashv \eta_{y}$.
 Then $b\colon Ty \to y$ is in $\D_{T}$
-\cite[Prop.~5.5]{marmolejo1997doctrines}, and for $z \in \D$ restriction along
+\cite[Prop.~5.5]{marmolejo1997doctrines}
+\todo{2-categorical input: check that \cite[Lemma~10.6, Prop.~5.5]{marmolejo1997doctrines} work verbatim.}, and for $z \in \D$ restriction along
 $\eta_{z}$,
 $\mapp_{\D_{T}}(Tz,y) \to \mapp_{\D}(z,y)$,
 has the inverse
@@ -348,7 +350,8 @@ Tv_{0}\,\eta_{V_{0}}\,a_{0}\,Ts \overset{\alpha_{v_{0}}}{\simeq}
 \end{equation*}
 where $\theta_{0}$ is the unit of
 $a_{0} \dashv \eta_{V_{0}}$:
-by \eqref{eq:kz-colimit-counit} and interchange in $\htwo\D$,
+by \eqref{eq:kz-colimit-counit} and interchange
+\todo{2-categorical input: check that the argument works verbatim.},
 the triangle identities reduce to those of
 $a_{0} \dashv \eta_{V_{0}}$.
 So $x$ is in $\D_{T}$.

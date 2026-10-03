@@ -23,8 +23,8 @@ Its $\infty$-category of \emph{modules} is
 $\modcat{T}{\D} := \mathrm{LMod}_{T}(\iota_{1}\D)$
 \cite[Def.~4.2.1.13]{ha}, with forgetful functor
 $U\colon \modcat{T}{\D} \to \iota_{1}\D$.
-We write a module as $(x,a)$, with action $a\colon Tx \to x$,
-and call the $1$-morphisms of $\modcat{T}{\D}$ \emph{module maps}.
+A module consists of an object $x$, an action $a\colon Tx \to x$ and higher
+coherence data; abusing notation, we write it as $(x,a)$, and call the $1$-morphisms of $\modcat{T}{\D}$ \emph{module maps}.
 A \emph{comonad} on $\D$ is a monad on $\D\opcat$.
 \end{defi}
 
@@ -32,10 +32,13 @@ A \emph{comonad} on $\D$ is a monad on $\D\opcat$.
 Only the underlying $\infty$-category of $\func(\D,\D)$ enters: the unit and
 associativity laws hold up to coherent invertible modifications,
 so in $2$-category theory $T$ would be called a \emph{pseudomonad}
-\cite{marmolejo1997doctrines}. Passing to homotopy $2$-categories, $T$ induces a
-pseudomonoid in $\htwo\func(\D,\D)$ and a pseudomonad on $\htwo\D$, modules
-induce pseudo-algebras and module maps pseudo-morphisms; this is how we will
-import results on pseudomonads (\cref{subsec:prelim-conventions}).
+\cite{marmolejo1997doctrines}. We will import results on pseudomonads whose
+proofs construct $2$-morphisms from the unit and associativity $2$-morphisms of
+$T$, of modules and of module maps, and compare composites of them. Such proofs
+apply verbatim, and the $2$-morphisms satisfying the triangle identities that
+they produce extend to adjunctions by \cref{thm:adj-lifting}(2).
+\todo{2-categorical input: check, for each imported result, that the proof
+works verbatim.}
 The $\infty$-category $\modcat{T}{\D}$ only depends on the image of $T$ in
 $\func(\iota_{1}\D,\iota_{1}\D)$,
 a monad on $\iota_{1}\D$ in the sense of
@@ -48,22 +51,31 @@ $\modcat{T}{\D}$ has a colimit, which $U$ preserves \cite[Thm.~4.7.3.5]{ha}.
 \begin{defi}
 \label{def:kz}
 \gutentag{00BB}%
-A monad $T$ on $\D$ is \emph{lax idempotent} if
-$T\eta \dashv \mu$
-in $\func(\D,\D)$ with unit the unit law
-$\mathrm{id}_{T} \simeq \mu \circ T\eta$,
-and \emph{colax idempotent} if
-$\mu \dashv T\eta$
-with counit the unit law
-$\mu \circ T\eta \simeq \mathrm{id}_{T}$.
-A comonad is lax, resp.\ colax, idempotent if it is so as a monad on
+A monad $T$ on $\D$ is \emph{lax idempotent} if there is an adjunction in
+$\func(\D,\D)$ with left adjoint $T\eta$, right adjoint $\mu$ and unit the unit
+law
+$\mathrm{id}_{T} \simeq \mu \circ T\eta$.
+Via the equivalence
+$\iota_{1}\func(\D^{\mathrm{co}},\D^{\mathrm{co}}) \simeq
+\iota_{1}\func(\D,\D)$,
+$T$ is a monad on $\D^{\mathrm{co}}$, with
+$\modcat{T}{\D^{\mathrm{co}}} = \modcat{T}{\D}$,
+and $T$ is \emph{colax idempotent} if it is lax idempotent as a monad on
+$\D^{\mathrm{co}}$.
+A comonad on $\D$ is lax, resp.\ colax, idempotent if it is so as a monad on
 $\D\opcat$.
 \end{defi}
 
 \gutentag{00BC}%
-Being (co)lax idempotent is a condition on $T$, not a structure:
-an adjunction is determined by its left adjoint, its right adjoint and its unit
-(\cref{subsec:prelim-adjunctions}). Lax idempotent monads are also called
+Here $(-)^{\mathrm{co}}$ is an automorphism of $\twoCat$ preserving products, so
+$\func(\D^{\mathrm{co}},\D^{\mathrm{co}}) \simeq \func(\D,\D)^{\mathrm{co}}$
+compatibly with composition and evaluation, and $\iota_{1}$ does not see
+$(-)^{\mathrm{co}}$.
+Having the adjunction of \cref{def:kz} is a condition on $T$, not a structure:
+by \cref{thm:adj-lifting}(3), the space of adjunctions
+$T\eta \dashv \mu$
+with unit the unit law is empty or contractible.
+Lax idempotent monads are also called
 Kock--Z\"oberlein monads \cite{kock1995monads}; we follow the terminology of
 \cite{kellylack1997propertylike}.
 
@@ -72,30 +84,23 @@ Kock--Z\"oberlein monads \cite{kock1995monads}; we follow the terminology of
 \gutentag{00BD}%
 Let $T$ be a monad on $\D$.
 \begin{enumerate}
-\item $T$ is lax idempotent if and only if
-$\mu \dashv \eta T$
-with counit the unit law
-$\mu \circ \eta T \simeq \mathrm{id}_{T}$,
-and colax idempotent if and only if
-$\eta T \dashv \mu$
-with unit the unit law. Thus a lax, resp.\ colax, idempotent monad has
-adjunctions
-\begin{equation*}
-T\eta \dashv \mu \dashv \eta T \ , \qquad \text{resp.} \qquad \eta T \dashv \mu
-\dashv T\eta \ ,
-\end{equation*}
-with the unit laws as the unit of the first and the counit of the second
-adjunction. Evaluating at $x \in \D$ gives
-$T\eta_{x} \dashv \mu_{x} \dashv \eta_{Tx}$,
-resp.\
+\item $T$ is lax idempotent if and only if there is an adjunction with left
+adjoint $\mu$, right adjoint $\eta T$ and counit the unit law
+$\mu \circ \eta T \simeq \mathrm{id}_{T}$.
+A lax idempotent monad thus has adjunctions
+$T\eta \dashv \mu \dashv \eta T$,
+with the unit laws as the unit of the first and the counit of the second.
+Evaluating at $x \in \D$ gives
+$T\eta_{x} \dashv \mu_{x} \dashv \eta_{Tx}$.
+\item $T$ is colax idempotent if and only if there is an adjunction with left
+adjoint $\mu$, right adjoint $T\eta$ and counit the unit law, if and only if
+there is an adjunction with left adjoint $\eta T$, right adjoint $\mu$ and unit
+the unit law.
+A colax idempotent monad thus has adjunctions
+$\eta T \dashv \mu \dashv T\eta$,
+with the unit laws as the unit of the first and the counit of the second.
+Evaluating at $x \in \D$ gives
 $\eta_{Tx} \dashv \mu_{x} \dashv T\eta_{x}$.
-\item Via
-$\iota_{1}\func(\D^{\mathrm{co}},\D^{\mathrm{co}}) \simeq
-\iota_{1}\func(\D,\D)$,
-$T$ is a monad on $\D^{\mathrm{co}}$ with
-$\modcat{T}{\D^{\mathrm{co}}} = \modcat{T}{\D}$,
-and it is lax idempotent on $\D^{\mathrm{co}}$ if and only if it is colax
-idempotent on $\D$.
 \item Via
 $\iota_{1}\func(\D\opcat,\D\opcat) \simeq (\iota_{1}\func(\D,\D))\opcat$,
 a comonad on $\D$ is a coassociative coalgebra $G$ in
@@ -104,8 +109,7 @@ with counit
 $\varepsilon\colon G \Rightarrow \mathrm{id}_{\D}$
 and comultiplication
 $\delta\colon G \Rightarrow GG$.
-It is lax, resp.\ colax, idempotent if and only
-if
+It is lax, resp.\ colax, idempotent if and only if there are adjunctions
 \begin{equation*}
 \varepsilon G \dashv \delta \dashv G\varepsilon \ , \qquad \text{resp.} \qquad
 G\varepsilon \dashv \delta \dashv \varepsilon G \ ,
@@ -123,22 +127,19 @@ idempotent and $T^{\natural}$ is colax idempotent.
 
 \begin{proof}
 \gutentag{00BE}%
-(2) $(-)^{\mathrm{co}}$ is an automorphism of $\twoCat$ preserving products, so
-$\func(\D^{\mathrm{co}},\D^{\mathrm{co}}) \simeq \func(\D,\D)^{\mathrm{co}}$
-compatibly with composition and evaluation, and $\iota_{1}$ does not see
-$(-)^{\mathrm{co}}$. An adjunction $l \dashv r$ in an $(\infty,2)$-category $\A$
-is an adjunction $r \dashv l$ in $\A^{\mathrm{co}}$, with unit and counit
-exchanged, as adjunctions are detected in $\htwo\A$
-(\cref{subsec:prelim-adjunctions}).
-
-(1) For lax idempotence, this is \cite[Thm.~11.1]{marmolejo1997doctrines}
-(see \cite[Thm.~6.2]{kellylack1997propertylike} for $2$-monads), applied to the
-pseudomonoid $T$ in the monoidal bicategory $\htwo\func(\D,\D)$; the adjunctions
-obtained there extend to adjunctions in $\func(\D,\D)$
-(\cref{subsec:prelim-adjunctions}). The colax case follows by (2).
+(1) This is \cite[Thm.~11.1]{marmolejo1997doctrines}
+(see \cite[Thm.~6.2]{kellylack1997propertylike} for $2$-monads), applied to
+$T$ (\cref{subsec:prelim-monads}).
+\todo{2-categorical input: check that the argument works verbatim.}
 Evaluation at $x$ is a functor
 $\func(\D,\D) \to \D$
 taking $T\eta$, $\mu$ and $\eta T$ to $T\eta_{x}$, $\mu_{x}$ and $\eta_{Tx}$.
+
+(2) An adjunction $l \dashv r$ in an $(\infty,2)$-category $\A$ is an adjunction
+$r \dashv l$ in $\A^{\mathrm{co}}$, with unit and counit exchanged
+(\cref{thm:adj-lifting}(2)). As
+$\func(\D^{\mathrm{co}},\D^{\mathrm{co}}) \simeq \func(\D,\D)^{\mathrm{co}}$,
+(2) is \cref{def:kz} and (1) for $T$ on $\D^{\mathrm{co}}$.
 
 (3) Likewise
 $\func(\D\opcat,\D\opcat) \simeq \func(\D,\D)\opcat$
@@ -149,7 +150,8 @@ $l \dashv r$ in $\A$ is an adjunction
 $r\opcat \dashv l\opcat$
 in $\A\opcat$ with the same unit and counit
 \cite[Rem.~4.3]{haugseng2021laxmonads}.
-This takes the adjunctions of (1) for a monad on $\D\opcat$ to the ones stated.
+This takes the adjunctions of (1) and (2) for a monad on $\D\opcat$ to the
+ones stated.
 
 (4) By \cite[\S 4.7.1]{ha}, composition makes
 $S \mapsto S_{\natural}$
@@ -167,27 +169,28 @@ $T_{\natural}\eta_{\natural} \dashv \mu_{\natural}$
 and
 $\eta^{\natural}T^{\natural} \dashv \mu^{\natural}$,
 with the unit laws as units. So $T_{\natural}$ is lax idempotent, and
-$T^{\natural}$ is colax idempotent by (1).
+$T^{\natural}$ is colax idempotent by (2).
 \end{proof}
 
 \begin{prop}
 \label{prop:kz-action}
 \gutentag{00BF}%
-Let $T$ be a lax idempotent monad on $\D$ and $(x,a)$ a $T$-module. Then
+Let $T$ be a lax idempotent monad on $\D$ and $(x,a)$ a $T$-module. Then there
+is an adjunction
 $a \dashv \eta_{x}$
 with counit the unit law
 $a\eta_{x} \simeq \mathrm{id}_{x}$;
 in particular $\eta_{x}$ is reflective (\cref{def:reflection}). Dually, if $T$
-is colax idempotent, then
+is colax idempotent, then there is an adjunction
 $\eta_{x} \dashv a$
 with unit the unit law, and $\eta_{x}$ is coreflective.
 \end{prop}
 
 \begin{proof}
 \gutentag{00C0}%
-As adjunctions are detected in $\htwo\D$ (\cref{subsec:prelim-adjunctions}),
-this is \cite[Lemma~10.4]{marmolejo1997doctrines}
-(\cite[Thm.~6.2]{kellylack1997propertylike} for $2$-monads). The unit is
+This is \cite[Lemma~10.4]{marmolejo1997doctrines}
+(\cite[Thm.~6.2]{kellylack1997propertylike} for $2$-monads).
+\todo{2-categorical input: check that the argument works verbatim.} The unit is
 \begin{equation*}
 \mathrm{id}_{Tx} \simeq Ta \circ T\eta_{x} \xRightarrow{\ Ta\,\delta_{x}\ } Ta
 \circ \eta_{Tx} \simeq \eta_{x}a \ ,
@@ -196,7 +199,7 @@ where
 $\delta\colon T\eta \Rightarrow \eta T\mu T\eta \simeq \eta T$
 is given by the unit of
 $\mu \dashv \eta T$
-(\cref{lem:kz-basic}(1)). The colax case follows by \cref{lem:kz-basic}(2).
+(\cref{lem:kz-basic}(1)). The colax case follows by \cref{def:kz}.
 \end{proof}
 
 \begin{thm}[being a module is a property]

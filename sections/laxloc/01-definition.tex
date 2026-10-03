@@ -84,10 +84,9 @@ the triangle identities. Conversely, by \cite[Cor.~2.2]{bourke2025recognition},
 a consequence of \cite[Lemma~2.1.11]{riehlverity2022elements}, a $\nu$ as in
 (1) yields a $2$-morphism
 $\mathrm{id}_{x} \Rightarrow uf$
-satisfying the triangle identities with $c$. By the theorem of Riehl--Verity
-\cite[Thm.~4.3.11]{riehlverity2016adjunctions}, proved model-independently in
-\cite[Thm.~5.1]{abellan2026bifibrations}, these extend to an adjunction
-$f \dashv u$ with counit $c$ (\cref{subsec:prelim-adjunctions}). (2) is (1) in
+satisfying the triangle identities with $c$.
+\todo{2-categorical input: check that \cite[Cor.~2.2]{bourke2025recognition} works verbatim.} By \cref{thm:adj-lifting}(2), these extend to an adjunction
+$f \dashv u$ with counit $c$. (2) is (1) in
 $\A^{\mathrm{co}}$.
 \end{proof}
 
@@ -231,11 +230,11 @@ reference (\cref{rmk:kz-literature}).
 As $(-)^{\mathrm{co}}$ is an automorphism of $\twoCat$ with
 $\iota_{1}\func(\A^{\mathrm{co}},\B^{\mathrm{co}}) \simeq
 \iota_{1}\func(\A,\B)$
-compatibly with composition (proof of \cref{lem:kz-basic}(2)), an adjunction
+compatibly with composition (\cref{subsec:prelim-monads}), an adjunction
 $L \dashv R$ is also an adjunction
 $L^{\mathrm{co}} \dashv R^{\mathrm{co}}$
 between $\D^{\mathrm{co}}$ and $\C^{\mathrm{co}}$, with the same unit, counit
-and monad. By \cref{lem:kz-basic}(2), $L \dashv R$ is a colax localization if
+and monad. By \cref{def:kz}, $L \dashv R$ is a colax localization if
 and only if
 $L^{\mathrm{co}} \dashv R^{\mathrm{co}}$
 is a lax localization. We treat lax localizations, and will spell out the colax

@@ -31,18 +31,6 @@ if it lies in the image of
 respectively.
 \end{defi}
 
-\gutentag{000A}%
-By Riehl--Verity \cite[Thms.~4.3.11, 4.4.18]{riehlverity2016adjunctions} (see
-\cite[Thm.~4.4]{haugseng2021laxmonads}, and
-\cite[Thm.~5.1]{abellan2026bifibrations} for a model-independent proof),
-$\ell^{*}$ and $\rho^{*}$ are monomorphisms,
-so being a left or a right adjoint is a property of a $1$-morphism. Moreover,
-$1$-morphisms $l\colon x \to y$, $r\colon y \to x$ and $2$-morphisms
-$\mathrm{id}_{x} \Rightarrow rl$,
-$lr \Rightarrow \mathrm{id}_{y}$
-satisfying the triangle identities in $\htwo\A$ extend to an adjunction $l
-\dashv r$ with this unit and counit.
-
 \gutentag{000B}%
 Functors preserve adjunctions. In particular, for $t \in \A$ the functors
 $\Hom_{\A}(t,-)\colon \A \to \Cat$
@@ -62,6 +50,76 @@ $l \mapsto r\opcat$, $r \mapsto l\opcat$,
 which fixes the objects and preserves the unit and counit
 \cite[Rem.~4.3]{haugseng2021laxmonads}.
 
+We will use the following lifting theorem, proved model-independently by
+Abell\'an (and by Riehl--Verity
+\cite[Thms.~4.3.11, 4.4.18]{riehlverity2016adjunctions} for
+quasi-categorically enriched categories).
+
+\begin{thm}[{\cite[Thm.~5.1]{abellan2026bifibrations}}]
+\label{thm:adj-lifting}
+\gutentag{000A}%
+Let $\A$ be an $(\infty,2)$-category.
+\begin{enumerate}
+\item The maps $\ell^{*}$ and $\rho^{*}$ are monomorphisms, so being a left or a
+right adjoint is a property of a $1$-morphism.
+\item Let
+$l\colon x \to y$
+and
+$r\colon y \to x$
+be $1$-morphisms, and
+$\eta\colon \mathrm{id}_{x} \Rightarrow rl$
+and
+$\varepsilon\colon lr \Rightarrow \mathrm{id}_{y}$
+$2$-morphisms satisfying the triangle identities
+$\varepsilon l \circ l\eta \simeq \mathrm{id}_{l}$
+and
+$r\varepsilon \circ \eta r \simeq \mathrm{id}_{r}$.
+Then there is an adjunction $l \dashv r$ with unit $\eta$ and counit
+$\varepsilon$.
+\item For
+$l\colon x \to y$,
+the map
+$A \mapsto (A(r),A(\eta))$
+from the space of adjunctions $A$ with $A(l) = l$ to the space of pairs
+$(r,\eta)$ with $\eta$ the unit of an adjunction $l \dashv r$ is an
+equivalence, and both spaces are empty or contractible. In particular, for
+given $r$ and $\eta$, the space of adjunctions $l \dashv r$ with unit $\eta$ is
+empty or contractible.
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+(1) By \cite[Thm.~5.1]{abellan2026bifibrations}, $\ell^{*}$ is the map on
+underlying spaces of an equivalence of $\func(\Adj,\A)$ with a locally full
+sub-$(\infty,2)$-category of $\func(\Delta^{1},\A)$, whose objects are the $l$
+admitting $r$, $\eta$, $\varepsilon$ as in (2). Locally full inclusions are
+monomorphisms, and so are their maps on underlying spaces. For $\rho^{*}$, apply
+this to $\A\opcat$, using
+$\Adj \simeq \Adj\opcat$.
+
+(2) and (3) Let $l$ admit $r$, $\eta$, $\varepsilon$ as in (2). By (1) there is
+an adjunction $A$ with $A(l) = l$; let $r_{0} = A(r)$ and
+$\eta_{0} = A(\eta)$.
+The transposition
+$\mapp(r_{0},r') \simeq \mapp(\mathrm{id}_{x},r'l)$,
+$\theta \mapsto \theta l \circ \eta_{0}$,
+of
+$r_{0}^{\natural} \dashv l^{\natural}$
+\eqref{eq:hom-adjunctions} is natural in
+$r' \in \Hom_{\A}(y,x)$.
+By the triangle identities, as for $2$-categories, it identifies the invertible
+$\theta$ with the $\eta'$ admitting an $\varepsilon'$ as in (2), and $\varepsilon'$
+is then unique up to equivalence.
+\todo{2-categorical input: check that uniqueness of adjoints works verbatim.} These $\eta'$ include the units of adjunctions
+$l \dashv r'$. So the space of pairs $(r',\eta')$ with $\eta'$ admitting such
+an $\varepsilon'$ is the space of pairs
+$(r',\theta\colon r_{0} \simeq r')$,
+which is contractible. It contains $(r,\eta)$ and
+$(r_{0},\eta_{0})$, so transporting $A$ along the equivalence between them gives
+(2). Hence this space is also the space of pairs $(r',\eta')$ with $\eta'$ a
+unit, and (3) follows, both spaces being empty if $l$ is not a left adjoint.
+\end{proof}
+
 \begin{defi}
 \label{def:reflection}
 \gutentag{000C}%
@@ -75,7 +133,7 @@ and \emph{coreflective} if it is the left adjoint of a coreflection.
 \end{defi}
 
 \gutentag{000D}%
-By \cite[Thm.~4.4]{haugseng2021laxmonads},
+By \cref{thm:adj-lifting}(1),
 being reflective is a property of a $1$-morphism $r$,
 independent of the choice of a left adjoint,
 and similarly for being coreflective.
@@ -258,7 +316,7 @@ $(\mathrm{id}_{p},\alpha)$
 is a $2$-morphism
 $ip = (p,fp,\mathrm{id}_{fp}) \Rightarrow (p,q,\alpha) = \mathrm{id}$,
 and it is the counit of an adjunction $i \dashv p$ with identity unit
-\cite[Thm.~4.3.11]{riehlverity2016adjunctions}, as the triangle identities
+(\cref{thm:adj-lifting}(2)), as the triangle identities
 $p(\mathrm{id}_{p},\alpha) = \mathrm{id}_{p}$
 and
 $(\mathrm{id}_{p},\alpha)i = \mathrm{id}_{i}$
@@ -360,9 +418,9 @@ d_{\varepsilon}e_{\eta}i = (\mathrm{id}_{X},\,f,\,\varepsilon f \circ f\eta)
 \simeq i \ , \qquad e_{\eta}d_{\varepsilon}j =
 (g,\,\mathrm{id}_{Y},\,g\varepsilon \circ \eta g) \simeq j \ .
 \end{equation*}
-These are the triangle identities for $\eta$ and $\varepsilon$ in $\htwo\E$.
+These are the triangle identities for $\eta$ and $\varepsilon$.
 So $e_{\eta}$ is an equivalence if and only if $\eta$ is the unit of an
-adjunction $f \dashv g$ \cite[Thm.~4.3.11]{riehlverity2016adjunctions}, and then
+adjunction $f \dashv g$ (\cref{thm:adj-lifting}(2)), and then
 $e_{\eta}^{-1} = d_{\varepsilon}$
 for its counit $\varepsilon$.
 
@@ -378,21 +436,7 @@ $\eta \mapsto e_{\eta}$
 identifies the fibre of $\mathrm{Un}(f)$ over $g$ with the space of transposing
 adjunctions between $f$ and $g$, so it suffices to show that
 $\mathrm{Ad}(f) \to \mathrm{Un}(f)$
-is an equivalence.
-If $f$ is not a left adjoint, both spaces are empty.
-Otherwise $\mathrm{Ad}(f)$ is contractible,
-as $\ell^{*}$ is a monomorphism \cite[Thm.~4.4]{haugseng2021laxmonads},
-and so is $\mathrm{Un}(f)$: let $f \dashv f^{R}$ with unit $\eta_{0}$.
-The transposition
-$\mapp(f^{R},g) \simeq \mapp(\mathrm{id}_{X},gf)$,
-$\theta \mapsto \theta f \circ \eta_{0}$,
-of
-$(f^{R})^{\natural} \dashv f^{\natural}$
-\eqref{eq:hom-adjunctions} is natural in $g \in \Hom(Y,X)$,
-and by uniqueness of adjoints in $\htwo\E$ it identifies the units with the
-invertible $\theta$. So $\mathrm{Un}(f)$ is the space of pairs
-$(g,\theta\colon f^{R} \simeq g)$,
-which is contractible.
+is an equivalence, which is \cref{thm:adj-lifting}(3).
 \end{proof}
 
 \begin{rmk}
