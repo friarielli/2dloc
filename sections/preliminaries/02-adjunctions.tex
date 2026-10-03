@@ -228,19 +228,89 @@ and
 $(u,v,\varphi)\colon T \to (f \downarrow g)$
 for the $1$-morphism given by $u\colon T \to X$, $v\colon T \to Z$ and
 $\varphi\colon fu \Rightarrow gv$.
-We consider $ (f\downarrow g) $ as the span 
+We consider $ (f\downarrow g) $ as the span
 $ X \xleftarrow{p} (f\downarrow g) \xrightarrow{q} Z $
 from $ X $ to $ Z $.
+By the universal property of lax pullbacks,
+$\Hom(T,(f \downarrow g)) \simeq (f_{\natural} \downarrow g_{\natural})$,
+naturally in $T$.
 For $\E = \Cat$, $(f \downarrow g)$ is the comma $\infty$-category.
 For $f\colon X \to Y$ and $g\colon Y \to X$ we write
 $(f \downarrow Y) := (f \downarrow \mathrm{id}_{Y})$
 and
 $(X \downarrow g) := (\mathrm{id}_{X} \downarrow g)$;
-both are spans from $X$ to $Y$. They receive the $1$-morphisms
+both are spans from $X$ to $Y$. We write $p$, $q$,
+$\alpha\colon fp \Rightarrow q$
+for the structure of $(f \downarrow Y)$, and $\bar p$, $\bar q$,
+$\beta\colon \bar p \Rightarrow g\bar q$
+for that of $(X \downarrow g)$. They receive the \emph{diagonals}
 \begin{equation*}
-i := (\mathrm{id}_{X},f,\mathrm{id}_{f})\colon X \to (f \downarrow Y) \ ,
-\qquad j := (g,\mathrm{id}_{Y},\mathrm{id}_{g})\colon Y \to (X \downarrow g) \ .
+\Delta_{f} := (\mathrm{id}_{X},f,\mathrm{id}_{f})\colon X \to (f \downarrow Y)
+\ , \qquad \Delta_{g} := (g,\mathrm{id}_{Y},\mathrm{id}_{g})\colon Y \to (X
+\downarrow g) \ ,
 \end{equation*}
+with
+$p\Delta_{f} = \mathrm{id}_{X}$,
+$q\Delta_{f} = f$,
+$\alpha\Delta_{f} = \mathrm{id}_{f}$
+and
+$\bar p\Delta_{g} = g$,
+$\bar q\Delta_{g} = \mathrm{id}_{Y}$,
+$\beta\Delta_{g} = \mathrm{id}_{g}$.
+
+\begin{lem}
+\label{lem:comma-diagonal}
+There are adjunctions
+$\Delta_{f} \dashv p$
+with identity unit and counit
+$(\mathrm{id}_{p},\alpha)\colon \Delta_{f}p \Rightarrow \mathrm{id}$,
+and
+$\bar q \dashv \Delta_{g}$
+with unit
+$(\beta,\mathrm{id}_{\bar q})\colon \mathrm{id} \Rightarrow \Delta_{g}\bar q$
+and identity counit. Hence restriction along $\Delta_{f}$ and $\Delta_{g}$ are
+equivalences
+\begin{equation*}
+\mapp(sp,t) \xrightarrow{\ \simeq\ } \mapp(s,t\Delta_{f}) \ , \qquad
+\mapp(t',s'\bar q) \xrightarrow{\ \simeq\ } \mapp(t'\Delta_{g},s') \ ,
+\end{equation*}
+for all
+$s\colon X \to T$,
+$t\colon (f \downarrow Y) \to T$,
+$s'\colon Y \to T$
+and
+$t'\colon (X \downarrow g) \to T$.
+\end{lem}
+
+\begin{proof}
+The pair
+$(\mathrm{id}_{p},\alpha)$
+is a $2$-morphism
+$\Delta_{f}p = (p,fp,\mathrm{id}_{fp}) \Rightarrow (p,q,\alpha) = \mathrm{id}$.
+It satisfies the triangle identities with the identity unit,
+$p(\mathrm{id}_{p},\alpha) = \mathrm{id}_{p}$
+and
+$(\mathrm{id}_{p},\alpha)\Delta_{f} = (\mathrm{id}_{\mathrm{id}_{X}},
+\mathrm{id}_{f}) = \mathrm{id}_{\Delta_{f}}$,
+so it is the counit of an adjunction
+$\Delta_{f} \dashv p$
+by \cref{thm:adj-lifting}(2). By \eqref{eq:hom-adjunctions},
+$p^{\natural} \dashv \Delta_{f}^{\natural}$
+with identity unit, and the first equivalence is its transposition
+$\theta \mapsto \theta\Delta_{f}$.
+Likewise
+$(\beta,\mathrm{id}_{\bar q})$
+satisfies the triangle identities
+$\bar q(\beta,\mathrm{id}_{\bar q}) = \mathrm{id}_{\bar q}$
+and
+$(\beta,\mathrm{id}_{\bar q})\Delta_{g} = \mathrm{id}_{\Delta_{g}}$
+with the identity counit, so
+$\bar q \dashv \Delta_{g}$
+and
+$\Delta_{g}^{\natural} \dashv \bar q^{\natural}$
+with identity counit; the second equivalence is the inverse of its
+transposition.
+\end{proof}
 
 \begin{lem}
 \label{lem:comma-fibrewise}
@@ -263,6 +333,86 @@ along $F \times G$, hence a bifibration \cite[Cor.~2.4.7.11]{htt},
 with fibre $\mapp(Fa,Gb)$ over $(a,b)$. A functor over $A \times B$ between
 bifibrations that is an equivalence on fibres is an equivalence
 \cite[Prop.~2.4.7.6]{htt}.
+\end{proof}
+
+\begin{lem}
+\label{lem:comma-maps}
+Let
+$h\colon X' \to Z$
+and
+$k\colon Y' \to Z$
+be $1$-morphisms, and regard $(h \downarrow k)$, with structure $p'$, $q'$,
+$\gamma\colon hp' \Rightarrow kq'$,
+as a span from $X'$ to $Y'$.
+\begin{enumerate}
+\item Restriction along $\Delta_{f}$ is an equivalence over
+$\Hom(X,X') \times \Hom(Y,Y')$
+\begin{equation*}
+\Hom_{\Span(\E)}\bigl((f \downarrow Y),(h \downarrow k)\bigr)
+\xrightarrow{\ \simeq\ } (h_{\natural} \downarrow k_{\natural}f^{\natural}) \
+.
+\end{equation*}
+Its inverse takes
+$(a,b,\sigma\colon ha \Rightarrow kbf)$
+to the map of spans
+$c_{\sigma} := (ap,\,bq,\,kb\alpha \circ \sigma p)$.
+\item Restriction along $\Delta_{g}$ is an equivalence over
+$\Hom(X,X') \times \Hom(Y,Y')$
+\begin{equation*}
+\Hom_{\Span(\E)}\bigl((X \downarrow g),(h \downarrow k)\bigr)
+\xrightarrow{\ \simeq\ } (h_{\natural}g^{\natural} \downarrow k_{\natural}) \
+.
+\end{equation*}
+Its inverse takes
+$(a,b,\tau\colon hag \Rightarrow kb)$
+to the map of spans
+$d_{\tau} := (a\bar p,\,b\bar q,\,\tau\bar q \circ ha\beta)$.
+\end{enumerate}
+\end{lem}
+
+\begin{proof}
+(1) By the universal property of $(h \downarrow k)$, a map of spans
+$(f \downarrow Y) \to (h \downarrow k)$
+over $(a,b)$ is a $1$-morphism
+$(ap,bq,\theta)$
+with
+$\theta\colon hap \Rightarrow kbq$.
+So the source is the comma $\infty$-category
+$(h_{\natural}p^{\natural} \downarrow k_{\natural}q^{\natural})$
+of triples $(a,b,\theta)$, and restriction along $\Delta_{f}$ sends
+$(a,b,\theta)$
+to
+$(a,b,\theta\Delta_{f}\colon ha \Rightarrow kbf)$,
+as
+$p\Delta_{f} = \mathrm{id}_{X}$
+and
+$q\Delta_{f} = f$.
+On the fibres over $(a,b)$ this is
+$\mapp(hap,kbq) \to \mapp(ha,kbf)$,
+$\theta \mapsto \theta\Delta_{f}$,
+an equivalence by \cref{lem:comma-diagonal} with $s = ha$ and $t = kbq$. By
+\cref{lem:comma-fibrewise}, restriction along $\Delta_{f}$ is an equivalence.
+It takes $c_{\sigma}$ to
+$(a,bf,kb\alpha\Delta_{f} \circ \sigma) = (a,bf,\sigma)$,
+as
+$\alpha\Delta_{f} = \mathrm{id}_{f}$.
+
+(2) Similarly, a map of spans
+$(X \downarrow g) \to (h \downarrow k)$
+over $(a,b)$ is a $1$-morphism
+$(a\bar p,b\bar q,\theta)$
+with
+$\theta\colon ha\bar p \Rightarrow kb\bar q$,
+and restriction along $\Delta_{g}$ sends it to
+$(a,b,\theta\Delta_{g}\colon hag \Rightarrow kb)$.
+On fibres this is
+$\mapp(ha\bar p,kb\bar q) \to \mapp(hag,kb)$,
+an equivalence by \cref{lem:comma-diagonal} with $t' = ha\bar p$ and
+$s' = kb$, so restriction along $\Delta_{g}$ is an equivalence by
+\cref{lem:comma-fibrewise}. It takes $d_{\tau}$ to
+$(ag,b,\tau \circ ha\beta\Delta_{g}) = (ag,b,\tau)$,
+as
+$\beta\Delta_{g} = \mathrm{id}_{g}$.
 \end{proof}
 
 \begin{defi}
@@ -360,140 +510,69 @@ if it is a unit transformation in the sense of \cite[Def.~5.2.2.7]{htt}.
 
 \begin{proof}[Proof of \cref{thm:comma-adjunctions}]
 \gutentag{0021}%
-We write $p$, $q$,
-$\alpha\colon fp \Rightarrow q$
-for the structure of $(f \downarrow Y)$ and $\bar p$, $\bar q$,
-$\beta\colon \bar p \Rightarrow g\bar q$
-for that of $(X \downarrow g)$. By the universal property of lax pullbacks,
-$\Hom(T,(h \downarrow k))$
-is the comma $\infty$-category
-$(h_{\natural} \downarrow k_{\natural})$,
-naturally in $T$.
-
-\emph{Step 1: restriction along $i$ and $j$.} We have $pi = \mathrm{id}_{X}$,
-$qi = f$ and
-$\alpha i = \mathrm{id}_{f}$.
-The pair
-$(\mathrm{id}_{p},\alpha)$
-is a $2$-morphism
-$ip = (p,fp,\mathrm{id}_{fp}) \Rightarrow (p,q,\alpha) = \mathrm{id}$,
-and it is the counit of an adjunction $i \dashv p$ with identity unit
-(\cref{thm:adj-lifting}(2)), as the triangle identities
-$p(\mathrm{id}_{p},\alpha) = \mathrm{id}_{p}$
-and
-$(\mathrm{id}_{p},\alpha)i = \mathrm{id}_{i}$
-hold. By \eqref{eq:hom-adjunctions},
-$p^{\natural} \dashv i^{\natural}$
-with identity unit, so restriction along $i$ is an equivalence
-\begin{equation}
-\label{eq:comma-yoneda}
-\mapp(sp,t) \xrightarrow{\ \simeq\ } \mapp(s,ti) \ ,
-\qquad \theta \mapsto \theta i \ ,
-\end{equation}
-for all $s\colon X \to T$ and
-$t\colon (f \downarrow Y) \to T$
-\cite[Prop.~5.2.2.8]{htt}. Dually, $\bar p j = g$,
-$\bar q j = \mathrm{id}_{Y}$
-and
-$\beta j = \mathrm{id}_{g}$,
-and
-$(\beta,\mathrm{id}_{\bar q})\colon \mathrm{id} \Rightarrow j\bar q$
-is the unit of an adjunction $\bar q \dashv j$ with identity counit,
-so restriction along $j$ is an equivalence
-$\mapp(t,s\bar q) \simeq \mapp(tj,s)$
-for all $s\colon Y \to T$ and
-$t\colon (X \downarrow g) \to T$.
-
-\emph{Step 2: maps between lax pullbacks.} Let $(h \downarrow k)$ be $(f'
-\downarrow Y')$ or $(X' \downarrow g')$
-for some $f'\colon X' \to Y'$ and $g'\colon Y' \to X'$,
-with $h\colon X' \to Z'$ and $k\colon Y' \to Z'$. Restriction along $i$,
-resp.\ $j$, gives equivalences over
-$\Hom(X,X') \times \Hom(Y,Y')$
-\begin{equation}
-\label{eq:maps-of-commas}
-\Hom_{\Span(\E)}\bigl((f \downarrow Y),(h \downarrow k)\bigr) \simeq
-(h_{\natural} \downarrow k_{\natural}f^{\natural}) \ ,
-\qquad \Hom_{\Span(\E)}\bigl((X \downarrow g),(h \downarrow k)\bigr) \simeq
-(h_{\natural}g^{\natural} \downarrow k_{\natural}) \ .
-\end{equation}
-Indeed,
-$\Hom_{\Span(\E)}((f \downarrow Y),(h \downarrow k))$
-is the pullback of
-$\Hom((f \downarrow Y),(h \downarrow k)) \simeq (h_{\natural} \downarrow
-k_{\natural})$
-along
-$p^{\natural} \times q^{\natural}$,
-i.e.\ the comma $\infty$-category
-$(h_{\natural}p^{\natural} \downarrow k_{\natural}q^{\natural})$
-of triples
-$(a,b,\theta\colon hap \Rightarrow kbq)$.
-As $pi = \mathrm{id}_{X}$ and $qi = f$, restriction along $i$ is a functor to
-$(h_{\natural} \downarrow k_{\natural}f^{\natural})$
+\emph{Step 1: the maps between $(f \downarrow Y)$ and $(X \downarrow g)$.}
+The fibre of \cref{lem:comma-maps}(1) for $h = \mathrm{id}_{X}$ and $k = g$,
+i.e.\
+$(h \downarrow k) = (X \downarrow g)$,
 over
-$\Hom(X,X') \times \Hom(Y,Y')$,
-which on fibres is the equivalence \eqref{eq:comma-yoneda};
-by \cref{lem:comma-fibrewise} it is an equivalence. The case of $j$ is dual.
-Explicitly, for
-$(h \downarrow k) = (f' \downarrow Y')$
-in the first and
-$(h \downarrow k) = (X' \downarrow g')$
-in the second equivalence, a $2$-morphism
-$\sigma\colon f'a \Rightarrow bf$,
-resp.\
-$\tau\colon ag \Rightarrow g'b$,
-corresponds to
-\begin{equation*}
-c_{\sigma}\colon (u,v,\varphi) \mapsto (au,\,bv,\,b\varphi \circ \sigma u) \ ,
-\quad \text{resp.} \quad d_{\tau}\colon (u,v,\psi) \mapsto (au,\,bv,\,\tau v
-\circ a\psi) \ ,
-\end{equation*}
-as
-$c_{\sigma}i = (a,bf,\sigma)$
-and
-$d_{\tau}j = (ag,b,\tau)$.
-For
 $(a,b) = (\mathrm{id}_{X},\mathrm{id}_{Y})$
-and $(f',g') = (f,g)$, this shows that the $1$-morphisms
-$(f \downarrow Y) \to (X \downarrow g)$
-of $\Span_{\E}(X,Y)$ are the $e_{\eta}$, with
-$e_{\eta}i = (\mathrm{id}_{X},f,\eta)$,
-which is the first claim; that the $1$-morphisms
-$(X \downarrow g) \to (f \downarrow Y)$
-of $\Span_{\E}(X,Y)$ are the
+is an equivalence
 \begin{equation*}
-d_{\varepsilon}\colon (u,v,\psi) \mapsto (u,\,v,\,\varepsilon v \circ f\psi) \ ,
-\qquad d_{\varepsilon}j = (g,\mathrm{id}_{Y},\varepsilon) \ ,
+\Hom_{\Span_{\E}(X,Y)}\bigl((f \downarrow Y),(X \downarrow g)\bigr)
+\xrightarrow{\ \simeq\ } \mapp(\mathrm{id}_{X},gf) \ .
+\end{equation*}
+It takes a map of spans $e$ to the $2$-morphism $\eta$ with
+$e\Delta_{f} = (\mathrm{id}_{X},f,\eta)$,
+and its inverse takes $\eta$ to
+$c_{\eta} = (p,q,g\alpha \circ \eta p)$,
+which is the map $e_{\eta}$ of the statement. This is the first claim.
+Likewise, the fibre of \cref{lem:comma-maps}(2) for $h = f$ and
+$k = \mathrm{id}_{Y}$
+over
+$(\mathrm{id}_{X},\mathrm{id}_{Y})$
+shows that the maps of spans
+$(X \downarrow g) \to (f \downarrow Y)$
+are the
+\begin{equation*}
+d_{\varepsilon} = (\bar p,\bar q,\varepsilon\bar q \circ f\beta)\colon
+(u,v,\psi) \mapsto (u,\,v,\,\varepsilon v \circ f\psi) \ , \qquad
+d_{\varepsilon}\Delta_{g} = (g,\mathrm{id}_{Y},\varepsilon) \ ,
 \end{equation*}
 for
-$\varepsilon\colon fg \Rightarrow \mathrm{id}_{Y}$;
-and that an endomorphism of $(f \downarrow Y)$, resp.\ $(X \downarrow g)$,
-in $\Span_{\E}(X,Y)$ is the identity if and only if its restriction along $i$ is
-$i$, resp.\ its restriction along $j$ is $j$.
+$\varepsilon\colon fg \Rightarrow \mathrm{id}_{Y}$.
+By \cref{lem:comma-maps}(1) for $h = f$ and $k = \mathrm{id}_{Y}$, an
+endomorphism $c$ of $(f \downarrow Y)$ in $\Span_{\E}(X,Y)$ is equivalent to
+the identity if and only if
+$c\Delta_{f} \simeq \Delta_{f}$,
+and by \cref{lem:comma-maps}(2) for $h = \mathrm{id}_{X}$ and $k = g$, an
+endomorphism $d$ of $(X \downarrow g)$ is equivalent to the identity if and only
+if
+$d\Delta_{g} \simeq \Delta_{g}$.
 
-\emph{Step 3: $e_{\eta}$ is an equivalence if and only if $\eta$ is a unit.} As
+\emph{Step 2: $e_{\eta}$ is an equivalence if and only if $\eta$ is a unit.} As
 equivalences in $\Span_{\E}(X,Y)$ are detected in $\E$,
 $e_{\eta}$ is an equivalence if and only if it has an inverse in
-$\Span_{\E}(X,Y)$, i.e.\ by Step 2 an $\varepsilon$ with
+$\Span_{\E}(X,Y)$, which by Step 1 is some $d_{\varepsilon}$. By Step 1,
+$d_{\varepsilon}$ is inverse to $e_{\eta}$ if and only if
 \begin{equation*}
-d_{\varepsilon}e_{\eta}i = (\mathrm{id}_{X},\,f,\,\varepsilon f \circ f\eta)
-\simeq i \ , \qquad e_{\eta}d_{\varepsilon}j =
-(g,\,\mathrm{id}_{Y},\,g\varepsilon \circ \eta g) \simeq j \ .
+d_{\varepsilon}e_{\eta}\Delta_{f} = (\mathrm{id}_{X},\,f,\,\varepsilon f \circ
+f\eta) \simeq \Delta_{f} \ , \qquad e_{\eta}d_{\varepsilon}\Delta_{g} =
+(g,\,\mathrm{id}_{Y},\,g\varepsilon \circ \eta g) \simeq \Delta_{g} \ ,
 \end{equation*}
-These are the triangle identities for $\eta$ and $\varepsilon$.
+i.e.\ if and only if $\eta$ and $\varepsilon$ satisfy the triangle identities.
 So $e_{\eta}$ is an equivalence if and only if $\eta$ is the unit of an
 adjunction $f \dashv g$ (\cref{thm:adj-lifting}(2)), and then
 $e_{\eta}^{-1} = d_{\varepsilon}$
 for its counit $\varepsilon$.
 
-\emph{Step 4: adjunctions are transposing adjunctions.} Let $\mathrm{Ad}(f)$ be
+\emph{Step 3: adjunctions are transposing adjunctions.} Let $\mathrm{Ad}(f)$ be
 the fibre of $\ell^{*}$ over $f$, the space of adjunctions $A$ with $A(l) = f$,
 and let $\mathrm{Un}(f)$ be the space of pairs $(g,\eta)$ with $\eta$ the unit
 of an adjunction $f \dashv g$. Both lie over $\mapp(Y,X)$, and
 $A \mapsto (A(r),A(\eta))$
 is a map
 $\mathrm{Ad}(f) \to \mathrm{Un}(f)$
-over $\mapp(Y,X)$. By Steps 2 and 3,
+over $\mapp(Y,X)$. By Steps 1 and 2,
 $\eta \mapsto e_{\eta}$
 identifies the fibre of $\mathrm{Un}(f)$ over $g$ with the space of transposing
 adjunctions between $f$ and $g$, so it suffices to show that

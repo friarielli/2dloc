@@ -2,7 +2,13 @@
 \label{subsec:laxloc-description}
 
 \gutentag{00DB}%
-Let $L \dashv R$ be a lax localization. By
+Let $L \dashv R$ be a lax localization (\cref{def:laxloc}), with
+$L\colon \D \to \C$,
+$R\colon \C \to \D$,
+unit
+$\eta\colon \mathrm{id}_{\D} \Rightarrow RL$,
+counit $\varepsilon$ and lax idempotent monad $T = RL$ as in
+\cref{subsec:laxloc-def}. By
 \cref{thm:kz-modules,thm:kz-module-maps}, the $T$-modules form the locally full
 sub-$(\infty,2)$-category
 $\D_{T} \subset \D$
@@ -150,6 +156,32 @@ for $\D_{T}$, as
 $\eta_{x}\colon x \to RLx$
 is reflective for $x \in \D_{T}$.
 \end{proof}
+
+\begin{rmk}
+\label{rmk:laxloc-squares}
+The equality
+$\Pc_{\emptyset,\Sigma_{\eta}} = \Pc_{\emptyset,\{\eta_{d}\}}$
+in \cref{thm:laxloc-local}(2) says that the conditions (O2) for the naturality
+squares
+$(g,Tg)\colon \eta_{d} \to \eta_{d'}$
+are automatic. Directly: for $x \in \D_{T}$ the proof of
+\cref{lem:laxloc-closure}(2), for the reflective $\eta_{x}$, gives the left
+adjoint
+$\Lambda^{x}_{d} = (a_{x})_{\natural}\Lambda^{Tx}_{d}(\eta_{x})_{\natural}$
+of $\eta_{d}^{\natural}$, and
+$\Lambda^{Tx}_{d}(\eta_{x}h) \simeq Th$
+for
+$h\colon d \to x$,
+as $\eta_{x}h \simeq RLh \circ \eta_{d}$
+corresponds to $Lh$ under \eqref{eq:laxloc-adjunction}.
+So the essential image of $\Lambda^{x}_{d}$ consists of the
+$a_{x} \circ Th$,
+and $(Tg)^{\natural}$ carries
+$a_{x} \circ Th$
+to
+$a_{x} \circ T(hg)$,
+which is (O2) for $(g,Tg)$.
+\end{rmk}
 
 \begin{rmk}
 \label{rmk:laxloc-local}
