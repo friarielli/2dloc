@@ -63,20 +63,31 @@ Let $\A$ be an $(\infty,2)$-category.
 \begin{enumerate}
 \item The maps $\ell^{*}$ and $\rho^{*}$ are monomorphisms, so being a left or a
 right adjoint is a property of a $1$-morphism.
-\item Let
+\item Consider tuples
+$(l,r,\eta,\varepsilon,\omega)$
+of $1$-morphisms
 $l\colon x \to y$
 and
-$r\colon y \to x$
-be $1$-morphisms, and
+$r\colon y \to x$,
+$2$-morphisms
 $\eta\colon \mathrm{id}_{x} \Rightarrow rl$
 and
 $\varepsilon\colon lr \Rightarrow \mathrm{id}_{y}$
-$2$-morphisms satisfying the triangle identities
+satisfying the triangle identities
 $\varepsilon l \circ l\eta \simeq \mathrm{id}_{l}$
 and
-$r\varepsilon \circ \eta r \simeq \mathrm{id}_{r}$.
-Then there is an adjunction $l \dashv r$ with unit $\eta$ and counit
-$\varepsilon$.
+$r\varepsilon \circ \eta r \simeq \mathrm{id}_{r}$,
+and an equivalence
+$\omega\colon r\varepsilon \circ \eta r \simeq \mathrm{id}_{r}$.
+The map
+$A \mapsto (A(l),A(r),A(\eta),A(\varepsilon),\omega_{A})$,
+where $\omega_{A}$ is the image of the triangle identity
+$r\varepsilon \circ \eta r = \mathrm{id}_{r}$
+of $\Adj$, is an equivalence from
+$\mapp_{\twoCat}(\Adj,\A)$
+to the space of such tuples. In particular, every such tuple extends to an
+adjunction $l \dashv r$ with unit $\eta$ and counit $\varepsilon$, uniquely up
+to a contractible space of choices.
 \item For
 $l\colon x \to y$,
 the map
@@ -99,9 +110,16 @@ monomorphisms, and so are their maps on underlying spaces. For $\rho^{*}$, apply
 this to $\A\opcat$, using
 $\Adj \simeq \Adj\opcat$.
 
-(2) and (3) Let $l$ admit $r$, $\eta$, $\varepsilon$ as in (2). By (1) there is
-an adjunction $A$ with $A(l) = l$; let $r_{0} = A(r)$ and
-$\eta_{0} = A(\eta)$.
+(2) and (3) Both sides of (2) lie over
+$\mapp(\Delta^{1},\A)$
+via $l$, so it suffices to compare the fibres over each
+$l\colon x \to y$.
+If $l$ is not a left adjoint, both are empty, as the objects of the image in
+(1) are the $l$ admitting a tuple. Otherwise, by (1), the fibre of the left-hand
+side is contractible; let $A$ be in it, with $r_{0} = A(r)$,
+$\eta_{0} = A(\eta)$
+and
+$\varepsilon_{0} = A(\varepsilon)$.
 The transposition
 $\mapp(r_{0},r') \simeq \mapp(\mathrm{id}_{x},r'l)$,
 $\theta \mapsto \theta l \circ \eta_{0}$,
@@ -110,18 +128,29 @@ $r_{0}^{\natural} \dashv l^{\natural}$
 \eqref{eq:hom-adjunctions} is natural in
 $r' \in \Hom_{\A}(y,x)$.
 By the triangle identities, as for $2$-categories, it identifies the invertible
-$\theta$ with the $\eta'$ admitting an $\varepsilon'$ as in (2),
-and $\varepsilon'$
-is then unique up to equivalence.
+$\theta$ with the $\eta'$ admitting an $\varepsilon'$ satisfying the triangle
+identities.
 \todo{2-categorical input: check that uniqueness of adjoints works verbatim.}
 These $\eta'$ include the units of adjunctions
 $l \dashv r'$. So the space of pairs $(r',\eta')$ with $\eta'$ admitting such
 an $\varepsilon'$ is the space of pairs
 $(r',\theta\colon r_{0} \simeq r')$,
-which is contractible. It contains $(r,\eta)$ and
-$(r_{0},\eta_{0})$, so transporting $A$ along the equivalence between them gives
-(2). Hence this space is also the space of pairs $(r',\eta')$ with $\eta'$ a
-unit, and (3) follows, both spaces being empty if $l$ is not a left adjoint.
+which is contractible; this proves (3).
+For the fibre of the right-hand side of (2), it remains to see that for
+$(r',\eta') = (r_{0},\eta_{0})$
+the pairs
+$(\varepsilon',\omega)$
+form a contractible space. The transposition
+$\mapp(lr_{0},\mathrm{id}_{y}) \simeq \mapp(r_{0},r_{0})$,
+$\varepsilon' \mapsto r_{0}\varepsilon' \circ \eta_{0}r_{0}$,
+of
+$l_{\natural} \dashv (r_{0})_{\natural}$
+\eqref{eq:hom-adjunctions} is an equivalence, so the pairs
+$(\varepsilon',\omega\colon r_{0}\varepsilon' \circ \eta_{0}r_{0} \simeq
+\mathrm{id}_{r_{0}})$
+form its fibre over $\mathrm{id}_{r_{0}}$, which is contractible. It contains
+$(\varepsilon_{0},\omega_{A})$, so every such $\varepsilon'$ is equivalent to
+$\varepsilon_{0}$ and also satisfies the other triangle identity.
 \end{proof}
 
 \begin{defi}
@@ -246,9 +275,39 @@ $e\colon (f \downarrow Y) \xrightarrow{\simeq} (X \downarrow g)$
 in $\Span_{\E}(X,Y)$.
 \item Let $\TAdj(\E)$ be the full sub-$(\infty,2)$-category of
 $\func(\Delta^{1},\Span(\E))$
-on the transposing adjunctions. 
+on the transposing adjunctions.
 \end{enumerate}
 \end{defi}
+
+\begin{lem}
+\label{lem:tadj-homs}
+Let $e$ and $e'$ be transposing adjunctions between
+$f\colon X \to Y$ and $g\colon Y \to X$ and between
+$f'\colon X' \to Y'$ and $g'\colon Y' \to X'$.
+A $1$-morphism $(c,d)\colon e \to e'$ of $\TAdj(\E)$ consists of maps of spans
+$c$ and $d$ over some
+$(a,b) \in \Hom(X,X') \times \Hom(Y,Y')$
+and an equivalence $de \simeq e'c$:
+\begin{equation*}
+\begin{tikzcd}
+(f \downarrow Y) \ar[r, "e"] \ar[d, "c"'] & (X \downarrow g) \ar[d, "d"] \\
+(f' \downarrow Y') \ar[r, "e'"'] & (X' \downarrow g')
+\end{tikzcd}
+\end{equation*}
+Its hom-$\infty$-category is the pullback
+\begin{equation*}
+\Hom_{\TAdj(\E)}(e,e') \simeq \Hom_{\Span(\E)}\bigl((f \downarrow Y),(f'
+\downarrow Y')\bigr) \times_{\Hom_{\Span(\E)}((f \downarrow Y),(X' \downarrow
+g'))} \Hom_{\Span(\E)}\bigl((X \downarrow g),(X' \downarrow g')\bigr)
+\end{equation*}
+along $e'_{\natural}$ and $e^{\natural}$, over
+$\Hom(X,X') \times \Hom(Y,Y')$.
+\end{lem}
+
+\begin{proof}
+Apply \cite[Prop.~4.1.2]{abellangagnahaugseng2024straightening} to
+$\func(\Delta^{1},\Span(\E))$, as for $\Span(\E)$ above.
+\end{proof}
 
 \gutentag{001E}%
 For $\E = \Cat$, $(f \downarrow Y)$ and $(X \downarrow g)$ are bifibrations over
