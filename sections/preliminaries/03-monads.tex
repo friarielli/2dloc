@@ -25,6 +25,11 @@ $U\colon \modcat{T}{\D} \to \iota_{1}\D$.
 A module consists of an object $x$, an action $a\colon Tx \to x$ and higher
 coherence data; abusing notation, we write it as $(x,a)$,
 and call the $1$-morphisms of $\modcat{T}{\D}$ \emph{module maps}.
+For lax idempotent $T$, we will refine $\modcat{T}{\D}$ to a locally full
+sub-$(\infty,2)$-category of $\D$ in \cref{thm:kz-module-maps}.
+\todo{Upgrade $\modcat{T}{\D}$ to an $(\infty,2)$-category for general $T$,
+e.g.\ as the Eilenberg--Moore object of \cite{riehlverity2016adjunctions}, a
+weighted limit in $\twoCat$.}
 A \emph{comonad} on $\D$ is a monad on $\D\opcat$.
 \end{defi}
 
@@ -127,10 +132,53 @@ idempotent and $T^{\natural}$ is colax idempotent.
 
 \begin{proof}
 \gutentag{00BE}%
-(1) This is \cite[Thm.~11.1]{marmolejo1997doctrines}
-(see \cite[Thm.~6.2]{kellylack1997propertylike} for $2$-monads), applied to
-$T$ (\cref{subsec:prelim-monads}).
-\todo{2-categorical input: check that the argument works verbatim.}
+(1) For pseudomonads in $2$-categories this is
+\cite[Thm.~11.1]{marmolejo1997doctrines} (see
+\cite[Thm.~6.2]{kellylack1997propertylike} for $2$-monads); we give the
+argument. Composition makes $\func(\D,\D)$ an associative algebra in $\twoCat$
+\cite[\S 4.7.1]{ha}, so whiskering with $T$ on either side is a functor of
+$(\infty,2)$-categories, and $\eta$ is natural:
+$\eta S' \circ \alpha \simeq T\alpha \circ \eta S$
+for
+$\alpha\colon S \Rightarrow S'$.
+Let
+$T\eta \dashv \mu$
+with unit the unit law and counit $\varepsilon$. Let
+$\delta\colon T\eta \Rightarrow \eta T$
+and
+$\nu\colon \mathrm{id}_{TT} \Rightarrow \eta T \circ \mu$
+be the composites
+\begin{equation*}
+T\eta \simeq T\eta \circ \mu \circ \eta T \xRightarrow{\ \varepsilon\eta T\ }
+\eta T \ , \qquad \mathrm{id}_{TT} \simeq T\mu \circ T\eta T
+\xRightarrow{\ T\mu \circ \delta T\ } T\mu \circ \eta TT \simeq \eta T \circ
+\mu \ ,
+\end{equation*}
+using the unit law
+$\mu \circ \eta T \simeq \mathrm{id}_{T}$
+and the naturality of $\eta$ at $\mu$.
+By the triangle identity
+$\mu\varepsilon \simeq \mathrm{id}_{\mu}$,
+$\mu\delta$ is the composite of the unit laws
+$\mu \circ T\eta \simeq \mathrm{id}_{T} \simeq \mu \circ \eta T$,
+and by the triangle identity
+$\varepsilon T\eta \simeq \mathrm{id}_{T\eta}$,
+$\delta\eta$ is the naturality equivalence
+$T\eta \circ \eta \simeq \eta T \circ \eta$.
+As
+$\mu \circ T\mu \simeq \mu \circ \mu T$,
+$\mu\nu$ is $(\mu\delta)T$ and
+$\nu\eta T$ is
+$T\mu \circ (\delta\eta)T$,
+up to the coherences of the unit and associativity laws; so $\nu$ and the unit
+law
+$\mu \circ \eta T \simeq \mathrm{id}_{T}$
+satisfy the triangle identities, and
+$\mu \dashv \eta T$
+with this counit by \cref{thm:adj-lifting}(2). The converse is the same
+argument for $T$ as an associative algebra in $\func(\D,\D)^{\mathrm{co}}$ with
+the reversed composition, which exchanges $T\eta$ and $\eta T$, and left and
+right adjoints.
 Evaluation at $x$ is a functor
 $\func(\D,\D) \to \D$
 taking $T\eta$, $\mu$ and $\eta T$ to $T\eta_{x}$, $\mu_{x}$ and $\eta_{Tx}$.

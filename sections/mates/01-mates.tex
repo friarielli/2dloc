@@ -202,9 +202,67 @@ give
 \begin{equation*}
 \mapp(hf,kg) \simeq \mapp(f,h^{R}kg) \simeq \mapp(fg^{R},h^{R}k) \ .
 \end{equation*}
-(2) and (3) follow from the triangle identities and interchange as
-in \cite{kellystreet1974review}.
-\todo{2-categorical input: check that the argument works verbatim.}
+(2) By the proof of (1),
+$\alpha \mapsto \lmate{\alpha}$
+is the inverse of the transposition along
+$(k^{L})_{\natural} \dashv k_{\natural}$,
+followed by the transposition along
+$f^{\natural} \dashv (f^{L})^{\natural}$,
+and, applied to the left mate, it shows that
+$\beta \mapsto \rmate{\beta}$
+is the transposition along
+$(k^{L})_{\natural} \dashv k_{\natural}$,
+followed by the inverse of the transposition along
+$f^{\natural} \dashv (f^{L})^{\natural}$:
+\begin{equation*}
+\mapp(k^{L}h,gf^{L}) \simeq \mapp(h,kgf^{L}) \simeq \mapp(hf,kg) \ .
+\end{equation*}
+Transpositions along postcomposition adjunctions are natural with respect to
+precomposition, and vice versa, so these two transpositions commute, and the
+two composites are inverse. The same argument applies to the left mate of
+$\rmate{\alpha}$.
+
+(3) For identity squares, the left mate of
+$\mathrm{id}\colon f \Rightarrow f$
+(with $g$, $h$ identities and $k = f$) is
+$\varepsilon_{f}f^{L} \circ f^{L}\eta_{f} \simeq \mathrm{id}_{f^{L}}$
+by a triangle identity, and the left mate of a square with identity horizontal
+$1$-morphisms is the square itself. Let $\alpha$ be pasted vertically with
+$\alpha'\colon h'k \Rightarrow k'g'$,
+where
+$k'\colon C' \to D'$
+has a left adjoint, giving
+$P = \alpha'g \circ h'\alpha\colon h'hf \Rightarrow k'g'g$.
+The left mate of $P$, and the horizontal pasting
+$g'\lmate{\alpha} \circ \lmate{\alpha'}h$
+of the left mates, are the transpositions along
+$f^{\natural} \dashv (f^{L})^{\natural}$
+of
+$\varepsilon_{k'}g'g \circ k'^{L}P$
+and of
+\begin{equation*}
+g'\varepsilon_{k}g \circ g'k^{L}\alpha \circ \varepsilon_{k'}g'k^{L}hf \circ
+k'^{L}\alpha'k^{L}hf \circ k'^{L}h'\eta_{k}hf \ .
+\end{equation*}
+Moving $\varepsilon_{k'}$ to the left past $g'k^{L}\alpha$ and
+$g'\varepsilon_{k}g$, and $\alpha'$ past $kk^{L}\alpha$ and $k\varepsilon_{k}g$,
+by functoriality of horizontal composition, the latter becomes
+\begin{equation*}
+\varepsilon_{k'}g'g \circ k'^{L}\alpha'g \circ k'^{L}h'(k\varepsilon_{k}g \circ
+kk^{L}\alpha \circ \eta_{k}hf) \ ,
+\end{equation*}
+and
+$k\varepsilon_{k}g \circ kk^{L}\alpha \circ \eta_{k}hf \simeq k\varepsilon_{k}g
+\circ \eta_{k}kg \circ \alpha \simeq \alpha$
+by the same functoriality and a triangle identity. So the two agree.
+Horizontal pasting is the same computation, with the composite adjunction
+$f^{L}f'^{L} \dashv f'f$
+of unit
+$f'\eta_{f}f'^{L} \circ \eta_{f'}$
+and counit
+$\varepsilon_{f} \circ f^{L}\varepsilon_{f'}f$
+(\cref{thm:adj-lifting}(2)). For right mates, use (2).
+For $2$-categories, (2) and (3) are in \cite{kellystreet1974review}.
 \end{proof}
 
 \begin{rmk}
